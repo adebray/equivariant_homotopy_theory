@@ -1,0 +1,217 @@
+\begin{quote}\textit{
+	``It's nice to write down, but oh so false.''
+}\end{quote}
+Last time, we saw the definition of a $G$-CW complex, but no examples were provided. Today, we'll start with some
+examples.
+
+Recall that a $G$-CW complex is a sequential colimit $X = \colim_n X_n$, where $X_n$ is formed by attaching cells
+$G/H\times D^n$ along maps $G/H\times S^{n-1}\to X_{n-1}$: just like the CW complexes we know and love, but with
+new cells $G/H$ indexed by the closed subgroups $H\subset G$. The idea is that you're building up a space by
+attaching different spaces with different isotropy groups ($G/H$ has isotropy group $H$, just by construction).
+\begin{exm}[Zero-dimensional complexes]
+The zero-dimensional complexes are $G/H$ or disjoint unions $\amalg_i G/H_i$. This is an instance of the slogan
+that ``orbits are points.'' Keep in mind that if $G$ is a compact Lie group, this might not be zero-dimensional in
+other, more familiar kinds of dimension.
+\end{exm}
+\begin{exm}
+Let $S^1$ act on $\R^2$ by rotation along the origin. This also induces a $C_n$-action, as $C_n\subseteq S^1$ as
+the $n^{\text{th}}$ roots of unity. Let $V$ denote this $C_n$-space.
+
+Let $D(V)$ denote the unit disc in $V$, and $S^V$ denote its one-point compactification, a representation sphere.
+Then, $D(V)$ looks like wedges of pie, as the origin is fixed. On $S^V$, the point at infinity is also fixed, so we
+obtain a beachball. % TODO picture
+
+Now let's consider $V$ as an $S^1$-space, and write down the CW structure on $S^V$. There are two fixed points, and
+each one is a $0$-cell $S^1/S^1\times *$, but there is one $1$-cell $S^1\times I$ attached to the endpoints
+(thought of as a meridian rotated around the sphere).
+
+Now let's consider the beachball for $C_2$ on $S^V$, where there are two hemispheres and $C_2$ rotates by a
+half-turn. What's the $G$-CW structure on this?
+\begin{itemize}
+	\item There are two $0$-cells $C_2/C_2\times *$, corresponding to the two fixed points, the north and south
+	poles.
+	\item There is a single free $1$-cell $C_2\times I$, corresponding to the boundary of the hemispheres.
+	\item There is a single $2$-cell $C_2\times D^2$.\qedhere
+\end{itemize}
+\end{exm}
+Last time, we discussed additional cells $G\times_H S(V)$ and $G\times_H D(V)$; these can be decomposed in terms of
+our actual $G$-cells, but it's also worth mentioning that the action of $G$ on our preferred $G$-cells is cellular,
+unlike for the other cells.
+\begin{ex}
+$C_2$ also acts on $S^2$ by the antipodal map, which has no fixed points. Write a $C_2$-CW cell structure for this
+$C_2$-space.
+\end{ex}
+There will be additional examples of $G$-CW complexes on the homework, some with richer structure.
+\begin{rem}
+At this point in class, the professor mentioned that these notes are hosted on Github at
+\url{https://github.com/adebray/equivariant_homotopy_theory}. Since there aren't very many sources for learning
+this material, and existing ones tend to have few examples, the hope is that these notes can be turned into a good
+source of lecture notes for learning this material. So as you're learning this material, feel free to add
+examples, insert comments (e.g.\ ``this section is confusing/unmotivated''), and let me know if you want access to
+the repository.
+\end{rem}
+\begin{comp}{rem}{enumerate}
+	\item There is a technical issue of a $G$-CW structure on a product of $G$-CW complexes; namely, there are
+	technical difficulties in cleanly putting a $G$-CW structure on $G/H_1\times G/H_2$ involving triangulation.
+	We won't digress into this: it's straightforward for finite groups, but a theorem for compact Lie groups, and
+	required revisiting the foundations. Similarly, if $H\subset G$, we'd like the forgetful functor $G\Top\to
+	H\Top$ to send $G$-CW complexes to $H$-CW complexes. This is again possible, yet involves technicalities.
+	\item A nicer fact is that computing the fixed points of a $G$-CW complex is straightforward. Recall that
+	$(\bl)^H$ is a right adjoint, which can be seen by realizing it as the limit of the diagram
+	\[\xymatrix{
+		\bullet\ar@(ur, ul)_H\ar[r] & \Top.
+	}\]
+	Thus, we don't expect it to commute with colimits in general. However, it does with with many important ones,
+	as in the following proposition.\qedhere
+\end{comp}
+\begin{prop}
+The fixed point functor $(\bl)^H$ commutes with
+\begin{enumerate}
+	\item pushouts where one leg is a closed inclusion, and
+	\item sequential colimits along closed inclusions.
+\end{enumerate}
+\end{prop}
+This is great, because it means we can commute $(\bl)^H$ through the construction of a $G$-CW complex! In
+particular, on each cell,
+\[(G/K\times D^n)^H\cong (G/K)^H\times D^n,\]
+so we need to understand $(G/K)^H\cong\Map^G(G/H,G/K)$. We will return to this important point.
+\subsection*{Two approaches to the Whitehead theorem.}
+We'll now discuss some homotopy theory of $G$-spaces and the Whitehead theorem. The first will be a hands-on proof
+using the HELP lemma. This is an elegant approach to unstable homotopy theory due to Peter May in which one lemma
+gives quick proofs of several theorems. In the equivariant case, it allows a quick reduction to the non-equivariant
+case; it will be useful to see a proof of this nature. Ultimately, we will take a different approach involving
+model categories, and this will be the second perspective.
+\begin{defn}
+Let $X,Y\in\Top$ and $f:X\to Y$ be continuous. Then, $f$ is \term{$n$-connected} if $\pi_q(f):\pi_q(X)\to\pi_q(Y)$
+is an isomorphism when $q < n$ and surjective when $q = n$.
+\end{defn}
+We wish to generalize this to the equivariant case.
+\begin{defn}
+Let $\theta\colon\set{\text{conjugacy classes of subgroups of $G$}}\to\set{x\in\Z\mid x\ge -1}$.
+\begin{itemize}
+	\item A map $f:X\to Y$ of $G$-spaces is \term{$\theta$-connected} if for all $H\subset G$, $f^H$ is
+	$\theta(H)$-connected.
+	\item A $G$-CW complex is \term{$\theta$-dimensional} if all cells of orbit type $G/H$ have (nonequivariant)
+	dimension at most $\theta(H)$.
+\end{itemize}
+\end{defn}
+\begin{thm}[Equivariant HELP lemma]
+\label{HELP}
+Let $A$, $X$, $Y$, and $Z$ be $G$-CW complexes such that $A\subseteq X$ is $\theta$-dimensional and let $e:Y\to Z$
+be a $\theta$-connected $G$-map. Given $g:A\to Y$, $h:A\times I\to Z$., and $f:X\to Z$ such that $eg = hi_0$ and
+$fi = hi_1$, there exist maps $X\to Y$ and $X\times I\to Z$ that make the following diagram commute:
+\[\text{[diagram to be made later]}.\]
+% TODO: get the diagram from May Concice Course ch. 11 or 6; or equivariant version from Alaska notes!
+\end{thm}
+This is a massive elaboration of the idea of a Hurewicz cofibration. The best way to understand this is to prove
+it (though it's not an easy proof).
+
+In the non-equivariant case, one reduces to working one cell at a time, inductively extending over the cells of $X$
+not in $A$.\footnote{This requires reducing to the case where $X$ is a finite CW complex, but taking a sequential
+colimit recovers the theorem for all CW complexes $X$.} In this case, look at $S^{n-1}\subseteq D^n$. Now you just
+do it: at this point, there's no way to avoid writing down explicit homotopies.
+\begin{ex}
+Think about this argument, and then read the proof in~\cite{ConciseCourse}.
+\end{ex}
+The equivariant case is very similar: in the same way, one can reduce to inductively attaching a single cell in the
+case where $X$ is a finite CW complex. This comes via a map $G/H\times S^{n-1}\to G/H\times D^n$, but the only
+interesting content is in the nonequivariant part, so we can reduce again to $S^{n-1}\to D^n$ with trivial
+$G$-action! This allows us to finish the proof in the same way. It also says that the homotopy theory of $G$-spaces
+is lifted from ordinary homotopy theory, in a sense that model categories will allow us to make precise.
+
+The first consequence of Theorem~\ref{HELP} is:
+\begin{thm}
+\label{estar}
+Let $e:Y\to Z$ be a $\theta$-connected map and $e_*: [X,Y]\to [X,Z]$ be the map induced by composition.
+\begin{itemize}
+	\item If $X$ has dimension less than $\theta$, $e_*$ is a bijection.\footnote{{\color{red}TODO}: What does it
+	mean to have dimension less than $\theta$?}
+	\item If $X$ has dimension $\theta$, $e_*$ is a surjection.
+\end{itemize}
+\end{thm}
+The proof is an exercise; filling in the details is a great way to get your hands on what the HELP lemma is
+actually doing. Hint: consider the pairs $\emptyset\to X$ and $X\times S^0\to X\times I$, and apply the HELP lemma.
+\begin{cor}[Equivariant Whitehead theorem]
+\label{eqWhite}
+Let $e:Y\to Z$ be a weak equivalence of $G$-CW complexes. Then, $e$ is a $G$-homotopy equivalence.
+\end{cor}
+\begin{proof}
+This is also a standard argument: using Theorem~\ref{estar}, $e_*$ is a bijection, so we can pull back
+$\id_Z\in[Z,Z]$ to an inverse $(e_*)^{-1}(\id_Z)\in [Z,Y]$, which is a homotopy inverse to $e$.
+\end{proof}
+One can continue and prove the cellular approximation theorem in this way, and so forth. We won't do this, because
+we'll approach it from a model-categorical perspective.
+
+One thing that's useful, not so much for this class as for enriching your life, is to learn how to approach this
+from the perspective of abstract homotopy theory, learning about disc complexes and so forth. You can prove
+theorems such as the HELP lemma and its consequences in a general setting, and then specialize them to the cases
+you need. This is a great way to ``just do it'' without needing model categories.
+
+Anyways, we'll now define a model structure on $G\Top$ and $G\Top_*$. If you don't know what a model category is,
+now is a good time to review.
+\begin{prop}
+There is a model structure on $G\Top$ (and on $G\Top_*$) defined by the following data.
+\begin{description}
+	\item[Cofibrations] The maps $f:X\to Y$ such that for all $H\subset G$, $f^H:X^H\to Y^H$ is a cofibration.
+	\item[Weak equivalences] The maps $f:X\to Y$ such that for all $H\subset G$, $f^H:X^H\to Y^H$ is a weak
+	equivalence.
+\end{description}
+\end{prop}
+So we once again parametrize everything over subgroups of $G$ and use fixed points. This is a cofibrantly generated
+model category; the cofibrations are specified by generators of acyclic cofibrations in a similar manner to $\Top$.
+That is, in $\Top$, one can choose generators $I = \set{S^{n-1}\to D^n}$ and $J = \set{D^n\to D^n\times I}$; in
+$G\Top$, we instead take $I_G = \set{G/H\times I}$ and $J_G = \set{G/H\times J}$.
+
+These are cells that we used to define $G$-CW complexes, and this is no coincidence: it's a general fact about
+cofibrantly generated model categories that follows from the small object argument\footnote{The small object
+argument is a beautiful piece of basic mathematics that everybody should know. If you don't know it, your homework
+is to read enough about model categories to get to that point. In general, there may be large objects and
+transfinite induction, but for the case we care about large cardinals won't arise.} that cofibrant objects are
+retracts of ``cell complexes'' built from the things in $I$, and cofibrations are retracts of cellular inclusions
+of cell complexes. In this sense, CW complexes are inevitable.
+
+The Whitehead theorem (Corollary~\ref{eqWhite}) now falls out of the general theory of model categories.
+\begin{thm}[Whitehead theorem for model categories]
+Let $f:X\to Y$ be a weak equivalence of cofibrant-fibrant objects in a model category. Then, $f$ is a homotopy
+equivalence.
+\end{thm}
+In $\Top$ and $G\Top$, all objects are fibrant, so this is particularly applicable.
+\subsection*{The orbit category.}
+We'll begin talking about the orbit category in the rest of today's lecture, and discuss the bar construction next
+class.
+\begin{defn}
+The \term{orbit category} $\sO_G$ is the full subcategory of $G\Top$ on the objects $G/H$.
+\end{defn}
+That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $\Map^G(G/H,
+G/K)\cong (G/K)^H$. These maps are the same thing as subconjugacy relations, i.e.\ those of the form
+\begin{equation}
+\label{subconj}
+gHg^{-1}\subseteq K;
+\end{equation}
+a $G$-map $f:G/H\to G/K$ is completely specified by what it does to the identity coset $f(eH) = gK$, and this $g$
+implies the subconjugacy relation~\eqref{subconj}.
+
+There's another description of the orbit category.
+\begin{prop}
+Let $G$ be a finite group. Then, the orbit category $\sO_G$ is equivalent to the category of finite transitive
+$G$-sets and $G$-maps.
+\end{prop}
+The observation that ignites the proof is that if $x\in X$ has isotropy group $H$, then its orbit space is
+isomorphic to $G/H$.
+\begin{defn}
+Given a $G$-space $X$, we obtain a presheaf on the orbit category, namely a functor $X^{(\bl)}:\sO_G\op\to\Top$, by
+sending $G/H\to X^H$. This assignment itself is a functor $\psi:G\Top\to\Fun(\sO_G\op, \Top)$.
+\end{defn}
+\begin{prop}
+$\Fun(\sO_G\op, \Top)$ has a projective model structure where the weak equivalences and fibrations are taken
+pointwise.
+\end{prop}
+The point is the following result, a revisionist interpretation of Elmendorf's theorem.\footnote{Elmendorf proved
+that these two categories have the same homotopy theory, but his proof was more explicit.}
+\begin{thm}
+$\psi$ is the right adjoint in a Quillen equivalence; the left adjoint is evaluation at $G/e$.
+\end{thm}
+The point is, these two model categories have the same homotopy theory.
+\begin{ex}
+Check that evaluation at $G/e$ is a left adjoint to $\psi$.
+\end{ex}
