@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 \begin{quote}\textit{
 	``It's nice to write down, but oh so false.''
 }\end{quote}
@@ -98,10 +99,13 @@ Let $\theta\colon\set{\text{conjugacy classes of subgroups of $G$}}\to\set{x\in\
 \begin{thm}[Equivariant HELP lemma]
 \label{HELP}
 Let $A$, $X$, $Y$, and $Z$ be $G$-CW complexes such that $A\subseteq X$ is $\theta$-dimensional and let $e:Y\to Z$
-be a $\theta$-connected $G$-map. Given $g:A\to Y$, $h:A\times I\to Z$., and $f:X\to Z$ such that $eg = hi_0$ and
-$fi = hi_1$, there exist maps $X\to Y$ and $X\times I\to Z$ that make the following diagram commute:
-\[\text{[diagram to be made later]}.\]
-% TODO: get the diagram from May Concice Course ch. 11 or 6; or equivariant version from Alaska notes!
+be a $\theta$-connected $G$-map. Given $g\colon A\to Y$, $h\colon A\times I\to Z$, and $f\colon X\to Z$ such that $eg = hi_0$ and
+$fi = hi_1$, there exist maps $\tilde g\colon X\to Y$ and $\tilde h\colon X\times I\to Z$ that make the following diagram commute:
+\[\xymatrix{
+	A \ar[dd] \ar[rr]^-{i_0} && A\times I \ar[dd] \ar[dl]_-h && \ar[ll]_-{i_1} \ar[dl]_-g A \ar[dd]\\
+	& Z && \ar[ll]_(0.35)e Y\\
+	X \ar[ur]^-f \ar[rr]_-{i_0} && \ar@{-->}[ul]^-{\tilde h} X\times I && \ar[ll]^-{i_1} \ar@{-->}[ul]^-{\tilde g} X
+}\]
 \end{thm}
 This is a massive elaboration of the idea of a Hurewicz cofibration. The best way to understand this is to prove
 it (though it's not an easy proof).
