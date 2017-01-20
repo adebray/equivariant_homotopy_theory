@@ -44,8 +44,8 @@ about it on your own.
 	what a CW complex is.
 	\item A little bit of category theory, e.g.\ found in Mac Lane~\cite{MacLane}.
 	\item This class will not require much in the way of simplicial methods (simply because it's hard to reconcile
-	simplicial methods with non-discrete Lie groups), but you will want to know the bar construction.
-	\item A bit of abstract homotopy theory, e.g.\ what a model structure is.
+	simplicial methods with non-discrete Lie groups), but you will want to know the bar construction. An excellent source for this is \cite[Chapter 4]{RiehlCHT}.
+	\item A bit of abstract homotopy theory, e.g.\ what a model structure is. Good sources for model categories are \cite[Part III]{RiehlCHT} and \cite{Hovey}.
 \end{itemize}
 If you don't know these, feel free to ask the professor for references. His advisor suggested that a foundation for
 the stable category is Lewis-May-Steinberger's account~\cite{LMS} of the equivariant category and let $G = *$, but
@@ -128,7 +128,7 @@ tensor product $\otimes$ and a unit $\iota$; there are certain axioms these must
 A great deal of category theory can be generalized to enriched categories, including $\cat V$-enriched functors,
 $\cat V$-enriched natural transformations, $\cat V$-enriched limits and colimits, and more. The canonical reference
 is Kelley~\cite{Kelley}, available free and legally online. It covers just about everything we need except for the
-Day convolution, which can be read from Day's thesis~\cite{DayThesis}.
+Day convolution, which can be read from Day's thesis~\cite{DayThesis}. Another good source, with a view towards homotopy theory, is \cite[Chapter 3]{RiehlCHT}.
 \begin{defn}
 Let $\fC$ and $\fD$ be enriched over $\cat V$. Then, an \term{enriched functor} $F\colon\fC\to\fD$ is an assignment
 of objects in $\fC$ to objects in $\fD$ and maps $\underline\fC(x,y)\to\underline\fD(Fx, Fy)$ that are $\cat
@@ -164,7 +164,7 @@ The morphisms in $G\Top$ are the \term{$G$-equivariant} maps $f\colon X\to Y$, i
 	G\times X\ar[r]\ar[d]^{\mu_X} & G\times Y\ar[d]^{\mu_Y}\\
 	X\ar[r]^f & Y.
 }\]
-It's possible (but not the right idea) to let $\underline G$ denote the category with an object $*$ such that
+It's possible (but not the right idea) to let $\underline G$ denote\footnote{There isn't really a standard notation for this category, but the closest is $BG$. This notation emphasizes the fact that groupoids are Quillen equivalent to 1-truncated spaces.} the category with an object $*$ such that
 $\underline G(*, *) = G$. Then, $G\Top$ is also the category of functors $\underline G\to\Top$, with morphisms as
 natural transformations. This realizes $G\Top$ as a \term{presheaf category}; it will eventually be useful to do
 something like this, but not in this specific way.
