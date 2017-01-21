@@ -215,7 +215,7 @@ adjoints:
 	pullback! (In the based case, the balanced product is $G_+\wedge_H X$.) $G$ acts via the left action on $G$.
 	This is called the \term{induced $G$-action} on $X$.
 	\item The right adjoint is $F_H(G,X)$ (or $F_H(G_+, X)$ in the based case), the space of $H$-maps $G\to X$,
-	with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on $H$.\qedhere
+	with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on $H$.\footnote{This actually \textit{is} a group action since (a(b(f)))(g) = (b(f))(ga) = f(gab) = (ab(f))(g).}\qedhere
 \end{itemize}
 \end{exm}
 \begin{exm}
@@ -252,6 +252,7 @@ A \term{$G$-CW complex} is a sequential colimit of spaces $X_n$, where $X_{n+1}$
 \[\xymatrix{\bigvee G/H\times S^n\ar[r]\ar[d] & X_n\ar[d]\\
 \bigvee G/H\times D^{n+1}\ar[r] & X_{n+1}.
 }\]
+where $H$ varies over all closed subgroups of $G$.
 \end{defn}
 That is, it's formed by attaching cells just as usual, though now we have more cells.
 
