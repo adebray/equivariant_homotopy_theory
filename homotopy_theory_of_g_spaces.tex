@@ -46,7 +46,7 @@ $C_2$-space.
 \begin{exm}
 The torus $S^1 \times S^1$ has an $S^1$-action given by $z(z_1, z_2) = (zz_1, z_2)$. With this action, the torus
 can be viewed as an $S^1$-CW complex with one $0$-cell $S^1/e \times *$ and one $1$-cell $S^1 \times [0,1]$, with
-the attaching map sending $0$ and $1$ to $*$.
+the attaching map sending $0$ and $1$ to $*$. Note that the largest cell we used here was a one cell, whereas in the nonequivariant construction of the torus, we are required to use a two cell. 
 \end{exm}
 There will be additional examples of $G$-CW complexes on the homework, some with richer structure.
 \begin{rem}
@@ -192,14 +192,15 @@ class.
 \begin{defn}
 The \term{orbit category} $\sO_G$ is the full subcategory of $G\Top$ on the objects $G/H$.
 \end{defn}
-That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $\Map^G(G/H,
+That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $G\Map(G/H,
 G/K)\cong (G/K)^H$. These maps are the same thing as subconjugacy relations, i.e.\ those of the form
 \begin{equation}
 \label{subconj}
 gHg^{-1}\subseteq K;
 \end{equation}
+since for all $h \in H, h(gK) = gK$ if and only if $K = g^{-1}hgK$ if and only if $gHg^{-1} \subseteq K$.
 a $G$-map $f:G/H\to G/K$ is completely specified by what it does to the identity coset $f(eH) = gK$, and this $g$
-implies the subconjugacy relation~\eqref{subconj}.
+implies the subconjugacy relation~\eqref{subconj}, since, as above, $h(gK) = gK$ for all $h \in H$.
 
 There's another description of the orbit category.
 \begin{prop}
