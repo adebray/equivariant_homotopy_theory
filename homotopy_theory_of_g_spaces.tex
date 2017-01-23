@@ -135,8 +135,9 @@ The first consequence of Theorem~\ref{HELP} is:
 \label{estar}
 Let $e:Y\to Z$ be a $\theta$-connected map and $e_*: [X,Y]\to [X,Z]$ be the map induced by composition.
 \begin{itemize}
-	\item If $X$ has dimension less than $\theta$, $e_*$ is a bijection.\footnote{{\color{red}TODO}: What does it
-	mean to have dimension less than $\theta$?}
+	\item If $X$ has dimension less than $\theta$, $e_*$ is a bijection.\footnote{We say that $X$ has dimension
+	less than $\theta$ if for all closed subgroups $H\subset G$, all cells of orbit type $G/H$ have
+	(nonequivariant) dimension at most $n$ for some $n \leq \theta(H)$.}
 	\item If $X$ has dimension $\theta$, $e_*$ is a surjection.
 \end{itemize}
 \end{thm}
@@ -193,7 +194,7 @@ class.
 \begin{defn}
 The \term{orbit category} $\sO_G$ is the full subcategory of $G\Top$ on the objects $G/H$.
 \end{defn}
-That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $G\Map(G/H,
+That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $\Map^G(G/H,
 G/K)\cong (G/K)^H$. These maps are the same thing as subconjugacy relations, i.e.\ those of the form
 \begin{equation}
 \label{subconj}
