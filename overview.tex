@@ -1,3 +1,5 @@
+%!TEX root = m392c_EHT_notes.tex
+
 This class will be an overview of equivariant stable homotopy theory. We're in the uncomfortable position where
 this is a big subject, a hard subject, and one that is poorly served by its textbooks. Algebraic topology is like
 this in general, but it's particularly acute here. Nonetheless, here are some references:
@@ -42,7 +44,7 @@ about it on your own.
 	\item Foundations of unstable homotopy theory at the level of May's \textit{A Concise Course in Algebraic
 	Topology}~\cite{ConciseCourse}. For example, we'll discuss equivariant CW complexes, so it will help to know
 	what a CW complex is.
-	\item A little bit of category theory, e.g.\ found in Mac Lane~\cite{MacLane}.
+	\item A little bit of category theory, e.g.\ found in Mac Lane~\cite{MacLane} or Riehl~\cite{RiehlCTC}.
 	\item This class will not require much in the way of simplicial methods (simply because it's hard to reconcile
 	simplicial methods with non-discrete Lie groups), but you will want to know the bar construction. An excellent source for this is \cite[Chapter 4]{RiehlCHT}.
 	\item A bit of abstract homotopy theory, e.g.\ what a model structure is. Good sources for model categories are \cite[Part III]{RiehlCHT} and \cite{Hovey}.
@@ -219,6 +221,34 @@ adjoints:
 	then $(a(b f))(g) = (bf)(ga) = f(gab) = (ab(f))(g)$.} \qedhere
 \end{itemize}
 \end{exm}
+
+\begin{rem}
+Here is a categorical perspective on ``change of group''. Quite generally, a group homomorphism $G\morph^f H$ induces adjunctions $\dadjnctn[3em] {G\Top}{H\Top}{f_!}{f^*}{f_*}$. These are given by $f_!(X) = H\times_G X$ and $f_*(X) = F_G(H, X)$ for a $G$-space $X$, where $H$ is given the structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the space of orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for categories of modules, given a ring homomorphism $R\morph^f S$.
+
+In fact, these are both cases of very general abstract nonsense. Let $BG$ denote the category with one object $*$ with $\Hom(*,*)=G$; as we have said above, we can (naively) write $G\Top$ as the functor category $\Top^{BG}$. A group homomorphism $G\morph^f H$ induces a functor $BG\morph^F BH$ (it is not quite true that the two are equivalent---think about why this is). Now $f^*\colon H\Top\to G\Top$ is just restriction along $F$:
+% 
+\[\xymatrix{
+	BG \ar[d]_-F \ar@{..>}[r]^-{f^*(Y)} & \Top\\
+	BH \ar[ur]_-Y
+}\]
+% 
+According to abstract nonsense, restriction along $F$ has a left and right adjoint, called \emph{left and right Kan extension along $F$}:
+\[
+\vcenter{\xymatrix{
+	BG \ar[d]_-F \ar[r]^-X \ar@{}[dr]|(0.33){\Downarrow\eta} & \Top\\
+	BH \ar@{..>}[ur]_-{f_!(X) = \Lan_F X} &
+}}
+\qquad\qquad
+\vcenter{\xymatrix{
+	BG \ar[d]_-F \ar[r]^-X \ar@{}[dr]|(0.33){\Uparrow\epsilon} & \Top\\
+	BH \ar@{..>}[ur]_-{f_*(X) = \Ran_F X} &
+}}
+\]
+These diagrams do not commute, but there are natural maps $X \twomorph^\eta f^*f_!(X)$ and $f^*f_*(X) \twomorph^\epsilon X$. When $H$ is the trivial group, $BH$ is the trivial category, and it is known that left/right Kan extensions of a functor $X$along a functor to the trivial category pick out the colimit/limit of $X$. That is, still viewing a $G$-space $X$ as a functor $BG\to\Top$, we have $X_G = \mathop{\colim}\limits_{BG} X$ and $X^G = \lim\limits_{BG} X$.
+
+For an introduction to Kan extensions, we recommend \cite[Chapter 6]{RiehlCTC} (which is almost the same as \cite[Chapter 1]{RiehlCHT} but with some more amusing examples). Like much of category theory, this is ultimately all trivial, but it may be highly non-trivial to understand why it is trivial.
+\end{rem}
+
 \begin{exm}
 Let $V$ be a finite-dimensional real representation of $G$, i.e.\ a real inner product space on which $G$ acts in a
 way compatible with the inner product. (This is specified by a group homomorphism $G\to\O(V)$.) The one-point

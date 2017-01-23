@@ -19,3 +19,22 @@ Sulyma for adding some references and diagrams.}
 \renewcommand{\term}[1]{{\bfseries #1}}
 \newcommand{\sSet}{\cat{sSet}}
 \DeclareMathOperator{\Map}{Map}
+
+% Kan extensions
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+
+% nice arrows
+\newcommand{\morph}{\mathop{\longrightarrow}\limits}
+\newcommand{\twomorph}{\mathop{\Longrightarrow}\limits}
+
+% fancy diagram shortcuts
+% double adjunction
+\newcommand{\dadjnctn}[6][2em]{
+  \xymatrix@1@C=#1{
+    #2 \ar@<2ex>[r]^-{#4} \ar@<-2ex>[r]_-{#6}
+    \ar@{}@<1.2ex>[r]|-{\scriptscriptstyle\bot} \ar@{}@<-1.2ex>[r]|-{\scriptscriptstyle\bot}
+    &
+    #3 \ar[l]|-{#5}
+  }
+}
