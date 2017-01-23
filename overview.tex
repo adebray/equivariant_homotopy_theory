@@ -223,9 +223,16 @@ adjoints:
 \end{exm}
 
 \begin{rem}
-Here is a categorical perspective on ``change of group''. Quite generally, a group homomorphism $G\morph^f H$ induces adjunctions $\dadjnctn[3em] {G\Top}{H\Top}{f_!}{f^*}{f_*}$. These are given by $f_!(X) = H\times_G X$ and $f_*(X) = F_G(H, X)$ for a $G$-space $X$, where $H$ is given the structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the space of orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for categories of modules, given a ring homomorphism $R\morph^f S$.
+Here is a categorical perspective on ``change of group.'' Quite generally, a group homomorphism $G\morph^f H$
+induces adjunctions
+\[\dadjnctn[3em] {G\Top}{H\Top}{f_!}{f^*}{f_*}.\]
+These are given by $f_!(X) = H\times_G X$ and $f_*(X) = F_G(H, X)$ for a $G$-space $X$, where $H$ is given the
+structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the space of
+orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for categories of
+modules, given a ring homomorphism $R\morph^f S$.
 
-In fact, these are both cases of very general abstract nonsense. Let $BG$ denote the category with one object $*$ with $\Hom(*,*)=G$; as we have said above, we can (naively) write $G\Top$ as the functor category $\Top^{BG}$. A group homomorphism $G\morph^f H$ induces a functor $BG\morph^F BH$ (it is not quite true that the two are equivalent---think about why this is). Now $f^*\colon H\Top\to G\Top$ is just restriction along $F$:
+In fact, these are both cases of very general abstract nonsense. Let $BG$ denote the category with one object $*$
+with $\Hom(*,*)=G$; as we have said above, we can (naïvely) write $G\Top$ as the functor category $\Top^{BG}$. A group homomorphism $G\morph^f H$ induces a functor $BG\morph^F BH$ (it is not quite true that the two are equivalent---think about why this is). Now $f^*\colon H\Top\to G\Top$ is just restriction along $F$:
 % 
 \[\xymatrix{
 	BG \ar[d]_-F \ar@{..>}[r]^-{f^*(Y)} & \Top\\
