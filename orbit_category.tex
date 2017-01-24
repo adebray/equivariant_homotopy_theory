@@ -1,3 +1,5 @@
+%!TEX root = m392c_EHT_notes.tex
+
 \begin{quote}\textit{
 	``What's bad about this proof?''\\
 	``It appeals to machinery we didn't develop in this class?''\\
@@ -115,7 +117,7 @@ construction for any corepresented functor, there's a simplicial map
 B_\bullet(X, \sO_G, \Map_{\sO_G}(G/H, \bl))\longrightarrow X(G/H)
 \end{equation}
 defined by composing and applying $X$, and this is a simplicial homotopy equivalence (you can write down a
-retraction).\footnote{THis is called an \term{extra degeneracy argument} in the literature. There's an observation
+retraction).\footnote{This is called an \term{extra degeneracy argument} in the literature. There's an observation
 probably due to John Moore which approximately says that if you have a simplicial object with an extra degeneracy
 condition playing well with the preexisting ones, then it must be contractible; this argument is applied to the
 fiber of~\eqref{extra_degeneracy}.} Thus, $\Phi(X)^H\cong X(G/H)$. In other words, $\Phi$ is a homotopy inverse,
@@ -164,15 +166,15 @@ homotopy groups.
 \end{rem}
 Here are some examples of coefficient systems (which are often denoted with underlines).
 \begin{comp}{exm}{enumerate}
-	\item The coefficient system $\underline\pi_n$ ($n\ge 2$) sends $X\mapsto\set{\pi_nX^H}$. This is an example of
+	\item For a $G$-space $X$, the coefficient system $\underline\pi_n(X)$ ($n\ge 2$) sends $G/H\mapsto\set{\pi_nX^H}$. This is an example of
 	a general formula: given a functor $\Top\to\Ab$, we can compose to obtain a map $\Fun(\sO_G\op,
 	\Top)\to\Fun(\sO_G\op, \Ab)$.
-	\item In the same way, $\underline H_n$ sends $X\mapsto\set{H_n(X^H;\Z)}$.\qedhere
+	\item In the same way, $\underline H_n(X)$ sends $G/H\mapsto\set{H_n(X^H;\Z)}$.\qedhere
 \end{comp}
 We will now define Bredon cohomology, which is what you think it is.
 \begin{defn}
 Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
-\[\underline C(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
+\[\underline C_n(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
 i.e.\ this coefficient system sends $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z)$. The connecting
 homomorphism comes as usual from the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$.\footnote{This requires knowing
 how to obtain a CW structure on $X^H$ given a $G$-CW structure on $X$. If $G$ is finite, this is easy to see; for
@@ -180,13 +182,13 @@ general compact Lie groups, though, this requires a triangulation argument. One 
 as in the nonequivariant case, this arises from an axiomatic characterization of cohomology.}
 
 The \term{Bredon cohomology} for the coefficient system $M$ is
-\[H_G(X;M) \coloneqq \Hom_{\Fun(\sO_G\op, \Ab)}(\underline C(X), M).\]
+\[H^n_G(X;M) \coloneqq \Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_n(X), M).\]
 \end{defn}
-That is, it's the abelian group of natural transformations from $\underline C(X)$ to
-$M$.\footnote{{\color{red}TODO}: we will fix notation. On nLab, this has a dependence on $n$, which I don't see.}
+That is, it's the abelian group of natural transformations from $\underline C_n(X)$ to
+$M$.
 \begin{exm}
 Give $S^2$ the $C_2$-action that rotates by $\pi$, and call it $Z$, and let $M$ denote the constant coefficient
-system at $Z$. First, we compute the cells:
+system at $\Z$. First, we compute the cells:
 \begin{itemize}
 	\item $\underline C_2(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_2(Z)(C_2/C_2) = 0$.
 	\item $\underline C_1(Z)(C_2/e) = \Z\oplus\Z$ and $C_1(Z)(C_2/C_2) = 0$.
