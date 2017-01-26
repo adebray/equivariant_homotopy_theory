@@ -1,3 +1,5 @@
+%!TEX root = m392c_EHT_notes.tex
+
 \begin{quote}\textit{
 	``Smith's theorem was proven by Smith, hence the name.''
 }\end{quote}
@@ -18,21 +20,21 @@ though it's not very difficult.
 With this you can define two things:
 \begin{itemize}
 	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
-	\[H_G^n(X;M) \coloneqq H_n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
+	\[H_G^n(X;M) \coloneqq H^n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
 	We defined this last time.
-	\item The \term{Bredon homology} is
+	\item The \term{Bredon homology} with coefficients in a (covariant!) functor $\sO_G \morph^M \Ab$ is
 	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
 	By this tensor product, we mean a coend:
 	\[\underline C_*(X)\otimes_{\sO_G} M = \coprod_{G/H} \underline C_n(X)(G/H)\times M(G/H)/\sim,\]
 	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
-	instances of coends; instead of inducing an equivalence $rm\otimes n\sim m\otimes rn$, you flip a map across
+	instances of coends; instead of inducing an equivalence $mr\otimes n\sim m\otimes rn$, you flip a map across
 	the two objects.}
 \end{itemize}
 The whole philosophy of Bredon (co)homology is that you understand the cohomology or homology through the
 fixed-point sets and the lattice of subgroups of $G$.
 \begin{exm}
 Let's return to Example~\ref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell
-$C_2\times I$, and one $2$-cell $C-2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down
+$C_2\times I$, and one $2$-cell $C_2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down
 last lecture. We aim to compute the Bredon cohomology for the constant coefficient system $M = \underline\Z$ (so
 $M(C_2/H) = \Z$ for all $H$).
 
@@ -43,7 +45,7 @@ The orbit category for $C_2$ is particularly simple:
 }\]
 So a coefficient system is determined by a map $G_1\to G_2$ and an involution on $G_2$. In our case, $\underline
 C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors. Since $\Hom(\Z\oplus\Z, \Z)
-= \Z\oplus\Z$, we obtain a chain complex
+= \Z\oplus\Z$, we obtain a cochain complex
 \[\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z},\]
 and we want to determine the differentials. Fortunately, this is controlled by the cellular boundary map, i.e.\ the
 attaching map. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
@@ -52,7 +54,7 @@ attaching map. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
 	\item $f_2$ sends $(x,y)\mapsto (x-y, y-x)$, because {\color{red}TODO}. Question: does this need to commute
 	with the involution? We'll resolve this post-lecture.
 \end{itemize}
-Taking the homology of this complex, as usual, produces
+Taking the cohomology of this complex, as usual, produces
 \[H^n(S^2;\underline\Z) = \begin{cases}
 	\Z, & n = 0, 2\\
 	0, &\text{otherwise.}
@@ -67,7 +69,7 @@ as a general $G$-equivariant cohomology theory of pairs $H_G^n(X, A; M)$, but in
 $H_G^n(X/A; M)$.
 \begin{enumerate}
 	\item $H_G^*$ should be invariant under weak equivalences: a weak equivalence $X\to Y$ should induce an
-	isomorphsim $H_G^n(Y;M)\stackrel\cong\to H_G^n(X;M)$.
+	isomorphism $H_G^n(Y;M) \morph^{\cong} H_G^n(X;M)$.
 	\item Given a pair $A\subseteq X$, we get a long exact sequence
 	\[\xymatrix{
 		\dotsb\ar[r] & H_G^n(X, A; M)\ar[r] & H_G^n(X;M)\ar[r] &H_G^n(A;M)\ar[r]^-\delta &H^{n+1}(X,A;M)\ar[r] &
@@ -92,7 +94,7 @@ $\Hom(P,\bl)$ is exact, which is equivalent to maps to $P$ lifting across surjec
 Observe that $\underline C_n(X)$ splits as a direct sum of pieces $H_n(G/H_+\wedge S^n)\cong \widetilde H_0(G/H)$.
 At $G/K$, $H_0(G/H) = \Z[\pi_0(G/H)^K]$. This is a free abelian group, and we'll directly use the lifting criterion
 to prove this is projective. That is, we'll write down an isomorphism
-\[\vp\colon\Hom_{\Fun(\sO_G\op, \Ab)}(\underline H_0(G/H), M)\stackrel\cong\longrightarrow M(G/H).\]
+\[\vp\colon\Hom_{\Fun(\sO_G\op, \Ab)}(\underline H_0(G/H), M) \morph^{\cong} M(G/H).\]
 This immediately proves $\underline H_0(G/H)$ is projective: evaluating a coefficient system on an exact sequence
 produces an exact sequence, and we've shown $\Hom(\underline H_0(G/H), \bl)$ is evaluation of a coefficient system.
 
@@ -162,7 +164,7 @@ exact sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's
 
 Theorem~\ref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon
 cohomology at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and
-Wilkerson in ``Smith theory revisited,'' a short, beautiful paper which is highly recommended. It uses the unstable
+Wilkerson in ``Smith theory revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the unstable
 Steenrod algebra to prove Theorem~\ref{smith} and more. % TODO: add citation
 
 Over the next day or so, there will be a problem set and a course webpage. Doing the problem sets is recommened!
