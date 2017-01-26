@@ -130,12 +130,13 @@ category.
 \begin{defn}
 Let $\sF$ be a family of subgroups of $G$. Then, the \term{classifying space} for $\sF$ is specified by the
 universal property that if $Z$ has $\sF$-isotropy, then $[Z, E\sF]$ has a unique element. An explicit construction
-is that $E\sF$ is the presheaf on the orbit category where
-\[E\sF(G/H) =
+is to let $\widetilde E\sF$ denote the presheaf on the orbit category where
+\[\widetilde E\sF(G/H) \coloneqq
 \begin{cases}
 	*, &H\in\sF\\
-	\varnothing, &H\not\in\sF.
+	\varnothing, &H\not\in\sF,
 \end{cases}\]
+and let $E\sF\coloneqq \Phi(\widetilde E\sF)$.
 \end{defn}
 If you unwind the definition, this is the bar construction applied to $G$ in the category of $G$-spaces with weak
 equivalences given by $\sF$, meaning it deserves to be called a classifying space.
@@ -161,8 +162,8 @@ cohomology theory (or rather graded on subgroups of $\Z$); this will be the wron
 Poincaré duality, and the right answer uses a grading by the representation ring. But we'll get there.
 \begin{rem}
 Another application of Elmendorf's theorem, which we will not discuss in detail (unless we get to the slice
-filtration), is Postnikov towers. They're constructed in the same way, either the small object argument or killing
-homotopy groups.
+filtration), is Postnikov towers. They're constructed in the same way, by either using the small object argument or
+killing homotopy groups.
 \end{rem}
 Here are some examples of coefficient systems (which are often denoted with underlines).
 \begin{comp}{exm}{enumerate}
@@ -178,8 +179,9 @@ Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
 i.e.\ this coefficient system sends $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z)$. The connecting
 homomorphism comes as usual from the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$.\footnote{This requires knowing
 how to obtain a CW structure on $X^H$ given a $G$-CW structure on $X$. If $G$ is finite, this is easy to see; for
-general compact Lie groups, though, this requires a triangulation argument. One wants this to be well-defined, but
-as in the nonequivariant case, this arises from an axiomatic characterization of cohomology.}
+general compact Lie groups, though, this requires a triangulation argument. One wants the resulting coefficient
+system to be independent of the choice of triangulation, but as in the nonequivariant case, this is proven via an
+axiomatic characterization of cohomology.}
 
 The \term{Bredon cohomology} for the coefficient system $M$ is
 \[H^n_G(X;M) \coloneqq H_n\paren{\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_\bullet(X), M)}.\]
