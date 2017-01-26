@@ -93,13 +93,14 @@ Observe that $\underline C_n(X)$ splits as a direct sum of pieces $H_n(G/H_+\wed
 At $G/K$, $H_0(G/H) = \Z[\pi_0(G/H)^K]$. This is a free abelian group, and we'll directly use the lifting criterion
 to prove this is projective. That is, we'll write down an isomorphism
 \[\vp\colon\Hom_{\Fun(\sO_G\op, \Ab)}(\underline H_0(G/H), M)\stackrel\cong\longrightarrow M(G/H).\]
-This immediately proves $\underline H_0(G/H)$ is projective because {\color{red}TODO}.
+This immediately proves $\underline H_0(G/H)$ is projective: evaluating a coefficient system on an exact sequence
+produces an exact sequence, and we've shown $\Hom(\underline H_0(G/H), \bl)$ is evaluation of a coefficient system.
 
 The map $\vp$ takes a homomorphism $\theta$ and applies it to $\id_{G/H}$, which produces something in $M(G/H)$.
 Why is this an isomorphism? The Yoneda lemma is a fancy answer, but you can prove it in a more elementary manner.
 \begin{ex}
 Calculate that any $\theta\in\Hom_{\Fun(\sO_G\op, \Ab)}(H_0(G/H), M)$ is determined by where the identity
-$\in\in\Map_{\sO_G}(G/H, G/H)$ is sent, implying $\vp$ is an isomorphism.
+$\id\in\Map_{\sO_G}(G/H, G/H)$ is sent, implying $\vp$ is an isomorphism.
 \end{ex}
 Thus, we've effectively calculated the value at $G/H$, proving the dimension axiom as well.
 \end{proof}
