@@ -20,10 +20,12 @@ With this you can define two things:
 	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
 	\[H_G^n(X;M) \coloneqq H_n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
 	We defined this last time.
-	\item The \term{Bredon homology} is
+	\item For homology to be covariant, we need the coefficient system $M$ to be a functor $\sO_G\to\Ab$ rather
+	than $\sO_G\op\to\Ab$ (e.g.\ $\underline H^*(X)$ for a $G$-space $X$, which sends $G/H\mapsto\set{H^n(X^H)}$).
+	With $M$ such a coefficient system, the \term{Bredon homology} with coefficients in $M$ is
 	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
 	By this tensor product, we mean a coend:
-	\[\underline C_*(X)\otimes_{\sO_G} M = \coprod_{G/H} \underline C_n(X)(G/H)\times M(G/H)/\sim,\]
+	\[\underline C_*(X)\otimes_{\sO_G} M \coloneqq \coprod_{G/H} \underline C_n(X)(G/H)\times M(G/H)/\sim,\]
 	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
 	instances of coends; instead of inducing an equivalence $rm\otimes n\sim m\otimes rn$, you flip a map across
 	the two objects.}
@@ -41,7 +43,7 @@ The orbit category for $C_2$ is particularly simple:
 	C_2/e\ar[d]\ar@(ul, ur)\\
 	C_2/C_2.
 }\]
-So a coefficient system is determined by a map $G_1\to G_2$ and an involution on $G_2$. In our case, $\underline
+So a coefficient system is determined by a map $M_1\to M_2$ and an involution on $M_2$. In our case, $\underline
 C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors. Since $\Hom(\Z\oplus\Z, \Z)
 = \Z\oplus\Z$, we obtain a chain complex
 \[\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z},\]
@@ -112,7 +114,7 @@ one wonders about Brown representability and what happens when you remove the di
 there are lots of interesting examples of generalized equivariant cohomology theories.
 \end{rem}
 \begin{ex}
-We constructed a functor $\underline H:\Fun(\sO_G\op,\Ab)\to \Fun(\sO_G\op, \Top)$. Show that $\underline HM$
+We constructed a functor $\underline H:\Fun(\sO_G\op,\Top)\to \Fun(\sO_G\op, \Ab)$. Show that $\underline HM$
 represents $H_G^n(\bl; M)$.
 \end{ex}
 This slick definition of $\underline H$ is one of the advantages of working with presheaves on the orbit category.
