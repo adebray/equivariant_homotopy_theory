@@ -1,0 +1,167 @@
+\begin{quote}\textit{
+	``Smith's theorem was proven by Smith, hence the name.''
+}\end{quote}
+Today I was running about two minutes late. Sorry, everybody!
+
+Today we're going to talk more about Bredon cohomology, including an analogue of the Eilenberg-Steenrod axioms for
+it. Then, we'll turn to the circle of ideas around Smith theory, including the Sullivan conjecture (which we won't
+prove, because it's hard). Smith theory discusses when one can recover $H_*(X^G)$ from a $G$-action on $X$ and on
+$H_*(X)$.
+
+Recall that if $X$ is a $G$-CW complex, we defined Bredon cohomology as follows: we set up a chain complex of
+coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$) $\underline C_*(X)$, where
+\[\underline C_n(G/H)\coloneqq H^n((X^n)^H, (X^{n-1})^H; \Z).\]
+The differential $\partial:\underline C_n(X)\to\underline C_{n-1}(X)$ is induced by the connecting morphism in the
+long exact sequence for the triple $(X^n, X^{n-1}, X^{n-2})$; that $\partial^2 = 0$ is something you have to check,
+though it's not very difficult.
+
+With this you can define two things:
+\begin{itemize}
+	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
+	\[H_G^n(X;M) \coloneqq H_n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
+	We defined this last time.
+	\item The \term{Bredon homology} is
+	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
+	By this tensor product, we mean a coend:
+	\[\underline C_*(X)\otimes_{\sO_G} M = \coprod_{G/H} \underline C_n(X)(G/H)\times M(G/H)/\sim,\]
+	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
+	instances of coends; instead of inducing an equivalence $rm\otimes n\sim m\otimes rn$, you flip a map across
+	the two objects.}
+\end{itemize}
+The whole philosophy of Bredon (co)homology is that you understand the cohomology or homology through the
+fixed-point sets and the lattice of subgroups of $G$.
+\begin{exm}
+Let's return to Example~\ref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell
+$C_2\times I$, and one $2$-cell $C-2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down
+last lecture. We aim to compute the Bredon cohomology for the constant coefficient system $M = \underline\Z$ (so
+$M(C_2/H) = \Z$ for all $H$).
+
+The orbit category for $C_2$ is particularly simple:
+\[\xymatrix{
+	C_2/e\ar[d]\ar@(ul, ur)\\
+	C_2/C_2.
+}\]
+So a coefficient system is determined by a map $G_1\to G_2$ and an involution on $G_2$. In our case, $\underline
+C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors. Since $\Hom(\Z\oplus\Z, \Z)
+= \Z\oplus\Z$, we obtain a chain complex
+\[\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z},\]
+and we want to determine the differentials. Fortunately, this is controlled by the cellular boundary map, i.e.\ the
+attaching map. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
+\begin{itemize}
+	\item $f_1$ sends $(x,y)\mapsto (x-y, x-y)$.
+	\item $f_2$ sends $(x,y)\mapsto (x-y, y-x)$, because {\color{red}TODO}. Question: does this need to commute
+	with the involution? We'll resolve this post-lecture.
+\end{itemize}
+Taking the homology of this complex, as usual, produces
+\[H^n(S^2;\underline\Z) = \begin{cases}
+	\Z, & n = 0, 2\\
+	0, &\text{otherwise.}
+\end{cases}\]
+\end{exm}
+\begin{rem}
+We're used to reading off properties of a space from its cohomology, and this is still true here, if harder. For
+example, $H^0$ tells us the number of connected components of $S^2/C_2$.
+\end{rem}
+We want cohomology to have nice formal properties analogous to the Eilenberg-Steenrod axioms. We'll think of $H_G$
+as a general $G$-equivariant cohomology theory of pairs $H_G^n(X, A; M)$, but in our case this will just be
+$H_G^n(X/A; M)$.
+\begin{enumerate}
+	\item $H_G^*$ should be invariant under weak equivalences: a weak equivalence $X\to Y$ should induce an
+	isomorphsim $H_G^n(Y;M)\stackrel\cong\to H_G^n(X;M)$.
+	\item Given a pair $A\subseteq X$, we get a long exact sequence
+	\[\xymatrix{
+		\dotsb\ar[r] & H_G^n(X, A; M)\ar[r] & H_G^n(X;M)\ar[r] &H_G^n(A;M)\ar[r]^-\delta &H^{n+1}(X,A;M)\ar[r] &
+		\dotsb
+	}\]
+	\item The excision axiom: if $X = A\cup B$, then
+	\[H_G^n(X/A; M)\cong H_G^n(B/(A\cap B); M).\]
+	\item The Milnor axiom:
+	\[H_G^n\paren{\bigvee_i X_i; M} = \prod_i H_G^n(X_i; M).\]
+	\item Finally, for now we impose the dimension axiom: our points are orbits $G/J$, so we ask that $H^n(G/H; M)$
+	is concentrated in degree $0$.
+\end{enumerate} %TODO: some underlines in the proof may be missing
+Some of these are easier than others: Bredon cohomology is manifestly homotopy-invariant in the same ways as
+ordinary cohomology, so invariance under weak equivalence and the Milnor axiom are immediate, and excision follows
+because if all spaces involved are CW complexes, $X/A\cong B/(A\cap B)$.
+
+What takes more work is the dimension axiom and the long exact sequence. We'll show that $\underline C_n(X;M)$ is a
+projective object, and hitting projective objects with $\Hom$ produces a long exact sequence by homological
+algebra. (Recall that an object $P$ in a category where you can do homological algebra is \term{projective} if
+$\Hom(P,\bl)$ is exact, which is equivalent to maps to $P$ lifting across surjections $M\surj P$.)
+\begin{proof}[Proof of the dimension and long exact sequence axioms]
+Observe that $\underline C_n(X)$ splits as a direct sum of pieces $H_n(G/H_+\wedge S^n)\cong \widetilde H_0(G/H)$.
+At $G/K$, $H_0(G/H) = \Z[\pi_0(G/H)^K]$. This is a free abelian group, and we'll directly use the lifting criterion
+to prove this is projective. That is, we'll write down an isomorphism
+\[\vp\colon\Hom_{\Fun(\sO_G\op, \Ab)}(\underline H_0(G/H), M)\stackrel\cong\longrightarrow M(G/H).\]
+This immediately proves $\underline H_0(G/H)$ is projective because {\color{red}TODO}.
+
+The map $\vp$ takes a homomorphism $\theta$ and applies it to $\id_{G/H}$, which produces something in $M(G/H)$.
+Why is this an isomorphism? The Yoneda lemma is a fancy answer, but you can prove it in a more elementary manner.
+\begin{ex}
+Calculate that any $\theta\in\Hom_{\Fun(\sO_G\op, \Ab)}(H_0(G/H), M)$ is determined by where the identity
+$\in\in\Map_{\sO_G}(G/H, G/H)$ is sent, implying $\vp$ is an isomorphism.
+\end{ex}
+Thus, we've effectively calculated the value at $G/H$, proving the dimension axiom as well.
+\end{proof}
+The Eilenberg-Steenrod axioms hold for Bredon homology, and the proof is the same.
+\begin{rem}
+Let's foreshadow a little bit. In ordinary homotopy theory, one can show that the Eilenberg-Steenroad axioms
+plus the value on points determine a cohomology theory, and this is still true in the equivariant case. But then
+one wonders about Brown representability and what happens when you remove the dimension axiom --- and indeed
+there are lots of interesting examples of generalized equivariant cohomology theories.
+\end{rem}
+\begin{ex}
+We constructed a functor $\underline H:\Fun(\sO_G\op,\Ab)\to \Fun(\sO_G\op, \Top)$. Show that $\underline HM$
+represents $H_G^n(\bl; M)$.
+\end{ex}
+This slick definition of $\underline H$ is one of the advantages of working with presheaves on the orbit category.
+\begin{rem}
+You might also want to have a universal coefficient sequence, but it's more complicated. The short exact sequence
+in ordinary homotopy theory depends on the existence of short projective resolutions. Here, we have enough
+projectives and injectives, but resolutions are longer. Thus, taking an injective resolution of $M$ and filtering
+the resulting double complex, one obtains a spectral sequence
+\[\Ext^{p,q}(\underline C_*(X), M)\Longrightarrow H_G^{p+q}(X;M).\]
+{\color{red}Warning}: indexing might be slighly off.
+
+There's a corresponding $\Tor$ spectral sequence.
+\end{rem}
+Since the category is more complicated, one expects to have to do more work. But sometimes there are nice results
+nonetheless; Smith theory is an example. This theorem is very old, from the 1940s, so none of the cohomology in the
+statement is equivariant.
+\begin{thm}[Smith]
+\label{smith}
+Let $G$ be a finite $p$-group and $X$ be a finite $G$-CW complex such that (the underlying topological space of)
+$X$ is an $\F_p$-cohomology sphere.\footnote{A space $X$ is an \term{$\F_p$-cohomology sphere} if there is an
+isomorphism of graded abelian groups $H^*(X;\F_p)\cong H^*(S^n;\F_p)$ for some $n$.} Then, $X^G$ is either empty or
+an $\F_p$-cohomology sphere of smaller dimension.
+\end{thm}
+There are sharper statements, but we can prove this one. It's the start of a long program to understand $H_*(X^G)$
+using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the \term{Borel
+construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
+pullback). This is a ``fattened up'' version of $X/G$, and satisfies $\widetilde H_G^n(X) \cong H^n(EG\times_G X)$.
+% TODO: I may have missed something here. Is this Borel cohomology?
+
+The finiteness in Theorem~\ref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with
+non-equivariant homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should
+be looking at a different thing than the fixed points, namely the homotopy fixed points.
+\begin{defn}
+The \term{homotopy fixed points} of a $G$-space $X$ is $X^{hG}\coloneqq \Map(EG, X)^G$.
+\end{defn}
+This can also be defined as a homotopy limit. This is ``easy'' to compute (relative to the rest of equivariant
+homotopy theory, that is), as there are spectral sequences, nice models for $EG$, and other tools.
+
+The terminal map $EG\to *$ induces a map $X^G\to X^{hG}$. The Sullivan conjecture is all about when this happens:
+when you $p$-complete, things become really nice. (There will be a precise statement next lecture.)
+
+Returning to Theorem~\ref{smith}, we can use Bredon cohomology to give an easy, modern proof. The idea is to
+adroitly choose coefficient systems such that we recover $H^n(X)$, $H^n(X^G)$, and $H^n((X/G)/G)$ from Bredon
+cohomology. They'll fit into exact sequences, and using tools like Mayer-Vietoris, we'll get inequalities on the
+ranks of groups. This will also use the fact that a short exact sequence of coefficient systems induces a long
+exact sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's original proof!
+
+Theorem~\ref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon
+cohomology at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and
+Wilkerson in ``Smith theory revisited,'' a short, beautiful paper which is highly recommended. It uses the unstable
+Steenrod algebra to prove Theorem~\ref{smith} and more. % TODO: add citation
+
+Over the next day or so, there will be a problem set and a course webpage. Doing the problem sets is recommened!
