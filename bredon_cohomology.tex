@@ -149,8 +149,10 @@ an $\F_p$-cohomology sphere of smaller dimension.
 There are sharper statements, but we can prove this one. It's the start of a long program to understand $H_*(X^G)$
 using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the \term{Borel
 construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
-pullback). This is a ``fattened up'' version of $X/G$, and satisfies $\widetilde H_G^n(X) \cong H^n(EG\times_G X)$.
-% TODO: I may have missed something here. Is this Borel cohomology?
+pullback). This is a ``fattened up'' version of $X/G$.
+\begin{defn}
+The \term{Borel cohomology} of $X$ is $H_B^*(X) \coloneqq H^*(EG\times_G X)$.
+\end{defn}
 
 The finiteness in Theorem~\ref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with
 non-equivariant homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should

@@ -1,0 +1,175 @@
+\begin{quote}\textit{
+	````It seems that the people registered for the class and the people showing up for class are disjoint.''
+}\end{quote}
+Today, we will give one or two proofs of Theorem~\ref{smith}: let $G$ be a finite $p$-group, $X$ be a
+finite-dimensional $G$-CW complex such that as a topological space, $X$ is an $\F_p$-cohomology sphere (i.e.\ as
+graded abelian groups, $H^*(X;\F_p)\cong H^*(S^n;\F_p)$). Then, either $X^G = \varnothing$, or $H^*(X^G;\F_p)\cong
+H^*(S^m;\F_p)$ as graded abelian groups, for some $m\le\dim X$. We'll try to be consistent with the notation
+in~\cite{MaySmithTheory, AlaskaNotes}.
+\begin{proof}[Proof of Theorem~\ref{smith}]
+First, we can quickly reduce to the case where $G = \Z/p$: if $H\subset G$ is a normal subgroup, then $X^G\cong
+(X^H)^{G/H}$, so you can induct on the order of the group using the Sylow theorems. Thus, we will assume $G =
+\Z/p$, whose coefficient system is simple:
+\[\xymatrix{
+	\bullet\ar@(ul, ur)^g\\
+	\bullet\ar[u]
+}\]
+There is a cofiber sequence
+\[\xymatrix{
+	X_+^G\ar[r] & X_+\ar[r] & X/X^G,
+}\]
+which is not particularly deep. We're going to construct three special coefficient systems $L$, $M$, and $N$ such
+that
+\begin{align*}
+	H_G^*(X;L) &\cong \wH^*((X/X^G)/G; \F_p)\\
+	H_G^*(X;M) &\cong H^*(X;\F_p)\\
+	H_G^*(X;N) &\cong H^*(X^G;\F_p).
+\end{align*}
+These will fit into exact sequences which will imply the inequalities we wanted.
+
+How to we construct custom coefficient systems? Since these constructions commute with colimits, it suffices to
+determine them via computation at $n = 0$ and $X = G/H$ for subgroups $H\subset G$, meaning just $e$ and $G$.
+
+For $L$, we want to recover $\wH^0((X/X^G)/G;\F_p)$ for $X = G/e$ and $X = G/G$.
+\begin{itemize}
+	\item For $X = G/e$, we want $\wH^0((G/\varnothing)/G;\F_p)\cong \wH^0(G_+/G)\cong\F_p$.
+	\item For $X = G/G$, we get $\wH^0((*/*)/G;\F_p) = 0$.
+\end{itemize}
+So we conclude $L(G/e) = \F_p$ and $L(G/G) = 0$.
+
+For $M$, a similar calculation shows we need $H^0(G/e)\cong\F_p[G]$ and $H^0(G/G) = \F_p$, and for $N$, we need
+$N(G/e) = 0$ and $N(G/G)\cong\F_p$.
+\begin{rem}
+Almost everything in this proof generalizes; we will only need $X$ to be an $\F_p$-cohomology sphere in order to
+know dimensions of a few things. But this technique of customized coefficient systems can be used elsewhere.
+\end{rem}
+Let $I$ denote the \term{augmentation ideal} of $\F_p[G]$, i.e. the kernel of the map $\F_p[G]\to\F_p$ sending all
+$g\mapsto 1$. We will let $I^n$ refer to the coefficient system which assigns $I^n$ to $G/e$ and $0$ to $G/G$.
+
+As coefficient systems, $M/I\cong\F_p$, and therefore there is a short exact sequence of coefficient systems
+\[\shortexact{I}{M}{N\oplus L}.\]
+This implies a long exact sequence in Bredon cohomology:
+\[\xymatrix{
+	\dotsb\ar[r] & H_G^q(X;I)\ar[r] & H_G^q(X;M)\ar[r] & H_G^q(X;N\oplus L)\ar[r] & H_G^{q+1}(X;I)\ar[r] & \dotsb
+}\]
+Exactness at $H^q(X;N\oplus L)$ implies
+\[\rank H^q(X;N) + \rank H^q(X;L) \le \rank H^q(X;M) + \rank H^{q+1}(X;I).\]
+That is,
+\begin{equation}
+\label{1st_smith_ineq}
+\rank H^q(X^G;\F_p) + \rank\wH^q((X/X^G)/G;\F_p) \le \rank H^q(X;\F_p) + \rank H^{q+1}(X;I).
+\end{equation}
+We'll use this to strongly constrain $\rank H^q(X^G;\F_p)$, but first we need another inequality coming from
+another exact sequence. Namely, the following sequence of coefficient systems is exact:
+\[\shortexact{L}{M}{I\oplus N}.\]
+This is because $I^p = 0$ and for $0\le n\le p-1$, $I^n/I^{n+1}\cong\F_p$. In particular, $I^{p-1}\cong\F_p\cong
+L$, so we can think of $M/L$ as $M/I^{p-1}$. Now we play the same game: the induced long exact sequence is
+\[\xymatrix{
+	\dotsb\ar[r] & H_G^q(X;L)\ar[r] & H_G^q(X;M)\ar[r] & H_G^q(X;I\oplus N)\ar[r] & H_G^{q+1}(X;L)\ar[r] & \dotsb
+}\]
+which implies
+\[\rank H_G^q(X;N) + \rank H_G^q(X;I) \le \rank H_G^q(X;M) + \rank H_G^{q+1}(X;L),\]
+i.e.
+\begin{equation}
+\label{2nd_smith_ineq}
+\rank H^q(X^G;\F_p) + \rank H_G^q(X;I) \le \rank H^q(X;\F_p) + \rank H^{q+1}((X/X^G)/G;\F_p).
+\end{equation}
+Let's use this to prove
+\begin{equation}
+\label{3rd_smith_ineq}
+\rank \wH^q((X/X^G)/G;\F_p) + \sum_{i=q}^{q+r} \rank H^i(X^G;\F_p) \le \rank\wH^{q+r+1} + \sum_{i=q}^{q+r}\rank
+H^i(X;\F_p).
+\end{equation}
+Let
+\begin{align*}
+	a_q &\coloneqq \rank H^q(X^G;\F_p)\\
+	b_q &\coloneqq \rank H^q(X;\F_p)\\
+	c_q &\coloneqq \rank H^q((X/X^G)/G;\F_p)\\
+	d_q &\coloneqq \rank H_G^q(X;I).
+\end{align*}
+Then, \eqref{1st_smith_ineq} and~\eqref{2nd_smith_ineq} say
+\[a_q + c_q\le b_q + d_{q+1}\qquad\text{and}\qquad a_q + d_q \le b_q + c_{q+1}.\]
+Now, adding~\eqref{1st_smith_ineq} for $q$ even and~\eqref{2nd_smith_ineq} for $q$ odd
+proves~\eqref{3rd_smith_ineq}.
+% TODO: I did not follow this in class!
+
+When $q = 0$ and $r$ is large, the finite-dimensionality of $X$ implies that
+\begin{equation}
+\label{interesting_bound}
+\sum_i\rank H^i(X^G;\F_p) \le \sum_i \rank H^i(X;\F_p).
+\end{equation}
+This is already an interesting bound, especially relative to the amount of work we've put in.
+
+Specializing to $X$ an $\F_p$-cohomology sphere,~\eqref{interesting_bound} means
+\[\sum_i \rank H^i(X^G;\F_p) \le 2.\]
+We want to show this sum isn't $1$ (so that we get the cohomology of a sphere) and that the top nonzero rank is at
+most $n$. We will do this with another short exact sequence of coefficient systems:
+\[\shortexact{I^{n+1}}{I^n}{L}.\]
+From this, we get another long exact sequence. Applying the Euler characteristic, we obtain that
+\begin{equation}
+\label{euler_char_ineq}
+\chi(X) = \chi(X^G) + p\widetilde\chi((X/X^G)/G).
+\end{equation}
+Here
+\[\widetilde\chi(Y)\coloneqq \sum_i (-1)^i\rank \wH^i(Y)\]
+is the \term{reduced Euler characteristic}.
+
+Equation~\ref{euler_char_ineq} already implies that $\chi(X) \equiv \chi(X^G)\bmod p$, so $\sum\rank
+H^*(X^G;\F_p)\ne 1$ in our case.
+\begin{comp}{ex}{enumerate}
+	\item Think about choices of $q$ and $r$ that allow you to deduce $m\le n$, finishing the proof.
+	\item Small changes need to be made to this argument when $p = 2$; what are they?\qedhere
+\end{comp}
+\end{proof}
+This is an appealing proof: some fairly simple calculations and a dash of formal theory very effectively led to the
+result. We'll give another proof with different advantages and disadvantages.
+
+Smith theory naturally leads to questions about how to recover $H^*(X^G)$ algebraically from some equivariant
+cohomology theory on $X$. Last time, we introduced Borel cohomology $H_B^*(X) = H^*(EG\times_G X)$, where $EG$ is a
+free $G$-space that's nonequivariantly contractible (which is simple to construct with the bar construction or
+through Elmendorf's theorem).
+
+In the following, all cohomology is understood to have coefficients in $\F_p$.
+\begin{thm}
+\label{localization}
+Let $G$ be a finite $p$-group. Then, there is an isomorphism $S^{-1}H^*(EG\times_G X)\stackrel\cong\to
+S^{-1}H^*(EG\times_G X^H)$. Here, $S$ is the multiplicative set generated by the classes in $H^2(BG)$ that are
+images of the Bockstein homomorphism $H^1(BG)\to H^2(BG)$ of the elements that are nontrivial in $H^1(BH)$.
+\end{thm}
+This uses the fact that Borel cohomology is an $H^*(BG)$-module: $H^*(EG\times_G *) \cong H^*(EG/G) = H^*(BG)$, and
+using the terminal map $X\to *$ we get a map $H^*(BG)\to H^*(EG\times_G X)$.
+
+There's a rich theory of unstable modules over the Steenrod algebra $\mathcal A_p$, which could fill a whole
+semester. There's a functor $\Un$ which produces unstable $\mathcal A_p$-modules, in a sense by only keeping the
+unstable part.
+\begin{thm}[{Dwyer-Wilkerson~\cite{SmithRevisit}}]
+\[H^*(X^G) \cong \F_p\otimes_{H^*(BG)} \Un(S^{-1}H^*(EG\times_G X)).\]
+\end{thm}
+The proof uses arguments that were hard to think of, but easy to follow.
+
+We'll use these thoerems to prove Smith's theorem using the Serre spectral sequence for
+\[\xymatrix{
+	X\ar[r] & EG\times_G X\ar[r] & BG.
+}\]
+This will be the nicest kind of spectral sequence argument: everything degenerates.
+
+Theorem~\ref{localization} is an example of a general class of \term{localization theorems} in equivariant
+cohomology. In these theorems, one considers the fiber sequence $X_+^G\to X_+\to X/X^G$, and wants to show that for
+some functor $E$, $E(X_+^G)\cong E(X_+)$. This boils down to showing $E(X/X^G)$ vanishes, which will always follow
+from showing that $E$ vanishes on $G$-spaces whose $G$-actions are free away from the basepoint. In general, this
+will reduce to considering cells, so one considers $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ for some wedge of
+spheres.
+
+In our case, $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ is
+\[S^{-1} H_B^*\paren{G/H_+\wedge\bigvee_\alpha S^{q_\alpha}} = S^{-1} H^*\paren{EG\times_G
+\paren{G/H_+\wedge\bigvee_\alpha S^{q_\alpha}}}\]
+Now, the term $EG\times_G G/H\cong EG/H\cong BH$, so we have a piece that looks like $H^*(BH)$, which is how $BH$
+inserts itself into the argument.
+\begin{ex}
+Finish the Serre spectral sequence proof of Theorem~\ref{smith}. Hint: there's a simple geometric reason why the
+spectral sequence collapses, which is what makes this whole thing go.
+\end{ex}
+Soon we'll start talking about the stable category. As preparation for this, if you don't already know it, it's
+good to remind yourself of it.
+
+The Q\&A session will be Thursday at 8:30 PM.
