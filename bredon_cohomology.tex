@@ -94,14 +94,14 @@ Some of these are easier than others: Bredon cohomology is manifestly homotopy-i
 ordinary cohomology, so invariance under weak equivalence and the Milnor axiom are immediate, and excision follows
 because if all spaces involved are CW complexes, $X/A\cong B/(A\cap B)$.
 
-What takes more work is the dimension axiom and the long exact sequence. We'll show that $\underline C_n(X;M)$ is a
+What takes more work is the dimension axiom and the long exact sequence. We'll show that $\underline C_n(X)$ is a
 projective object, and hitting projective objects with $\Hom$ produces a long exact sequence by homological
 algebra. (Recall that an object $P$ in a category where you can do homological algebra is \term{projective} if
 $\Hom(P,\bl)$ is exact, which is equivalent to maps to $P$ lifting across surjections $M\surj P$.)
 \begin{proof}[Proof of the dimension and long exact sequence axioms]
-Observe that $\underline C_n(X)$ splits as a direct sum of pieces $H_n(G/H_+\wedge S^n)\cong \widetilde H_0(G/H)$.
-At $G/K$, $H_0(G/H) = \Z[\pi_0(G/H)^K]$. This is a free abelian group, and we'll directly use the lifting criterion
-to prove this is projective. That is, we'll write down an isomorphism
+Observe that $\underline C_n(X)$ splits as a direct sum of pieces $H_n(G/H_+\wedge S^n)\cong \widetilde H_0(G/H)$
+indexed by the cells $G/H$ of $X$. At $G/K$, $H_0(G/H) = \Z[\pi_0(G/H)^K]$. This is a free abelian group, and
+we'll directly use the lifting criterion to prove this is projective. That is, we'll write down an isomorphism
 \[\vp\colon\Hom_{\Fun(\sO_G\op, \Ab)}(\underline H_0(G/H), M) \morph^{\cong} M(G/H).\]
 This immediately proves $\underline H_0(G/H)$ is projective: evaluating a coefficient system on an exact sequence
 produces an exact sequence, and we've shown $\Hom(\underline H_0(G/H), \bl)$ is evaluation of a coefficient system.
@@ -151,9 +151,15 @@ using algebraic data calculated from $X$ and the action of $G$ on $X$. One usefu
 construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
 pullback). This is a ``fattened up'' version of $X/G$.
 \begin{defn}
-The \term{Borel cohomology} of $X$ is $H_B^*(X) \coloneqq H^*(EG\times_G X)$.
+The \term{Borel cohomology} of $X$ is $H_G^*(X) \coloneqq H^*(EG\times_G X)$.
 \end{defn}
-
+\begin{warn}
+This notation is potentially confusing. Outside of the field of equivariant homotopy theory, ``equivariant
+cohomology'' generally means Borel cohomology, not Bredon cohomology. In equivariant homotopy theory, $H_G^*$ can
+be used to denote both. We will always make the coefficient system for Bredon cohomology explicit, so that
+$H_G^*(X)$ unambiguously refers to Borel cohomology, as is standard in the literature.\footnote{The nLab uses a
+different convention: Borel cohomology is $H_G^*(X;A)$, and Bredon cohomology is $\mathbf H^*(X_G)$.}
+\end{warn}
 The finiteness in Theorem~\ref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with
 non-equivariant homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should
 be looking at a different thing than the fixed points, namely the homotopy fixed points.
@@ -175,6 +181,6 @@ exact sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's
 Theorem~\ref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon
 cohomology at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and
 Wilkerson in ``Smith theory revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the unstable
-Steenrod algebra to prove Theorem~\ref{smith} and more. % TODO: add citation
+Steenrod algebra to prove Theorem~\ref{smith} and more.
 
 Over the next day or so, there will be a problem set and a course webpage. Doing the problem sets is recommened!
