@@ -48,22 +48,37 @@ The orbit category for $C_2$ is particularly simple:
 	C_2/C_2.
 }\]
 So a coefficient system is determined by a map $M_1\to M_2$ and an involution on $M_2$. In our case, $\underline
-C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors. Since $\Hom(\Z\oplus\Z, \Z)
-= \Z\oplus\Z$, we obtain a cochain complex
-\[\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z},\]
-and we want to determine the differentials. Fortunately, this is controlled by the cellular boundary map, i.e.\ the
-attaching map. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
+C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors.  Therefore we obtain a chain complex of coefficient systems which is
+\[
+\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z}\quad
+\]
+at $C_2/e$ and
+\[
+\shortexact{0}{0}{\Z\oplus\Z}\quad
+\]
+at $C_2/C_2$.
+Next we need to determine the differentials.  By definition, these are determined by the cellular boundary maps, i.e.\ the attaching maps. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
 \begin{itemize}
-	\item $f_1$ sends $(x,y)\mapsto (x-y, x-y)$.
-	\item $f_2$ sends $(x,y)\mapsto (x-y, y-x)$, because {\color{red}TODO}. Question: does this need to commute
-	with the involution? We'll resolve this post-lecture.
+	\item $f_1$ sends $(x,y)\mapsto (x+y, x+y)$.
+	\item $f_2$ sends $(x,y)\mapsto (x-y, y-x)$, 
 \end{itemize}
+
+\iffalse
 In terms of matrices, the differentials are given by
 \[\xymatrix{
 	0 \ar[r] & \Z\oplus\Z \ar[r]^-{\text{\tiny$\matr 1{-1}1{-1}$}} & \Z\oplus\Z \ar[r]^-{\text{\tiny$\matr 1{-1}{-1}1$}} & \Z\oplus\Z \ar[r] & 0
 }\]
-Taking the cohomology of this complex, as usual, produces
-\[H^n(S^2;\underline\Z) = \begin{cases}
+\fi
+
+Next, we compute the $\Hom$ from this coefficient system to the constant coefficient system $\Z$.  These groups are evidently determined by what happens at the $C_2/e$ spot.  For the first two terms, we are looking at maps $\Z \oplus \Z \to \Z$ that are equivariant (where $g \in C_2$ acts by transposition on the left and trivially on the right).  Such a map is determined by where it sends $(1,0)$, and so these two terms are isomorphic to $\Z$.  The last term is simply all homomorphisms $\Z \oplus \Z \to \Z \oplus \Z$, which is isomorphic to $\Z \oplus \Z$.
+Therefore, we have the cochain complex
+\[
+\shortexact{\Z \oplus \Z}{\Z}{\Z}.
+\]
+Computing the differentials, we find that the first map is $(a,b) \mapsto a+b$ and the second map is $0$.
+
+Taking the cohomology of this complex then produces
+\[H^n(S^V;\underline\Z) = \begin{cases}
 	\Z, & n = 0, 2\\
 	0, &\text{otherwise.}
 \end{cases}\]
