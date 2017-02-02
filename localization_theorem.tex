@@ -1,0 +1,223 @@
+\begin{quote}\textit{
+	``The number of children he had was a monotonically increasing function.''
+}\end{quote}
+There are three goals in today's lecture.
+\begin{enumerate}
+	\item We'll discuss the localization theorem (Theorem~\ref{localization}) again, and prove it, providing a bit
+	more context for where it came from.
+	\item We'll talk about the Sullivan conjecture. This is really Sullivan's attack on Adams' conjecture, and is a
+	very important story. We won't prove the conjecture, because it's hard, but the context around it was a major
+	motivation for a lot of the work in algebraic and geometric topology in the past 40 years. Sullivan wrote up
+	some notes for a class of his at MIT, and you should read them: they are enlightening and contain all of the
+	jokes he told in class!
+	\item We'll introduce the stable category, discussing Spanier-Whitehead duality and the Pontrjagin-Thom
+	construction. If you want points (orbits) to have Spanier-Whitehead duals, you're inexorably forced to
+	construct this stable category.
+\end{enumerate}
+\subsection*{The localization theorem.}
+Recall that the Borel cohomology $H^*(EG\times_G X)$ is an $H^*(BG)$-module, through the map $EG\times_G X\to
+EG\times_G * = BG$. Thus, we should compute $H^*(BG)$ as a ring. In the case we care about, $G = (\Z/p)^n$; let's
+start with $n = 1$.
+
+There's a nice geometric model for $B\Z/p$ as an ``infinite-dimensional lens space:'' let $S^\infty$ denote the
+unit sphere in an infinite-dimensional complex Hilbert space,\footnote{Alternatively, you could choose $S^\infty$
+to be the colimit of $S^n$ for all $n$, through the inclusion $S^n\inj S^{n+1}$ at the equator. These two choices
+are not homeomorphic, but produce homotopy equivalent models of $B\Z/p$.} and give it a $C_p$-action by $z\mapsto
+e^{2\pi i/p}z$. Then, the infinite-dimensional lens space is $S^\infty/C_p$.
+
+The quotient $S^\infty\surj S^\infty/C_p$ is a covering map, and $S^\infty$ is contractible. The proof goes through
+some version of the Eilenberg swindle:
+\begin{itemize}
+	\item There is a homotopy from $\id_{S^\infty}$ to $s: (x_1,x_2,\dotsc)\mapsto (0, x_1, x_2, \dotsc)$. In fact,
+	it's a straight-line homotopy.
+	\item There is a straight-line homotopy from $s$ to $(0,x_1,\dotsc)\mapsto (1, 0, 0,\dotsc)$.
+\end{itemize}
+Thus $S^\infty/C_p$ it's the quotient of a contractible space by a free $G$-action, so it deserves to be called
+$\Z/p$.
+
+You can set up a cell structure on $B\Z/p$ as with finite-dimensional lens spaces, and therefore compute that
+\[H^k(B\Z/p) \cong\begin{cases}
+	\Z/p, &k\text{ even}\\
+	0, &k\text{ odd.}
+\end{cases}\]
+Using the universal coefficient theorem, you can then deduce that
+\[H^k(B\Z/p;\Z/p) \cong \Z/p\]
+for all $k$. Now we want to deduce the ring structure.
+
+Recall that if
+\[\shortexact{M}{L}{N}{}\]
+is a short exact sequence, it induces a long exact sequence in cohomology:
+\[\xymatrix{
+	\dotsb\ar[r] & H^k(\bl;M)\ar[r] &H^k(\bl;L)\ar[r] &H^k(\bl;N)\ar[r]^\beta &H^{k+1}(\bl;M)\ar[r] & \dotsb
+}\]
+Let's apply this to the short exact sequences
+\[\xymatrix{
+	0\ar[r] & \Z\ar[r]^{\cdot p}\ar[d]&\Z\ar[r]\ar[d] & \Z/p\ar[r]\ar[d] &0\\
+	0\ar[r] & \Z/p\ar[r]^{\cdot p} &\Z/p^2\ar[r] & \Z/p\ar[r] &0.
+}\]
+This is a map of short exact sequences, inducing a map of their long exact sequences.
+\begin{equation}
+\begin{gathered}
+\xymatrix{
+	\dotsb\ar[r] & H^q(X;\Z)\ar[r]\ar[d] & H^q(X;\Z)\ar[r]\ar[d] & H^q(X;\Z/p)\ar[r]\ar[d] & H^{q+1}\ar[r]\ar[d] &
+	\dotsb\\
+	\dotsb\ar[r] & H^q(X;\Z/p)\ar[r] & H^q(X;\Z/p^2)\ar[r] & H^q*(X;\Z/p)\ar[r]^\beta &H^{q+1}(X;\Z/p)\ar[r] &
+	\dotsb
+}
+\end{gathered}
+\end{equation}
+The map $\beta:H^q(X;\Z/p)\to H^{q+1}(X;\Z/p)$ will be called the \term{Bockstein homomorphism}, and is a simple
+example of a cohomology operation.
+
+We now assume $p$ is odd.
+\begin{lem}
+If $n$ is odd, the Bockstein for $B\Z/p$ is an isomorphism; if $n$ is odd, it's $0$.
+\end{lem}
+\begin{proof}
+First, observe that the diagram
+\[\xymatrix{
+	H^n(B\Z/p;\Z)\ar[r]^f & H^n(B\Z/p;\Z/p)\ar[r]^g\ar[dr]_\beta & H^{n+1}(B\Z/p;\Z)\ar[d]^\pi\ar[r] &
+	H^{n+1}(B\Z/p;\Z)\\
+	&& H^{n+1}(B\Z/p;\Z/p)
+}\]
+commutes, and the top row is exact.
+\begin{itemize}
+	\item If $n$ is even, $f$ is an isomorphism, so $g = 0$, so $\beta = 0$.
+	\item if $n$ is odd, $g$ and $\pi$ are surjections, so $\beta$ is a surjection between two $\F_p$-vector spaces
+	of the same rank, so $\beta$ is an isomorphism.\qedhere
+\end{itemize}
+\end{proof}
+The next thing to check is that the cup product structure factors through the map $L\to\CP^\infty$. Therefore we
+conclude that
+\[H^*(B\Z/p;\Z/p)\cong \Lambda(x_1)\otimes \Z/p[y_1],\]
+where $\abs{x_1} = 1$, $\abs{y_1} = 2$, and $\beta x_1 = y_1$.
+
+By essentially the same argument, one can compute the cohomology ring for $B(\Z/p)^n$.
+\begin{prop}
+As rings, there is an isomorphism
+\[H^*(B(\Z/p)^n; \Z/p) \cong \Lambda(x_1,\dotsc,x_n)\otimes\Z/p[y_1,\dotsc,y_n],\]
+where $\beta x_i = y_i$.
+\end{prop}
+\begin{ex}
+Figure out the slight changes needed for $p = 2$.
+\end{ex}
+Recall that the localization theorem asserted that if $G$ is a finite abelian $p$-group, $S_H^{-1}H^*(EG\times_G
+X)\cong S_H^{-1}H^*(EG\times_G X^G)$, where $S$ is the multiplicative system generated by images of the Bockstein
+homomorphism in $H^*(BG;\Z/p)$.
+
+We mentioned last time that it's possible to inductively reduce to considering $H^*(BH)\otimes H^*\paren{\bigvee
+S^{q_i}}$. It's now clear\footnote{{\color{red}TODO}: I didn't follow this proof in class.} that something in $S$
+restricts to $0$ in $H^*(BH)$, completing the proof (in the abelian case).
+
+The localization fails terribly for infinite nonabelian compact Lie groups $G$. For example, for any topological
+space $K$, there exists a $G$-CW complex $X$ such that $X$ is nonequivariantly contractible, $X$ is
+finite-dimensional, and $X^G\simeq K$.
+\subsection*{The Sullivan conjecture.}
+\begin{thm}[Sullivan conjecture]
+Let $G$ be a finite, abelian $p$-group. Then, $X^{hG}\to H^G$ is an equivalence on $p$-completions.
+\end{thm}
+Recall that $X^{hG} \coloneqq\Map(EG, X)^G$, so this asserts a weak equivalence (after $p$-completing) $\Map(EG,
+X)^G\to\Map(*, X)^G$.
+
+By \term{$p$-completion}, we mean Bousfield localization at $\F_p$ cohomology. This produces the category of
+spaces where equivalences are detected by $H^*(\bl;\F_p)$. The most familiar example of completion is
+\term{rationalization}, a localization where equivalences are detected by rational homotopy groups, and one of
+Sullivan's biggest achievements was providing a completely algebraic description of the rational homotopy category.
+More broadly, he had the insight that to study a problem in homotopy theory, one could localize at $\Q$ and at each
+$\F_p$ and study each piece, which has been a very fruitful approach.
+
+$p$-completion falls into the collection of basic life skills for homotopy theorists, so if you haven't seen it
+before, you should read about it. The standard reference is Bousfield-Kan, but this is 500 pages and hard to read.
+
+Sullivan's conjecture is an algebro-geometric attack on the Adams conjecture. This was within Sullivan's program to
+find algebraic models of manifolds. This is still being done today, and is what led Sullivan to think about string
+topology and related things.
+
+Let $X$ be a manifold. We first have the homotopical data of $X$, $C^*(X;\Q)$ and $C^*(X;\F_p)$, which are
+``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg algebras. We
+also have more structure as modules over the Steenrod algebra.} That $X$ is a manifold means we can see Poincaré
+duality, which doesn't appear in all $\E_\infty$ dg algebras. But we still need some way to encode additional
+geometry obstructions, e.g.\ a way to encode the tangent and normal bundles.
+
+It's been an interesting, but as yet unsuccessful attack, to use a Frobenius algebra structure to try to obtain
+this geometric data. It's neat to think about what the $\E_\infty$ analogue of a Frobenius algebra is, and this is
+intimately related to Lurie's approach to the cobordism hypothesis, thinking about fully dualizable objects in a
+symmetric monoidal $\infty$-category.
+
+This circle of ideas is also related to surgery theory; there's been lots of cool work by smart people in it, and
+$L$-theory was invented basically as an algebraic home for these geometric objects.
+
+Sullivan was interested in the Adams conjecture because it says that one can identify the tangent bundle inside
+$K$-theory $K(X)$ with its Adams operations $\psi^k$, as fiberwise homotopy types.
+
+Sullivan's idea, motivated by Quillen, was to use the theory of étale homotopy types. This translates some
+questions about scheme theory into homotopy theory. For example, if $X$ is a variety (more generally a scheme), one
+can assign some profinite topological object, built out of something like a system of hypercovers.\footnote{If you
+don't know what this is, it's an example of an extremely interesting construction which you should look up
+sometime.} So if you take the profinite completion of the complex points $X(\C)^\land$, it has an action of the
+absolute Galois group $\Gal(\overline\Q/\Q)$ --- and another crazy interpretation of the Adams conjecture is that
+the profinite completion of $K(X)$ can be interpreted in this way, and has an action of $(\widehat\Z)^*$
+($\widehat\Z$ is the Galois group of the maximal abelian extension over $\Q$). The conjecture is that this action
+is by the Adams operations.
+
+There's a deep and inadequately understood story (which could be an opportunity for you) connecting $p$-adically
+completed complex $K$-theory $\KU_p^\land$ to number theory, specifically the Iwasawa algebra. Adams noticed this,
+but it's too interesting to be a coincidence.
+
+Anyways, stable fiberwise homotopy types are invariant under this $(\widehat\Z)^*$-action, which led Sullivan to
+ask questions about $(X(\C)^\wedge)^{hC_2}$ versus $X(\R)^\wedge$. There are two references for this, both of which
+are excellent: Sullivan's 1970 MIT notes, and his paper ``Genetics of homotopy theory and the Adams conjecture.''
+
+For reasons of scope, we can't go into too much more detail, but you should definitely look this stuff up. The
+takeaway is that equivariant homotopy theory has been motivated by seemingly unrelated questions about manifolds.
+There's been a lot of interesting interplay between algebraic and geometric topology in the last half century, and
+this is one of the cites of contact.
+\subsection*{The stable category and stable phenomena.}
+There are lots of ways to think about where stabilization comes from.
+\begin{enumerate}
+	\item The Freudenthal suspension theorem says that if $X$ is $n$-connected, then $\pi_q(X)\to\pi_{q+1}(\Sigma
+	X)$ is an isomorphism for $q < 2n-1$ and a surjection when $q = 2n-1$.\footnote{The map comes from the
+	loop-suspension adjunction, which gives us a unit $X\to\Omega\Sigma X$, hence a map
+	$\Omega^qX\to\Omega^{q+1}\Sigma X$, and the map on homotopy groups is $\pi_0$ of that map. This is the based
+	version of the mapping space and Cartesian product adjunction: $\Sigma X\coloneqq S^1\wedge X$ and $\Omega X =
+	\Map(S^1, X)$ are adjoint functors.} It's easier to see that cohomology groups are stable under suspension, but
+	this tells us that homotopy groups stabilize in a range that increases at about twice the rate that the
+	connectivity of $X$ does. Since $\Sigma^n X$ is at least $n$-connected, this suggests you could replace $X$ by
+	the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and keep track of that instead, regarding it as a
+	repository for the \term{stable homotopy groups} $\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$. One way
+	to think of this is as formally making homotopy theory into a homology theory (which it isn't \textit{a
+	prioiri}); you end up taking the same kind of colimit.
+
+	You could do this equivariantly: we have representation spheres. But it's not entirely clear what to do.
+	\item Another perspective is that the stable category is the result of inverting the canonical map\footnote{The
+	existence of this map follows from the universal property of the product.}
+	\begin{equation}
+	\label{wedges_are_products}
+	\bigvee_{i=1}^k X\to\prod_{i=1}^k X.
+	\end{equation}
+	Again, this is something you can think about making precise; the stable category is the initial triangulated
+	category constructed from $\Top$ in which~\eqref{wedges_are_products} is an isomorphism. In particular, this
+	forces the homotopy category to be additive.
+
+	Again, we could do this equivariantly.
+	\item Suppose we have a contravariant functor $F$ from finite CW complexes to $\Top$ such that $F(*) = *$, and
+	suppose $F$ commutes with filtered colimits and preserves weak equivalences (e.g.\ if it's topologically or
+	simplicially enriched, for formal reasons). By taking colimits, we can obtain a functor $\widehat F$ from CW
+	complexes to $\Top$. We say $F$ is \term{excisive} if it takes pushouts to pullbacks; this is an old
+	perspective, which was used to show the Dold-Thom theorem, that the infinite symmetric product
+	$\mathrm{SP}^\infty$ is a cohomology theory. In any case, if $F$ is excisive, $\set{F(S^n)}$ represents a
+	cohomology theory. Namely, the homotopy pushout
+	\[\xymatrix{S^n\ar[r]\ar[d] & D^{n+1}\ar[d]\\
+	D^{n+1}\ar[r] & S^{n+1}
+	}\]
+	creates suspension, and via $F$, becomes a pullback creating $\Omega$. Asking what the excisive functors are
+	leads to the stable category, and is also something you could do equivariantly.
+	\item Another perspective: what is the Spanier-Whitehead dual of a point? Taking shifts, what's the
+	Spanier-Whitehead dual of $S^n$? Equivariantly, one wants to know the Spanier-Whitehead duals of $G/H_+$. This
+	is important for defining Poincaré duality, etc. Nonequivariantly, the best way to answer this is the
+	Pontrjagin-Thom construction, which not only answers this, but provides a deep understanding for what the
+	stable homotopy groups of the spheres are. We'll do this equivariantly next time, and it will tell us what the
+	spheres are.
+\end{enumerate}
+There's a choice here: you could just say ``let's take the category of orthogonal $G$-spectra,'' but having some
+motivation for why we're doing and what we're doing is important.
