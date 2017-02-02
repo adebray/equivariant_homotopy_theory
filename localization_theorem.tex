@@ -8,8 +8,8 @@ There are three goals in today's lecture.
 	\item We'll talk about the Sullivan conjecture. This is really Sullivan's attack on Adams' conjecture, and is a
 	very important story. We won't prove the conjecture, because it's hard, but the context around it was a major
 	motivation for a lot of the work in algebraic and geometric topology in the past 40 years. Sullivan wrote up
-	some notes for a class of his at MIT, and you should read them: they are enlightening and contain all of the
-	jokes he told in class!
+	some notes for a class of his at MIT, which have been published as~\cite{MITNotes}, and you should read them:
+	they are enlightening and contain all of the jokes he told in class!
 	\item We'll introduce the stable category, discussing Spanier-Whitehead duality and the Pontrjagin-Thom
 	construction. If you want points (orbits) to have Spanier-Whitehead duals, you're inexorably forced to
 	construct this stable category.
@@ -122,7 +122,8 @@ X)^G\to\Map(*, X)^G$.
 By \term{$p$-completion}, we mean Bousfield localization at $\F_p$ cohomology. This produces the category of
 spaces where equivalences are detected by $H^*(\bl;\F_p)$. The most familiar example of completion is
 \term{rationalization}, a localization where equivalences are detected by rational homotopy groups, and one of
-Sullivan's biggest achievements was providing a completely algebraic description of the rational homotopy category.
+Sullivan's biggest achievements was providing a completely algebraic description of the rational homotopy
+category in~\cite{SullivanQHT}.
 More broadly, he had the insight that to study a problem in homotopy theory, one could localize at $\Q$ and at each
 $\F_p$ and study each piece, which has been a very fruitful approach.
 
@@ -134,15 +135,15 @@ find algebraic models of manifolds. This is still being done today, and is what 
 topology and related things.
 
 Let $X$ be a manifold. We first have the homotopical data of $X$, $C^*(X;\Q)$ and $C^*(X;\F_p)$, which are
-``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg algebras. We
+``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg algebras. They
 also have more structure as modules over the Steenrod algebra.} That $X$ is a manifold means we can see Poincaré
 duality, which doesn't appear in all $\E_\infty$ dg algebras. But we still need some way to encode additional
 geometry obstructions, e.g.\ a way to encode the tangent and normal bundles.
 
 It's been an interesting, but as yet unsuccessful attack, to use a Frobenius algebra structure to try to obtain
 this geometric data. It's neat to think about what the $\E_\infty$ analogue of a Frobenius algebra is, and this is
-intimately related to Lurie's approach to the cobordism hypothesis, thinking about fully dualizable objects in a
-symmetric monoidal $\infty$-category.
+intimately related to Lurie's approach to the cobordism hypothesis~\cite{Lur09}, thinking about fully dualizable
+objects in a symmetric monoidal $\infty$-category.
 
 This circle of ideas is also related to surgery theory; there's been lots of cool work by smart people in it, and
 $L$-theory was invented basically as an algebraic home for these geometric objects.
@@ -165,8 +166,8 @@ completed complex $K$-theory $\KU_p^\land$ to number theory, specifically the Iw
 but it's too interesting to be a coincidence.
 
 Anyways, stable fiberwise homotopy types are invariant under this $(\widehat\Z)^*$-action, which led Sullivan to
-ask questions about $(X(\C)^\wedge)^{hC_2}$ versus $X(\R)^\wedge$. There are two references for this, both of which
-are excellent: Sullivan's 1970 MIT notes, and his paper ``Genetics of homotopy theory and the Adams conjecture.''
+ask questions about $(X(\C)^\wedge)^{hC_2}$ versus $X(\R)^\wedge$. The references~\cite{MITNotes, Genetics} are
+both excellent for this.
 
 For reasons of scope, we can't go into too much more detail, but you should definitely look this stuff up. The
 takeaway is that equivariant homotopy theory has been motivated by seemingly unrelated questions about manifolds.
