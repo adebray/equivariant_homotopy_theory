@@ -87,8 +87,11 @@ commutes, and the top row is exact.
 	of the same rank, so $\beta$ is an isomorphism.\qedhere
 \end{itemize}
 \end{proof}
-The next thing to check is that the cup product structure factors through the map $L\to\CP^\infty$. Therefore we
-conclude that
+Next, a nice way to compute the cup product. The map $B\Z/p\to\CP^\infty$ is cellular, and is a homeomorphism when
+restricted to even-dimensional cells. As the cell structure determines the cup product structure, the cup products
+on $H^{\text{even}}(B\Z/p;\Z/p)$ and $H^{\text{even}}(\CP^\infty;B\Z/p)\cong \Z/p[y_1]$ agree. On the
+odd-dimensional cells, the cup product is graded commutative rather than strictly commutative, so we get an
+exterior algebra. Therefore we conclude that
 \[H^*(B\Z/p;\Z/p)\cong \Lambda(x_1)\otimes \Z/p[y_1],\]
 where $\abs{x_1} = 1$, $\abs{y_1} = 2$, and $\beta x_1 = y_1$.
 
@@ -128,7 +131,8 @@ More broadly, he had the insight that to study a problem in homotopy theory, one
 $\F_p$ and study each piece, which has been a very fruitful approach.
 
 $p$-completion falls into the collection of basic life skills for homotopy theorists, so if you haven't seen it
-before, you should read about it. The standard reference is Bousfield-Kan, but this is 500 pages and hard to read.
+before, you should read about it. The standard reference is~\cite{BousfieldKan}, but this is 500 pages and hard to
+read.
 
 Sullivan's conjecture is an algebro-geometric attack on the Adams conjecture. This was within Sullivan's program to
 find algebraic models of manifolds. This is still being done today, and is what led Sullivan to think about string
@@ -176,17 +180,18 @@ this is one of the cites of contact.
 \subsection*{The stable category and stable phenomena.}
 There are lots of ways to think about where stabilization comes from.
 \begin{enumerate}
-	\item The Freudenthal suspension theorem says that if $X$ is nondegenerately based (meaning the based inclusion map from * is a cofibration) is $n-1$-connected, then $\pi_q(X)\to\pi_{q+1}(\Sigma
+	\item The Freudenthal suspension theorem says that if $X$ is nondegenerately based (meaning the based inclusion
+	map $*\inj X$ is a cofibration) and $n-1$-connected, then $\pi_q(X)\to\pi_{q+1}(\Sigma
 	X)$ is an isomorphism for $q < 2n-1$ and a surjection when $q = 2n-1$.\footnote{The map comes from the
 	loop-suspension adjunction, which gives us a unit $X\to\Omega\Sigma X$, hence a map
 	$\Omega^qX\to\Omega^{q+1}\Sigma X$, and the map on homotopy groups is $\pi_0$ of that map. This is the based
-	version of the mapping space and Cartesian product adjunction: $\Sigma X\coloneqq S^1\wedge X$ and $\Omega X =
-	\Map(S^1, X)$ are adjoint functors.} It's easier to see that cohomology groups are stable under suspension, but
-	this tells us that homotopy groups stabilize in a range that increases at about twice the rate that the
-	connectivity of $X$ does. Since $\Sigma^n X$ is at least $n$-connected, this suggests you could replace $X$ by
-	the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and keep track of that instead, regarding it as a
-	repository for the \term{stable homotopy groups} $\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$. One way
-	to think of this is as formally making homotopy theory into a homology theory (which it isn't \textit{a
+	version of the mapping space and Cartesian product adjunction: $\Sigma X\coloneqq S^1\wedge X$ and $\Omega X
+	\coloneqq \Map(S^1, X)$ are adjoint functors.} It's easier to see that cohomology groups are stable under
+	suspension, but this tells us that homotopy groups stabilize in a range that increases at about twice the rate
+	that the connectivity of $X$ does. Since $\Sigma^n X$ is at least $n$-connected, this suggests you could
+	replace $X$ by the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and keep track of that instead, regarding
+	it as a repository for the \term{stable homotopy groups} $\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$.
+	One way to think of this is as formally making homotopy theory into a homology theory (which it isn't \textit{a
 	prioiri}); you end up taking the same kind of colimit.
 
 	You could do this equivariantly: we have representation spheres. But it's not entirely clear what to do.
