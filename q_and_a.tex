@@ -1,0 +1,266 @@
+\begin{ques}
+So, why does anyone care about Spanier-Whitehead duality?
+\end{ques}
+One answer is that Spanier-Whitehead duality formally implies Poincaré duality. Poincaré duality is a remarkable
+fact about the cohomology of manifolds, which is one good reason to care.
+
+Another is that it's the real setting for the Euler characteristic --- really. The Euler characteristic arises as a
+trace, and therefore some kind of categorical duality should appear.
+
+Being more specific, let's consider a closed symmetric monoidal category $\fC$ with unit $\Sph$ (so secretly we're
+thinking of the stable homotopy category). Spanier-Whitehead duality consists of two maps $\e\colon X\wedge
+Y\to\Sph$ and $M:\Sph\to X\wedge Y$, such that the composition
+\[\xymatrix{
+	X\cong \Sph\wedge X\ar[r]^{M\wedge\id} & X\wedge Y\wedge X\ar[r]^{\id\wedge(\e\circ\tau)} &X\wedge\Sph\cong X
+}\]
+is the identity.
+
+Using an adjunction, you can show $X\cong F(Y,\Sph)$ and $Y\cong F(X,\Sph)$, and so $X$ is the dual of its dual.
+This has lots of formal consequences, includin Poincaré duality, the construction of things such as the Euler
+characteristic, and more. The Spanier-Whitehead dual of $X$ is often denoted $DX$.
+
+Suppose that we're in an algebraic category, say $H\Q$-module spectra (the rational stable homotopy category).
+Then, $H\Q$ is the unit, so $DX = C^*(X;\Q)$ (maps from $X$ to $\Q$). That is, the Spanier-Whitehead dual embeds
+the unstable homotopy theory of $X$, as long as you remember the $\E_\infty$-ring structure on $DX$ (which is
+bizarre, e.g.\ it's not connective). There's a quite nontrivial theorem that $\E_\infty$ maps between $DX$ and $DY$
+correspond to maps of \emph{spaces} between $X$ and $Y$.
+
+This sort of data is useful for algebraicizing manifolds, and that would be nice for classifying manifolds, a goal
+with fairly broad applications outside of homotopy theory. And Spanier-Whitehead duality has important consequences
+on this: Sullivan began it by showing~\cite{SullivanQHT} that the $\E_\infty$-ring structure on $C^*(X;\Q)$
+controls the rationalization $X_\Q$, and Mandell ended it by showing that the $\E_\infty$ structure on
+$C^*(X;\F_p)$ controls $X_p^\lor$.
+\begin{ques}
+What are some of the obstacles to extending equivariant homotopy theory to groups that aren't compact Lie groups?
+\end{ques}
+One cornerstone of homotopy theory is the Pontrjagin-Thom construction, which depends on the weak Whitney embedding
+theorem: that a manifold can be embedded in some high-dimensional $\R^N$. This still works equivariantly \emph{but
+only for compact Lie groups} --- a $G$-manifold $X$ can be embedded in some high-dimensional $G$-representation.
+This is again an important piece in the equivariant Pontrjagin-Thom construction, and its failure for noncompact
+groups is one major reason things don't work. There are other things that require compactness (e.g.\ descending
+chain arguments). People have tried and not gotten anywhere.
+
+In stable homotopy theory, there's a modification of the orbit category into something called the Burnside
+category, and we'll see that it controls a lot of the stable homotopy theory of $G$-spaces. In fact, if you have
+something that strongly resembles the Burnside category, you have something that looks like equivariant stable
+homotopy theory. Clark Barwick and his collaborators have been working on studying presheaves on things that look
+like Burnside categories.
+
+A lot of it boils down to the fact that compact Lie groups have a tractable representation theory.
+\begin{ques}
+Recall $E\sF$, the classifying space for a family of subgroups. What is it used for?
+\end{ques}
+If you want to focus attention on a family of subgroups, you play with $E\sF$. One common example is $S^1$-spaces,
+in which there are many constructions that are fixed by the finite subgroups of $S^1$, so having that family $\sF$
+is helpful, and for this one can smash with $E\sF$.
+
+There are various other applications. One is called \term{isotropy separation}, which splits up $\sF$ into pieces
+that can be detected with different kinds of isotropy subgroups, and one can induct on this in nice cases.
+\begin{ques}
+What does it mean that $K$-theory and the Adams operations determine the tangent bundle?
+\end{ques}
+It's a somewhat implicit statement: any possible algebraic statement about the tangent bundle can be translated
+into an equivalent statement in $K(X)$ that uses the Adams operations.
+\begin{ques}
+How many notions of $G$-spectra are there?
+\end{ques}
+One way you talk about equivariant stable homotopy theory is a \term{universe}, a countably infinite-dimensional
+inner product space containing the irreducible representations you care about infinitely often. Then, you have
+Spanier-Whitehead duality for $G/H$ iff $G/H$ embeds in the universe, and you get different flavors of homotopy
+theory depending on which universes you use. There are lots of models here --- depending on what you mean, spectra
+objects or diagrams on $\sO_G$ might not be the right thing for naïve spectra; instead, you need transfers, so you
+have to consider sheaves on the Burnside category.
+
+The choice of universe also affects which suspensions you invert: if $V$ is in your universe, you can invert
+$\Sigma^V$.
+
+Of course, there are probably many different point-set models for stable homotopy, but they'll give you the same
+answer.
+\begin{ques}
+Can you go over how to design a coefficient system such that its cohomology is something obtained from $X$?
+\end{ques}
+For example, let's try to determine $M$ such that $H_G^*(X;M)\cong H^*(X)$. The reason it suffices to determine
+what $M(G/H)$ is on all closed subgroups $H\subset G$ is the dimension axiom!
+
+So if $G = \Z/p$, you can assign $M(G/e) \coloneqq H^0(G/e)$ and $M(G/G) \coloneqq H^0(G/G)$, and the map between
+them is $H^0$ of the map $G/e\to G/G$.
+\begin{ques}
+So far, we've mostly seen $G$-equivariant homotopy theory where $G$ is a finite cyclic group. Is there anything
+interesting for nonabelian groups, etc?
+\end{ques}
+Part of the problem is that computing examples is not easy, and it gets much harder when you have a complicated
+lattice of subgroups.~\cite{LMS} is 500 pages, and there are scarcely any examples, because the computations for
+nontrivial examples are so hard!
+
+Peter May invented this stuff and set a bunch of grad students to work on it, but there wasn't a lot of buzz until
+Carlsson proved the Segal conjecture, and then again more recently with Hill-Hopkins-Ravenel. So there haven't been
+a lot of computations, period. If you do make an interesting computation with, say, the monster group, by all means
+write it up!
+
+So for the most part people have studied cyclic groups and $S^1$. There's been a little discussion of dihedral
+actions, and some stuff with the symmetric groups.
+
+There's also some stuff done for profinite groups. This is in some sense easy to set up formally, especially
+because you mostly care about finite-index subgroups. People who study Galois actions (e.g.\ Carlsson's program to
+lift the Quillen-Lichtenbaum conjecture into this context) care about this.
+\begin{ques}
+So we've spent some time looking at $EG$, a contractible space with a free $G$-action, and its quotient $BG$. What
+things do people do with these objects?
+\end{ques}
+$BG$ is a classifying space for principal $G$-bundles (and therefore for $G = \O_n$ or $\U_n$, also vector bundles
+of rank $n$). That is, homotopy classes of maps $X\to BG$ are identified with isomorphism classes of principal
+$G$-bundles on $X$. There's a book by May, ``Classifying spaces and fibrations,'' which is excellent and goes into
+great detail on this stuff. Because $B\U_n$ classifies complex vector bundles of rank $n$, it's used to construct
+complex $K$-theory (and same for $B\O_n$ and real $K$-theory).
+
+In our case, smashing with $EG$ is often a way to localize.
+
+A third reason to care about this is group cohomology
+and other purely algebraic stuff. The group cohomology of $G$ is the cohomology of $BG$, and there are plenty of
+applications of group cohomology.
+
+So though $BG$ may be infinite-dimensional, it's very simple homotopically.
+\begin{ques}
+What's going on with the construction to the right adjoint to the functor $\psi$ in the proof of Elmendorf's
+theorem? What's a coend?
+\end{ques}
+Adrian said some stuff here; I wasn't able to get it down. He motivated the bar construction as the thing whose
+homotopy colimits are ordinary colimits, I think?
+
+Anyways, our setup is that we have a presheaf on the orbit category $X\in\Fun(\sO_G\op,\Top)$ and want to produce a
+$G$-space. The right adjoint\footnote{Recall that the left adjoint was evaluation at $G/e$.} to $\psi$ is the
+geometric realization of the bar construction $B_\bullet(X,\sO_G,M)$. The bar construction is a generalization of
+the bar resolution to compute the derived tensor product: the functor $M:\sO_G\to\Top$ sending $G/H$ to the space
+$G/H$ is thought of as a ``right $\sO_G$-module;'' instead of tensoring a bunch of elements togther, we get a bunch
+of arrows, meaning we can replace with a coproduct. In some sense, it would be nice to take a tensor product with
+$X$, but we have to do so in a derived sense, hence the bar construction.
+
+A coend is a functor that behaves like geometric realization: there's two functors with opposite variance, and you
+want to glue along their common edge, just like in geometric realization.
+\begin{ques}
+How did Elmendorf formalize his proof, given that it was done before model categories were available?
+\end{ques}
+He didn't: Elmendorf's paper is eminently readable, and simply provides an equivalence of homotopy categories. It
+was not lifted into model categories unti much later. This stuff was all put into use fairly recently: for example,
+not that long ago, it was known to experts but not written down that a left Quillen adjoint that's part of a
+Quillen equivalence preserves homotopy limits.
+
+Here, someone asked about the Fruedenthal suspension theorem, and this led to a digression.
+\begin{rem}
+Modern cryptography depends on some hardness assumptions, that some functions, such as the discrete log in a finite
+field, are hard to compute (but easy to check answers to). There's a paper by Impagliazzo which asks what
+cryptography and security would look like if certain assumptions were false or true, with cute names for different
+worlds. Imagine doing that for the Freudenthal suspension theorem --- what if the stable range were at about $n$
+instead of about $2n$? What if it were $n/2$?
+\end{rem}
+\begin{ques}
+In non-equivariant rational homotopy theory, there's a standard, completely algebraic description of the rational
+homotopy category. Does this also work for the rational equivariant homotopy category?
+\end{ques}
+This is very hard --- someone was working on this, but the work actually depended on an incorrect calculation, and
+some of it had to be redone. There are people working on an algebraic model for rational $G$-spectra, but the
+algebraic models are \emph{very} complicated.
+\begin{ques}
+We've seen that representations of $G$ play a huge role in equivariant homotopy theory; these could be thought of
+as relating to $K$-theory of $BG$ (e.g.\ the representation ring $\mathrm{RO}(G)$ is $K_0(BG)$). Do people do the
+same thing with, say, bordism rings of $BG$? % Strickland K(n)-local duality for finite groups and groupoids
+\end{ques}
+Sure, they're probably useful for some stuff. People care about computing bordism theories on $BG$, certainly.
+\begin{ques}
+This question comes from Github: suppose you're defining a coefficient system $M$ over $G = C_p$. This is
+determined by $M(C_p/e)$, $M(C_p/C_p)$, and a map between them. How do you get the map?
+\end{ques}
+The map is determined by functoriality: in the cases we used to prove Theorem~\ref{smith}, which is where this
+question arose, $M(C_p/e)$ and $M(C_p/C_p)$ are both defined to be $H^0$ of something, so the map between them is
+$H^0$ of the map $C_p/e\to C_p/C_p$.
+\begin{ques}
+Do you want to talk about the unstable Steenrod functor $\Un$?
+\end{ques}
+You don't want to know.
+\begin{ques}
+Does $\Un$ appear in the theorem as a technical necessity or for deep reasons?
+\end{ques}
+It's very deep, and there's a whole theory of unstable modules over the Steenrod algebra. This involves some extra
+restrictions.
+\begin{ques}
+So how many kids did Denis Sullivan have?
+\end{ques}
+About 7 or 8 by the end of~\cite{MITNotes}; one is now also a math professor. There are lots of other anecdotes in
+the notes: once he was frustrated with some calculations he was doing, so he hurled the book into the Atlantic
+ocean. While he was on a boat to Oxford.
+\begin{ques}
+Do we have any previews of the Clark school, besides what few things they've posted on the arXiv?
+\end{ques}
+They've been doing some really hard stuff: the idea is that $G$-spectra should be presheaves of spectra on Burnside
+categories, or statements like $G$-spectra being the initial stable $G$-symmetric monoidal category\dots{} you know
+what the theorems should be, but the proofs are technical. Yuri's paper should make some of this easier, hopefully.
+\begin{ques}
+What does it mean that ``the Spanier-Whitehead dual of a point involves taking shifts?''
+\end{ques}
+We've been a little careless about basepoints: this is really the pointed point, so $S^0$; thus, we really should
+have said the Spanier-Whitehead duals of spheres.
+\begin{ques}
+The Fruedenthal suspension theorem requires inclusion of the basepoint to be a cofibration. If you add a disjoint
+basepoint, is that the case?
+\end{ques}
+Yes. You can think of a cofibration as a slightly weaker version of a closed inclusion. This is no big technical
+obstacle: the \term{whisker construction} replaces the basepoint with a line segment, so the homotopy theory is
+unchanged and the other end of the line segment can be a basepoint that's cofibrantly included.
+\begin{ques}
+What's a natural example of a genuine $G$-spectrum of interest?
+\end{ques}
+One is the equivariant sphere spectrum. Thinking of cohomology theories, there's equivariant $K$-theory
+$\mathit{KU}_G$, different kinds of equivariant bordism, and $\mathit{KR}$ (a genuine equivariant spectrum that's
+built from $K$-theory).
+\begin{ques}
+Is there an equivariant approach to de Rham theory, e.g.\ starting with manifolds and equivariant differential
+forms?
+\end{ques}
+Rationally, this can work, but integrally there are issues. Relatedly, defining a $G$-manifold is not too hard, and
+there are nice things like the equivariant tubular neighborhood theorem, but there are some subtleties.
+\begin{ques}
+One of the interpretations of the homotopy category of a model category is localization at the weak equivalences.
+This suggests that one only needs to look at weak equivalences. So if you only specify weak equivalences, do you
+get a unique model category?
+\end{ques}
+No, you might not get one at all, and if you do, it won't be unique. What it means is (modulo some scary
+set-theoretic issues) that the homotopy theory only depends on the weak equivalences. If you have a category with
+weak equivalences, you can form the \term{Dwyer-Kan localization}, an associated simplicial category, and then take
+the associated quasicategory or $\infty$-category. Under some hypotheses, you can then retreat to a
+model-categorical structure. One commonly heard analogy is that a model category is like choosing a basis for a
+vector space (where the basis-independent answer reflects the underlying $\infty$-category).
+
+Another perspective is that model categories are like axiomatic obstruction theory, axiomatizing the cellular
+inclusions (cofibrations) or extension questions common when considering CW theory.
+\begin{ques}
+One way to define the stable category is to invert the canonical map from a finite wedge of things to a product of
+those things. How can we make this precise?
+\end{ques}
+The goal is to localize with respect to something. There's some set-theoretical issues that Bousfield was good at
+addressing, but if you have a set of morphisms, you can localize with respect to them, and that's what we're doing
+here. The Stacks project is a good resource for learning about localization.
+
+The fact that finite wedges and finite products are the same is another way that spectra resemble abelian groups,
+for which finite products and finite coproducts agree.
+\begin{ques}
+Where's the best place to learn non-equivariant stable homotopy theory?
+\end{ques}
+Adams' book is interesting, with good calculations, but its construction of the stable category isn't so pleasant.
+It might be better to consider Mandell-May-Schewe-Shipley's paper. It assumes you already know why you care, then
+takes the historical constructions and shows how they all relate together. It may seem scary, but looking at the
+constructions shows they're all not so bad.
+
+Adams' infinite loop spaces book is good bedtime reading.
+\begin{ques}
+We talked about the notion of an excisive functor, and there's a notion of an excisive pair in unstable homotopy
+theory. Are the two related?
+\end{ques}
+Both deserve the name ``excisive'' because they satisfy some sort of Mayer-Vietoris principle: excisive functors
+take pushouts to pullbacks, for example.
+\begin{ques}
+By $\RP^\infty$, do we just mean the colimit of $\RP^n$ over all $n$?
+\end{ques}
+Yes, and also for $\CP^\infty$. However, there are models for them based on the unit sphere in an
+infinite-dimensional Hilbert space modulo a $\Z/2$ (resp.\ $S^1$) action. This is homotopic to, but not
+homeomorphic to, the colimit realizations of $\RP^\infty$ and $\CP^\infty$.
+
