@@ -37,8 +37,8 @@ the finite subgroups behave better.
 \begin{defn}
 Let $\sF$ be a specified family of subgroups of $G$.
 \begin{itemize}
-	\item In $G\Top$, the weak equivalences specified by $\sF$ are the maps $f:X\to Y$ such that $f^H:X^H\to Y^H$
-	is a weak equivalence for all $H\in\sF$.
+	\item In $G\Top$, the weak equivalences specified by $\sF$ are the maps $f\colon X\to Y$ such that $f^H\colon
+	X^H\to Y^H$ is a weak equivalence for all $H\in\sF$.
 	\item For $\Fun(\sO_G\op, \Top)$, a weak equivalence specified by $\sF$ is a pointwise weak equivalence at
 	$G/H$ for all $H\in\sF$.
 \end{itemize}
@@ -57,8 +57,9 @@ $FX\to Y$ is a weak equivalence iff its adjoint $X\to GY$ is.
 \end{defn}
 This is equivalent to asking that $(\LD F, \RD G)$ are equivalences of categories.
 
-This is a kind of curious way to look at an equivalence of categories. One says that $G:\fD\to\fC$ \term{creates
-the weak equivalences} of $\fD$ if for every morphism $f$ of $\fD$, $f$ is a weak equivalence iff $Gf$ is.
+This is a kind of curious way to look at an equivalence of categories. One says that $G\colon \fD\to\fC$
+\term{creates the weak equivalences} of $\fD$ if for every morphism $f$ of $\fD$, $f$ is a weak equivalence iff
+$Gf$ is.
 \begin{lem}
 \label{forgetWElem}
 If $G$ creates the weak equivalences of $\fD$ and for all cofibrant $X$ the unit map $X\to GFX$ is a weak
@@ -70,9 +71,9 @@ are detected by the forgetful functor.
 \begin{proof}[Proof sketch of Theorem~\ref{elmendorf}]
 We want to apply Lemma~\ref{forgetWElem} to the adjunction
 \[\theta: \Fun(\sO_G\op, \Top)\rightleftarrows G\Top: \psi,\]
-where $\theta:X\mapsto X(G/e)$ is evaluation at $G/e$ and $\psi:Y\mapsto\set{Y^H}$. The first condition, that
-$\psi$ detects the weak equivalences, is straightforward, so we need to check that $X\mapsto\set{X(G/e)^H}$ is a
-weak equivalence for all cofibrant $X$.
+where $\theta\colon X\mapsto X(G/e)$ is evaluation at $G/e$ and $\psi\colon Y\mapsto\set{Y^H}$. The first
+condition, that $\psi$ detects the weak equivalences, is straightforward, so we need to check that
+$X\mapsto\set{X(G/e)^H}$ is a weak equivalence for all cofibrant $X$.
 
 Cellular objects model the generating cofibrations, so cofibrant objects are retracts of cellular objects. Since
 weak equivalences are preserved under retracts, then we can check on cellular objects. Here it's easier, since
@@ -95,8 +96,8 @@ This proof will go through the \term{bar construction}, a categorical tool that'
 it include May's ``Geometry of iterated loop spaces'' \cite{MayGILS}, Riehl's monograph~\cite{RiehlCHT}, and Vogt's ``Tensor
 products of functors.''
 \begin{proof}[Second proof of Theorem~\ref{elmendorf}]
-Let $M:\sO_G\to\Top$ realize orbits as spaces: $G/H$ is sent to the topological space $G/H$, and an equivariant map
-$f$ is forgotten to a continuous map $f$.
+Let $M\colon \sO_G\to\Top$ realize orbits as spaces: $G/H$ is sent to the topological space $G/H$, and an
+equivariant map $f$ is forgotten to a continuous map $f$.
 
 Given an $X\in\Fun(\sO_G\op, \Top)$, let
 \[\Phi(X) \coloneqq \abs{B_\bullet(X, \sO_G, M)}\]

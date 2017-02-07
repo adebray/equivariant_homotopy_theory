@@ -9,7 +9,7 @@ trace, and therefore some kind of categorical duality should appear.
 
 Being more specific, let's consider a closed symmetric monoidal category $\fC$ with unit $\Sph$ (so secretly we're
 thinking of the stable homotopy category). Spanier-Whitehead duality consists of two maps $\e\colon X\wedge
-Y\to\Sph$ and $M:\Sph\to X\wedge Y$, such that the composition
+Y\to\Sph$ and $M\colon \Sph\to X\wedge Y$, such that the composition
 \[\xymatrix{
 	X\cong \Sph\wedge X\ar[r]^{M\wedge\id} & X\wedge Y\wedge X\ar[r]^{\id\wedge(\e\circ\tau)} &X\wedge\Sph\cong X
 }\]
@@ -130,10 +130,10 @@ homotopy colimits are ordinary colimits, I think?
 Anyways, our setup is that we have a presheaf on the orbit category $X\in\Fun(\sO_G\op,\Top)$ and want to produce a
 $G$-space. The right adjoint\footnote{Recall that the left adjoint was evaluation at $G/e$.} to $\psi$ is the
 geometric realization of the bar construction $B_\bullet(X,\sO_G,M)$. The bar construction is a generalization of
-the bar resolution to compute the derived tensor product: the functor $M:\sO_G\to\Top$ sending $G/H$ to the space
-$G/H$ is thought of as a ``right $\sO_G$-module;'' instead of tensoring a bunch of elements togther, we get a bunch
-of arrows, meaning we can replace with a coproduct. In some sense, it would be nice to take a tensor product with
-$X$, but we have to do so in a derived sense, hence the bar construction.
+the bar resolution to compute the derived tensor product: the functor $M\colon \sO_G\to\Top$ sending $G/H$ to the
+space $G/H$ is thought of as a ``right $\sO_G$-module;'' instead of tensoring a bunch of elements togther, we get a
+bunch of arrows, meaning we can replace with a coproduct. In some sense, it would be nice to take a tensor product
+with $X$, but we have to do so in a derived sense, hence the bar construction.
 
 A coend is a functor that behaves like geometric realization: there's two functors with opposite variance, and you
 want to glue along their common edge, just like in geometric realization.

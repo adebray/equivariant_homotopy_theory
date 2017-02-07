@@ -51,7 +51,7 @@ the whole definition, but here are some important parts.
 \begin{itemize}
 	\item $\fC$ is symmetric monoidal, meaning there's a tensor product $\wedge\colon\fC\times\fC\to\fC$, which is
 	(up to natural isomorphism) associative and commutative, and has a unit $S$. Commutativity is ensured by the
-	\term{flip map} $\tau:X\wedge Y\isom Y\wedge X$.
+	\term{flip map} $\tau\colon X\wedge Y\isom Y\wedge X$.
 	\item There is an internal \term{mapping object} $F(X,Y)\in\fC$ for any $X,Y\in\fC$.
 	\item The functors $\bl\wedge X$ and $F(X,\bl)$ are adjoint (just like the tensor-hom adjunction).
 \end{itemize}
@@ -95,7 +95,7 @@ must be the identity. Thus, $X$ is strongly dualizable iff $X$ is finitely gener
 later.
 \end{exm}
 Another way to think of this is that $X$ is strongly dualizable with dual $Y$ iff there exist $\e,\eta$ and maps
-$\eta\colon X\wedge Y\to S$ and $\eta: S\to X\wedge Y$ such that the compositions
+$\eta\colon X\wedge Y\to S$ and $\eta\colon S\to X\wedge Y$ such that the compositions
 \[\xymatrix{
 	X\cong S\wedge X\ar[r]^-{\eta\wedge\id} & X\wedge Y\wedge X\ar[r]^-\e & X\wedge S\cong X
 }\]
