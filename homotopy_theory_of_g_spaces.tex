@@ -44,11 +44,93 @@ $C_2$-space.
 \end{ex}
 
 \begin{exm}
+\label{torusexm}
 The torus $S^1 \times S^1$ has an $S^1$-action given by $z(z_1, z_2) = (zz_1, z_2)$. With this action, the torus
 can be viewed as an $S^1$-CW complex with one $0$-cell $S^1/e \times *$ and one $1$-cell $S^1 \times [0,1]$, with
 the attaching map sending $0$ and $1$ to $*$. Note that the largest cell we used here was a $1$-cell, whereas in
-the nonequivariant construction of the torus, we are required to use a $2$-cell.
+the nonequivariant construction of the torus, we are required to use a $2$-cell. Check out
+Figure~\ref{equivariant_torus} for a picture.
+\begin{figure}[h!]
+\def\torlen{3}
+\begin{tikzpicture}[every node/.style={align=center}]
+\draw[fill = blue!30!white] (0, 0) rectangle (\torlen, \torlen);
+\draw[very thick, ->] (0, 0) -- (0, \torlen/2);
+\draw[very thick] (0, \torlen/2) -- (0, \torlen);
+\draw[very thick, ->] (\torlen, 0) -- (\torlen, \torlen/2);
+\draw[very thick] (\torlen, \torlen/2) -- (\torlen, \torlen);
+\draw[thin, ->>] (0, \torlen) -- (\torlen/2, \torlen);
+\draw[thin] (\torlen/2, \torlen) -- (\torlen, \torlen);
+\draw[thin, ->>] (0, 0) -- (\torlen/2, 0);
+\draw[thin] (\torlen/2, 0) -- (\torlen, 0);
+\node[left] at (0, \torlen/2) {$0$-cell\\$S^1/e\times *$};
+\node at (1*\torlen/2, 1*\torlen/2) {$1$-cell\\$S^1/e\times[0,1]$};
+\end{tikzpicture}
+\caption{The $S^1$-CW structure on the torus in Example~\ref{torusexm}. There is one $0$-cell and one $1$-cell.}
+\label{equivariant_torus}
+\end{figure}
 \end{exm}
+\begin{exm}
+\label{triangle_exm}
+Let $T$ be a solid equilateral triangle in the plane, so $D_6 = \ang{r,s\mid r^3 = s^2 = 1, srs = r^{-1}}$ acts on
+it by rotations and reflections.
+\begin{itemize}
+	\item There are three $0$-cells: the center is a fixed point, so a $D_6/D_6\times *$. The three vertices are
+	an orbit, with the stabilizer of each vertex conjugate to $\ang s$ inside $D_6$, so they form a $0$-cell of the
+	form $D_6/\ang s\times *$. Similarly, the midpoints of each edge are an orbit with each stabilizer conjugate to
+	$\ang s$, so they're also a $0$-cell of the form $D_6/\ang s\times *$.
+	\item There are three $1$-cells: the three line segments from the center to a vertex are an orbit for $D_6/\ang
+	s$, so form a $D_6/\ang s\times[0,1]$. Similarly, the three line segments from the center to the midpoint of an
+	edge form a $D_6/\ang s\times[0,1]$. The six line segments from a vertex to the center of a midpoint are a free
+	orbit of $D_6$, hence form a $D_6/e\times[0,1]$.
+	\item The triangle minus these $0$- and $1$-cells is a free orbit, a $D_6/e\times D^2$.
+\end{itemize}
+See Figure~\ref{equilateral_triangle} for a picture.
+\end{exm}
+\begin{figure}[h!]
+\tikzset{
+    buffer/.style={
+        draw,
+        shape border rotate=90,
+        isosceles triangle,
+        isosceles triangle apex angle=60,
+        fill=black!15!white,
+        node distance=2cm,
+        minimum height=4em,
+		minimum width=5cm
+    }
+}
+\def\TriangleLength{5}
+\def\InscribedLength{0.288*\TriangleLength} % appx sqrt(3) / 6 times \TriangeLength
+\begin{tikzpicture}
+\node[buffer] {};
+% 1-cells
+\draw[line width=2pt, yellow!50!orange] (0, 0) -- (0, -\InscribedLength);
+\draw[line width=2pt, yellow!50!orange] (0, 0) -- (-\TriangleLength/4, \InscribedLength/2);
+\draw[line width=2pt, yellow!50!orange] (0, 0) -- (\TriangleLength/4, \InscribedLength/2);
+\draw[line width=2pt, orange] (0, 0) -- (0, 2*\InscribedLength);
+\draw[line width=2pt, orange] (0, 0) -- (-\TriangleLength/2, -\InscribedLength);
+\draw[line width=2pt, orange] (0, 0) -- (\TriangleLength/2, -\InscribedLength);
+\draw[line width=2pt, red] (-\TriangleLength/2, -\InscribedLength) -- (0, 2*\InscribedLength);
+\draw[line width=2pt, red] (-\TriangleLength/2, -\InscribedLength) -- (\TriangleLength/2, -\InscribedLength);
+\draw[line width=2pt, red] (\TriangleLength/2, -\InscribedLength) -- (0, 2*\InscribedLength);
+
+% 0-cells
+\draw[fill, blue] (-\TriangleLength/2, -\InscribedLength) circle (1mm);
+\draw[fill, blue] (0, 2*\InscribedLength) circle (1mm);
+\draw[fill, blue] (\TriangleLength/2, -\InscribedLength) circle (1mm);
+\draw[fill, green!60!black] (0, 0) circle (1mm);
+\draw[fill, purple!60!black] (0, -\InscribedLength) circle (1mm);
+\draw[fill, purple!60!black] (-\TriangleLength/4, \InscribedLength/2) circle (1mm);
+\draw[fill, purple!60!black] (\TriangleLength/4, \InscribedLength/2) circle (1mm);
+\end{tikzpicture}
+\caption{The $D_6$-equivariant structure on a solid triangle, as in Example~\ref{triangle_exm}. Each cell is
+depicted in a different color. The three $0$-cells are purple ($D_6/\ang s\times *$), blue ($D_6/\ang s\times *$),
+and green ($D_6/D_6\times *$); the three $1$-cells are yellow ($D_6/\ang s\times[0,1]$), orange ($D_6/\ang
+s\times[0,1]$), and red ($D_6/e\times[0,1]$); the one $2$-cell is gray ($D_6/e\times D^2$).}
+\label{equilateral_triangle}
+\end{figure}
+
+
 There will be additional examples of $G$-CW complexes on the homework, some with richer structure.
 \begin{rem}
 At this point in class, the professor mentioned that these notes are hosted on Github at
