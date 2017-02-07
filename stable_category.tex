@@ -29,8 +29,8 @@ Motivated by the second issue, Spanier defined the $S$-category in the 1950s.\fo
 somewhat misleading: in those days, suspension was sometimes denotes $S$ instead of $\Sigma$ to make typeseting
 easier, and the $S$ in $S$-category stood for suspension, not spheres.}
 \begin{defn}
-The \term{$S$-category} is the category whose objects are the objects in $\Top$ and whose morphisms are
-\[\Map_S(X, Y) \coloneqq \colim_n\Map_\Top(\Sigma^n X, \Sigma^n Y).\]
+The \term{$S$-category} $\cat S$ is the category whose objects are the objects in $\Top$ and whose morphisms are
+\[\Map_{\cat S}(X, Y) \coloneqq \colim_n\Map_\Top(\Sigma^n X, \Sigma^n Y).\]
 \end{defn}
 By the Freudenthal suspension theorem, the hom-sets stabilize at some finite $n$. Spanier then defined
 \term{$S$-duality}, which we might call \term{Spanier-Whitehead duality}, by specifying that $X$ and $Y$ are
@@ -39,9 +39,9 @@ $S$-dual if $Y\cong S^n\setminus X$ in the $S$-category.
 The $S$-category has some issues: it's neither complete nor cocomplete. We like gluing stuff together, so this is
 unfortunate.
 \end{rem}
-Spanier proved that to every $X\to S^n$, you can assign a dual $D_n X$, then that $\Sigma D_n = D_{n+1}$, and
-$D_{n+1}\Sigma = D_n$. That is, duality commutes with suspension, so in the $S$-category, every $X\to S^n$ has a
-unique $S$-dual: the duals inside $S^n$ and $S^{n+1}$ are the same in the $S$-category for sufficiently large $n$.
+Spanier proved that to every $X\to S^n$, you can assign a dual $D_n X$, that $\Sigma D_n = D_{n+1}$, and
+$D_{n+1}\Sigma = D_n$. That is, duality commutes with suspension, so in $\cat S$, every $X\to S^n$ has a unique
+$S$-dual: the duals inside $S^n$ and $S^{n+1}$ are the same in the $S$-category for sufficiently large $n$.
 
 Spanier and Whitehead then asked one of their graduate students, Elon Lima, to formalize this $S$-category, leading
 to the first notion of the category of spectra.
@@ -57,18 +57,18 @@ the whole definition, but here are some important parts.
 \end{itemize}
 The unit and counit of the tensor-hom adjunction are used to define duality.
 \begin{defn}
-The \term{evaluation map} is the unit $X\wedge F(X,Y)\to Y$, and the \term{coevaluation map} is $X\to F(Y,Y\wedge
-X)$. The \term{dual} of $X$ is $DX = F(X,S)$.
+The \term{evaluation map} is the unit $X\wedge F(X,Y)\to Y$, and the \term{coevaluation map} is the counit $X\to
+F(Y,Y\wedge X)$. The \term{dual} of $X$ is $DX = F(X,S)$.
 \end{defn} % I missed the map epsilon
 % Then I missed the point of the map F(X, Y( smash F(*V, W) smash V smash X -> Y smash W ...
 You also get a natural map $\nu\colon F(X,Y)\wedge Z\to F(X,Y\smash Z)$.
 \begin{ex}
 Check that $X\cong F(S,X)$, which follows directly from the axioms.
 \end{ex}
-The adjoint of $\e$ is a map $X\to DDX$
+The adjoint of $\e$ is a map $X\to DDX$.
 
-There are a few good references for this: Dold-Puppe is one, and~\cite{LMS} is another, though it presents a
-somewhat old way of doing things.
+There are a few good references for this: Dold-Puppe~\cite{DoldPuppe} is one, and~\cite{LMS} is another, though it
+presents a somewhat old way of doing things.
 \begin{defn}
 $X\in\fC$ is \term{strongly dualizable} if there exists an $\eta\colon S\to X\wedge DX$ such that the following
 diagram commutes.
@@ -94,14 +94,14 @@ must be the identity. Thus, $X$ is strongly dualizable iff $X$ is finitely gener
 \emph{$X$ is strongly dualizable iff it's a retract of a free module}, which is a perspective that will be useful
 later.
 \end{exm}
-Another way to think of this is that $X$ is strongly dualizable with dual $Y$ iff there exist $\e,\eta$ and maps
-$\eta\colon X\wedge Y\to S$ and $\eta\colon S\to X\wedge Y$ such that the compositions
+Another way to think of this is that $X$ is strongly dualizable with dual $Y$ iff there exist maps $\e\colon
+X\wedge Y\to S$ and $\eta\colon S\to X\wedge Y$ such that the compositions
 \[\xymatrix{
-	X\cong S\wedge X\ar[r]^-{\eta\wedge\id} & X\wedge Y\wedge X\ar[r]^-\e & X\wedge S\cong X
+	X\cong S\wedge X\ar[r]^-{\eta\wedge\id_X} & X\wedge Y\wedge X\ar[r]^-{\id_X\wedge\e} & X\wedge S\cong X
 }\]
 and
 \[\xymatrix{
-	Y\cong Y\wedge X\ar[r]^-\eta & Y\wedge X\wedge Y\ar[r]^-\e & S\wedge Y\cong Y
+	Y\cong Y\wedge S\ar[r]^-{\id_Y\wedge\eta} & Y\wedge X\wedge Y\ar[r]^-{\e\wedge\id_Y} & S\wedge Y\cong Y
 }\]
 are the identity.\footnote{In some presentations, this is how duality in a symmetric monoidal category is defined;
 the two approaches are equivalent.} From this and a diagram chase, you get some nice results.
@@ -126,14 +126,14 @@ disc bundle of the normal bundle $\nu\to M$.\footnote{Let $E$ be a vector bundle
 the \term{disc bundle} $D(E)$ is the subset of vectors with $\norm x\le 1$, and the \term{sphere bundle} $S(E)$ is
 the subset of vectors with $\norm x = 1$. These are fiber bundles with fiber $D^n$ and $S^{n-1}$, respectively.}
 
-Thom's thesis supplied an amazing connection between cobordism groups and the stable homotopy groups of the
-spheres by way of the \term{Pontrjagin-Thom map} $S^n\to \R^n/(\R^n\setminus M_\e)$ (heuristically, crushing
-everything outside $M_\e$), and $\R^n/(\R^n\setminus M_\e)\cong D(V)/S(V)$, the \term{Thom space} $T_\nu$ of the
-normal bundle to $M$.
+Thom's thesis~\cite{ThomThesis} supplied an amazing connection between cobordism groups and the stable homotopy
+groups of the spheres by way of the \term{Pontrjagin-Thom map} $S^n\to \R^n/(\R^n\setminus M_\e)$ (heuristically,
+crushing everything outside $M_\e$), and $\R^n/(\R^n\setminus M_\e)\cong D(V)/S(V)$, the \term{Thom space} $T\!\nu$
+of the normal bundle to $M$.
 
 Thus, we get a sequence of maps
 \[\xymatrix@1{
-	S^n\ar[r] & T_\nu\ar[r] & T_\nu\wedge M_+,
+	S^n\ar[r] & T\!\nu\ar[r] & T\!\nu\wedge M_+,
 }\]
 whose composition is called the \term{Thom diagonal}. This should look remarkably like the duality map $\eta$. To
 construct $\e$, let $s\colon M\to\nu$ be the zero section; then, the composite
@@ -141,21 +141,20 @@ construct $\e$, let $s\colon M\to\nu$ be the zero section; then, the composite
 	M\ar[r]^-\Delta & M\times M\ar[r]^{s\times\id} &\nu\times M.
 }\]
 has trivial normal bundle, and the Pontrjagin-Thom construction yields a map
-\[T_\nu\wedge M_+\longrightarrow\Sigma^n M_+,\]
+\[T\!\nu\wedge M_+\longrightarrow\Sigma^n M_+,\]
 and projecting $M$ to a point, we get
-\[\e\colon T_\nu\wedge M_+\longrightarrow S^n.\]
+\[\e\colon T\!\nu\wedge M_+\longrightarrow S^n.\]
 The following theorem is nice, but quite nontrivial, at least from this approach.
 \begin{thm}[Atiyah duality]
 \label{atiyah_duality}
-$\eta$ and $\e$ exhibit $T_\nu$ and $M_+$ as $n$-dual in the $S$-category.
+$\eta$ and $\e$ exhibit $T\!\nu$ and $M_+$ as $n$-dual in the $S$-category.
 \end{thm}
-We'd like to write $T_\nu$ and $\Sigma^{-n}M_+$ are dual, but we don't know how to do that yet. More accurately,
-let $\Sigma^\infty$ be the functor from $\Top$ to the $S$-category that sends spaces and maps to themselves, so it
-makes a little more sense to say that $\Sigma^\infty M_+$ and $\Sigma^{-n}\Sigma^\infty T_\nu$ are dual in the
-$S$-category.
+We'd like $T\!\nu$ and $\Sigma^{-n}M_+$ to be dual, but we don't know how to show that yet. More accurately, let
+$\Sigma^\infty\colon\Top\to\cat S$ be the functor that sends spaces and maps to themselves, so it makes a little
+more sense to say that $\Sigma^\infty M_+$ and $\Sigma^{-n}\Sigma^\infty T\!\nu$ are dual in the $S$-category.
 
 One surprising consequence is that the tangent bundle and normal bundle define stable homotopy invariants through
-the Thom spectrum, which raises the question of what $T_\nu$ looks like for particular examples.
+the Thom spectrum, which raises the question of what $T\!\nu$ looks like for particular examples.
 
 Another is that we can immediately prove Poincaré duality, assuming the Thom isomorphism theorem. Namely, we can
 establish an isomorphism
@@ -168,7 +167,7 @@ stitch these together (somehow) into $H\Z$. So the left-hand side is $H^*(DX;\Z)
 $H_*(X;\Z)$.
 
 Applying Theorem~\ref{atiyah_duality} to~\eqref{HZatiyah},
-\[[\Sigma^{-n} T_\nu, H\Z]\cong H^{m-*}(X;\Z).\]
+\[[\Sigma^{-n} T\!\nu, H\Z]\cong H^{m-*}(X;\Z).\]
 If $X$ is orientable, then the cohomology of the Thom spectrum is the same as the cohomology of $X$. The Thom
 isomorphism theorem establishes a degree shift that gets rid of the dependency on $n$, the dimension of ambient
 space.
@@ -213,16 +212,15 @@ enough: it's like only choosing the trivial representation. This is nontrivial t
 So we need extra structure in the orbit category, and this will come through extra structure in $\sO_G$. We'll add
 extra maps between $G/H$ and $G/K$ called \term{transfer maps}.
 
-Let $M$ be a $G$-manifold, $\nu$ be its normal bundle (embedded in some large $V$) and $\tau$ be its tangent
-bundle. Then, $\tau\oplus\nu$ is trivial, so the Thom construction applied to it is just smashing with $S^V$. Thus,
-we obtain a sequence of maps
+Let $M$ be a $G$-manifold embedded in some $G$-representation $V$, $\nu$ be its normal bundle, and $\tau$ be its
+tangent bundle. Then, $\tau\oplus\nu$ is trivial, so the Thom construction applied to it is just smashing with
+$S^V$. Thus, we obtain a sequence of maps
 \begin{equation}
 \label{PTtransfer}
 \xymatrix@1{
-	S^V\ar[r] & T_\nu\ar[r] & T_{\nu\oplus\tau}\ar[r] & S^V\wedge M_+.
+	S^V\ar[r] & T\!\nu\ar[r] & T(\nu\oplus\tau)\ar[r] & S^V\wedge M_+.
 }
 \end{equation}
-% TODO: Tnu not T_nu
 \begin{ex}
 If you project $M\to *$, you get a map $S^V\to S^V$. Show that the degree of this map is the Euler characteristic
 $\chi(M)$.

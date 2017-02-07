@@ -345,9 +345,9 @@
 \newcommand{\hdr}{H_{\text{\rm dR}}}
 \newcommand{\KO}{\mathit{KO}} % should I add reduced K and KO?
 \newcommand{\wH}{\widetilde H}
-\DeclareMathOperator{\colim}{colim} % colimit notation in homotopy theory
-\DeclareMathOperator{\holim}{holim} % homotopy limit
-\DeclareMathOperator{\hocolim}{hocolim} % homotopy colimit
+\DeclareMathOperator*{\colim}{colim} % colimit notation in homotopy theory
+\DeclareMathOperator*{\holim}{holim} % homotopy limit
+\DeclareMathOperator*{\hocolim}{hocolim} % homotopy colimit
 %
 % Complex analysis
 % note: Re and Im changes are technically style changes, but almost everyone uses this notation
