@@ -1,0 +1,202 @@
+Today, we're going to talk about the Burnside category; there are at least five definitions of it, and we'll
+provide one. We'll also talk about spectra; some things will be precise, and others will be made precise next time.
+
+Recall that if $M$ is a $G$-manifold, we can equivariantly embed it in a finite-dimensional real $G$-representation
+$V$, so that we obtain a sequence of maps $S^V\to T\!\nu\to T(\nu\oplus\tau)\cong S^V\wedge M_+ = \Sigma^V M_+$.
+(Here $\nu$ is the normal bundle of $M$ and $\tau$ is the tangent bundle.) Thinking of this as a transfer $M\to *$,
+we'd like to do something similar for $G/H$. Namely, if $K\subset H$ are subgroups of $G$, we'd like to define a
+transfer map $G/H\to G/K$, a stable map (i.e.\ one that lives in $\colim\Map(\Sigma^V G/H, \Sigma^V G/K)$). This
+will be a ``wrong-way'' map.
+
+Applying $G\times_H\bl$ to $H/K\to *$, we get a map $G/K\to G/H$. The transfer for $G/K\to G/H$ is via the transfer
+$H/K\to *$, induced up from a map $H/K\inj V$. Here, $V$ is a $G$-representation, and the embedding is
+$H$-equivariant, where $H$ acts on $V$ by restriction. Thus, we obtain a map $S^V\to S^V\wedge H/K$.
+
+We want to understand how induction works on $H$-spaces whose structure has been defined by restriction from
+$G$-spaces.
+\begin{ex}
+Show that if $X$ is a $G$-space and $i_H^*X$ is the $H$-space defined by restriction, $G\wedge_H i_H^*X\cong
+G/H_+\wedge X$.
+\end{ex}
+So our map $G\wedge_H S^V\to G\wedge_H(S^V\wedge H/K_+)$ is identified with a map $G/H_+\wedge S^V\to G/K_+\wedge
+S^V$.
+
+Consider the maps in $\Hom_{\sO_G}(G/H_1, G/H_2)$ that are determined by subconjugacy, i.e.\
+$G/H_1\stackrel\cong\to G/g^{-1}H_1g\to G/H_2$ (we assume $g^{-1}H_1g\subset H_2$). There's a covariant functor
+from $\sO_G$ to the (equivariant) $S$-category which sends a map $f$ to its representative in the colimit, and we
+also have a contravariant functor: $G/H_1\to G/H_2$ takes the transfer map, then the inverse of the conjugation
+isomorphism.
+\begin{defn}
+The \term{Burnside category} $B_G$ is the full subcategory of the $S$-category spanned by the orbits $G/H$.
+\end{defn}
+It's a theorem that all of the maps in $B_G$ are in the image of the two functors $\sO_G\to\cat S$ described above,
+which is pretty neat.
+
+The Burnside category is enriched in $\Top$, because the $S$-category is.
+\begin{defn}
+The \term{algebraic Burnside category} is $\pi_0(B_G)$, which is enriched in $\Ab$. A \term{Mackey functor} is a
+functor $\pi_0B_G\to\Ab$.
+\end{defn}
+Mackey functors will be our replacement for coefficient systems. They arise in other contexts, so you could care
+about Mackey functors without caring about equivariant stable homotopy theory (well, you probably secretly do
+anyways). For that reason, there are definitions of Mackey functors that are less homotopical.
+
+We'd like to define the category of $G$-spectra to be ``spectral Mackey functors,'' i.e.\ functors from $B_G$ to
+spectra. We need to develop tools for this first: we haven't developed a good model for spectra (in particular, a
+point-set model, not a model of the stable homotopy category), and we want these functors to be enriched, which
+will require some more work. We'll now begin to develop the tools to surmount these problems.
+\subsection*{Recollections about transfers.}
+One concrete example of a transfer map comes from a finite cover $\widetilde X\to X$: summing over the fibers
+defines a transfer map $H^*(\widetilde X;\Q)\to H^*(X;\Q)$.
+
+Transfers also arise in group cohomology $H^*(G;M)$, where $M$ is a $G$-module. This is computed by resolving $\Z$
+as a $\Z[G]$-module by some resolution $P_\bullet$, then computing $H^*(\Hom_G(P_\bullet, M))$. Now suppose
+$H\subset G$; there are two adjoints to the restriction functor $\Mod_G\to\Mod_H$.
+\begin{itemize}
+	\item The left adjoint sends an $H$-module $N\mapsto \Z[G]\otimes_{\Z[H]} N$. This is called the \term{induced
+	$G$-module} $\Ind_H^G N$.
+	\item The right adjoint sends $N\mapsto\Map_H(\Z[G], N)$. This is called the \term{coinduced $G$-module},
+	written $\CoInd_H^GN$.
+\end{itemize}
+These definitions, and their names, should look familiar.
+
+Now suppose $H\subset G$ is finite-index, e.g.\ when $G$ is a finite group. Then
+\[\Ind_H^G N\cong\bigoplus_{g\in G/H} gN\qquad\text{and} \CoInd_H^G N\cong\prod_{g\in G/H} gN.\]
+In an additive category, finite sums and finite products are isomorphic, so $\Ind_H^GN\cong\CoInd_H^G N$. When $G$
+is finite, the analogous statement about {\color{red}TODO} certain sums and products uniquely characterizes the
+equivariant stable category.\footnote{This is an instance of some life advice from Mike Hill: in order to avoid
+being confused by constructions in equivariant stable homotopy theory, try computing the analogous construction in
+group cohomology first. Group cohomology is very concrete, and so it's definitely worth thinking this through in
+this case.}
+
+So if $H\subset G$, we'd like to build a transfer mp $H^*(H;M)\to H^*(G;M)$, where $M$ is a $G$-module made an
+$H$-module by restricting. Induction is left adjoint to the restriction functor $i_H^*$, so the counit of the
+adjunction is a map $\eta\colon\Ind_H^G i_H^*M\to M$. In particular, $H^*(H;M)\cong H^*(G;\Ind_H^G
+M)\stackrel\eta\to H^*(G;M)$, and this is the desired transfer map.
+
+As group cohomology is the cohomology of $BG$, this can also be thought of as a map $BG\to BH$; this is a
+fibration.
+\subsection*{Diagram spectra.}
+This section is motivated by~\cite{MMSS}, an excellent paper that constructs the point-set stable category using
+diagram spectra. You should absolutely read this paper; it's a masterwork of exposition and making things look
+simple and clear in retrospect.
+
+The approach of diagram spectra is different from, but equivalent to, the approaches taken
+in~\cite{LMS,AlaskaNotes}.
+
+Our goal is to define a complete, cocomplete, symmetric monoidal category $\Spc$ such that
+\begin{itemize}
+	\item the $S$-category is a full subcategory of $\Spc$, and
+	\item there is a symmetric monoidal functor $\Sigma^\infty\colon\Top\to\Spc$, which is left adjoint to a right
+	adjoint $\Omega^\infty\colon\Spc\to\Top$.
+\end{itemize}
+There's a sense in which $\Spc$ is the smallest category satisfying these hypotheses, or that you get it by adding
+limits and colimits to $\cat S$. In particular, we are constructing a stable analogue of the category of
+topological spaces, \emph{not} its homotopy category.
+\begin{rem}
+Historically, Bordman constructed the stable homotopy category as a formal completion of the $S$-category. Then,
+people tried to find ``point-set models,'' stable model categories whose homotopy categories are isomorphic to
+Bordman's category. There are several options, but explicit proofs that their homotopy categories are equivalent to
+Bordman's are rare in the literature.
+\end{rem}
+\begin{defn}
+By a \term{diagram} $\fD$ we mean a small category, which we assume is enriched in $\Top$ and symmetric monoidal.
+The category of \term{$\fD$-spaces} is the category $\Fun(\fD,\Top)$ of enriched functors.
+\end{defn}
+The category of $\fD$-spaces is symmetric monoidal under \term{Day convolution}. The idea is to build a symmetric
+monoidal product via left Kan extension: if $F$ and $G$ are $\fD$-spaces, the functor $F\overwedge
+G\colon(d_1,d_2)\mapsto F(d_1)\wedge G(d_2)$ is a $(\fD\times\fD)$-space. To produce a $\fD$-space from this, let
+$\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the left Kan extension
+\[\xymatrix{
+	\fD\times\fD\ar[r]^{F\overwedge G}\ar[d]_\boxtimes & \Top\\
+	\fD\ar@{-->}[ur]_{F\wedge G}
+}\]
+This is our symmetric monoidal product $F\wedge G$. More explicitly,
+\[(F\wedge G)(z) = \colim_{x\boxtimes y = z} F(x)\wedge G(y).\]
+This looks like the usual convolution, and the analogy with harmonic analysis can be taken further, e.g.\ in an
+unpublished paper of Isaacson-Behrens.
+
+For any $d\in\fD$, there's an \term{evaluation} functor $\Ev_d\colon\Fun(\fD,\Top_*)\to\Top_*$ sending $X\mapsto
+X(d)$. It's adjoint to $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ defined by
+\[(F_dA)(e)\coloneqq \Map_\fD(d, e)\wedge A_+.\]
+The unit for the symmetric monoidal structure on $\Fun(\fD,\Top)$ is $F_0S^0$.
+
+Let $R$ be a \term{commutative monoid object} in $\Fun(\fD,\Top)$, which approximately means there are maps
+$F_0S^0\to R$, $S^0\to R(0)$, and a unital, associative, commutative map $R(d)\wedge R(e)\to R(d\boxtimes e)$. For
+example, the unital condition is that the composition
+\[\xymatrix{
+	R(d)\wedge S^0\ar[r] & R(d)\wedge R(0)\ar[r] & R(d\boxtimes 0)\cong R(d)
+}\]
+must be the identity.
+
+In this case, we can define the category $\Mod_R$ of \term{$R$-modules} in $\Fun(\fD,\Top)$, those $\fD$-spaces $M$
+with an action map $\mu\colon R\wedge M\to M$ (satisfying the usual conditions). This is also a symmetric monoidal
+category (this requires $R$ to be commutative), defined in the same way as the tensor product of modules over a
+ring: $M\wedge_R N$ is the coequalizer
+\[\xymatrix{
+	M\wedge R\wedge N\dblarrow[r] &M\wedge N\ar[r] &M\wedge_R N.
+}\]
+\begin{exm}[Prespectra]
+Let $\fD = \N$, with only the identity maps. This is symmetric monoidal under addition: $[m]\boxtimes [n]\coloneqq
+[m+n]$. Then, there is a monoid $S$ in $\N$-spaces defined by $[n]\mapsto S^n$. The category of $S$-modules is
+classically called \term{prespectra}; the monoidal structure is the identification of $S^m\wedge S^n\cong S^{m+n}$.
+
+\begin{warn}
+$S$ is \emph{not} a commutative monoid! $S^n\wedge S^m\not\cong S^m\wedge S^n$.
+\end{warn}
+This was the cause of thirty years of pain and suffering in the community --- they didn't know they were unhappy.
+People knew what the smash product should be on the homotopy category, and wanted a point-set model that's
+symmetric monoidal, unlike this example.
+\end{exm}
+Symmetric spectra are one answer, which we won't use in this class. If all of this had been stated in terms of the
+Day convolution from the get-go, people probably would have figured out symmetric spectra as early as the 1960s,
+but hindsight is always clearer, and here we are.
+\begin{exm}[Orthogonal spectra]
+Let $\sI$ denote the category whose objects are finite-dimensional real inner product spaces $V$, and whose
+morphisms $\sI(V,W)$ are the linear isometric isomorphisms $V\to W$.
+
+In this category, $V\oplus W$ and $W\oplus V$ aren't equal, but are isomorphic, and the isomorphism between them is
+reflected in the flip between $S^n\wedge S^m$ and $S^m\wedge S^n$. In particular, the assignment $S\colon V\mapsto
+S^V$ (the one-point compactification of $V$) is a \emph{commutative} monoid, so the category of $S$-modules is a
+symmetric monoidal category, called the category of \term{orthogonal spectra}. This is the model of the stable
+category that we will use.
+\end{exm}
+\begin{exm}[$\sW$-spaces]
+Let $\sW$ be the category of finite CW complexes (with either all maps or cellular maps; it doesn't really matter).
+$\sW$-spaces are already like spectra, in a sense, in that they're modules over the identity functor
+$i\colon\sW\inj\Top$. There's a map $\vp\colon A\to\Map(B, A\wedge B)$ sending $a\mapsto (b\mapsto a\wedge b)$, so
+if $F$ is a
+$\sW$-space, we have a sequence of maps
+\[\xymatrix{
+	A\ar[r]^-\vp & \Map(B, A\wedge B)\ar[r] &\Map(F(B), F(A\wedge B)).
+}\]
+Taking its adjoint defines a map
+\[A\wedge F(B)\longrightarrow F(A\wedge B),\]
+so $F$ is a module over $i$.
+\end{exm}
+The assignment $n\mapsto\R^n$ defines a functor $\N\to\sI$, and therefore a functor from prespectra to orthogonal
+spectra; with the right model structures, this induces an equivalence of their homotopy category. Similarly, the
+assignment $V\mapsto S^V$ defines a functor $\sI\to\sW$, hence a functor from orthogonal spectra to $\sW$-spaces,
+and this also will induce a homotopy equivalence.
+\begin{defn}
+A prespectrum is an \term{$\Omega$-prespectrum} if for all $n$, $X_n\stackrel\cong\to\Omega^mX_{m+n}$.
+\end{defn}
+\begin{defn}
+If $X$ is a prespectrum and $q\in\Z$, the $q^{\text{th}}$ \term{homotopy group} of $X$ is
+\[\pi_q(X)\coloneqq \colim_n \pi_{n+q}X(n).\]
+A \term{$\pi_*$-isomorphism} of prespectra is a map that induces an isomorphism on all homotopy groups.
+\end{defn}
+Notice that negative homotopy groups exist, and may be nontrivial.
+\begin{rem}
+This is one approach to defining the stable category, and is not the only one. In~\cite{AdamsStableHomotopy} (which
+is an excellent book), Adams uses a more naïve viewpoint of ``cells first, maps later'' which doesn't require such
+abstraction, but it would be a huge mess to prove that his model is complete or cocomplete. The diagram spectra
+approach rigidly separates point-set techniques (easy, but not as useful) from operations on the homotopy category
+(more useful, but harder), and this separation is often useful. The $\infty$-categorical perspective mashes it all
+together, which can be confusing, but is the only setting in which you can prove things such as the stable
+category being initial.
+\end{rem}
+We'll reintroduce $G$-actions soon, and this is pretty slick using orthogonal spectra: we can replace $\sI$ with
+the category of finite-dimensional $G$-representations with invariant inner products. Orthogonal spectra also have
+a really nice homotopy theory relative to symmetric spectra (which have other advantages that don't apply as much
+to us).
