@@ -4,13 +4,13 @@ monoidal. We discussed a few examples:
 \begin{itemize}
 	\item Consider $\fD = \N$ with all maps isomorphisms, as in Example~\ref{prespectra}. There's a
 	\emph{non}commutative monoid $S\colon n\mapsto S^n$, and the category of $S$-modules in $\N$-spaces is called
-	prespectra $\Sp^\N$;\footnote{There are many different choices of notation for diagram spectra, as seen
+	prespectra $\Spc^\N$;\footnote{There are many different choices of notation for diagram spectra, as seen
 	in~\cite{MMSS} and \cite{MandellMay}, with various fancy decorations.} it's a monoidal category, but is
 	\emph{not} symmetric.
 	\item In Example~\ref{orthogonal_spectra}, we considered $\fD = \sI$, the category whose objects are real
 	finite-dimensional inner product spaces and whose morphisms are the linear isometric isomorphisms. Here, the
 	monoid $S\colon V\mapsto S^V$ is commutative, and the category of $S$-modules, called orthogonal spectra
-	$\Sp^\sI$, is symmetric monoidal.
+	$\Spc^\sI$, is symmetric monoidal.
 \end{itemize}
 Those are the main examples for us, but there are others:
 \begin{itemize}
@@ -55,10 +55,10 @@ While this is all nice, it's not what we're looking for, as it contains no infor
 like the category of spaces, just with more of them. For example, it's not even true that $X\to\Omega\Sigma X$ is a
 weak equivalence, which is important if you want $\Omega$ and $\Sigma$ to be homotopy inverses.
 
-Recall that we defined a $\pi_*$-isomorphim of prespectra to be a map $f\colon X\to Y$ such that $\pi_qf\colon \pi_q
-X\to\pi_q Y$ is an isomorphism for all $q$. We'll extend this to orthogonal spectra: let $U\colon\Sp^\sI\to\Sp^\N$
-be pullback by the map $[n]\mapsto\R^n$, i.e.\ $UX([n]) = X(\R^n)$. $U$ is right adjoint to a left Kan extension
-$P\colon\Sp^\N\to\Sp^\sI$.
+Recall that we defined a $\pi_*$-isomorphim of prespectra to be a map $f\colon X\to Y$ such that $\pi_qf\colon
+\pi_q X\to\pi_q Y$ is an isomorphism for all $q$. We'll extend this to orthogonal spectra: let
+$U\colon\Spc^\sI\to\Spc^\N$ be pullback by the map $[n]\mapsto\R^n$, i.e.\ $UX([n]) = X(\R^n)$. $U$ is right
+adjoint to a left Kan extension $P\colon\Spc^\N\to\Spc^\sI$.
 \begin{defn}
 A map of orthogonal spectra $f\colon X\to Y$ is a \term{$\pi_*$-isomorphism} if $Uf\colon UX\to UY$ is a
 $\pi_*$-isomorphism of prespectra.
@@ -85,7 +85,7 @@ induced map $[Y,Z]\to[X,Z]$ is an isomorphism.
 \end{defn}
 \begin{thm}
 There are \term{stable model structures} on the categories of $\fD$-spaces, prespectra, and orthogonal spectra in
-which the weak equivalences are stable equivalences. For $\Sp^\N$ and $\Sp^\sI$, the stable equivalences are the
+which the weak equivalences are stable equivalences. For $\Spc^\N$ and $\Spc^\sI$, the stable equivalences are the
 same as the $\pi_*$-isomorphisms.
 \end{thm}
 \begin{rem}
@@ -146,8 +146,8 @@ isomorphism. But by the Freudenthal suspension theorem, these colimits stabilize
 This implies that when $X$ is an $\Omega$-prespectrum, $\pi_q X = \pi_q X_0$, and for $q < 0$, we can define $\pi_q
 X =\pi_0(X_{-q})$.
 \begin{thm}
-The adjunction $P: \Sp^N\rightleftarrows \Sp^\sI: U$ is a Quillen equivalence, and therefore
-$\Ho(\Sp^N)\cong\Ho(\Sp^\sI)$ as triangulated categories.
+The adjunction $P: \Spc^N\rightleftarrows \Spc^\sI: U$ is a Quillen equivalence, and therefore
+$\Ho(\Spc^N)\cong\Ho(\Spc^\sI)$ as triangulated categories.
 \end{thm}
 This homotopy category is called the stable category. In a sense, it's the original triangulated category.
 Suspension $\Sigma$ is the shift functor, turning a sequence $X\stackrel f\to Y\to Cf$ (where $Cf$ is the homotopy
@@ -156,7 +156,7 @@ cofiber) into a fiber sequence $Ff\to X\to Y$.\footnote{{\color{red}TODO}: I thi
 Another sense in which the stable category is stable is that both fiber and cofiber sequences induce long exact
 sequences of homotopy groups, instead of just fiber sequences.
 
-We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top\rightleftarrows\Sp^\sI: \Omega^\infty$.
+We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top\rightleftarrows\Spc^\sI: \Omega^\infty$.
 $\Omega^\infty$ is just $\Ev_0$, evaluating at the zero space. If $F_d$ is the adjoint to $\Ev_d$ (so that
 $(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$.
 
@@ -176,25 +176,24 @@ This is an adjunction game.
 This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_S$-spaces,
 $\Sigma^\infty$ is the left adjoint to evaluating at $0$.
 
-Let $X\in\Sp^\sI$, and define
+Let $X\in\Spc^\sI$, and define
 \[\T X\coloneqq\bigvee_{n\ge 0} X^{\wedge n},\]
 which is the free associative algebra monoid on $X$. Similarly, let
 \[\P X = \bigvee_{n\ge 0} X^{\wedge n}/\Sigma_n,\]
 where $\Sigma_n$ denotes the action of the symmetric group by permutations; this is the free polynomial algebra
-monoid on $X$. Then, $\Sp^\sI[\T]$ denotes the category of associative monoids in $\Sp^\sI$, and $\Sp^\sI[\P]$
-denotes the category of commutative monoids in $\Sp^\sI$.
+monoid on $X$. Then, $\Spc^\sI[\T]$ denotes the category of associative monoids in $\Spc^\sI$, and $\Spc^\sI[\P]$
+denotes the category of commutative monoids in $\Spc^\sI$.
 
-The stable model structure on $\Sp^\sI$ induces one on $\Sp^\sI[\T]$, in which the weak equivalences and fibrations
-are detected by those in $\Sp^\sI$. For $\Sp^\sI[\P]$, the quotient makes things harder: it has a model structure
-where the weak equivalences are \term{positive equivalences} (so those which are detected by \term{positive
-$\Omega$-spectra}, i.e.\ those where $X_0\to\Omega X_1$ need not be an equivalence). But this still doesn't behave
-very well. Namely, if you try to set the theory up for $\P$ to be the same as that for $\T$, then you get that
-$\Omega^\infty\Sigma^\infty S^0$ is a commutative topological monoid. It's a fact that any commutative
-topological monoid is a product of Eilenberg-Mac Lane spaces, and that
-$\Omega^\infty\Sigma^\infty S^0$ has nontrivial $k$-invariants. There's a short paper by Lewis which addresses
-this~\cite{Lewis91}, showing that there are five very reasonable axioms for the stable category that can't all be
-true! So people decided to forget about letting $\Sigma^\infty$ be left adjoint to evaluation at $0$, and it's
-okay, if not perfect.
+The stable model structure on $\Spc^\sI$ induces one on $\Spc^\sI[\T]$, in which the weak equivalences and
+fibrations are detected by those in $\Spc^\sI$. For $\Spc^\sI[\P]$, the quotient makes things harder: it has a
+model structure where the weak equivalences are \term{positive equivalences} (so those which are detected by
+\term{positive $\Omega$-spectra}, i.e.\ those where $X_0\to\Omega X_1$ need not be an equivalence). But this still
+doesn't behave very well. Namely, if you try to set the theory up for $\P$ to be the same as that for $\T$, then
+you get that $\Omega^\infty\Sigma^\infty S^0$ is a commutative topological monoid. It's a fact that any commutative
+topological monoid is a product of Eilenberg-Mac Lane spaces, and that $\Omega^\infty\Sigma^\infty S^0$ has
+nontrivial $k$-invariants. There's a short paper by Lewis which addresses this~\cite{Lewis91}, showing that there
+are five very reasonable axioms for the stable category that can't all be true! So people decided to forget about
+letting $\Sigma^\infty$ be left adjoint to evaluation at $0$, and it's okay, if not perfect.
 \begin{exm}[$\Gamma$-spaces]
 \label{gamma_spaces}
 Let $\fD$ be the category of finite based sets and based maps, e.g.\ $n_+ = \set{0,1,\dotsc,n}$ with $0$ as the
