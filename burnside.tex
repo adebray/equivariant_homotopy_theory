@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 Today, we're going to talk about the Burnside category; there are at least five definitions of it, and we'll
 provide one. We'll also talk about spectra; some things will be precise, and others will be made precise next time.
 
@@ -94,10 +95,10 @@ There's a sense in which $\Spc$ is the smallest category satisfying these hypoth
 limits and colimits to $\cat S$. In particular, we are constructing a stable analogue of the category of
 topological spaces, \emph{not} its homotopy category.
 \begin{rem}
-Historically, Bordman constructed the stable homotopy category as a formal completion of the $S$-category. Then,
+Historically, Boardman constructed the stable homotopy category as a formal completion of the $S$-category. Then,
 people tried to find ``point-set models,'' stable model categories whose homotopy categories are isomorphic to
-Bordman's category. There are several options, but explicit proofs that their homotopy categories are equivalent to
-Bordman's are rare in the literature.
+Boardman's category. There are several options, but explicit proofs that their homotopy categories are equivalent to
+Boardman's are rare in the literature.
 \end{rem}
 \begin{defn}
 By a \term{diagram} $\fD$ we mean a small category, which we assume is enriched in $\Top$ and symmetric monoidal.
@@ -112,7 +113,10 @@ $\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the le
 	\fD\ar@{-->}[ur]_{F\wedge G}
 }\]
 This is our symmetric monoidal product $F\wedge G$. More explicitly,
-\[(F\wedge G)(z) = \colim_{x\boxtimes y = z} F(x)\wedge G(y).\]
+\begin{align*}
+( F\wedge G)(z) &= \colim_{x\boxtimes y = z} F(x)\wedge G(y)\\
+								&\coloneqq \int^{x, y\in \fD} F(x) \wedge G(y) \wedge \fD(x\boxtimes y, z).
+\end{align*}
 This looks like the usual convolution, and the analogy with harmonic analysis can be taken further, e.g.\ in an
 unpublished paper of Isaacson-Behrens.
 
