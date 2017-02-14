@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 Today, we're going to talk about the Burnside category; there are at least five definitions of it, and we'll
 provide one. We'll also talk about spectra; some things will be precise, and others will be made precise next time.
 
@@ -112,7 +113,10 @@ $\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the le
 	\fD\ar@{-->}[ur]_{F\wedge G}
 }\]
 This is our symmetric monoidal product $F\wedge G$. More explicitly,
-\[(F\wedge G)(z) = \colim_{x\boxtimes y = z} F(x)\wedge G(y).\]
+\begin{align*}
+( F\wedge G)(z) &= \colim_{x\boxtimes y = z} F(x)\wedge G(y)\\
+								&\coloneqq \int^{x, y\in \fD} F(x) \wedge G(y) \wedge \fD(x\boxtimes y, z).
+\end{align*}
 This looks like the usual convolution, and the analogy with harmonic analysis can be taken further, e.g.\ in an
 unpublished paper of Isaacson-Behrens.
 
