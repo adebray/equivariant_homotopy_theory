@@ -29,7 +29,10 @@ With this you can define two things:
 	With $M$ such a coefficient system, the \term{Bredon homology} with coefficients in $M$ is
 	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
 	By this tensor product, we mean a coend:
-	\[\underline C_*(X)\otimes_{\sO_G} M \coloneqq \coprod_{G/H} \underline C_n(X)(G/H)\times M(G/H)/\sim,\]
+	\begin{align*}
+	\underline C_n(X)\otimes_{\sO_G} M &= \int^{G/H\in \sO_G} \underline C_n(X)(G/H)\otimes M(G/H)\\
+	&= \coprod_{G/H} {\underline C_n(X)(G/H)\otimes M(G/H)} \mathbin/ {\mathord\sim},
+	\end{align*}
 	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
 	instances of coends; instead of inducing an equivalence $mr\otimes n\sim m\otimes rn$, you flip a map across
 	the two objects. One might write $y\cdot f$ for $f^* y$ and $f\cdot z$ for $f_* z$ to emphasize this point of view.}
