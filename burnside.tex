@@ -137,6 +137,7 @@ ring: $M\wedge_R N$ is the coequalizer
 	M\wedge R\wedge N\dblarrow[r] &M\wedge N\ar[r] &M\wedge_R N.
 }\]
 \begin{exm}[Prespectra]
+\label{prespectra}
 Let $\fD = \N$, with only the identity maps. This is symmetric monoidal under addition: $[m]\boxtimes [n]\coloneqq
 [m+n]$. The assignment $S\colon[n]\mapsto S^n$ is a monoid in $\N$-spaces, and the category of $S$-modules is
 classically called \term{prespectra}; the monoidal structure is the identification of $S^m\wedge S^n\cong S^{m+n}$.
@@ -152,6 +153,7 @@ Symmetric spectra are one answer, which we won't use in this class. If all of th
 Day convolution from the get-go, people probably would have figured out symmetric spectra as early as the 1960s,
 but hindsight is always clearer, and here we are.
 \begin{exm}[Orthogonal spectra]
+\label{orthogonal_spectra}
 Let $\sI$ denote the category whose objects are finite-dimensional real inner product spaces $V$, and whose
 morphisms $\sI(V,W)$ are the linear isometric isomorphisms $V\to W$.
 
@@ -162,6 +164,7 @@ symmetric monoidal category, called the category of \term{orthogonal spectra}. T
 category that we will use.
 \end{exm}
 \begin{exm}[$\sW$-spaces]
+\label{wspaces}
 Let $\sW$ be the category of finite CW complexes (with either all maps or cellular maps; it doesn't really matter).
 $\sW$-spaces are already like spectra, in a sense, in that they're modules over the identity functor
 $i\colon\sW\inj\Top$. There's a map $\vp\colon A\to\Map(B, A\wedge B)$ sending $a\mapsto (b\mapsto a\wedge b)$, so

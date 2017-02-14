@@ -1,0 +1,204 @@
+Today, we're going to discuss the homotopy theory of spectra in the nonequivariant case. Recall that we started
+with $\fD$-spaces, where $\fD$ is a small \term{topological category} (meaning $\Top$-enriched), and that the
+category of $\fD$-spaces is symmetric monoidal. We discussed a few
+examples:
+\begin{itemize}
+	\item When $\fD = \N$ with all maps isomorphisms, as in Example~\ref{prespectra}. There's a
+	\emph{non}commutative monoid $S\colon n\mapsto S^n$, and the category of $S$-modules in $\N$-spaces is called
+	prespectra $\Sp^\N$;\footnote{There are many different choices of notation for diagram spectra, as seen
+	in~\cite{MMSS} and Mandell-May, with various fancy decorations.} it's a monoidal category, but is \emph{not}
+	symmetric.
+	\item When $\fD = \sI$ is the category whose objects are real finite-dimensional inner product spaces with
+	morphisms the linear isometric isomorphisms, the monoid $S\colon V\mapsto S^V$ is commutative, and the category
+	of $S$-modules, called orthogonal spectra $\Sp^\sI$, is symmetric monoidal.
+	\item We also discussed $\sW$-spaces, where $\fD$ is the category of finite CW complexes, in
+	Example~\ref{wspaces}.
+\end{itemize}
+Because these categories are presheaves on nice categories, they inherit some good properties from $\Top$; in
+particular, they are complete and cocomplete, and limits and colimits may be taken pointwise. This is also true for
+categories of modules, with a little more work (computing colimits is a bit harder, just like how the free product
+of groups is harder than the direct prodict). Categories of rings do \emph{not} have this property, though.
+\begin{defn}
+Let $f\colon X\to Y$ be a map of $\fD$-spaces (or prespectra or orthogonal spectra).
+\begin{itemize}
+	\item $f$ is a \term{level equivalence} if for all $d\in\fD$, $f(d)\colon X(d)\stackrel\simeq\to Y(d)$ is a
+	weak equivalence.
+	\item $f$ is a \term{level fibration} if for all $d\in\fD$, $f(d)$ is a fibration.
+\end{itemize}
+\end{defn}
+That is, $f$ is a natural transformation, and it acts through weak equivalences (resp.\ fibrations).
+\begin{thm}
+The category of $\fD$-spaces has a model structure, called the \term{level model structure}, in which the weak
+equivalences are the level equivalences and the fibrations are level fibrations. Moreover, this model category is
+cofibrantly generated.
+\end{thm}
+\begin{ex}
+Starting with the model structure on $\Top$, construct the level model structure.
+\end{ex}
+The ``cofibrantly generated'' part means that cofibrant objects behave like CW complexes, and in particular there
+is a theory of cellular objects. If $F_d\colon\Top\to\Fun(\fD,\Top)$ is the left adjoint to $\Ev_d$ we constructed
+last time, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$, and
+the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$.
+
+Since all spaces are fibrant, all $\fD$-spaces are fibrant in this model structure. The cofibrant objects are the
+retracts of \term{cellular objects}, which are built by iterated pullbacks
+\[\xymatrix{
+	\bigvee F_d S_+^{n-1}\ar[r]\ar[d] & X_n\ar[d]\\
+	\bigvee F_dD_+^n\ar[r] & X_{n+1}.
+}\]
+While this is all nice, it's not what we're looking for, as it contains no information about stable phenomena. It's
+like the category of spaces, just with more of them. For example, it's not even true that $X\to\Omega\Sigma X$ is a
+weak equivalence, which is important if you want $\Omega$ and $\Sigma$ to be homotopy inverses.
+
+Recall that we defined a $\pi_*$-isomorphim of prespectra is a map $f\colon X\to Y$ such that $\pi_qf\colon \pi_q
+X\to\pi_q Y$ is an isomorphism for all $q$. We'll extend this to orthogonal spectra: let $U\colon\Sp^\sI\to\Sp^\N$
+be pullback by the map $[n]\mapsto\R^n$. That is, $UX([n]) = X(\R^n)$. $U$ is right adjoint to a left Kan extension
+$P\colon\Sp^\N\to\Sp^\sI$.
+\begin{defn}
+A map of orthogonal spectra $f\colon X\to Y$ is a \term{$\pi_*$-isomorphism} if $Uf\colon UX\to UY$ is a
+$\pi_*$-isomorphism of prespectra.
+\end{defn}
+We also defined an $\Omega$-spectrum in prespectra, or an $\Omega$-prespectrum, is a prespectrum where the adjoints
+to the structure maps $X_n\stackrel\cong\to\Omega^mX_{n+m}$ are homeomorphisms. This is a pretty rigid condition,
+and so $\Omega$-prespectra have nice properties.
+\begin{defn}
+Similarly, we define an \term{$\Omega$-spectrum} in orthogonal spectra to be an orthogonal spectrum $X$ such that
+the adjoints to the structure maps $X(U)\stackrel\cong\Omega^V X(U\oplus V)$ are homeomorphisms.
+\end{defn}
+Classically, there were prespectra and then there were spectra (or $\Omega$-spectra), and you would use some
+``spectrification'' functor that takes a prespectrum and produces a spectrum of the same homotopy type. Turning the
+adjoint maps into homeomorphisms looks difficult and is, involving some categorical and point-set wizardry. If you
+like this stuff, check out the appendix of~\cite{LMS}. The first point-set symmetric monoidal model for the stable
+category, by Elmendorf-Kriz-Mandell-May, relies on this and even more magic, both clever and surprising.
+
+Since $\fD$-spaces are enriched over spaces, it's possible to tensor with the interval and therefore define
+homotopies of $\fD$-spaces in the same way. As usual, $[X,Y]$ will denote the set of homotopy classes of maps $X\to
+Y$.
+\begin{defn}
+A \term{stable equivalence} of prespectra is a map $f\colon X\to Y$ such that for all $\Omega$-prespectra $Z$, the
+induced map $[Y,Z]\to[X,Z]$ is an isomorphism.
+\end{defn}
+We won't prove this, but you can.
+\begin{thm}
+There is a \term{stable model structure} where the weak equivalences are stable equivalences. For $\Sp^\N$ and
+$\Sp^\sI$, the stable equivalences are the same as the $\pi_*$-isomorphisms.
+\end{thm}
+\begin{rem}
+You can make the same construction for symmetric spectra, but the stable equivalences are not the same as
+$\pi_*$-isomorphisms, and homotopy groups are consequently finickier. This ultimately comes from the fact that
+quotients $\O(n+k)/\O(n)$ get more highly connected in a way that quotients of symmetric groups don't. In any case,
+since symmetric spectra don't behave so well in the equivariant case, we won't use them.
+\end{rem}
+The stable model structure does in fact manifest stable phenomena: the map $X\to\Omega\Sigma X$ is a weak
+equivalence.\footnote{If you like $\infty$-categories, you can say that the level model category is an
+$\infty$-category of presheaves, and this is different from the $\infty$-category of spectra.}
+
+Another interesting fact is that if $X$ and $Y$ are $\Omega$-prespectra and $f\colon X\to Y$ is a level
+equivalence, then $f$ is a $\pi_*$-isomorphism. This is an example of \term{Bousfield localization}. Let $\fC$ be a
+model category and $S$ be a set of maps in $\fC$.\footnote{We want $S$ to contain the weak equivalences in $\fC$,
+but there are important set-theoretic issues. Often, one specifies that $S$ contains a generating set (under
+filtered colimits) of the weak equivalences of $\fC$.} Bousfield localization produces a new model structure
+$L_S\fC$ on $\fC$ which turns the weak equivalences in $S$ into isomorphisms. So the homotopy category and homotopy
+(co)limits change, but all point-set phenomena remain the same. Localization is given by fibrant replacement.
+\begin{defn}
+Let $\fC$ be a topologically enriched model category and $S$ be as above. Then, an \term{$S$-local object} in $\fC$
+is an object $X$ such that for all $f\colon Y\to Z$ in $S$, the induced map
+\[\Map_\fC(Z,X)\stackrel\simeq\longrightarrow \Map_\fC(Y, X)\]
+is a weak equivalence.
+
+A map $f\colon X\to Y$ is an \term{$S$-local equivalence} if for all $S$-local objects $Z$, the induced map
+\[\Map_\fC(Y,Z)\stackrel\simeq\longrightarrow \Map_\fC(X,Z)\]
+is a weak equivalence.
+\end{defn}
+The following theorem is due to many people, but Hirschhorn's formulation is particularly nice.
+\begin{thm}[Hirschhorn]
+Let $\fC$ be a cofibrantly generated, $\Top$-enriched model category. Then, the Bousfield localization $L_S\fC$
+always exists. Moreover, the weak equivalences are the $S$-local equivalences, the fibrant objects are $S$-local
+objects, and the cofibrations are exactly those in $\fC$.
+\end{thm}
+\begin{exm}
+One way this is used is to localize such that the $S$-local equivalences are detected by $\bl\wedge H\Q$ or
+$\bl\wedge H\F_p$. This is a slick way to construct the rationalization or $p$-completion, respectively, and in
+particular makes the localization map functorial. Thus one obtains the rational (or $p$-completed) homotopy
+category.
+\end{exm}
+The stable model structure is obtained by Bousfield localization, such that the $\Omega$-prespectra are local
+objects and th stable equivalences are local equivalences.
+\begin{prop}
+The stable model structure is stable, i.e.\ $X\to\Omega\Sigma X$ is a $\pi_*$-isomorphism.
+\end{prop}
+\begin{proof}
+On homotopy groups, this is asking for $\colim_n\pi_{q+n} X_n\to\colim_n\pi_{q+n}\Omega\Sigma X_n$ to be an
+isomorphism. But by the Freudenthal suspension theorem, these colimits stabilize, and the map is an isomorphism.
+\end{proof}
+This implies that when $X$ is an $\Omega$-prespectrum, $\pi_q X = \pi_q X_0$, and for $q < 0$, we can define $\pi_q
+X =\pi_0(X_{-q})$.
+\begin{thm}
+The adjunction $P: \Sp^N\rightleftarrows \Sp^\sI: U$ is a Quillen equivalence, and therefore
+$\Ho(\Sp^N)\cong\Ho(\Sp^\sI)$ as triangulated categories.
+\end{thm}
+This homotopy category is called the stable category. In a sense, it's the original triangulated category.
+Suspension $\Sigma$ is the shift functor, turnsing a sequence $X\stackrel f\to Y\to Cf$ (where $Cf$ is the homotopy
+cofiber) into a fibersequence $Ff\to X\to Y$.\footnote{{\color{red}TODO}: I think I got something wrong.}
+
+Another way that the stable category is stable is that both fiber and cofiber sequences induce long exact sequences
+of homotopy groups, instead of just fiber sequences.
+
+We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top\rightleftarrows\Sp^\sI: \Omega^\infty$.
+$\Omega^\infty$ is just $\Ev_0$, evaluating at the zero space. If $F_d$ is the adjoint to $\Ev_d$ (so that
+$(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$.
+
+% what is S? look up in MMSS
+It turns out that $S$-modules in $\fD$-spaces are themselves diagram spaces over a more complicated diagram
+$\fD_S$. This is useful because diagrams are nice, and some things become less complicated. The recipe is that
+$\fD_S$ is the category whose objects are the same as $\fD$, with
+\begin{equation}
+\label{DSmaps}
+\Map_{\fD_S}(d,e) = \Map_{\Mod_S}(F_d S^0\wedge S, F_eS^0\wedge S).
+\end{equation}
+So take the suspension spectrum of the sphere shifted by $d$ and by $e$.
+\begin{ex}
+Show that the structure maps for spectra come out of~\eqref{DSmaps}. This is an adjunction game.
+\end{ex}
+This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_S$-spaces,
+$\Sigma^\infty$ is the left adjoint to evaluating at $0$.
+
+Let $X\in\Sp^\sI$, and define
+\[\T X\coloneqq\bigvee_{n\ge 0} X^{\wedge n},\]
+which is the free associative algebra monoid on $X$. Similarly, let
+\[\P X = \bigvee_{n\ge 0} X^{\wedge n}/\Sigma_n,\]
+where $\Sigma_n$ denotes the action of the symmetric group by permutations; this is the free polynomial algebra
+monoid on $X$. Then, $\Sp^\sI[\T]$ denotes the category of associative monoids in $\Sp^\sI$, and $\Sp^\sI[\P]$
+denotes the category of commutative monoids in $\Sp^\sI$.
+
+The stable model structure on $\Sp^\sI$ induces one on $\Sp^\sI[\T]$, in which the weak equivalences and fibrations
+are detected by those in $\Sp^\sI$. For $\Sp^\sI[\P]$, the quotient makes things harder: it has a model structure
+where the weak equivalences are \term{positive equivalences} (so those which are detected by \term{positive
+$\Omega$-spectra}, i.e.\ those where $X_0\to\Omega X_1$ need not be an equivalence). But this still doesn't behave
+very well. Namely, if you try to set the theory up for $\P$ to be the same as that for $\T$, then you get that
+$\Omega^\infty\Sigma^\infty S^0$ is a commutative topological monoid. There's a fact that any commutative
+topological monoid is a product of Eilenberg-Mac Lane spaces, but calculations showed that
+$\Omega^\infty\Sigma^\infty S^0$ has nontrivial $k$-invariants. There's a short paper by Lewis which addresses
+this, showing that there are five very reasonable axioms for the stable category that can't all be true! So people
+decided to forget about letting $\Sigma^\infty$ be left adjoint to evaluation at $0$, and it's okay, if not
+perfect.
+\begin{exm}[$\Gamma$-spaces]
+Let $\fD$ be the category of finite based sets and based maps, e.g.\ $n_+ = \set{0,1,\dotsc,n}$ with $0$ as the
+basepoint. $\fD$-spaces are called \term{$\Gamma$-spaces}, and agree with Segal's notion of $\Gamma$-spaces, which
+are defined differently. The multiplication comes from the map $\psi\colon 2_+\to 1_+$ sending $1,2\mapsto 1$.
+
+Let $d_i:n_+\to 1_+$ send $j\mapsto\delta_{ij}$ (i.e.\ $1$ if $i = j$, and $0$ otherwise). A $\Gamma$-space is
+\term{special} if the induced map
+\[X(n_+)\stackrel{\vp_n}{\longrightarrow} \prod_n X(1_+)\]
+is a weak equivalence; it's \term{very special} if in addition the composition
+\[\xymatrix{
+	X(1_+)\times X(1_+) & X(2_+)\ar[l]^-\simeq_-{\vp_2}\ar[r]^{\psi_*} &X(1_+)
+}\]
+induces a commutative monoid structure on $\pi_0 X(1_+)$.
+
+Kan extension defines a functor from $\fD$ to the category of finite CW complexes, and working with
+$\pi_*$-equivalences of these, one obtains a model structure. This is Quillen equivalent to the category of
+\term{connective spectra}, i.e.\ those whose negative homotopy groups vanish.
+\end{exm}
+In the equivariant case, there's even more structure, and notions of ``extra special'' $\Gamma$-spaces. We'll spend
+most of our time on orthogonal $G$-spectra, which have nuances of their own, as we'll start seeing next time.
