@@ -70,7 +70,7 @@ being confused by constructions in equivariant stable homotopy theory, try compu
 group cohomology first. Group cohomology is very concrete, and so it's definitely worth thinking this through in
 this case.}
 
-So if $H\subset G$, we'd like to build a transfer mp $H^*(H;M)\to H^*(G;M)$, where $M$ is a $G$-module made an
+So if $H\subset G$, we'd like to build a transfer map $H^*(H;M)\to H^*(G;M)$, where $M$ is a $G$-module made an
 $H$-module by restricting. Induction is left adjoint to the restriction functor $i_H^*$, so the counit of the
 adjunction is a map $\eta\colon\Ind_H^G i_H^*M\to M$. In particular, $H^*(H;M)\cong H^*(G;\Ind_H^G
 M)\stackrel\eta\to H^*(G;M)$, and this is the desired transfer map.
@@ -141,8 +141,9 @@ ring: $M\wedge_R N$ is the coequalizer
 	M\wedge R\wedge N\dblarrow[r] &M\wedge N\ar[r] &M\wedge_R N.
 }\]
 \begin{exm}[Prespectra]
+\label{prespectra}
 Let $\fD = \N$, with only the identity maps. This is symmetric monoidal under addition: $[m]\boxtimes [n]\coloneqq
-[m+n]$. Then, there is a monoid $S$ in $\N$-spaces defined by $[n]\mapsto S^n$. The category of $S$-modules is
+[m+n]$. The assignment $S\colon[n]\mapsto S^n$ is a monoid in $\N$-spaces, and the category of $S$-modules is
 classically called \term{prespectra}; the monoidal structure is the identification of $S^m\wedge S^n\cong S^{m+n}$.
 
 \begin{warn}
@@ -156,6 +157,7 @@ Symmetric spectra are one answer, which we won't use in this class. If all of th
 Day convolution from the get-go, people probably would have figured out symmetric spectra as early as the 1960s,
 but hindsight is always clearer, and here we are.
 \begin{exm}[Orthogonal spectra]
+\label{orthogonal_spectra}
 Let $\sI$ denote the category whose objects are finite-dimensional real inner product spaces $V$, and whose
 morphisms $\sI(V,W)$ are the linear isometric isomorphisms $V\to W$.
 
@@ -166,6 +168,7 @@ symmetric monoidal category, called the category of \term{orthogonal spectra}. T
 category that we will use.
 \end{exm}
 \begin{exm}[$\sW$-spaces]
+\label{wspaces}
 Let $\sW$ be the category of finite CW complexes (with either all maps or cellular maps; it doesn't really matter).
 $\sW$-spaces are already like spectra, in a sense, in that they're modules over the identity functor
 $i\colon\sW\inj\Top$. There's a map $\vp\colon A\to\Map(B, A\wedge B)$ sending $a\mapsto (b\mapsto a\wedge b)$, so
