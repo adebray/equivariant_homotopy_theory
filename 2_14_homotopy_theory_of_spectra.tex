@@ -175,14 +175,16 @@ adjunction game.) The same is true for orthogonal spectra and $S_\sI$.
 This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_R$-spaces,
 $\Sigma^\infty$ is the left adjoint to evaluating at $0$.
 
-Let $X\in\Spc^\sI$, and define
+It's possible to bootstrap this to define model categories of ring spectra, i.e.\ algebras over $S_\sI$.
+\begin{defn}
+Let $\T\colon \Spc^\sI\to\Spc^\sI$ denote the free associative algebra monad, i.e.\
 \[\T X\coloneqq\bigvee_{n\ge 0} X^{\wedge n},\]
-which is the free associative algebra monoid on $X$. Similarly, let
-\[\P X = \bigvee_{n\ge 0} X^{\wedge n}/\Sigma_n,\]
-where $\Sigma_n$ denotes the action of the symmetric group by permutations; this is the free polynomial algebra
-monoid on $X$. Then, $\Spc^\sI[\T]$ denotes the category of associative monoids in $\Spc^\sI$, and $\Spc^\sI[\P]$
-denotes the category of commutative monoids in $\Spc^\sI$.
-
+so that the category of $\T$-algebras $\Spc^\sI[\T]$ is the category of associative monoids in $\Spc^\sI$.
+Similarly, let $\P\colon\Spc^\sI\to\Spc^\sI$ denote the free commutative algebra monad, so
+\[\P X\coloneqq \bigvee_{n\ge 0} X^{\wedge n}/\Sigma_n,\]
+where $\Sigma_n$ denotes the action of the symmetric group by permutations; thus, the category of $\P$-algebras
+$\Spc^\sI[\P]$ is the category of commutative monoids in $\Spc^\sI$ (i.e.\ commutative ring spectra).
+\end{defn}
 The stable model structure on $\Spc^\sI$ induces one on $\Spc^\sI[\T]$, in which the weak equivalences and
 fibrations are detected by those in $\Spc^\sI$. For $\Spc^\sI[\P]$, the quotient makes things harder: it has a
 model structure where the weak equivalences are \term{positive equivalences} (so those which are detected by
