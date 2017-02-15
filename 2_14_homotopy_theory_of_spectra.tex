@@ -79,6 +79,7 @@ Since $\fD$-spaces are enriched over spaces, it's possible to tensor with the in
 homotopies of $\fD$-spaces in the same way as for spaces. As usual, $[X,Y]$ will denote the set of homotopy classes
 of maps $X\to Y$.
 \begin{defn}
+\label{stable_equivalence}
 A \term{stable equivalence} of prespectra is a map $f\colon X\to Y$ such that for all $\Omega$-prespectra $Z$, the
 induced map $[Y,Z]\to[X,Z]$ is an isomorphism.
 \end{defn}
@@ -122,7 +123,7 @@ Let $\fC$ be a topologically enriched model category and $S$ be as above.
 \end{itemize}
 \end{defn}
 The following theorem is due to many people, but Hirschhorn's formulation is particularly nice.
-\begin{thm}[Hirschhorn]
+\begin{thm}[\citeme{Hirschhorn}]
 Let $\fC$ be a cofibrantly generated, $\Top$-enriched model category. Then, the Bousfield localization $L_S\fC$
 always exists. Moreover, the weak equivalences are the $S$-local equivalences, the fibrant objects are the
 $S$-local objects, and the cofibrations are exactly those in $\fC$.
@@ -133,8 +134,9 @@ $\bl\wedge H\Q$ or $\bl\wedge H\F_p$. This is a slick way to construct the ratio
 respectively, and in particular makes the localization map functorial. Thus one obtains the rational (or
 $p$-completed) stable homotopy category.
 \end{exm}
-The stable model structure is obtained by Bousfield localization, such that the $\Omega$-prespectra are local
-objects and the stable equivalences are local equivalences.
+The stable model structure is obtained by Bousfield localization at the stable equivalences
+(Definition~\ref{stable_equivalenc}). It follows immediately that $\Omega$-prespectra are local objects and stable
+equivaiences are weak equivalences.
 \begin{prop}
 The stable model structure is stable, i.e.\ $X\to\Omega\Sigma X$ is a $\pi_*$-isomorphism.
 \end{prop}
