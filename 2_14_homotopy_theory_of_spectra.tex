@@ -3,14 +3,13 @@ $\fD$-spaces, where $\fD$ is a small topological category, and saw that the cate
 monoidal. We discussed a few examples:
 \begin{itemize}
 	\item Consider $\fD = \N$ with all maps isomorphisms, as in Example~\ref{prespectra}. There's a
-	\emph{non}commutative monoid $S\colon n\mapsto S^n$, and the category of $S$-modules in $\N$-spaces is called
-	prespectra $\Spc^\N$;\footnote{There are many different choices of notation for diagram spectra, as seen
-	in~\cite{MMSS} and \cite{MandellMay}, with various fancy decorations.} it's a monoidal category, but is
-	\emph{not} symmetric.
+	\emph{non}commutative monoid $S_\N\colon n\mapsto S^n$, and the category of $S_\N$-modules is called prespectra
+	$\Spc^\N$;\footnote{There are many different choices of notation for diagram spectra, as seen in~\cite{MMSS}
+	and \cite{MandellMay}, with various fancy decorations.} it's a monoidal category, but is \emph{not} symmetric.
 	\item In Example~\ref{orthogonal_spectra}, we considered $\fD = \sI$, the category whose objects are real
 	finite-dimensional inner product spaces and whose morphisms are the linear isometric isomorphisms. Here, the
-	monoid $S\colon V\mapsto S^V$ is commutative, and the category of $S$-modules, called orthogonal spectra
-	$\Spc^\sI$, is symmetric monoidal.
+	monoid $S_\sI\colon V\mapsto S^V$ is commutative, and the category of $S_\sI$-modules, called orthogonal
+	spectra $\Spc^\sI$, is symmetric monoidal.
 \end{itemize}
 Those are the main examples for us, but there are others:
 \begin{itemize}
@@ -158,22 +157,22 @@ sequences of homotopy groups, instead of just fiber sequences.
 
 We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top\rightleftarrows\Spc^\sI: \Omega^\infty$.
 $\Omega^\infty$ is just $\Ev_0$, evaluating at the zero space. If $F_d$ is the adjoint to $\Ev_d$ (so that
-$(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$.
+$(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$, where $S =
+S_\N$ for prespectra and $S = S_\sI$ for orthogonal spectra.
 
-% what is S? look up in MMSS
-It turns out that $S$-modules in $\fD$-spaces are themselves diagram spaces over a more complicated diagram
-$\fD_S$. This is useful because diagrams are nice, and some things become less complicated. The recipe is that
-$\fD_S$ is the category whose objects are the same as $\fD$ and whose morphisms are
+If $R$ is a monoid in $\fD$-spaces, the category of $R$-modules is equivalent to a category of diagram spaces over
+a more complicated diagram $\fD_R$. This is useful because diagrams are nice, and some things become less
+complicated. The recipe is that $\fD_R$ is the category whose objects are the same as $\fD$ and whose morphisms are
 \begin{equation}
 \label{DSmaps}
-\Map_{\fD_S}(d,e) = \Map_{\Mod_S}(F_d S^0\wedge S, F_eS^0\wedge S).
+\Map_{\fD_R}(d,e) = \Map_{\Mod_R}(F_d S^0\wedge R, F_eS^0\wedge R).
 \end{equation}
 That is, we take the suspension spectrum of the sphere shifted by $d$ and that of the sphere shifted by $e$.
 \begin{ex}
-Show that for $\fD = \N$ or $\sI$, the structure maps for spectra (i.e.\ $S$-modules) come out of~\eqref{DSmaps}.
-This is an adjunction game.
+Show that for $\fD = \N$, the structure maps for prespectra come out of~\eqref{DSmaps} for $R = S_\N$.  (This is an
+adjunction game.) The same is true for orthogonal spectra and $S_\sI$.
 \end{ex}
-This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_S$-spaces,
+This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_R$-spaces,
 $\Sigma^\infty$ is the left adjoint to evaluating at $0$.
 
 Let $X\in\Spc^\sI$, and define

@@ -142,11 +142,11 @@ ring: $M\wedge_R N$ is the coequalizer
 \begin{exm}[Prespectra]
 \label{prespectra}
 Let $\fD = \N$, with only the identity maps. This is symmetric monoidal under addition: $[m]\boxtimes [n]\coloneqq
-[m+n]$. The assignment $S\colon[n]\mapsto S^n$ is a monoid in $\N$-spaces, and the category of $S$-modules is
+[m+n]$. The assignment $S_\N\colon[n]\mapsto S^n$ is a monoid in $\N$-spaces, and the category of $S_\N$-modules is
 classically called \term{prespectra}; the monoidal structure is the identification of $S^m\wedge S^n\cong S^{m+n}$.
 
 \begin{warn}
-$S$ is \emph{not} a commutative monoid! $S^n\wedge S^m\not\cong S^m\wedge S^n$.
+$S_\N$ is \emph{not} a commutative monoid! $S^n\wedge S^m\not\cong S^m\wedge S^n$.
 \end{warn}
 This was the cause of thirty years of pain and suffering in the community --- they didn't know they were unhappy.
 People knew what the smash product should be on the homotopy category, and wanted a point-set model that's
@@ -161,10 +161,10 @@ Let $\sI$ denote the category whose objects are finite-dimensional real inner pr
 morphisms $\sI(V,W)$ are the linear isometric isomorphisms $V\to W$.
 
 In this category, $V\oplus W$ and $W\oplus V$ aren't equal, but are isomorphic, and the isomorphism between them is
-reflected in the flip between $S^n\wedge S^m$ and $S^m\wedge S^n$. In particular, the assignment $S\colon V\mapsto
-S^V$ (the one-point compactification of $V$) is a \emph{commutative} monoid, so the category of $S$-modules is a
-symmetric monoidal category, called the category of \term{orthogonal spectra}. This is the model of the stable
-category that we will use.
+reflected in the flip between $S^n\wedge S^m$ and $S^m\wedge S^n$. In particular, the assignment $S_\sI\colon
+V\mapsto S^V$ (the one-point compactification of $V$) is a \emph{commutative} monoid, so the category of
+$S_\sI$-modules is a symmetric monoidal category, called the category of \term{orthogonal spectra}. This is the
+model of the stable category that we will use.
 \end{exm}
 \begin{exm}[$\sW$-spaces]
 \label{wspaces}
