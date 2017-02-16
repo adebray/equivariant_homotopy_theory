@@ -1,0 +1,239 @@
+\begin{quote}\textit{
+	``May your first talk be more peaceful.''
+}\end{quote}
+Today, we'll discuss a model for the equivariant stable category, but first we'll say something about algebras and
+monads that went by quickly last time.
+
+Last time, we introduced two monads $\T$ and $\P$ on $\Spc^\sI$, defined as
+\[\T X\coloneqq \bigvee_{k\ge 0} X^{\wedge k}\qquad\qquad \P X\coloneqq \bigvee_{k\ge 0} X^{\wedge k}/\Sigma_k.\]
+Let's delve into this a little more.
+\begin{defn}
+A \term{monad} $M$ on a category $\fC$ is an endofunctor of $\fC$ which is a monoid in the functor category
+$\Fun(\fC,\fC)$.
+\end{defn}
+That is, there's a natural transformation $\mu\colon M^2\to M$ and a unit, and $\mu$ is associative and unital in
+that the relevant diagrams commute.
+
+There are lots of examples: we've already seen that if $G$ is a group, the assignment $X\to G\times X$ is a monad.
+More generally, algebraic structres can usually be obtained monadically.
+\begin{defn}
+Let $M$ be a monad on $\fC$. Then, the category $\fC[M]$ of \term{algebras over $M$} is the category whose objects
+are pairs $X\in\fC$ and structure maps $m\colon MX\to X$ satisfying associativity and unitality for $M$, and whose
+morphisms are the $\fC$-morphisms that are compatible with the structure maps.
+\end{defn}
+The associativity diagram, for example, is
+\[\xymatrix{
+	M^2X\ar[r]^m\ar[d]^\mu & MX\ar[d]^m\\
+	MX\ar[r]^m & X.
+}\]
+We require this to commute.
+
+Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and simiarly for
+abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
+adjunctions: an adjunction $F:\fC\rightleftarrows\fD: G$ defines a monad $GF$, with the structure map defined by
+the unit map $G(FG)F\to GF$. Many monads arise in this way.
+
+There is always a free-forgetful adjunction $F\colon \fC\rightleftarrows \fC[M]: U$, which has to do with the
+Barr-Beck theorem. Suppose $\fC$ is a model category. We'd like to lift this to a model structure on $\fC[M]$ ---
+when does $\fC[M]$ have a model structure where the weak equivalences are determined by the forgetful functor
+$U$?\footnote{This is not how we defined the model structure on $G$-spaces, but we'll use it to define model
+structures on rings and module spectra.} There are two issues.
+\begin{enumerate}
+	\item\label{caveat1} Since $\fC$ is complete, so is $\fC[M]$: the arrows point the right way. But it's not
+	always cocomplete.
+	\item How do we define the model structure?
+\end{enumerate}
+In order for $\fC[M]$ to be cocomplete, we'll use a criterion about preserving certain colimits. Since monads tend
+to arise from adjunctions, the criterion definitely won't be true in general! There are seventeen versions of this
+criterion in Mac Lane, but we'll only need one, following Hopkins and McClure.
+\begin{defn}
+Let $f,g\colon X\rightrightarrows Y$ be two maps. A \term{reflexive coequalizer} is a coequalizer for $f$ and $g$
+together with a simultaneous section $s\colon Y\to X$ for both $f$ and $g$.
+\end{defn}
+\begin{ex}
+Prove that if $M$ preserves reflexive coequalizers, then $\fC[M]$ is cocomplete. (This is hard, but worthwhile.)
+\end{ex}
+\begin{prop}[Hopkins-McClure]
+Under very mild hypotheses, $\T$ and $\P$ preserve reflexive coequalizers.
+\end{prop}
+See~\cite{EKMM} for a proof. $\Spc^\sI$ satisfies these hypotheses, so we've addressewd caveat~\eqref{caveat1}.
+\begin{thm}[\citeme{Schwede-Shipley}]
+Under mild hypotheses, $\fC[M]$ inherits a model structure from $\fC$, where the fibrations are detected by $U$,
+and the generating cofibrations are $M$ applied to the generating cofibrations of $\fC$.
+\end{thm}
+This is a very general theorem; the hard step is constructing a nice enough filtration on pushouts.
+\begin{warn}
+These hypotheses are met for the associative monad $\T$, but are \emph{not} met by the commutative monad $\P$!
+This is another formulation of Lewis' paradox: for commutative ring spectra, you have to change the underlying
+homotopy theory.
+\end{warn}
+\begin{rem}
+You might be used to thinking of these as the associative and commutative operads. Every operad determines a monad,
+and the operadic algebras become monadic algebras, but for $\P$ and $\T$, the explicit form of the monad makes it
+easier to analyze from the monadic viewpoint.
+\end{rem}
+Returning to diagram spectra, we've been putting a huge emphasis on strict symmetric monoidal structures, not just
+in the homotopy category. This is useful because it lets you do algebra: if $R$ is a ring in the homotopy category,
+it's very hard to control the category of modules, e.g.\ the cofiber of a map of modules may not even be a module,
+the cyclic bar construction isn't a simplicial object, etc. Some people have tried to use operads to fix this, and
+this is extremely hard: operadic ring spectra are fine, but their modules are not. In a sense, Lurie's
+$\infty$-categorical machinery is designed to do this in a more modern way.
+
+A lot of modern homotopy theory has been importing algebraic constructions about rings into homotopy theory,
+replacing tensor products with smash products. This has been very useful, yet can be hard, and everything is much
+more tractable with a point-set symmetric monoidal structure.
+\subsection*{$G$-spectra.}
+In this context, we must talk about universes, making choices of which orbits $G/H$ are dualizable. This is closely
+related to choosing representations $V$ such that $G/H\inj V$ equivariantly.
+\begin{defn}
+A \term{universe} is a countably infinite-dimensional real inner product space with a $G$-action through
+isometries. There is some collection $R$ of irreducible representations such that $U$ contains countably many
+copies of each irreducible in $R$, and $R$ always has all of the trivial representations.\footnote{Ideally, $U$
+should not contain other representations. Sometimes people are vague about this, where there may be other
+representations and you ignore them, but it's better to just not have them.}
+\end{defn}
+Sometimes we'll ask for more structure, such as $R$ being closed under tensor products. The inclusion of the
+trivial representation is what makes this a strict generalization of ordinary stable homotopy theory: for example,
+if $U = \R^\infty$ with the trivial $G$-action, the homotopy groups are the nonequivariant homotopy
+groups.\footnote{More explicitly, this is a stabilization of the category of presheaves on $BG$. Depending on your
+definitions, this is more or less a tautology --- stabilization in $\infty$-categories is defined by taking
+spectrum objects.} Another common choice of $U$ is a \term{complete universe}, containing all irreducible
+representations infinitely often, so all orbits are dualizable.
+
+$G$-prespectra were defined classically in a manner similar to prespectra. They mix point-set and homotopical data,
+which is a little odd.
+\begin{comp}{defn}{itemize}
+	\item A \term{$G$-prespectrum} $X$ is the data of a $G$-space $X(V)$ for every finite-dimensional subspace
+	$V\subset U$ and $G$-maps $S^W\wedge X(V)\to X(V\oplus W)$ for each pair $V$ and $W$, such that the structure
+	maps are associative.
+	\item A $G$-prespectrum is an \term{$\Omega$-prespectrum} if for all $V$ and $W$, the adjoint to the structure
+	map is a homeomorphism: $X(V)\congto\Omega^W X(V\oplus W)$.
+	\item The \term{homotopy groups} of a $G$-prespectrum are
+	\begin{align*}
+		\pi_q^H(X) &\coloneqq \colim_V \pi_q^H \Omega^V X(V)\\
+		\pi_{-q}^H(X) &\coloneqq \colim_{\substack{V\supset\R^m\\m > 0}} \pi_0^H\Omega^{V - \R^m}X(V).
+	\end{align*}
+	Here, $q\ge 0$, and $\R^m$ denotes the trivial representation of dimension $m$, which we specified to be in $U$.
+\end{comp}
+\begin{prop}
+There is a model structure on $G$-prespectra where the weak equivalences are the stable equivalences (equivalently,
+$\pi_*$-isomorphisms).
+\end{prop}
+The proof is identical to the nonequivariant case. One cool aspect of this is that homotopy groups are determined
+by trivial representations, and we'll see for orthogonal $G$-spectra, this is also true at the point-set level.
+It's nice to not have to carry around the entire universe, just the trivial representations.
+\begin{defn}
+The \term{equivariant stable category} (\term{structured by $U$}) is the homotopy category of $G$-prespectra.
+\end{defn}
+This is the category in which we have Poincaré duality for the orbits $G/H$ that embed in $U$. The functors
+$\Sigma^V\coloneqq S^V\wedge\bl$ and $\Omega^V\coloneqq\Map(S^V,\bl)$ are inverse equivalences.
+
+There's an equivariant triangulated structure on the homotopy theory; this hasn't been written down, because it's
+messy and not super useful. The idea is that a cofiber sequence induces a long exact sequence of equivariant
+homotopy groups, where the shift is any choice of $\Sigma^V$.
+\subsection*{Orthogonal $G$-spectra.}
+Let's build a point-set model of the equivariant stable category. Let $V$ and $V'$ be finite-dimensional
+irreducible $G$-representations (by which we mean finite-dimensional subspaces of $U$), and let $I_G(V,V')$ be the
+linear, $G$-equivariant isometries.\footnote{Unlike the nonequivariant case, we're not taking isometric
+isomorphisms, so maps in $I_G(V,V')$ must be injective, but may have nontrivial cokernel.}
+\begin{defn}
+The \term{complement bundle} $E(V,V')$ is the subbundle of the product bundle $I_G(V,V')\times V'$ consisting of
+pairs $(f,x)$ such that $x\in V' - f(V)$. Let $\wI_G(V,V')$ denote the Thom space of this bundle.
+\end{defn}
+We're trying to create spheres: $\wI_G(V,V')$ should topologize $S^{V' - f(V)}$. For example, if $V\subset V'$,
+this is isomorphic to $\O(V')\wedge_{\O(V'-V)} S^{V' - V}$.\footnote{Here, $V' - V$ denotes orthogonal
+complement.}
+
+Let $\wI_G$ denote the category whose objects are finite-dimensional subspaces $V$ of $U$ and whose morphisms are
+$\wI_G(V,V')$.
+\begin{defn}
+An \term{orthogonal $G$-spectrum} is an enriched functor $\sI_G\to G\Top$. The category of orthogonal $G$-spectra
+is denoted $\Spc^G$, or $\Spc^G_U$ if the universe needs to be explicit.
+\end{defn}
+For the nonequivariant case, we defined $\fD$-spaces and spectra to be modules over a certain monoid in them, and
+then showed that you could think of them as diagram spaces for a more complicated diagram. Here, we've done this
+all at once --- it's simpler to define $\wI_G$ than find a module in a simpler category of diagram spaces.
+
+There is a forgetful functor $U$ from $\Spc^G$ to the category of $G$-prespectra; we define a map $f$ in $\Spc^G$
+to be a \term{$\pi_*$-isomorphism} if $Uf$ is a $\pi_*$-isomorphism. $\Spc^G$ is symmetric monoidal under Day
+convolution, just as before.
+\begin{thm}
+$\Spc^C$ has a stable model structure in which the weak equivalences are $\pi_*$-isomorphisms, the fibrations are
+levelwise fibrations, and the generating cofibrations are
+\[F_V\paren{(G/H\times S^{n-1})_+\longrightarrow (G/H\times D^n)_+}.\]
+\end{thm}
+Here, $F_V$ is adjoint to evaluation at $V$, as before.
+
+Moreover, the smash product is compatible with the model structure. If $X$ is cofibrant, then $X\wedge Y$ computes
+Tor $X\wedge^\LD Y$. Another way to say this is that if $X$ is cofibrant, $X\wedge\bl$ preserves weak equivalences.
+The proof is where cofibrantly generated model categories: $X\wedge\bl$ is a colimit, so it commutes with colimits,
+and cofibrant objects are retracts of cell complexes, so you can reduce to the case where $X$ is a single cell,
+which admits a direct proof. Once again the stable homotopy category behaves like homological algebra.
+\subsection*{Functors on $\Spc^G$.}
+Let $H\subset G$ be a subgroup, so restriction defines a functor $i_H\colon \Spc^G\to\Spc^H$. Just as for
+$G$-spaces, $i_H$ has a left adjoint $G_+\wedge_H\bl$ and a right adjoint $F_H(G_+,\bl)$, and these are constructed
+space-wise.
+\begin{prop}
+$G_+\wedge_H\bl$ and $F_H(G_+,\bl)$ are left (resp.\ right) Quillen functors.
+\end{prop}
+\begin{rem}
+You might worry what universe you end up in after applying $i_H$ --- naïvely you get the $H$-representations that
+arise from restriction of $G$-representations, but you might want all $H$-representations. The way to address this
+is to use a change-of-universe functor, which we'll mention shortly. This is a good thing to not be sloppy about,
+but is annoying, and is why people try to get the universe out of the point-set category. In any case, as in group
+cohomology, induction and coinduction are isomorphic through the \term{Wirthmüller isomorphism}.
+\end{rem}
+One thing that's nice to do with $G$-spectra is take fixed points. There are \emph{three} different ways to do
+this, namely homotopy fixed points, categorical fixed points, and geometric fixed points, and keeping them separate
+in your head is important.
+
+$\Spc^G$ is a \emph{closed} symmetric monoidal category, meaning it has internal function objects. This is true for
+$\fD$-spaces in general, with internal function objects
+\[F_\fD(X,Y)(n) \coloneqq F(X, Y(n)).\]
+This is exactly like the mapping complex of two chain complexes: you're looking at chain maps from $X$ to shifts of
+$Y$.
+
+$\Spc^G$ is tensored and cotensored over $G$-spaces, meaning we can smash $G$-spectra with $G$-spaces, and take
+function objects from $G$-spaces to $G$-spectra: if $A$ is a $G$-space, tensoring with $A$ is $A_+\wedge\bl$
+applied levelwise, and cotensoring with $A$ is $F(A_+,\bl)$ applied levelwise.
+\begin{comp}{defn}{itemize}
+	\item The \term{homotopy fixed points} is the functor $X\mapsto F(EG_+, X)^G$. (Here, $EG_+$ is a $G$-space, so
+	we're using the cotensor of $G$-spaces and $G$-spectra.)
+	\item The \term{categorical fixed points} is the functor $(\bl)^H\colon X\mapsto F(G/H_+, X)$. As the notation
+	suggests, this is analogous to $(\bl)^H$ on $G$-spaces.
+\end{comp}
+\begin{warn}
+You might hope that $(\Sigma^\infty A_+)^H = \Sigma^\infty A_+^H$, so that fixed points of spaces lead to fixed
+points of spectra, but this is \emph{not} true. It has a more complicated description called \term{tom Dieck
+splitting} as a wedge of other pieces.
+\end{warn}
+\begin{defn}
+The \term{geometric fixed points}, denoted $\Phi^H$ or also $X^{gH}$, is the unique functor
+such that
+\begin{enumerate}
+	\item it's (derived) symmetric monoidal: if $X$ and $Y$ are cofibrant,
+	$\Phi^H(X)\wedge\Phi^H(Y)\congto\Phi^H(X\wedge Y)$.
+	\item $\Phi^H$ preserves homotopy colimits.
+	\item $\Phi^H\Sigma^\infty X \cong \Sigma^\infty X^H$.
+\end{enumerate}
+\end{defn}
+Of course, uniqueness (up to a contractible space of choices) is a theorem, but it's true. We'll also give a
+preferred construction.
+
+We'll prove that categorical and geometric fixed points detect weak equivalences.
+\begin{comp}{thm}{enumerate}
+	\item A map $X\to Y$ in $\Spc^G$ is a weak equivalence iff $X^H\to Y^H$ is a weak equivalence for all subgroups
+	$H\subset G$.
+	\item A map $X\to Y$ in $\Spc^G$ is a weak equivalence iff $\Phi^H X\to \Phi^H Y$ is a weak equivalence for all
+	subgroups $H\subset G$.
+\end{comp}
+
+This leads one to consider diagrams on categorical or geometric fixed points: because of this perspective, one can
+define Tate spectra using this philosophy, and this is particularly useful when applied to $S^1$-spectra. It was
+originally developed by John Greenlees, and has recently been repopularized and is being mined for applications,
+such as Nikolaus-Scholze's description of topological cyclic homology.
+
+We're going to try to understand the equivariant stable category from a few other perspectives: the Wirthmüller
+isomorphism is an analogue of the isomorphism between finite products and coproducts in spectra, and we'll also
+learn more about tom Dieck splitting. You can also ask how the transfer maps we talked about
+characterize the equivariant stable category.
