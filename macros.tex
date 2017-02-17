@@ -55,6 +55,33 @@ Sulyma for adding some remarks and references.}
 \newcommand{\twomorph}{\mathop{\Longrightarrow}\limits}
 
 % fancy diagram shortcuts
+
+% \lon = co\colon --- used in the inline version of \adjnctn, just being OCD about kerning
+\newcommand*\lon{%
+        \nobreak
+        \mskip6mu plus1mu
+        \mathpunct{}%
+        \nonscript
+        \mkern-\thinmuskip
+        {:}%
+        \mskip2mu
+        \relax
+}
+
+% smart adjunction macro --- displays differently in inline vs display mode
+\newcommand{\adjnctn}[4]{
+  \mathchoice{
+    \xymatrix@1{
+      #1 \ar@<1ex>[r]^-{#3} \ar@{}[r]|-{\bot} & #2 \ar@<1ex>[l]^-{#4}
+    }
+  }{
+    \xymatrix@1@C=2em{
+      \rule[-1ex]{0pt}{3.5ex}
+      #3 \colon #1 \ar@<1ex>[r] \ar@{}[r]|-{\bot} & #2 \lon #4 \ar@<1ex>[l]
+    }
+  }{}{}
+}
+
 % double adjunction
 \newcommand{\dadjnctn}[6][2em]{
   \xymatrix@1@C=#1{
