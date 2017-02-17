@@ -56,7 +56,7 @@ Prove that if $M$ preserves reflexive coequalizers, then $\fC[M]$ is cocomplete.
 \begin{prop}[Hopkins-McClure]
 Under very mild hypotheses, $\T$ and $\P$ preserve reflexive coequalizers.
 \end{prop}
-See~\cite{EKMM} for a proof. $\Spc^\sI$ satisfies these hypotheses, so we've addressewd caveat~\eqref{caveat1}.
+See~\cite{EKMM} for a proof. $\Spc^\sI$ satisfies these hypotheses, so we've addressed caveat~\eqref{caveat1}.
 \begin{thm}[\citeme{Schwede-Shipley}]
 Under mild hypotheses, $\fC[M]$ inherits a model structure from $\fC$, where the fibrations are detected by $U$,
 and the generating cofibrations are $M$ applied to the generating cofibrations of $\fC$.
@@ -72,12 +72,12 @@ You might be used to thinking of these as the associative and commutative operad
 and the operadic algebras become monadic algebras, but for $\P$ and $\T$, the explicit form of the monad makes it
 easier to analyze from the monadic viewpoint.
 \end{rem}
-Returning to diagram spectra, we've been putting a huge emphasis on strict symmetric monoidal structures, not just
-in the homotopy category. This is useful because it lets you do algebra: if $R$ is a ring in the homotopy category,
-it's very hard to control the category of modules, e.g.\ the cofiber of a map of modules may not even be a module,
-the cyclic bar construction isn't a simplicial object, etc. Some people have tried to use operads to fix this, and
-this is extremely hard: operadic ring spectra are fine, but their modules are not. In a sense, Lurie's
-$\infty$-categorical machinery is designed to do this in a more modern way.
+Returning to diagram spectra, we've been putting a huge emphasis on strict symmetric monoidal structures, rather
+than just commutativity in the homotopy category. This is useful because it lets you do algebra: if $R$ is a ring
+in the homotopy category, it's very hard to control the category of modules, e.g.\ the cofiber of a map of modules
+may not even be a module, the cyclic bar construction isn't a simplicial object, etc. Some people have tried to use
+operads to fix this, and this is extremely hard: operadic ring spectra are fine, but their modules are not. In a
+sense, Lurie's $\infty$-categorical machinery is designed to do this in a more modern way.
 
 A lot of modern homotopy theory has been importing algebraic constructions about rings into homotopy theory,
 replacing tensor products with smash products. This has been very useful, yet can be hard, and everything is much
@@ -113,15 +113,16 @@ which is a little odd.
 		\pi_q^H(X) &\coloneqq \colim_V \pi_q^H \Omega^V X(V)\\
 		\pi_{-q}^H(X) &\coloneqq \colim_{\substack{V\supset\R^m\\m > 0}} \pi_0^H\Omega^{V - \R^m}X(V).
 	\end{align*}
-	Here, $q\ge 0$, and $\R^m$ denotes the trivial representation of dimension $m$, which we specified to be in $U$.
+	Here $q\ge 0$, $\R^m$ denotes the trivial representation of dimension $m$, which we specified was in $U$, and
+	$V - \R^n$ denotes the orthogonal complement.
 \end{comp}
 \begin{prop}
 There is a model structure on $G$-prespectra where the weak equivalences are the stable equivalences (equivalently,
 $\pi_*$-isomorphisms).
 \end{prop}
 The proof is identical to the nonequivariant case. One cool aspect of this is that homotopy groups are determined
-by trivial representations, and we'll see for orthogonal $G$-spectra, this is also true at the point-set level.
-It's nice to not have to carry around the entire universe, just the trivial representations.
+by trivial representations, and we'll see that for orthogonal $G$-spectra, this is also true at the point-set
+level. It's nice to not have to carry around the entire universe, just the trivial representations.
 \begin{defn}
 The \term{equivariant stable category} (\term{structured by $U$}) is the homotopy category of $G$-prespectra.
 \end{defn}
@@ -141,14 +142,13 @@ The \term{complement bundle} $E(V,V')$ is the subbundle of the product bundle $I
 pairs $(f,x)$ such that $x\in V' - f(V)$. Let $\wI_G(V,V')$ denote the Thom space of this bundle.
 \end{defn}
 We're trying to create spheres: $\wI_G(V,V')$ should topologize $S^{V' - f(V)}$. For example, if $V\subset V'$,
-this is isomorphic to $\O(V')\wedge_{\O(V'-V)} S^{V' - V}$.\footnote{Here, $V' - V$ denotes orthogonal
-complement.}
+this is isomorphic to $\O(V')\wedge_{\O(V'-V)} S^{V' - V}$.
 
 Let $\wI_G$ denote the category whose objects are finite-dimensional subspaces $V$ of $U$ and whose morphisms are
 $\wI_G(V,V')$.
 \begin{defn}
-An \term{orthogonal $G$-spectrum} is an enriched functor $\sI_G\to G\Top$. The category of orthogonal $G$-spectra
-is denoted $\Spc^G$, or $\Spc^G_U$ if the universe needs to be explicit.
+An \term{orthogonal $G$-spectrum} is a $\Top$-enriched functor $\wI_G\to G\Top$. The category of orthogonal
+$G$-spectra is denoted $\Spc^G$, or $\Spc^G_U$ if the universe needs to be explicit.
 \end{defn}
 For the nonequivariant case, we defined $\fD$-spaces and spectra to be modules over a certain monoid in them, and
 then showed that you could think of them as diagram spaces for a more complicated diagram. Here, we've done this
@@ -158,7 +158,7 @@ There is a forgetful functor $U$ from $\Spc^G$ to the category of $G$-prespectra
 to be a \term{$\pi_*$-isomorphism} if $Uf$ is a $\pi_*$-isomorphism. $\Spc^G$ is symmetric monoidal under Day
 convolution, just as before.
 \begin{thm}
-$\Spc^C$ has a stable model structure in which the weak equivalences are $\pi_*$-isomorphisms, the fibrations are
+$\Spc^G$ has a stable model structure in which the weak equivalences are $\pi_*$-isomorphisms, the fibrations are
 levelwise fibrations, and the generating cofibrations are
 \[F_V\paren{(G/H\times S^{n-1})_+\longrightarrow (G/H\times D^n)_+}.\]
 \end{thm}
