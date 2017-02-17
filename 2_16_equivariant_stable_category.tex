@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 \begin{quote}\textit{
 	``May your first talk be more peaceful.''
 }\end{quote}
@@ -15,7 +16,7 @@ That is, there's a natural transformation $\mu\colon M^2\to M$ and a unit, and $
 that the relevant diagrams commute.
 
 There are lots of examples: we've already seen that if $G$ is a group, the assignment $X\to G\times X$ is a monad.
-More generally, algebraic structres can usually be obtained monadically.
+More generally, algebraic structures can usually be obtained monadically.
 \begin{defn}
 Let $M$ be a monad on $\fC$. Then, the category $\fC[M]$ of \term{algebras over $M$} is the category whose objects
 are pairs $X\in\fC$ and structure maps $m\colon MX\to X$ satisfying associativity and unitality for $M$, and whose
@@ -28,7 +29,7 @@ The associativity diagram, for example, is
 }\]
 We require this to commute.
 
-Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and simiarly for
+Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and similarly for
 abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
 adjunctions: an adjunction $F:\fC\rightleftarrows\fD: G$ defines a monad $GF$, with the structure map defined by
 the unit map $G(FG)F\to GF$. Many monads arise in this way.
