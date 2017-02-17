@@ -17,7 +17,7 @@ Those are the main examples for us, but there are others:
 	\item When $\fD$ is the category of finite, based sets and based maps, as in Example~\ref{gamma_spaces}, we
 	recover Segal's $\Gamma$-spaces.
 \end{itemize}
-Because these diagram categories are presheaves on nice categories, they inherit some good properties from $\Top$;
+Because these diagram categories are presheaves on nice categories, they inherit some good properties from $\Top_*$;
 in particular, they are complete and cocomplete, and limits and colimits may be taken pointwise. This is also true
 for categories of modules over monoids in $\fD$-spaces, though it requires more work to prove: computing colimits
 is a bit harder, just like how the free product of groups is more complicated than the direct prodict. Categories
@@ -37,10 +37,10 @@ equivalences are the level equivalences and the fibrations are level fibrations.
 cofibrantly generated.
 \end{thm}
 \begin{ex}
-Starting with the usual model structure on $\Top$, construct the level model structure.
+Starting with the usual model structure on $\Top_*$, construct the level model structure.
 \end{ex}
 The ``cofibrantly generated'' part means that cofibrant objects behave like CW complexes, and in particular there
-is a theory of cellular objects. If $F_d\colon\Top\to\Fun(\fD,\Top)$ is the left adjoint to $\Ev_d$ we constructed
+is a theory of cellular objects. If $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ is the left adjoint to $\Ev_d$ we constructed
 last time, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$, and
 the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$.
 
@@ -157,7 +157,7 @@ cofiber) into a fiber sequence $Ff\to X\to Y$.\footnote{{\color{red}TODO}: I thi
 Another sense in which the stable category is stable is that both fiber and cofiber sequences induce long exact
 sequences of homotopy groups, instead of just fiber sequences.
 
-We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top\rightleftarrows\Spc^\sI: \Omega^\infty$.
+We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top_*\rightleftarrows\Spc^\sI: \Omega^\infty$.
 $\Omega^\infty$ is just $\Ev_0$, evaluating at the zero space. If $F_d$ is the adjoint to $\Ev_d$ (so that
 $(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$, where $S =
 S_\N$ for prespectra and $S = S_\sI$ for orthogonal spectra.
