@@ -40,9 +40,10 @@ cofibrantly generated.
 Starting with the usual model structure on $\Top_*$, construct the level model structure.
 \end{ex}
 The ``cofibrantly generated'' part means that cofibrant objects behave like CW complexes, and in particular there
-is a theory of cellular objects. If $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ is the left adjoint to $\Ev_d$ we constructed
-last time, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$, and
-the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$.
+is a theory of cellular objects. If $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ is the left adjoint to $\Ev_d$ we
+constructed last time, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each
+$n\ge 1$ and $d\in\fD$, and the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$
+and $d\in\fD$.
 
 Since all spaces are fibrant, all $\fD$-spaces are fibrant in the level model structure. The cofibrant objects are
 the retracts of \term{cellular objects}, which are built by iterated pullbacks
@@ -123,7 +124,7 @@ Let $\fC$ be a topologically enriched model category and $S$ be as above.
 \end{itemize}
 \end{defn}
 The following theorem is due to many people, but Hirschhorn's formulation is particularly nice.
-\begin{thm}[\citeme{Hirschhorn}]
+\begin{thm}[\cite{Hirschhorn}]
 Let $\fC$ be a cofibrantly generated, $\Top$-enriched model category. Then, the Bousfield localization $L_S\fC$
 always exists. Moreover, the weak equivalences are the $S$-local equivalences, the fibrant objects are the
 $S$-local objects, and the cofibrations are exactly those in $\fC$.

@@ -6,7 +6,7 @@ Recall that if $M$ is a $G$-manifold, we can equivariantly embed it in a finite-
 $V$, so that we obtain a sequence of maps $S^V\to T\!\nu\to T(\nu\oplus\tau)\cong S^V\wedge M_+ = \Sigma^V M_+$.
 (Here $\nu$ is the normal bundle of $M$ and $\tau$ is the tangent bundle.) Thinking of this as a transfer $M\to *$,
 we'd like to do something similar for $G/H$. Namely, if $K\subset H$ are subgroups of $G$, we'd like to define a
-transfer map $G/H\to G/K$, a stable map (i.e.\ one that lives in $\colim\Map(\Sigma^V G/H, \Sigma^V G/K)$). This
+transfer map $G/K\to G/H$, a stable map (i.e.\ one that lives in $\colim\Map(\Sigma^V G/H, \Sigma^V G/K)$). This
 will be a ``wrong-way'' map.
 
 Applying $G\times_H\bl$ to $H/K\to *$, we get a map $G/K\to G/H$. The transfer for $G/K\to G/H$ is via the transfer
@@ -74,7 +74,7 @@ $H$-module by restricting. Induction is left adjoint to the restriction functor 
 adjunction is a map $\eta\colon\Ind_H^G i_H^*M\to M$. In particular, $H^*(H;M)\cong H^*(G;\Ind_H^G
 M)\stackrel\eta\to H^*(G;M)$, and this is the desired transfer map.
 
-As group cohomology $H^*G;M)$ is the cohomology of $BG$ in the local system defined by $M$, you could ask whether
+As group cohomology $H^*(G;M)$ is the cohomology of $BG$ in the local system defined by $M$, you could ask whether
 the transfer map is induced from a map $BG\to BH$ (in $\Top$). This is true, and the map is a
 fibration.\footnote{If you don't restrict to finite subgroups, this is not quite true: if $H\subset G$ is a
 subgroup of infinite index, the map in question only exists on the spectrum level.}
@@ -119,7 +119,7 @@ This is our symmetric monoidal product $F\wedge G$. More explicitly,
 								&\coloneqq \int^{x, y\in \fD} F(x) \wedge G(y) \wedge \fD(x\boxtimes y, z).
 \end{align*}
 This looks like the usual convolution, and the analogy with harmonic analysis can be taken further, e.g.\ in an
-unpublished paper of Isaacson-Behrens.
+unpublished paper of Isaksen-Behrens.
 
 For any $d\in\fD$, there's an \term{evaluation} functor $\Ev_d\colon\Fun(\fD,\Top_*)\to\Top_*$ sending $X\mapsto
 X(d)$. It's adjoint to $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ defined by
