@@ -44,6 +44,7 @@ corresponding to the homotopy type of $X$.
 The suspension spectrum of $S^0$ is the sphere spectrum $S_\N$ or $S_\sI$.
 \end{exm}
 \begin{exm}[Eilenberg-Mac Lane spectra]
+\label{orthogonal_HA}
 If $A$ is an abelian group, the \term{Eilenberg-Mac Lane spectrum} $HA$ is the spectrum that represents cohomology
 with coefficients in $A$. If in addition $A$ is a commutative ring, $HA$ is a commutative monoid in spectra, which
 defines the ring structure on $A$-cohomology.
@@ -60,7 +61,10 @@ defines the ring structure on $A$-cohomology.
 	(a_1,\dotsc,a_k,x_1,\dotsc,x_k) \mapsto\sum_{j=1}^k a_j\cdot x_j.\]
 	This is a model for $K(A,\dim V)$, but has an $\O(V)$-action induced from the $\O(V)$-action on $S^V$. The
 	structure map $S^V\wedge A[S^W]\to A[S^{V\oplus W}]$ sends
-	\[v\wedge\paren*[\Bigg]{\sum_j a_j\cdot w_j}\mapsto \sum_j a_j\cdot (v\wedge w_j),\]
+	\begin{equation}
+	\label{orth_HA_structure_map}
+	v\wedge\paren*[\Bigg]{\sum_j a_j\cdot w_j}\mapsto \sum_j a_j\cdot (v\wedge w_j),
+	\end{equation}
 	and this is $\O(V)\times\O(W)$-equivariant, so defines an orthogonal spectrum. If $A$ is a commutative ring,
 	the ring specturm structure on $HA$ is defined by the multiplication maps $\mu\colon A[S^V]\wedge A[S^W]\to
 	A[S^{V\oplus W}]$ sending

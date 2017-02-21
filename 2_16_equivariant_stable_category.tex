@@ -155,6 +155,19 @@ $G$-spectra is denoted $\Spc^G$, or $\Spc^G_U$ if the universe needs to be expli
 For the nonequivariant case, we defined $\fD$-spaces and spectra to be modules over a certain monoid in them, and
 then showed that you could think of them as diagram spaces for a more complicated diagram. Here, we've done this
 all at once --- it's simpler to define $\wI_G$ than find a module in a simpler category of diagram spaces.
+\begin{exm}[Equivariant Eilenberg-Mac Lane spectra]
+Let $G$ be finite and $M$ be a countable $\Z[G]$-module (equivalently an abelian group with an action of $G$).
+Following Example~\ref{orthogonal_HA}, we can define an \term{equivariant Eilenberg-Mac Lane spectrum} $HM$ to be
+the orthogonal $G$-spectrum that assigns to a representation $V$ the $M$-linearization $HM(V)\coloneqq M[S^V]$.
+Here, the orthogonal group acts through its action on $S^V$, and $G$ acts on both $M$ and $S^V$ from the right. The
+structure map $S^V\wedge M[S^W]\to M[S^{V\oplus W}]$ is as in~\eqref{orth_HA_structure_map}.
+
+If $M$ is also a $\Z[G]$-algebra, then $HM$ is an orthogonal $G$-ring spectrum through the multiplication map
+$\mu\colon M[S^V]\wedge M[S^W]\to M[S^{V\oplus W}]$ defined by
+\[\paren{\sum_i m_i\cdot v_i}\wedge\paren*[\Bigg]{\sum_j m_j'\cdot w_j} \mapsto \sum_{i,j} (m_im_j')\cdot
+(v_i\wedge w_j).\]
+This example is discussed further in~\cite[Example 2.13]{SchwedeEquivariant}.
+\end{exm}
 
 There is a forgetful functor $U$ from $\Spc^G$ to the category of $G$-prespectra; we define a map $f$ in $\Spc^G$
 to be a \term{$\pi_*$-isomorphism} if $Uf$ is a $\pi_*$-isomorphism. $\Spc^G$ is symmetric monoidal under Day
