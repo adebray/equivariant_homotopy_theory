@@ -22,6 +22,58 @@ in particular, they are complete and cocomplete, and limits and colimits may be 
 for categories of modules over monoids in $\fD$-spaces, though it requires more work to prove: computing colimits
 is a bit harder, just like how the free product of groups is more complicated than the direct prodict. Categories
 of rings are \emph{not} bicomplete, though.
+
+We'll use prespectra and orthogonal spectra to define Quillen equivalent models for the stable homotopy category.
+As such, familiar constructions from stable homotopy theory can be constructed as prespectra and orthogonal
+spectra.
+\begin{exm}[Suspension spectra]
+Let $X\in\Top$. The \term{suspension spectrum} of $X$, denoted $\Sigma^\infty X$, is the stable homotopy type
+corresponding to the homotopy type of $X$.
+\begin{itemize}
+	\item In prespectra, the suspension spectrum of $X$ is $\Sigma^\infty X\colon [n]\mapsto S^n\wedge X$. The
+	$S_\N$-module structure is the data of the structure maps $S^m\wedge (S^n\wedge X)\to S^{m+n}\wedge X$.
+	\item To define an orthogonal spectrum $E$, one must define for each finite-dimensional real inner product
+	space $V$ a pointed space $E(V)$ with an $\O(V)$-action and for each pair of such inner product spaces $V$ and
+	$W$, a structure map $S^V\wedge E(W)\to E(V\oplus W)$ that's $\O(V)\times\O(W)$-equivariant.
+
+	Wanting to do this for every space forces our hand: we have to use the trivial action. The suspension spectrum
+	of $X$ sends $V\mapsto S^V\wedge X$, where the $\O(V)$-action is the usual action in the first component and
+	the trivial action in the second component. The structure maps $S^V\wedge S^W\wedge X\to S^{V\oplus W}\wedge X$
+	are $\O(V)\times\O(W)$-equivariant, as desired.
+\end{itemize}
+The suspension spectrum of $S^0$ is the sphere spectrum $S_\N$ or $S_\sI$.
+\end{exm}
+\begin{exm}[Eilenberg-Mac Lane spectra]
+If $A$ is an abelian group, the \term{Eilenberg-Mac Lane spectrum} $HA$ is the spectrum that represents cohomology
+with coefficients in $A$. If in addition $A$ is a commutative ring, $HA$ is a commutative monoid in spectra, which
+defines the ring structure on $A$-cohomology.
+\begin{itemize}
+	\item There is an identification $K(A,n)\congto\Omega K(A, n+1)$; let $i_n\colon\Sigma K(A,n)\to K(A,n+1)$ be
+	its adjoint. As an $\N$-space, $HA\colon [n]\mapsto K(A,n)$; the map $i_n$ makes it into a prespectrum. If $A$
+	is also a commutative ring, one obtains maps $K(A,m)\wedge K(A,n)\to K(A,m+n)$, and these satisfy the axioms to
+	ensure that $HA$ is a commutative ring spectrum.
+	\item For orthogonal spectra, the construction is more complicated, since we must choose a model for $K(A,n)$
+	with an $\O_n$-action on it. In particular, we must assume $A$ is countable. Given an inner product space $V$,
+	the \term{$A$-linearization} $A[S^V]$ of $S^V$ is, as a set, $A$ tensored with the reduced free abelian group
+	on $K$ (so the basepoint maps to zero), topologized as the quotient
+	\[\qquad\qquad\qquad\coprod_{k=0}^\infty A^k\times (S^V)^k\surj A[S^V],\qquad\qquad
+	(a_1,\dotsc,a_k,x_1,\dotsc,x_k) \mapsto\sum_{j=1}^k a_j\cdot x_j.\]
+	This is a model for $K(A,\dim V)$, but has an $\O(V)$-action induced from the $\O(V)$-action on $S^V$. The
+	structure map $S^V\wedge A[S^W]\to A[S^{V\oplus W}]$ sends
+	\[v\wedge\paren*[\Bigg]{\sum_j a_j\cdot w_j}\mapsto \sum_j a_j\cdot (v\wedge w_j),\]
+	and this is $\O(V)\times\O(W)$-equivariant, so defines an orthogonal spectrum. If $A$ is a commutative ring,
+	the ring specturm structure on $HA$ is defined by the multiplication maps $\mu\colon A[S^V]\wedge A[S^W]\to
+	A[S^{V\oplus W}]$ sending
+	\[\mu\colon\paren{\sum_i a_ix_i}, \paren*[\Bigg]{\sum_j b_j y_j} \mapsto \sum_{i,j} (a_ib_j)(x_i\wedge y_j),\]
+	and the unit maps $e\colon S^V\to A[S^V]$ send $x\mapsto 1\cdot x$. This construction is discussed in more
+	detail in~\cite[Example I.1.14]{SchwedeSymmSpec} and~\cite[Example V.1.9]{SchwedeGlobal}.\qedhere
+\end{itemize}
+\end{exm}
+\begin{exm}[Thom spectra]
+% references: Schwede's symmetric spectra; May-Quinn-Ray
+\TODO
+\end{exm}
+
 \begin{defn}
 Let $f\colon X\to Y$ be a map of $\fD$-spaces (or prespectra or orthogonal spectra).
 \begin{itemize}
@@ -172,7 +224,7 @@ complicated. The recipe is that $\fD_R$ is the category whose objects are the sa
 \end{equation}
 That is, we take the suspension spectrum of the sphere shifted by $d$ and that of the sphere shifted by $e$.
 \begin{ex}
-Show that for $\fD = \N$, the structure maps for prespectra come out of~\eqref{DSmaps} for $R = S_\N$.  (This is an
+Show that for $\fD = \N$, the structure maps for prespectra come out of~\eqref{DSmaps} for $R = S_\N$. (This is an
 adjunction game.) The same is true for orthogonal spectra and $S_\sI$.
 \end{ex}
 This feels like a Spanier-Whitehead trick, but constructs the right category. In particular, in $\fD_R$-spaces,
