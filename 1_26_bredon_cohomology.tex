@@ -40,10 +40,10 @@ With this you can define two things:
 The whole philosophy of Bredon (co)homology is that you understand the cohomology or homology through the
 fixed-point sets and the lattice of subgroups of $G$.
 \begin{exm}
-Let's return to Example~\ref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell
-$C_2\times I$, and one $2$-cell $C_2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down
-last lecture. We aim to compute the Bredon cohomology for the constant coefficient system $M = \underline\Z$ (so
-$M(C_2/H) = \Z$ for all $H$).
+Let's return to \cref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell $C_2\times I$,
+and one $2$-cell $C_2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down last lecture. We
+aim to compute the Bredon cohomology for the constant coefficient system $M = \underline\Z$ (so $M(C_2/H) = \Z$ for
+all $H$).
 
 The orbit category for $C_2$ is particularly simple:
 \[\xymatrix{
@@ -178,9 +178,9 @@ be used to denote both. We will always make the coefficient system for Bredon co
 $H_G^*(X)$ unambiguously refers to Borel cohomology, as is standard in the literature.\footnote{The nLab uses a
 different convention: Borel cohomology is $H_G^*(X;A)$, and Bredon cohomology is $\mathbf H^*(X_G)$.}
 \end{warn}
-The finiteness in Theorem~\ref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with
-non-equivariant homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should
-be looking at a different thing than the fixed points, namely the homotopy fixed points.
+The finiteness in \cref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with non-equivariant
+homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should be looking at a
+different thing than the fixed points, namely the homotopy fixed points.
 \begin{defn}
 The \term{homotopy fixed points} of a $G$-space $X$ is $X^{hG}\coloneqq \Map(EG, X)^G$.
 \end{defn}
@@ -190,15 +190,15 @@ homotopy theory, that is), as there are spectral sequences, nice models for $EG$
 The terminal map $EG\to *$ induces a map $X^G\to X^{hG}$. The Sullivan conjecture is all about when this happens:
 when you $p$-complete, things become really nice. (There will be a precise statement next lecture.)
 
-Returning to Theorem~\ref{smith}, we can use Bredon cohomology to give an easy, modern proof. The idea is to
-adroitly choose coefficient systems such that we recover $H^n(X)$, $H^n(X^G)$, and $H^n((X/G)/G)$ from Bredon
-cohomology. They'll fit into exact sequences, and using tools like Mayer-Vietoris, we'll get inequalities on the
-ranks of groups. This will also use the fact that a short exact sequence of coefficient systems induces a long
-exact sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's original proof!
+Returning to \cref{smith}, we can use Bredon cohomology to give an easy, modern proof. The idea is to adroitly
+choose coefficient systems such that we recover $H^n(X)$, $H^n(X^G)$, and $H^n((X/G)/G)$ from Bredon cohomology.
+They'll fit into exact sequences, and using tools like Mayer-Vietoris, we'll get inequalities on the ranks of
+groups. This will also use the fact that a short exact sequence of coefficient systems induces a long exact
+sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's original proof!
 
-Theorem~\ref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon
-cohomology at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and
-Wilkerson in ``Smith theory revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the unstable
-Steenrod algebra to prove Theorem~\ref{smith} and more.
+\Cref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon cohomology
+at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and Wilkerson in
+``Smith theory revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the
+unstable Steenrod algebra to prove \cref{smith} and more.
 
 Over the next day or so, there will be a problem set and a course webpage. Doing the problem sets is recommended!

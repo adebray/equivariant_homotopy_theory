@@ -1,12 +1,12 @@
 \begin{quote}\textit{
 	``It seems that the people registered for the class and the people showing up for class are disjoint.''
 }\end{quote}
-Today, we will give one or two proofs of Theorem~\ref{smith}: let $G$ be a finite $p$-group, $X$ be a
-finite-dimensional $G$-CW complex such that as a topological space, $X$ is an $\F_p$-cohomology sphere (i.e.\ as
-graded abelian groups, $H^*(X;\F_p)\cong H^*(S^n;\F_p)$). Then, either $X^G = \varnothing$, or $H^*(X^G;\F_p)\cong
-H^*(S^m;\F_p)$ as graded abelian groups, for some $m\le\dim X$. We'll try to be consistent with the notation
+Today, we will give one or two proofs of \cref{smith}: let $G$ be a finite $p$-group, $X$ be a finite-dimensional
+$G$-CW complex such that as a topological space, $X$ is an $\F_p$-cohomology sphere (i.e.\ as graded abelian
+groups, $H^*(X;\F_p)\cong H^*(S^n;\F_p)$). Then, either $X^G = \varnothing$, or $H^*(X^G;\F_p)\cong H^*(S^m;\F_p)$
+as graded abelian groups, for some $m\le\dim X$. We'll try to be consistent with the notation
 in~\cite{MaySmithTheory, AlaskaNotes}.
-\begin{proof}[Proof of Theorem~\ref{smith}]
+\begin{proof}[Proof of \cref{smith}]
 First, we can quickly reduce to the case where $G = \Z/p$: if $H\subset G$ is a normal subgroup, then $X^G\cong
 (X^H)^{G/H}$, so you can induct on the order of the group using the Sylow theorems. Thus, we will assume $G =
 \Z/p$, whose orbit category is simple:
@@ -117,7 +117,7 @@ Here
 \[\widetilde\chi(Y)\coloneqq \sum_i (-1)^i\rank \wH^i(Y)\]
 is the \term{reduced Euler characteristic}.
 
-Equation~\ref{euler_char_ineq} already implies that $\chi(X) \equiv \chi(X^G)\bmod p$, so $\sum\rank
+Equation~\eqref{euler_char_ineq} already implies that $\chi(X) \equiv \chi(X^G)\bmod p$, so $\sum\rank
 H^*(X^G;\F_p)\ne 1$ in our case.
 \begin{comp}{ex}{enumerate}
 	\item Think about choices of $q$ and $r$ that allow you to deduce $m\le n$, finishing the proof.
@@ -158,12 +158,11 @@ We'll use these theorems to prove Smith's theorem using the Serre spectral seque
 }\]
 This will be the nicest kind of spectral sequence argument: everything degenerates.
 
-Theorem~\ref{localization} is an example of a general class of \term{localization theorems} in equivariant
-cohomology. In these theorems, one considers the fiber sequence $X_+^G\to X_+\to X/X^G$, and wants to show that for
-some functor $E$, $E(X_+^G)\cong E(X_+)$. This boils down to showing $E(X/X^G)$ vanishes, which will always follow
-from showing that $E$ vanishes on $G$-spaces whose $G$-actions are free away from the basepoint. In general, this
-will reduce to considering cells, so one considers $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ for some wedge of
-spheres.
+\Cref{localization} is an example of a general class of \term{localization theorems} in equivariant cohomology. In
+these theorems, one considers the fiber sequence $X_+^G\to X_+\to X/X^G$, and wants to show that for some functor
+$E$, $E(X_+^G)\cong E(X_+)$. This boils down to showing $E(X/X^G)$ vanishes, which will always follow from showing
+that $E$ vanishes on $G$-spaces whose $G$-actions are free away from the basepoint. In general, this will reduce to
+considering cells, so one considers $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ for some wedge of spheres.
 
 In our case, $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ is
 \[S_H^{-1} H_G^*\paren{G/H_+\wedge\bigvee_\alpha S^{q_\alpha}} = S_H^{-1} H^*\paren{EG\times_G
@@ -171,7 +170,7 @@ In our case, $E(G/H_+\wedge \bigvee_\alpha S^{q_\alpha})$ is
 Now, the term $EG\times_G G/H\cong EG/H\cong BH$, so we have a piece that looks like $H^*(BH)$, which is how $BH$
 inserts itself into the argument.
 \begin{ex}
-Finish the Serre spectral sequence proof of Theorem~\ref{smith}. Hint: there's a simple geometric reason why the
+Finish the Serre spectral sequence proof of \cref{smith}. Hint: there's a simple geometric reason why the
 spectral sequence collapses, which is what makes this whole thing go.
 \end{ex}
 Soon we'll start talking about the stable category. As preparation for this, if you don't already know it, it's

@@ -49,7 +49,7 @@ The torus $S^1 \times S^1$ has an $S^1$-action given by $z(z_1, z_2) = (zz_1, z_
 can be viewed as an $S^1$-CW complex with one $0$-cell $S^1/e \times *$ and one $1$-cell $S^1 \times [0,1]$, with
 the attaching map sending $0$ and $1$ to $*$. Note that the largest cell we used here was a $1$-cell, whereas in
 the nonequivariant construction of the torus, we are required to use a $2$-cell. Check out
-Figure~\ref{equivariant_torus} for a picture.
+\cref{equivariant_torus} for a picture.
 \begin{figure}[h!]
 \def\torlen{3}
 \begin{tikzpicture}[every node/.style={align=center}]
@@ -65,7 +65,7 @@ Figure~\ref{equivariant_torus} for a picture.
 \node[left] at (0, \torlen/2) {$0$-cell\\$S^1/e\times *$};
 \node at (1*\torlen/2, 1*\torlen/2) {$1$-cell\\$S^1/e\times[0,1]$};
 \end{tikzpicture}
-\caption{The $S^1$-CW structure on the torus in Example~\ref{torusexm}. There is one $0$-cell and one $1$-cell.}
+\caption{The $S^1$-CW structure on the torus in \cref{torusexm}. There is one $0$-cell and one $1$-cell.}
 \label{equivariant_torus}
 \end{figure}
 \end{exm}
@@ -84,7 +84,7 @@ it by rotations and reflections.
 	orbit of $D_6$, hence form a $D_6/e\times[0,1]$.
 	\item The triangle minus these $0$- and $1$-cells is a free orbit, a $D_6/e\times D^2$.
 \end{itemize}
-See Figure~\ref{equilateral_triangle} for a picture.
+See \cref{equilateral_triangle} for a picture.
 \end{exm}
 \begin{figure}[h!]
 \tikzset{
@@ -123,11 +123,10 @@ See Figure~\ref{equilateral_triangle} for a picture.
 \draw[fill, purple!60!black] (-\TriangleLength/4, \InscribedLength/2) circle (1mm);
 \draw[fill, purple!60!black] (\TriangleLength/4, \InscribedLength/2) circle (1mm);
 \end{tikzpicture}
-\caption{The $D_6$-equivariant structure on a solid triangle, as in Example~\ref{triangle_exm}. Each cell is
-depicted in a different color. The three $0$-cells are purple ($D_6/\ang s\times *$), blue ($D_6/\ang s\times *$),
-and green ($D_6/D_6\times *$); the three $1$-cells are yellow ($D_6/\ang s\times[0,1]$), orange ($D_6/\ang
-s\times[0,1]$), and red ($D_6/e\times[0,1]$); the one $2$-cell is gray ($D_6/e\times D^2$).}
-\label{equilateral_triangle}
+\caption{The $D_6$-equivariant structure on a solid triangle, as in \cref{triangle_exm}. Each cell is depicted in a
+different color. The three $0$-cells are purple ($D_6/\ang s\times *$), blue ($D_6/\ang s\times *$), and green
+($D_6/D_6\times *$); the three $1$-cells are yellow ($D_6/\ang s\times[0,1]$), orange ($D_6/\ang s\times[0,1]$),
+and red ($D_6/e\times[0,1]$); the one $2$-cell is gray ($D_6/e\times D^2$).} \label{equilateral_triangle}
 \end{figure}
 
 
@@ -213,7 +212,7 @@ interesting content is in the nonequivariant part, so we can reduce again to $S^
 $G$-action! This allows us to finish the proof in the same way. It also says that the homotopy theory of $G$-spaces
 is lifted from ordinary homotopy theory, in a sense that model categories will allow us to make precise.
 
-The first consequence of Theorem~\ref{HELP} is:
+The first consequence of \cref{HELP} is:
 \begin{thm}
 \label{estar}
 Let $e\colon Y\to Z$ be a $\theta$-connected map and $e_*\colon [X,Y]\to [X,Z]$ be the map induced by composition.
@@ -231,7 +230,7 @@ actually doing. Hint: consider the pairs $\emptyset\to X$ and $X\times S^0\to X\
 Let $e\colon Y\to Z$ be a weak equivalence of $G$-CW complexes. Then, $e$ is a $G$-homotopy equivalence.
 \end{cor}
 \begin{proof}
-This is also a standard argument: using Theorem~\ref{estar}, $e_*$ is a bijection, so we can pull back
+This is also a standard argument: using \cref{estar}, $e_*$ is a bijection, so we can pull back
 $\id_Z\in[Z,Z]$ to an inverse $(e_*)^{-1}(\id_Z)\in [Z,Y]$, which is a homotopy inverse to $e$.
 \end{proof}
 One can continue and prove the cellular approximation theorem in this way, and so forth. We won't do this, because
@@ -266,7 +265,7 @@ transfinite induction, but for the case we care about large cardinals won't aris
 retracts of ``cell complexes'' built from the things in $I$, and cofibrations are retracts of cellular inclusions
 of cell complexes. In this sense, CW complexes are inevitable.
 
-The Whitehead theorem (Corollary~\ref{eqWhite}) now falls out of the general theory of model categories.
+The Whitehead theorem (\cref{eqWhite}) now falls out of the general theory of model categories.
 \begin{thm}[Whitehead theorem for model categories]
 Let $f\colon X\to Y$ be a weak equivalence of cofibrant-fibrant objects in a model category. Then, $f$ is a
 homotopy equivalence.

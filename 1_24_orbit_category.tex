@@ -14,7 +14,7 @@ manifestation of the slogan that ``orbits are points.'' But it also implies that
 $\sO_G$, one could work with certain presheaves on the category of finite $G$-sets, and this perspective will turn
 out to be useful. By ``certain'' we mean a compatibility with orbits.
 
-Last time, we talked about Elmendorf's theorem in the form of Theorem~\ref{revElmen}. It's also possible to state
+Last time, we talked about Elmendorf's theorem in the form of \cref{revElmen}. It's also possible to state
 it in a more general form.
 \begin{thm}[Elmendorf]
 \label{elmendorf}
@@ -43,7 +43,7 @@ Let $\sF$ be a specified family of subgroups of $G$.
 	$G/H$ for all $H\in\sF$.
 \end{itemize}
 \end{defn}
-We'll give two proofs of Theorem~\ref{elmendorf}. The first will be model-categorical.
+We'll give two proofs of \cref{elmendorf}. The first will be model-categorical.
 
 Recall\footnote{If this is not review to you, then exercise: learn this material!} if $F: \fC\rightleftarrows \fD:
 G$ is a Quillen adjunction, then the left and right derived functors $(\LD F, \RD G)$ is an adjunction on the
@@ -68,8 +68,8 @@ equivalence, then $(F,G)$ is a Quillen equivalence.
 This is a useful tool for extending model categories along free-forgetful adjunctions; for example, if you have a
 model category and want to understand abelian group or ring objects in this category, often their weak equivalences
 are detected by the forgetful functor.
-\begin{proof}[Proof sketch of Theorem~\ref{elmendorf}]
-We want to apply Lemma~\ref{forgetWElem} to the adjunction
+\begin{proof}[Proof sketch of \cref{elmendorf}]
+We want to apply \cref{forgetWElem} to the adjunction
 \[\theta: \Fun(\sO_G\op, \Top)\rightleftarrows G\Top: \psi,\]
 where $\theta\colon X\mapsto X(G/e)$ is evaluation at $G/e$ and $\psi\colon Y\mapsto\set{Y^H}$. The first
 condition, that $\psi$ detects the weak equivalences, is straightforward, so we need to check that
@@ -95,7 +95,7 @@ building a (homotopical) right adjoint to $\psi$.
 This proof will go through the \term{bar construction}, a categorical tool that's extremely useful. References for
 it include May's ``Geometry of iterated loop spaces'' \cite{MayGILS}, Riehl's monograph~\cite{RiehlCHT}, and Vogt's ``Tensor
 products of functors.''
-\begin{proof}[Second proof of Theorem~\ref{elmendorf}]
+\begin{proof}[Second proof of \cref{elmendorf}]
 Let $M\colon \sO_G\to\Top$ realize orbits as spaces: $G/H$ is sent to the topological space $G/H$, and an
 equivariant map $f$ is forgotten to a continuous map $f$.
 

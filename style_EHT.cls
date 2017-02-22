@@ -38,6 +38,7 @@
 \RequirePackage{adforn}
 \RequirePackage{hyperref}
 \RequirePackage[all]{hypcap}
+\RequirePackage[capitalize, noabbrev]{cleveref}
 % Some shortcuts that simplify live-TeXing using XY.
 %
 % Forces all XY entries to be typeset with displaymath, which is much more
