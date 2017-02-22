@@ -34,6 +34,8 @@
 \RequirePackage{amsthm}
 \RequirePackage{xparse}
 \RequirePackage{mathrsfs}
+\RequirePackage[usenames, dvipsnames]{xcolor}
+\RequirePackage[missing=MISSING, dirty={, plus uncommited changes}]{gitinfo2}
 \RequirePackage[all]{xy}
 \RequirePackage{adforn}
 \RequirePackage{hyperref}
@@ -379,7 +381,6 @@
 %
 \RequirePackage{fancyhdr}
 \RequirePackage{titlesec}
-\RequirePackage[usenames, dvipsnames]{xcolor}
 \RequirePackage[dotinlabels]{titletoc}
 % after the font has been chosen
 \AtBeginDocument{
@@ -468,6 +469,7 @@
  %
  \newcommand{\frontstuff}{
   \maketitle
+  \versioninfo
   \@blurb
   \tableofcontents
  }

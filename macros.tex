@@ -19,8 +19,6 @@ clarifications and suggestions; and to Yuri Sulyma for adding some remarks and r
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric}
 
-%\usepackage[capitalize]{cleveref}
-
 \renewcommand{\term}[1]{{\bfseries #1}}
 \newcommand{\sSet}{\cat{sSet}}
 \DeclareMathOperator{\Map}{Map}
@@ -112,3 +110,15 @@ clarifications and suggestions; and to Yuri Sulyma for adding some remarks and r
 % macros for TODOs. There should probably also be a comment macro
 \newcommand{\TODO}{\textcolor{red}{TODO}}
 \newcommand{\citeme}[1]{[\textcolor{red}{CITE ME}: #1]}
+
+% version info from Github, using gitinfo2 package (see README.md for details)
+\newcommand{\versioninfo}{
+	\ifnum\pdfstrcmp{\gitHash}{MISSING}=0
+	% git data missing
+		\relax
+	\else % git data present
+		{\small\begin{center}Git hash:
+		\href{https://github.com/adebray/equivariant_homotopy_theory/commit/\gitAbbrevHash}
+		{\texttt{\gitAbbrevHash}} (Updated \gitAuthorIsoDate)\gitDirty\end{center}}
+	\fi
+}
