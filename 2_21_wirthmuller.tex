@@ -22,7 +22,8 @@ Let $H$ be a subgroup of $G$ and $X$ be an object of $\Sp^H$.\footnote{Here, we'
 universe $U$ to define $\Spc^G$ and $\Spc^H$.} Then, there is a $\pi_*$-isomorphism $G\wedge_H X\simeqto F_H(G,X)$.
 \end{thm}
 \begin{ex}
-Adapt the proof from nonequivariant spectra to show that~\eqref{additivespec} holds in $\Spc^G$.
+Adapt the proof of~\eqref{additivespec} for nonequivariant spectra to show that the natural map from finite sums to
+finite products in $\Spc^G$ is also an isomorphism.
 \end{ex}
 However, if you only have~\eqref{additivespec}, you've described the category of $G$-spectra structured by a
 universe with only trivial representations!
@@ -100,31 +101,33 @@ Either $g^{-1}Kg\subseteq H$ or it isn't.
 	\item If $g^{-1}Kg\not\subseteq H$, then the action is free, so $((KgH)_+\wedge_H Z)^K = *$.
 \end{itemize}
 In particular~\eqref{GZKfixed} simplifies to
-\[\paren{G\wedge_H Z}^K\cong \bigvee_{\substack{g\in S\\g^{-1}Kg\in H}} Z^{g^{-1}Kg}.\]
+\[\paren{G\wedge_H Z}^K\cong \bigvee_{\substack{g\in S\\g^{-1}Kg\subseteq H}} Z^{g^{-1}Kg}.\]
 Next we look at $(F_H(G,Z))^K$. If $S$ is a set of representatives of the double cosets, so is
-$\set{g^{-1}\mid g\in S}$, so we can decompose
+$S^{-1}\coloneqq \set{g^{-1}\mid g\in S}$, so we can decompose
 \begin{align*}
 \paren{F_H(G,Z)}^K &\cong \paren{F_H\paren{\coprod_{g\in S} Kg^{-1}H, Z}}^K\\
 &\cong \prod_{g\in S} F_H(Kg^{-1}H, Z)^K\\
-&\cong \prod_{g\in S} Z^{(gKg^{-1})\cap H}.
+&\cong \prod_{g\in S} Z^{(gKg^{-1})\cap H} \cong \prod_{g\in S} Z^{(g^{-1}Kg)\cap H}.
 \end{align*}
-This identification sends $f\mapsto\set{f(g^{-1})}$.
+This identification sends $f\mapsto\set{f(g)}$; the last equivalence is by using $S^{-1}$ as the set of
+representatives instead of $S$.
 
 In particular, the space-level Wirthmüller isomorphism may be written
 \begin{equation}
 \label{fixedwirth}
-\bigvee_{\substack{g\in S\\g^{-1}Kg\in H}} Z^{g^{-1}Kg}\stackrel\cong\longrightarrow \prod_{g\in S}
+\bigvee_{\substack{g\in S\\g^{-1}Kg\subseteq H}} Z^{g^{-1}Kg}\stackrel\cong\longrightarrow \prod_{g\in S}
 Z^{(g^{-1}Kg)\cap H}.
 \end{equation}
 This is nice-looking, but the indexing sets are slightly different. To overcome this, we'll
 factor~\eqref{fixedwirth} as
 \[\xymatrix{
-	\bigvee_{\substack{g\in S\\g^{-1}Kg\in H}} Z^{g^{-1}Kg}	\ar[r]^-{\vp_1}
-	& \prod_{\substack{g\in S\\g^{-1}Kg\in H}} Z^{(gKg^{-1})\cap H}\ar[r]^-{\vp_2}
-	& \prod_{g\in S} Z^{(gKg^{-1})\cap H}
+	\bigvee_{\substack{g\in S\\g^{-1}Kg\subseteq H}} Z^{g^{-1}Kg}	\ar[r]^-{\vp_1}
+	& \prod_{\substack{g\in S\\g^{-1}Kg\subseteq H}} Z^{(g^{-1}Kg)\cap H}\ar[r]^-{\vp_2}
+	& \prod_{g\in S} Z^{(g^{-1}Kg)\cap H},
 }\]
-and estimate the connectivity of $\vp_1$ and $\vp_2$ separately in the case when $Z = \Sigma^{m\rho}X$. Namely,
-we'd like to show that they're both $(m[G:K] + O(1))$-connected.
+where $\vp_1$ is the natural map from the sum to the product and $\vp_2$ is inclusion. Then, we will estimate the
+connectivity of $\vp_1$ and $\vp_2$ separately in the case when $Z = \Sigma^{m\rho}X$. Namely, we'd like to show
+that they're both $(m[G:K] + O(1))$-connected.
 
 First, what are the fixed points in $(S^{m\rho})^{g^{-1}Kg}$? This is a sphere whose dimension has been shrunk by
 $K$, so smashing with it produces something $m[G:K]$-connected. Then, the usual argument about turning sums into

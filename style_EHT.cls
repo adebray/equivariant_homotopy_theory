@@ -40,6 +40,9 @@
 \RequirePackage{adforn}
 \RequirePackage{hyperref}
 \RequirePackage[all]{hypcap}
+% This has to be before cleveref, see http://tex.stackexchange.com/questions/126364
+% However, this still doesn't solve the problem. TODO
+\numberwithin{equation}{section}
 \RequirePackage[capitalize, noabbrev]{cleveref}
 % Some shortcuts that simplify live-TeXing using XY.
 %
@@ -229,7 +232,6 @@
 %
 % Another possibility: "definition-theorems" as used in universal properties
 % I will probably also want starred theorems (propositions, subsections, etc.).
-\numberwithin{equation}{section}
 %
 % This could be considered a stylistic choice, but works much better with how I use
 % subsections as subject changes in a lecture.
