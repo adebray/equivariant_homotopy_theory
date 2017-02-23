@@ -1,0 +1,169 @@
+Today, we'll again assume that $G$ is a finite group. Some of today's content extends to compact Lie groups, but
+it's more complicated.
+
+Last time, we saw the Wirthmüller isomorphism (\cref{Wirthiso}), which we said can be used to create the
+transfer maps. One consequence is \cref{wirthcor}, that orbits are self-dual under Spanier-Whitehead duality:
+$D(G/H_+) = \sus G/H_+$. You can use this to write down the transfer map: given subgroups $K\subseteq
+H\subseteq G$, we have the ``right-way'' map $G/H\to G/K$, and therefore a map $\sus(G/K_+)\cong
+D(G/K_+)\to D(G/H_+)\cong\sus(G/H_+)$. By the Wirthmüller isomorphism, this is the same as a map
+$F(G/K_+,S)\to F(G/H_+,S)$, which is exactly the transfer map!
+
+This is a little circular; if you look carefully into the proof of \cref{Wirthiso}, the transfer map is already
+there. But the point is more philosophical: the existence of transfers is the same thing as the Wirthmüller
+isomorphism.
+\begin{rem}
+Transfer maps can be studied in more generality, e.g.\ in the context of equivariant vector bundles on homogeneous
+spaces. Rothenberg wrote some stuff, but~\cite{LMS} is probably the best source.
+\end{rem}
+Today we'll talk about tom Dieck splitting. There are several closely related versions of the statement, though
+going between them requires a deep result called the Adams isomorphism. We'll return to that point
+later.\footnote{\TODO: I missed one version of the splitting.}
+Anyways, we'll prove the version in~\eqref{what_well_prove}.
+
+When $X = S^0$, this ``computes'' the equivariant stable homotopy groups of the spheres, and one consequence is
+that
+\[\pi^G_0(\sus S^0) \cong \bigoplus_{(H)\subseteq G} \Z,\]
+i.e.\ it's free on the conjugacy classes of subgroups of $G$.
+
+As a consequence of the proof of~\eqref{what_well_prove}, the generators are given by the Euler characteristics
+$S\to \sus G/H_+\to S$.\footnote{\TODO: I didn't understand this.} This lets us identify homotopy classes
+of stable maps $G/H_1\to G/H_2$; since we defined the Burnside category to be the full subcategory of $\Spc^G$ on
+$\sus G/H_+$, this amounts to the computation of $\pi_0 B_G$.
+
+Define an abelian group $A$ whose generators are diagrams of the form
+\begin{equation}
+\label{stableGHgen}
+\xymatrix@1{
+	G/H_1 & G/K\ar[l]_-{\theta_1}\ar[r]^-{\theta_2} & G/H_2,
+}
+\end{equation}
+and for which two diagrams $G/H_1\gets G/K\to G/H_2$ and $G/H_1\gets G/K'\to G/H_2$ are equivalent if there is an
+isomorphism $f\colon G/K\to G/K'$ such that the following diagram commutes.
+\[\xymatrix@R=0.3cm{
+	& G/K\ar[dd]_\wr^f\ar[dr]^{\theta_2}\ar[dl]_{\theta_1}\\
+	G/H_1 && G/H_2.\\
+	& G/K'\ar[ul]^{\theta_1'}\ar[ur]_{\theta_2'}
+}\]
+The point is that there's an isomorphism $\psi\colon A\congto\pi_0^{H_1}(\Sigma_+ G/H_2)$, the group of stable maps
+$G/H_1\to G/H_2$. We'll calculate these maps in the algebraic Burnside category $\pi_0(B_G)$. The isomorphism
+$\psi$ takes a diagram of the form~\eqref{stableGHgen} to the composite $\Sigma_+^\infty G/H_1\to \Sigma_+^\infty
+G/K\to\Sigma_+^\infty G/H_2$, where the first map is the transfer for $\theta_1$ and the second is
+$\sus\theta_2$.
+\begin{ex}
+Show that $\psi$ is an isomorphism.
+\end{ex}
+This is really nice: we have a nice combinatorial description of the stable maps coming from the structure of $G$.
+But what's the composition?
+
+The above is more or less true for $G$ a compact Lie group. But what follows really requires $G$ to be finite.
+
+It seems natural to play double coset games here, but this quickly turns into a notational mess. But if you know
+about spans, there's only one thing it should be, which is the pullback:
+\[\xymatrix@dr{
+	G/K\times_{G/H_2} G/K'\ar[r]\ar[d] & G/K'\ar[r]\ar[d] & G/H_3.\\
+	G/K\ar[r]\ar[d] & G/H_2\\
+	G/H_1
+}\]
+This is true, and we'll give a real proof later. The upshot is really cool: we have a complete combinatorial
+description of the algebraic Burnside category, including composition. This leads one to Mackey functors:
+equivariant stable homotopy theory is controlled by a pair of functors out of the orbit category, one covariant and
+one contravariant, and Mackey functors are nice examples of these.
+\begin{rem}
+We've been tacitly assuming a complete $G$-universe for this, but what if you'd prefer to leave out certain
+suspensions $\Sigma^V$? In the case of an incomplete $G$-universe $U$, you only consider the orbits $G/H\inj U$.,
+and build the incomplete Burnside category and incomplete Mackey functors in this way.
+\end{rem}
+Now let's prove tom Dieck splitting.
+\begin{proof}[Proof of~\eqref{what_well_prove}]
+We'll approach this inductively and look a single summand at a time, producing a map
+\begin{equation}
+\label{tdmap}
+\pi_*^{\WH}\paren{\sus E\WH_+\wedge X^H}\longrightarrow \pi_*^G(\sus X).
+\end{equation}
+Recall that $\WH = \NH/H$, so we can define a sequence
+\begin{equation}
+\label{first_part_td}
+\xymatrix{
+	\pi_*^\WH\paren{\sus E\WH_+\wedge X^H}\ar[r]^-{\theta_1} & \pi_*^\NH\paren{\sus E\WH_+\wedge
+	X^H}\ar[r]^-{\theta_2} &\pi_*^\NH\paren{\sus E\WH_+\wedge X},
+}\end{equation}
+where $\theta_1$ is induced by restriction $\pi_*^\WH\to\pi_*^\NH$, and $\theta_2$ is induced from the inclusion
+$X^H\inj X$. The Wirthmüller isomorphism induces an isomorphism on homotopy groups
+$\pi_*^H(X)\congto\pi_*^G(G\wedge_H X)$ (by an adjunction game), so we can extend~\eqref{first_part_td} with maps
+\[\xymatrix{
+	\pi_*^\NH\paren{\sus E\WH_+\wedge X}\ar[r]^-{\theta_3}_-\cong &\pi_*^G\paren{G\wedge_\NH \sus
+	E\WH_+\wedge X}\ar[r]^-{\theta_4} &\pi_*^G(\sus X).
+}\]
+Here, $\theta_4$ is the adjoint of the $\NH$-map $\sus E\WH_+\wedge X\to\sus X$ that crushes
+$E\WH\to *$. Thus, our goal is to prove that $\theta_2\circ\theta_1$ and $\theta_4$ are isomorphisms.
+
+Recall that a $\Z$-graded homology theory on $G$-spaces is a collection of functors $E_q\colon G\Top\to\Ab$ for
+$q\in\Z$ that are homotopy invariant and such that\footnote{\TODO: any other axioms, like Mayer-Vietoris?}
+\[E_q\paren{\bigvee_k X_k} \cong\bigoplus_k E_q(X_k),\]
+and a map $f\colon X\to Y$ induces a long exact sequence
+\begin{equation}
+\label{LESZgr}
+\xymatrix{
+	\dotsb\ar[r] & E_q(X)\ar[r] & E_q(Y)\ar[r] & E_q(Cf)\ar[r]^\delta & E_{q-1}(X)\ar[r] & \dotsb
+}
+\end{equation}
+The key observation is that \emph{both sides of~\eqref{what_well_prove} specify $\Z$-graded homology theories}.
+\begin{defn}
+An $X\in G\Top$ is \term{concentrated at a conjugacy class} $H$ if for all $K$ not in the conjugacy class of $H$ in
+$G$, $X^K$ is contractible.
+\end{defn}
+\begin{thm}
+\label{lattice_induction}
+Let $h\colon E_q\to\tilde E_q$ be a natural transformation of $\Z$-graded homology theories. If $h$ is an
+isomorphism on all $X$ concentrated at a conjugacy class, then $h$ is an isomorphism.\footnote{The analogue of this
+theorem for $\Z$-graded cohomology theories is also true.}
+\end{thm}
+This leads to a very innovative proof, invented by tom Dieck, whose pedagogical importance is just as significant
+as the theorem statement: we'll set up a sequence of families of subgroups of $G$
+\[\set e = \sF_0\subseteq\sF_1\subseteq\sF_2\many\subseteq \sF_n = \set{H\subseteq G}\]
+such that $\sF_i$ is built from $\sF_{i-1}$ by adding a conjugacy class not already present. Then, we can induct on
+$i$, and since $G$ is finite, this must terminate. This is one of the key techniques of induction in equivariant
+homotopy theory, along with cellular induction.
+\begin{proof}[Proof of \cref{lattice_induction}]
+Let's induct: suppose that $\sF_i = \sF_{i-1}\cup (K)$ for some $K\subseteq G$, and consider any
+$G$-space $X$. There is a natural map $f\colon X\wedge E\sF_{i-1}\to X\wedge E\sF_i$, and its cofiber $C(f)$ is
+concentrated at $K$!
+
+Suppose that $E_q(X\wedge E\sF_{i-1})\congto\tilde E_q(X\wedge E\sF_{i-1})$. By hypothesis,
+$E_q(C(f))\congto\tilde E_q(C(f))$, since $C(f)$ is concentrated at $K$. Now, by the long exact
+sequence~\eqref{LESZgr} and the five lemma, the map $E_q(X\wedge E\sF_i)\to E_q(X\wedge E\sF_i)$ is an isomorphism.
+\end{proof}
+Now, to prove tom Dieck splitting, it suffices to show that the map we defined (the direct sum of~\eqref{tdmap}
+over all conjugacy classes) is an isomorphism when $X$ is concentrated at a single conjugacy class $(H)$.
+
+First, we'll show that if $X$ is concentrated at $(H)$ and $K\not\in (H)$, then~\eqref{tdmap} is trivial for $K$.
+Let's consider $\sus E\mathit{WK}_+\wedge X^K$. Look at the space $S^V\wedge E\mathit{WK}_+\wedge X^K$, and let's
+consider its $L$-fixed points for $L\subseteq K$. If $L = \set e$, then $(X^K)^L$ is contractible,
+and otherwise, $(E\mathit{WK}_+)^L$ is contractible, so the smash product is always contractible. We conclude that
+$\sus E\mathit{WK}_+\wedge X^K$ is contractible, and therefore that
+\[\pi_*^{\mathit{WK}}\paren{\sus E\mathit{WK}_+\wedge X^K} = 0.\]
+Now we've reduced to showing that~\eqref{tdmap} is an isomorphism when $X$ is concentrated at $H$, i.e.\
+that~\eqref{first_part_td} is an isomorphism (its components aren't) and that $\theta_4$ is an isomorphism.
+
+Let's first tackle $\theta_4$.\footnote{\TODO: I got confused and should fix this.}
+This uses an important piece of technology: suppose $X$ and $Y$ are $G$-spaces and
+$H\subseteq G$ is normal. Then, there is a \term{restriction map}
+\[\rho_H\colon \Map_G(X,Y)\longrightarrow\Map_{G/H}(X^H, Y^H).\]
+This map appears in an essential way in the definition of topological cyclic homology.\footnote{The new
+construction of $\mathit{TC}$ by Nikolaus-Scholze manages to avoid this in a way that is considerably more
+natural.}
+\begin{lem}
+\label{restrlem}
+Suppose $Y$ is concentrated at $(H)$; then, the restriction map $\rho_H\colon\Map_G(X,Y)\to\Map_{G/H}(X,Y)$ is an
+acyclic fibration.
+\end{lem}
+We'll prove this next time with cellular induction; in any case, we only need that $\rho_H$ is a weak
+equivalence.
+
+Anways, we want to show that~\eqref{first_part_td} is an isomorphism, so we'll use the restriction map to define an
+inverse $\pi_*^\NH(\sus E\WH_+\wedge X)\to\pi_*^\WH(\sus E\WH_+\wedge X^H)$. That is, consider
+\[[S^{n+m\rho_{\NH}}, S^{m\rho_{NH}}\wedge E\WH_+\wedge X]\]
+and take the $H$-fixed points on both sides; Lemma~\ref{restrlem} ensures this is an isomorphism.
+\end{proof}
+As this is a statement about stable homotopy groups, it's desirable to have a spectrum-level equivalence which
+reduces to this isomorphism; the statement is~\eqref{splevelTD}, but the proof is different.

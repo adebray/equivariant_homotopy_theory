@@ -30,6 +30,7 @@ universe with only trivial representations!
 
 Applying \cref{Wirthiso} to $X = S^0$ computes the Spanier-Whitehead duals of orbits.
 \begin{cor}
+\label{wirthcor}
 In the situation of \cref{Wirthiso}, $\Sigma^\infty(G/H)_+\cong F_H(G,S^0)\cong F((G/H)_+, S^0)$.
 \end{cor}
 That is, $\Sigma^\infty (G/H)_+$ is its own Spanier-Whitehead dual. The slogan is that orbits are self-dual in the
@@ -156,14 +157,17 @@ isomorphism is the inverse of the transfer map,'' which we'll say more about lat
 Tom Dieck splitting is a decomposition of the fixed points of a suspension $G$-spectrum, either of the statements
 \begin{subequations}
 \begin{align}
-(\Sigma^\infty X)^G &\cong \bigvee_{H\subseteq G} E\mathit{WH}_+\wedge_{\mathit{WH}} X^H\\
-\pi_*(\Sigma^\infty X)^G &\cong\bigoplus_{H\subseteq G}
-\pi_*^{\mathit{WH}}\paren{E\mathit{WH}_+\wedge_{\mathit{WH}}X^H}.
+\label{splevelTD}
+(\Sigma^\infty X)^G &\cong \bigvee_{(H)\subseteq G} E\mathit{WH}_+\wedge_{\mathit{WH}} X^H\\
+\pi_*(\Sigma^\infty X)^G &\cong\bigoplus_{(H)\subseteq G}
+\pi_*^{\mathit{WH}}\paren{\Sigma^\infty E\mathit{WH}_+\wedge_{\mathit{WH}}X^H}.
+\label{what_well_prove}
 \end{align}
 \end{subequations}
-Here $\mathit{WH} = \mathit{NH}/H$ as usual; if $H\trianglelefteq G$, then this is $G/H$. Tom Dieck splitting looks
-complicated; you might have hoped that $\Sigma^\infty$ and $(\bl)^G$ commute, but they don't, and this is how they
-don't. But when $X = S^0$, this tells you a decomposition of $\pi_*^G(\Sph)$.
+By $(H)\subseteq G$, we mean indexing over the conjugacy classes of subgroups of $G$. Here $\mathit{WH} =
+\mathit{NH}/H$ as usual; if $H\trianglelefteq G$, then this is $G/H$. Tom Dieck splitting looks complicated; you
+might have hoped that $\Sigma^\infty$ and $(\bl)^G$ commute, but they don't, and this is how they don't. But when
+$X = S^0$, this tells you a decomposition of $\pi_*^G(\Sph)$.
 
 We have a cofiber sequence, called the \term{isotropy separation sequence},
 \[\xymatrix@1{
