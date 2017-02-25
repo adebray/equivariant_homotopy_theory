@@ -1,0 +1,187 @@
+\begin{ques}
+Are orthogonal spectra the same as diagram $G$-spectra indexed on all finite-dimensional representations of $G$? If
+so, what are the advantages of working with only orthogonal representations? Is orthogonality needed to make sense
+of $\Omega$-spectra?
+\end{ques}
+Much of it is that the representations in question often come with a natural inner product. Also, it's useful to
+take orthogonal complements sometimes. Nonetheless, it's probably not strictly necessary
+% cpx for k theory
+\begin{ques}
+What conditions need to be put on a diagram category $\fD$ such that $\fD$-spectra are Quillen equivalent to
+orthogonal spectra?
+\end{ques}
+It's hard to be precise about this, but one thing that's common to all of them is an embedding of $\N$ into $\fD$
+producing an adjunction between the forgetful functor and the prolongation functor. We used the forgetful functor
+to define the homotopy groups. So if you can embed $\N$ into it, it's probably OK, but it's doubtful that a
+complete, explicit classification exists. $\Gamma$-spaces are kind of strange, though.
+\begin{ques}
+There are geometric fixed-points, homotopy fixed-points, and categorical fixed-points. What's the intution for what
+these three constructions are doing?
+\end{ques}
+Recall that the categorical fixed points are $(\bl)^H = F(\Sigma_+ G/H,\bl)$, which tom Dieck splitting tells us is
+complicated and hard to compute in general. The homotopy fixed points $F(EG_+,\bl)^G$ are more computable: there's
+a spectral sequence arising from the filtration of $BG$. Geometric fixed points $\Phi^HX$, which satisfy the
+property $\Phi^H\Sigma^\infty X \cong \Sigma^\infty X^H$ (and are uniquely characterized by this, being strong
+symmetric monoidal, and preserving homotopy colimits), have nice properties.
+
+You can also analyze them in terms of what they do to $S^{-V}$, i.e.\ the Spanier-Whitehead dual of $S^V$:
+categorical fixed points will send it to $S^{-V^H}$, whereas categorical fixed points will look more like a tom
+Dieck splitting.
+
+It's possible to write every spectrum as a colimit of suspension spectra, and this ``canonical presentation'' is a
+good way to dissect the differences between these fixed points. We might talk more about this later.
+
+Both the categorical and geometric fixed points detect weak equivalences, so you could use, e.g.\ the geometric
+fixed points to define homotopy groups.
+
+Tate spectra fit into this story: the Tate spectrum $X^{tC}$ of $X$ fit into a homotopy pullback diagram where the
+other three corners are the three kinds of fixed points. \TODO: the right diagram. This looks like an arithmetic
+square, and this analogy can be made precise.
+\begin{ques}
+Is there a similar story for coinvariants? Are there categorical, homotopical, and geometric coinvariants?
+\end{ques}
+Not really, so far: Lewis and May remark that the construction you would write down is hard to control, and hard to
+derive. It's possible that new work on the foundations of equivariant homotopy theory could enable a better answer,
+but nothing's been done right now.
+\begin{ques}
+Are there notions of naïve and geuine $G$-\emph{spaces}? (This question was asked in the homotopy theory chatroom
+on MathOverflow.)
+\end{ques}
+The terminology is less common than that of naïve and genuine $G$-spectra; in some sense, it's a little weird to
+be using terms like ``genuine'' and ``naïve'' in the first place to describe mathematical objects. In any case, by
+a genuine $G$-space, we mean a functor out of the orbit category, but a naïve $G$-space would be a functor out of
+the category containing just $G/e$, so capturing only the theory of spaces over $BG$.
+
+On the subject of mathematical literature, the HULK smash product \citeme{Mandell} is possibly the best
+mathematical joke of all time.
+\begin{ques}
+You've said that Hill-Hopkins-Ravenel have significantly affected the direction of equivariant stable homotopy
+theory. Can you elaborate on this?
+\end{ques}
+There's been some interest in $S^1$-equivariant methods, but a big piece has been a focus on computations, now that
+some computations look possible. The use of trace methods is also exciting. There's some work on relating
+equivariant homotopy theory to motivic homotopy theory, which looks exciting.
+
+Another generalization is to global homotopy theory; Stefan Schwede has a program for setting this up. One of the
+eventual payoffs will be an equivariant $\mathit{TMF}$, which Lurie has sketched a construction of.
+\begin{ques}
+Has the Tannakian formalism been applied to this context? Maybe instead of a universe of representations, it would
+be easier to take a category.
+\end{ques}
+This hasn't really been considered; it might be interesting, and it might be hard to work with.
+
+\begin{ques}
+If you like to think of spectra as infinite loop spaces, what changes in the equivariant case?
+\end{ques}
+For $G$ a finite group, everything is the same: you can use $\Gamma$-$G$-spaces or $G$-$\Gamma$-spaces (which are
+different notions for the same thing); you can use functors from $\Gamma$ to $G$-spaces, and a few other ones.
+Then, loop spaces come from a $\E_\infty$-operad action; for technical reasons you may need to assume there are
+trivial representations in the universe.
+
+In the case of compact Lie groups, nobody really knows how to set up the theory of infinite loop spaces. In
+particular, being an $\E_\infty$-$G$-space is not the same as being the zero space of a $G$-spectrum.
+
+One way to think about this is that on the space level, the $\E_\infty$ operad controls the transfers. The issue is
+that we only know how to handle finite-index transfers and norms; maybe you should put them in freely, but you get
+weird obstructions. There's lots of interesting questions to be asked here, but they are hard and likely not worth
+your time.
+\begin{ques}
+What is a cyclotomic spectrum?
+\end{ques}
+Fix a prime $p$; a \term{$p$-cyclotomic spectrum} is an $S^1$-spectrum $X$ together with data of an equivalence
+with its $C_p$-geometric fixed points as $S^1$-spectra.
+
+Recall that the \term{loop space} of $X$ is $LX\coloneqq\Map(S^1,X)$. Its suspension spectrum is an example of a
+cyclotomic spectrum: there is an identification $\Phi^{C_p}(\Sigma_+^\infty LX)\cong\Sigma_+^\infty (LX)^{C_p}\cong
+\Sigma_+^\infty LX$.
+
+If $X$ is an $S^1$-spectrum, we can take $X^{C_{p^n}}\cong (X^{C_p})^{C_{p^{n-1}}}\to (\Phi^{C_p}
+X)^{C_{p^{n-1}}}\to X^{C_{p^{n-1}}}$, and the homotopy limit of these maps is topological cyclic homology.
+\begin{ques}
+What are cyclonic spectra?
+\end{ques}
+It's not a standard term, and the professor didn't remember off the top of his head.
+\begin{ques}
+Is there an analogue of the regular representation in stable homotopy theory?
+\end{ques}
+The answer is, not really. This relates to the complicated structure of tom Dieck splitting --- even in the case
+for compact Lie groups, where the proofs we gave don't completely generalize, there are versions of the
+Wirthmüller isomorphism and tom Dieck splitting that have shifts by the tangent representation at the identity
+coset of $G/H$. This shift pops up again and again.
+\begin{ques}
+What is currently happening in EDAG? What roadblocks are currently in the way?
+\end{ques}
+When you look at TMF, especially with level structure, it really looks like there should be some underlying
+equivariant spectrum, and it would be nice to have a way to make this explicit.
+% mike (?) and Lennart Meier give nice proofs from this perspective
+
+There are issues with localization behaving poorly, and $\infty$-operads were introduced to make things behave
+better. It's also conceptually interesting and cool how the action of an $\infty$-operad controls what transfers
+it has, and suspension converts the transfers into norms, and you get a ring spectrum: it's a nice conceptual
+picture that explains what's going on.
+\begin{ques}
+When we defined $\Z$-graded (co)homology theories, was there any analogue of the Mayer-Vietoris axiom?
+\end{ques}
+Yes: we required them to send cofiber sequences to long exact sequences. We also used this in the
+proof.\footnote{\TODO: I should go fix that part of the notes.}
+\begin{ques}
+What applications have there been besides~\cite{HHR} and trace methods?
+\end{ques}
+Both of those are good applications. A lot of the interesting work in chromatic homotopy theory regarding, e.g.\
+homotopy fixed points of subgroups of the Morava stabilizer group, uses $G$-actions. Stable representation theory
+of finite groups also uses this material. Goodwillie calculus also uses equivariant methods: Nick Kuhn proved that
+the vanishing\footnote{\TODO: I think this wasn't the right word\dots} of the Taylor tower is equivalent to the
+vanishing of the Tate spectrum.
+
+There's an analogue of Goodwillie calculus for the equivariant setting, an ``equivariant calculus;'' since calculus
+is about passage from the unstable to the stable category, the equivariant stable category plays the analogous role
+in equivariant calculus.
+
+Completion with respect to the $(\Sigma^\infty, \Omega^\infty)$-adjunction is important in calculus, in terms of a
+simplicial resolution, and it's a little weird that you get the same answer if you complete with the correct or the
+trivial choice.\footnote{\TODO: better word than ``choice.''}
+\begin{ques}
+In a vague sense, the classification of groups splits into two parts: find the simple pieces (finite simple
+groups) and figure out how to put then together (which is also hard). Algebraic $K$-theory throws out the second
+part: is there any way to understand the category of finitely-presented groups in this way?
+\end{ques}
+Jeff Smith used a similar method in a different context, but it hasn't been extremely fruitful. People haven't
+looked into the $K$-theory of finitely presented groups, and it might be interesting.
+\begin{ques}
+% the generators of pi_0^G(S) are Euler characteristics...?
+What did you mean by the generators of $\pi_0^G(S^0)$ being Euler characteristics as a consequence of tom Dieck
+splitting?
+\end{ques}
+$\pi_0^G(S^0)$ is equivariant homotopy classes of maps from $S^0$ to itself. This is free on conjugacy classes ---
+well, what maps generate? The answer is the composites of the maps $S\to\Sigma^\infty G/H_+$ and the crush map back
+to $S$: these are Euler characteristics, in that these are equivariant analogues of the maps whose degrees give
+Euler characteristics in the nonequivariant case?
+\begin{ques}
+How much more bananas is the equivariant sphere than the sphere?
+\end{ques}
+It's way more complicated: it has $\Omega^V S^V$ in it for all $V$, and the decomposition is not nice. Maybe for
+specific groups you can say something nice.
+\begin{ques}
+Knowledge of facts about the sphere spectrum encodes information interesting in other fields. Does knowledge about
+the equivariant sphere spectrum tell us anything more than the equivariant generalizations of those results?
+\end{ques}
+Presently, no such applications are known.
+\begin{ques}
+Under certain conditions, you can detect the homotopy groups of a spectrum by looking at the $0$ level. Can you do
+this for $G$-spectra by looking at the regular representation?
+\end{ques}
+Better, in fact: in the case of an $\Omega$-$G$-spectrum, you can compute the homotopy groups at the
+\emph{trivial} representation.
+\begin{ques}
+What is the status of Grothendieck's approach to homotopy theory?
+\end{ques}
+That's a good question; it's not so clear. People like derivators, because they're $2$-categorical and therefore
+easier to deal with, but they might go away once the higher-categorical foundations get standardized.
+\begin{ques}
+In equivariant homotopy theory, there are multiple kinds of suspension functor. How does one then conclude that
+cofibers are the same as fibers up to some shift, if there are multiple choices of shift to make?
+\end{ques}
+This is a great exercise for you to work out.
+
+
+% TODO: make a fun cover!
