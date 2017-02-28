@@ -1,0 +1,204 @@
+Today, we're going to finish the proof of tom Dieck splitting, at least on the level of homotopy
+groups~\eqref{what_well_prove}. We'll defer the spectrum-level theorem~\eqref{splevelTD} to later.
+
+We've reduced to showing that the composite
+\[\xymatrix{
+	\pi_*^\WH(\sus E\WH_+\wedge X^H)\ar[r]\ar[dr]^-{\theta_1} & \pi_*^\NH(\sus E\WH_+\wedge X^H)\ar[d]\\
+	& \pi_*^\NH(\sus
+	E\WH_+\wedge X)\ar[r]^-\cong & \pi_*^G(G\wedge_H\sus E\WH_+\wedge X)\ar[r]^-{\theta_2} &\pi_*^G(X)
+}\]
+is an isomorphism when $X$ is concentrated at the single conjugacy class $(H)$ for $G$. The composite of the first
+two maps is denoted $\theta_1$. We did this by showing that the two sides of the tom Dieck isomorphism are
+$\Z$-graded homology theories, and therefore are determined by their values on spaces concentrated at single
+conjugacy classes. We'll show separately that $\theta_1$ and $\theta_2$ are isomorphisms.
+
+First let's look at $\theta_2$, by looking at the spaces of the susmension spectrum for
+\[\paren{G\wedge_\NH\paren{E\WH_+\wedge X\wedge S^V}}^K.\]
+Fixed points do not commute with suspension on the spectrum level (after all, this is the content of tom Dieck
+splitting), but they do commute with the smash product for spaces, so this is also
+\[(G\wedge_H E\WH_+)^K\wedge X^K\wedge S^{V^K}.\]
+If $K\not\in (H)$, then $X^K\simeq *$, since $X$ is concentrated at $(H)$. If $K\in (H)$,, then $(E\WH_+)^K\simeq
+*$, so either way what we obtain is an isomorphism for $\theta_2^K$.
+
+For $\theta_1$, we needed to prove \cref{restrlem}, that if $H\trianglelefteq G$ and $Y$ is concentrated at $(H)$,
+then the restriction map $\Map_G(X,Y)\to\Map_{G/H}(X^H,Y^H)$ is an isomorphism.
+\begin{proof}[Proof of \cref{restrlem}]
+The proof will proceed by cellular induction. Consider attaching a cell to a $G$-space $Z$ to form a space
+$\tilde Z$, which is expressed by the pushout\footnote{\TODO: notation for pushouts, which is an $\ulcorner$
+just to the lower right of the upper left space.}
+\[\xymatrix{
+	G/K_+\wedge S^{n-1}\ar[r]\ar[d] & Z\ar[d]\\
+	G/K_+\wedge D^n\ar[r] & \tilde Z.
+}\]
+If we apply $\Map_G(\bl,Y)$ to this diagram, it becomes a pullback
+\[\xymatrix{
+	\Map_G(G/K_+\wedge S^{n-1}, Y) & \Map_G(Z,Y)\ar[l]\\
+	\Map_G(G/K_+\wedge D^n, Y)\ar[u]_{\psi_1} & \Map_G(\tilde Z,Y)\ar[l]\ar[u]_{\psi_2}.
+}\]
+Since $\Map_G(G/K_+\wedge S^{n-1}, Y)\simeq \Map(S^{n-1}, Y^K)$, then $\psi_1$ is trivial, so $\psi_2$ is an
+isomorphism.
+
+Let
+\[X_0\coloneqq\set{x\in X\mid G_x\not\subseteq H}\subseteq X.\]
+Then, $X\setminus (X_0\cup X^H)$ is built by attaching cells $G/K_+\wedge D^n$ with $K\not\in (H)$.
+
+The cell attachment computation we just made tells us that it suffices to understand $X_0\cup X^H$, for which we
+use a Mayer-Vietoris argument associated to the pullback
+\[\xymatrix{
+	X_0\cup X^H & X^H\ar[l]_{\phi_1}\\
+	X_0\ar[u] & X_0\cap X^H\ar[l]_{\phi_2}\ar[u].
+}\]
+We again apply $\Map_G(\bl,Y)$; this time, the same argument shows that $\phi_2^*$ is an isomorphism. Now the map
+we want factors as
+\[\xymatrix{
+	\Map_G(X,Y)\ar[r] & \Map_G(X_0\cup X, Y)\ar[r] & \Map_G(X^H,Y)\ar[r] & \Map_{G/H}(X^H,Y^H).
+}\]
+The last map comes from the adjunction, and in particular is a known weak equivalence. And by induction, the first
+two maps are weak equivalences.
+\end{proof}
+We'll use \cref{restrlem} to check that the map
+\[\pi_*^\WH(\sus E\WH_+\wedge X^H)\stackrel{\theta_1}{\longrightarrow} \pi_*^\NH(\sus E\WH_+\wedge X)\]
+is an isomorphism, by providing a map in the other direction. Specifically, this is a map of homotopy classes
+\[[S^{n+m\rho}, \Sigma^{m\rho} E\WH_+\wedge X]\stackrel{\theta_1}{\longrightarrow} [S^{n+m\rho}, \Sigma^{m\rho}
+E\WH_+\wedge X].\]
+We've abused notation a bit here: on the left, $\rho$ is the regular representation for $\NH$, and on the right,
+it's the regular representation for $\WH$. \Cref{restrlem} implies that the map going the other way is an
+isomorphism when $X$ is concentrated at $(H)$:
+\[[S^{n+m\rho}, S^{m\rho}\wedge E\WH_+\wedge X]\stackrel\cong\longrightarrow [S^{n + m\rho^H}, S^{m\rho^H}\wedge
+E\WH_+\wedge X^H].\]
+This is what we reduced the problem to, so we have completed the proof of tom Dieck splitting for $\pi_G^*(\sus X)$
+on the level of homotopy groups.
+\subsection*{The Burnside category.}
+Let $\fC$ be a small category with finite limits and finite coproducts. In $\fC$, consider the diagram
+\[\xymatrix{
+	X\ar[r]^{\vp_1}\ar[d] & Y\ar[d] & Z\ar[d]\ar[l]_{\vp_2}\\
+	X'\ar[r] & X'\amalg Z' & Z'.\ar[l]
+}\]
+Both of these squares are pullbacks iff $Y\cong X\amalg Z$ with $\vp_1$ and $\vp_2$ the universal maps. This tells
+us something about how coproducts interact with pullbacks.
+\begin{defn}
+Let $\Span(\fC)$ be the category whose objects are those of $\fC$ and whose morphisms $\Hom_{\Span(\fC)}(X,Y)$ are
+equivalences classes of diagrams
+\begin{equation}
+\label{span1mor}
+\begin{gathered}
+\xymatrix@dr{
+	A\ar[r]\ar[d] & Y,\\
+	Z
+}
+\end{gathered}
+\end{equation}
+where $X\gets A\to Y$ and $X\gets A'\to Y$ are equivalent if there's an isomorphism $h\colon A\congto A'$ such that
+the following diagram commutes.
+\begin{equation}
+\label{span2mor}
+\begin{gathered}
+\xymatrix@R=0.4cm{
+	& A\ar[dr]\ar[dl]\ar[dd]^h\\
+	X && Y\\
+	& A'.\ar[ul]\ar[ur]
+}
+\end{gathered}
+\end{equation}
+Composition is defined by pullback of spans
+\[\xymatrix@dr{
+	A\times_Y A'\ar[r]\ar[d] & A'\ar[r]\ar[d] & Z.\\
+	A\ar[r]\ar[d] & Y\\
+	X
+}\]
+\end{defn}
+\begin{rem} % TODO: citation for category number?
+If your category number is at least $2$, you can construct $\Span(\fC)$ as a $2$-category, where the $1$-morphisms
+between $X$ and $Y$ are spans~\eqref{span1mor}, and the $2$-morphisms between $X\gets A\to Y$ and $X\gets A'\to Y$
+are the diagrams~\eqref{span2mor}.
+\end{rem}
+There's a sum on $\Hom_{\Span(\fC)}(X,Y)$ given by the coproduct of $X\gets A\to Y$ and $X\gets A'\to Y$, which
+define a map $X\gets A\amalg A'\to Y$. You might worry whether this is compatible with composition, which is why
+we took the morphisms to be equivalence classes of spans.
+
+This sum does not make $\Span(\fC)$ into an additive category, so let $\Span^+(\fC)$ denote the \term{preadditive
+completion} of $\Span(\fC)$, i.e.\ $\Hom_{\Span^+(\fC)}(X,Y)$ is the Grothendieck group of
+$\Hom_{\Span(\fC)}(X,Y)$.
+\begin{ex}
+Show that the category $G\Set^{\mathrm{fin}}$ of finite $G$-sets and $G$-equivariant maps satisfy the axioms we
+asked of $\fC$.
+\end{ex}
+\begin{defn}
+The \term{Burnside category} $B_G$ is $\Span^+(G\Set^{\mathrm{fin}})$.
+\end{defn}
+In \cref{burn1}, we defined the Burnside category differently, as the full subcategory of $\Spc^G$ on $\sus G/H_+$;
+these two definitions are equivalent, and the content is that every finite $G$-set is a coproduct of orbits
+$G/K_i$.
+\begin{prop}
+Let $\tilde B_G$ denote the full subcategory of $\Spc^G$ spanned by finite $G$-sets. Then, $B_G$ and $\pi_0\tilde
+B_G$ are equivalent.
+\end{prop}
+\begin{proof}
+The functor in question sends $T\mapsto\sus T_+$ and a span
+\[\xymatrix@dr{
+	Z\ar[r]^\theta\ar[d]_\tau & Y\\
+	X
+}\]
+to $\theta\circ\tr(\tau)$, where $\tr$ is the transfer map. Because the transfer behaves well under composition,
+this is a functor $\Span(G\Set^{\mathrm{fin}})\to\pi_0\tilde B_G$, and therefore uniquely determines the functor
+$B_G\to\pi_0\tilde B_G$. This is essentially surjective (i.e.\ for objects), and we've already computed that it's
+an isomorphism on hom sets.\footnote{\TODO: I think this was tom Dieck splitting, but want to make sure.}
+\end{proof}
+\begin{defn}
+A \term{Mackey functor} is a functor $B_G\op\to\Ab$.
+\end{defn}
+Restricting to spans of the form $X\stackrel\id\gets X\to Y$ defines a covariant functor
+$\sO_G\to B_G$, and restricting to spans of the form $Y\gets X\stackrel\id\to X$ defines a contravariant functor
+$\sO_G\op\to B_G$. Composing with a Mackey functor $F$ defines a pair of functors $\sO_G\op\to\Ab$ and
+$\sO_G\to\Ab$. We'll denote the image of an $f\colon X\to Y$ under these functors as $f^*$ and $f_*$, and given a
+diagram
+\[\xymatrix{
+	X'\ar[r]^{f'}\ar[d]^{g'} & X\ar[d]^g\\
+	Y'\ar[r]^f & Y,
+}\]
+Mackey functors satisfy the \term{Chevalley condition} $g^*f_* = f_*'(g')^*$.
+\begin{prop}
+$\pi+K^H(\bl)$ defines a Mackey functor.
+\end{prop}
+The two functors $\sO_G,\sO_G\op\to\Ab$ are evident, coming from the usual maps in the orbit category and the
+transfer maps, but there are axioms to check.
+
+Let $M$ be a Mackey functor. Then, there exists an object $\mathit{HM}\in\Spc^G$, called the \term{equivariant
+Eilenberg-Mac Lane spectrum} for $M$, whose homotopy groups $\pi_G^*$ are determined by $M$.
+\begin{defn}
+The \term{cohomology} of an $X\in\Spc^G$ with coefficients in a Mackey functor $M$ is
+\[H^n(X;M)\coloneqq [X, \Sigma^n \mathit{HM}],\]
+which defines a $\Z$-graded cohomology theory. Moreover, one can define an $\RO(G)$-graded cohomology theory
+\[H^V(X;M)\coloneqq [X, \Sigma^V \mathit{HM}],\]
+where $V$ is a representation in $U$.
+\end{defn}
+The definition of an $\RO(G)$-graded cohomology theory requires some care, and we will investigate this; the naïve
+definition (which is worth writing down) you might write down is likely to be wrong for subtle reasons.
+
+The central algebraic analogue of the equivariant stable category is given by the category of Mackey functors.
+Mackey functors form a symmetric monoidal category under something called the box product; we'll define this in
+detail later, but it's familiar, arising as a Kan extension just like Day convolution.
+
+The point is, it makes sense to talk about commutative monoids in the category of Mackey functors, which are called
+\term{Green functors}. These aren't quite the right objects, however: we need to account for stable transfer data,
+which is what makes the equivariant stable category act the way it does.
+
+The more sophisticated notion of a commutative ring in Mackey functors involves additional multiplicative transfer
+data; these are called \term{Tambara functors} or \term{TNR functors}.
+
+Up to now, everything we've done was known to tom Dieck and can be found (perhaps not in this language)
+in~\cite{LMS}. But this stuff is more modern: this perspective on Tambara functors was popularized by~\cite{HHR}.
+Multiplicative transfers were originally considered by \citeme{Evens} in representation theory, and
+\citeme{Greenlees-May} also wrote about them, but~\cite{HHR} innovated the norm and how it interacts with these
+multiplicative transfer maps.
+
+This leads to an interesting question about calculations, which appears as soon as you try to start doing things.
+\begin{ques}
+On the homotopy groups $\pi_*"\bl$, we have restrictions and transfer maps. What can we say about the composite of
+a restriction map and a transfer map, or a transfer map and a restriction map?
+\end{ques}
+The answer involves double coset formulae, and can be thought of in a few ways: we'll start with the classical
+perspective and become more modern.
+
+Next time, we'll talk more about Mackey functors and $\RO(G)$-graded cohomology theories, including how to
+construct Eilenberg-Mac Lane spectra, which is considerably more difficult than in the nonequivariant case.
