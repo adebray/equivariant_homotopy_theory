@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 Today, we're going to finish the proof of tom Dieck splitting, at least on the level of homotopy
 groups~\eqref{what_well_prove}. We'll defer the spectrum-level theorem~\eqref{splevelTD} to later.
 
@@ -17,18 +18,17 @@ First let's look at $\theta_2$, by looking at the spaces of the susmension spect
 Fixed points do not commute with suspension on the spectrum level (after all, this is the content of tom Dieck
 splitting), but they do commute with the smash product for spaces, so this is also
 \[(G\wedge_H E\WH_+)^K\wedge X^K\wedge S^{V^K}.\]
-If $K\not\in (H)$, then $X^K\simeq *$, since $X$ is concentrated at $(H)$. If $K\in (H)$,, then $(E\WH_+)^K\simeq
+If $K\not\in (H)$, then $X^K\simeq *$, since $X$ is concentrated at $(H)$. If $K\in (H)$, then $(E\WH_+)^K\simeq
 *$, so either way what we obtain is an isomorphism for $\theta_2^K$.
 
 For $\theta_1$, we needed to prove \cref{restrlem}, that if $H\trianglelefteq G$ and $Y$ is concentrated at $(H)$,
 then the restriction map $\Map_G(X,Y)\to\Map_{G/H}(X^H,Y^H)$ is an isomorphism.
 \begin{proof}[Proof of \cref{restrlem}]
 The proof will proceed by cellular induction. Consider attaching a cell to a $G$-space $Z$ to form a space
-$\tilde Z$, which is expressed by the pushout\footnote{\TODO: notation for pushouts, which is an $\ulcorner$
-just to the lower right of the upper left space.}
+$\tilde Z$, which is expressed by the pushout
 \[\xymatrix{
 	G/K_+\wedge S^{n-1}\ar[r]\ar[d] & Z\ar[d]\\
-	G/K_+\wedge D^n\ar[r] & \tilde Z.
+	G/K_+\wedge D^n\ar[r] & \pushout \tilde Z.
 }\]
 If we apply $\Map_G(\bl,Y)$ to this diagram, it becomes a pullback
 \[\xymatrix{
