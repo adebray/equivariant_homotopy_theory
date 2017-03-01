@@ -102,10 +102,10 @@ $n\ge 1$ and $d\in\fD$, and the \term{acyclic cofibrations} are $F_d(D_+^n\to (D
 and $d\in\fD$.
 
 Since all spaces are fibrant, all $\fD$-spaces are fibrant in the level model structure. The cofibrant objects are
-the retracts of \term{cellular objects}, which are built by iterated pullbacks
+the retracts of \term{cellular objects}, which are built by iterated pushouts
 \[\xymatrix{
 	\bigvee F_d S_+^{n-1}\ar[r]\ar[d] & X_n\ar[d]\\
-	\bigvee F_dD_+^n\ar[r] & X_{n+1}.
+	\bigvee F_dD_+^n\ar[r] & \pushout X_{n+1}.
 }\]
 While this is all nice, it's not what we're looking for, as it contains no information about stable phenomena. It's
 like the category of spaces, just with more of them. For example, it's not even true that $X\to\Omega\Sigma X$ is a
