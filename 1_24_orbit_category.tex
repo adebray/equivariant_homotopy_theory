@@ -45,8 +45,7 @@ Let $\sF$ be a specified family of subgroups of $G$.
 \end{defn}
 We'll give two proofs of \cref{elmendorf}. The first will be model-categorical.
 
-Recall\footnote{If this is not review to you, then exercise: learn this material!} if $F: \fC\rightleftarrows \fD:
-G$ is a Quillen adjunction, then the left and right derived functors $(\LD F, \RD G)$ is an adjunction on the
+Recall\footnote{If this is not review to you, then exercise: learn this material!} if $\adjnctn\fC\fD FG$ is a Quillen adjunction, then the left and right derived functors $(\LD F, \RD G)$ is an adjunction on the
 homotopy categories $(\operatorname{Ho}\fC, \operatorname{Ho}\fD)$. If $K$ denotes fibrant replacement in $\fD$ and
 $Q$ denotes cofibrant replacement in $\fC$, then the derived functors are $\LD F = FQ$ and $\RD G =
 GK$.\footnote{This does require cofibrant and fibrant replacement to be functorial, which is not true in every
@@ -70,7 +69,7 @@ model category and want to understand abelian group or ring objects in this cate
 are detected by the forgetful functor.
 \begin{proof}[Proof sketch of \cref{elmendorf}]
 We want to apply \cref{forgetWElem} to the adjunction
-\[\theta: \Fun(\sO_G\op, \Top)\rightleftarrows G\Top: \psi,\]
+\[ \adjnctn {\Fun(\sO_G\op, \Top)}{G\Top}\theta\psi,\]
 where $\theta\colon X\mapsto X(G/e)$ is evaluation at $G/e$ and $\psi\colon Y\mapsto\set{Y^H}$. The first
 condition, that $\psi$ detects the weak equivalences, is straightforward, so we need to check that
 $X\mapsto\set{X(G/e)^H}$ is a weak equivalence for all cofibrant $X$.

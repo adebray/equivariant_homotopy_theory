@@ -31,10 +31,10 @@ We require this to commute.
 
 Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and similarly for
 abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
-adjunctions: an adjunction $F:\fC\rightleftarrows\fD: G$ defines a monad $GF$, with the structure map defined by
+adjunctions: an adjunction $\adjnctn\fC\fD FG$ defines a monad $GF$, with the structure map defined by
 the unit map $G(FG)F\to GF$. Many monads arise in this way.
 
-There is always a free-forgetful adjunction $F\colon \fC\rightleftarrows \fC[M]: U$, which has to do with the
+There is always a free-forgetful adjunction $\adjnctn \fC{\fC[M]}FU$, which has to do with the
 Barr-Beck theorem. Suppose $\fC$ is a model category. We'd like to lift this to a model structure on $\fC[M]$ ---
 when does $\fC[M]$ have a model structure where the weak equivalences are determined by the forgetful functor
 $U$?\footnote{This is not how we defined the model structure on $G$-spaces, but we'll use it to define model
