@@ -1,3 +1,4 @@
+%!TEX root = m392c_EHT_notes.tex
 Today, we're going to discuss the homotopy theory of spectra in the nonequivariant setting. Last time, we discussed
 $\fD$-spaces, where $\fD$ is a small topological category, and saw that the category of $\fD$-spaces is symmetric
 monoidal. We discussed a few examples:
@@ -204,7 +205,7 @@ isomorphism. But by the Freudenthal suspension theorem, these colimits stabilize
 This implies that when $X$ is an $\Omega$-prespectrum, $\pi_q X = \pi_q X_0$, and for $q < 0$, we can define $\pi_q
 X =\pi_0(X_{-q})$.
 \begin{thm}
-The adjunction $P: \Spc^\N\rightleftarrows \Spc^\sI: U$ is a Quillen equivalence, and therefore
+The adjunction $\adjnctn{\Spc^\N}{\Spc^\sI}PU$ is a Quillen equivalence, and therefore
 $\Ho(\Spc^\N)\cong\Ho(\Spc^\sI)$ as triangulated categories.
 \end{thm}
 This homotopy category is called the stable category. It has a triangulated structure in which suspension $\Sigma$
@@ -215,7 +216,7 @@ sequences.}
 Another sense in which the stable category is stable is that both fiber and cofiber sequences induce long exact
 sequences of homotopy groups, instead of just fiber sequences.
 
-We'd like to construct a Quillen adjunction $\Sigma^\infty:\Top_*\rightleftarrows\Spc^\sI: \Omega^\infty$.
+We'd like to construct a Quillen adjunction $\adjnctn{\Top_*}{\Spc^\sI}{\Sigma^\infty}{\Omega^\infty}$.
 $\Omega^\infty$ is just $\Ev_0$, evaluating at the zero space. If $F_d$ is the adjoint to $\Ev_d$ (so that
 $(F_dA)(e) = \Map_\fD(d, e)_+\wedge A$), then we can define $\Sigma^\infty A\coloneqq F_0A\wedge S$, where $S =
 S_\N$ for prespectra and $S = S_\sI$ for orthogonal spectra.
