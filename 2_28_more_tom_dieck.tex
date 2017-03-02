@@ -81,24 +81,20 @@ Let $\Span(\fC)$ be the category whose objects are those of $\fC$ and whose morp
 equivalences classes of diagrams
 \begin{equation}
 \label{span1mor}
-\begin{gathered}
-\xymatrix@dr{
+\gathxy[@dr]{
 	A\ar[r]\ar[d] & Y,\\
 	Z
 }
-\end{gathered}
 \end{equation}
 where $X\gets A\to Y$ and $X\gets A'\to Y$ are equivalent if there's an isomorphism $h\colon A\congto A'$ such that
 the following diagram commutes.
 \begin{equation}
 \label{span2mor}
-\begin{gathered}
-\xymatrix@R=0.4cm{
+\gathxy[@R=0.4cm]{
 	& A\ar[dr]\ar[dl]\ar[dd]^h\\
 	X && Y\\
 	& A'.\ar[ul]\ar[ur]
 }
-\end{gathered}
 \end{equation}
 Composition is defined by pullback of spans
 \[\xymatrix@dr{
