@@ -1,0 +1,165 @@
+\begin{quote}\textit{
+	``I thought it was obvious, but it's obviously not obvious.''
+}\end{quote}
+Today, we're going to finish the additive correspondence between $G$-spectra and $\RO(G)$-graded cohomology
+theories, through Neeman's proof of Brown representability. There will be no class Thursday, so we'll resume after
+spring break with some computations of $\RO(G)$-graded cohomology theories, including ordinary cohomology and
+hopefully also twisted $K$-theory.
+
+Anyways, recall that we defined $\RO(G)$-graded cohomology theories $\set{E_G^V(X)}$ to be Mackey functors graded
+on the category $\cat{RO}(G;U)$, where $U$ is the ambient universe, together with isomorphisms $\sigma^W\colon
+E_G^V(X)\cong E_G^{V\oplus W}(\Sigma^W X)$, together with some additional data.
+
+Before we go on, though, we should talk a little about $\RO(G)$.
+\begin{defn}
+Let $G$ be a group and $R$ be a ring. Then, the \term{representation ring} of $G$ over $R$ is the Grothendieck
+construction applied to the category of finite-rank $G$-representations over $R$, i.e.\ the ring of isomorphism
+classes of finite-rank $G$-representations over $R$, where addition is direct sum and multiplication is tensor
+product. By \emph{the} representation ring, we'll mean $\RO(G)\coloneqq\R(G)$, the ring of real representations.
+\end{defn}
+We can think of $\R(G)$ and $\C(G)$ as a ring of characters: given a representation $V$, its \term{character} is
+the map $\chi_V\colon G\to\R$ (or to $\C$) where $\chi_V(g) = \tr(g\cdot)$. Since $\chi_{V\oplus W} = \chi_V +
+\chi_W$, $\chi_{V\otimes W} = \chi_V\cdot\chi_W$, and for irreducible representations, $\chi_V = \chi_W$ iff
+$V\cong W$, then the characters detect isomorphism classes, so $\R(G)$ and $\C(G)$ can be thought of as the ring of
+functions $G\to\R$ (or $\C$) that are characters.
+\begin{comp}{ex}{enumerate}
+	\item Compute $\C(G)$ for $G = C_p$, and then for $C_m$ where $m$ isn't prime.
+	\item Harder: compute $\R(G)$ for the same $G$.
+\end{comp}
+One of the important connections in ordinary stable homotopy theory is that cohomology theories are closely related
+to spectra: every spectrum determines a cohomology theory, and up to a very small ambiguity, a cohomology theory is
+represented by a spectrum.
+\begin{defn}
+Let $E$ be a $G$-spectrum. Then, we define \term{$E$-cohomology} to be the functor $E_G^V(X)\coloneqq [S^V\wedge X,
+E]_G$.
+\end{defn}
+This is an $\RO(G)$-graded cohomology theory, but this is something to check. If you want to restrict your
+universe, there are some nuances that have to be overcome.
+
+If you put in finite $G$-sets (basically points), what you get is a Mackey functor: considering maps out of $X$
+ensures the transfer maps have the correct variance.
+
+That was the easy direction: the other direction requires Brown representability. This is originally due to
+\cite{Brown}, and we'll give Neeman's interpretation~\cite{Neeman}. It works in any triangulated category, and is
+very close to the small object argument, which already makes it a good thing.
+
+Fix a triangulated category $\fC$ that has small coproducts. The stable homotopy categories $\Ho(\Spc)$ and
+$\Ho(\Spc^G)$ are the examples to keep in mind.
+\begin{defn}
+An $x\in\fC$ is \term{compact} if for all countable coproducts over $y_i\in\fC$,
+\[\Map_\fC\paren{x, \coprod_i y_i} \cong \coprod_i \Map_\fC(x, y_i).\]
+\end{defn}
+This is not the usual definition of compactness in category theory, which uses filtered colimits, but in the stable
+setting these are the same as coproducts, motivating our definition. For example, this definition does not
+characterize compact topological spaces.
+\begin{comp}{defn}{itemize}
+	\item A \term{generating set} of a category $\fC$ is a set $T\subseteq\operatorname{ob}(\fC)$ that
+	\term{detects zero}, i.e.\ for all $x\in\fC$, $x = 0$ iff $\Map_\fC(z,x) = 0$ for all $z\in T$. If $\fC$ is
+	triangulated, we additionally require $T$ to be closed under shift.
+	\item $\fC$ is \term{compactly generated} if it has a generating set consisting of compact objects.
+\end{comp}
+We introduce these to skate around set-theoretic issues: at some point, we'd like to take a coproduct over all
+objects in the category, but that's too large. Instead, taking the coproduct over all generators will have the same
+power, and is actually well-defined.
+
+For example, dualizable spectra (resp.\ dualizable $G$-spectra) are a compact generating set for $\Ho(\Spc)$
+(resp.\ $\Ho(\Spc^G)$).
+\begin{thm}[Brown representability~\cite{Brown, Neeman}]
+Let $\fC$ be a compactly generated triangulated category and $H\colon\fC\op\to\Ab$ be a functor such that
+\begin{enumerate}
+	\item
+	\[H\paren{\coprod_i X_i}\cong\prod_i H(X_i)\]
+	and
+	\item $H$ sends exact triangles $X\to Y\to Z\to X[1]$ to long exact sequences
+	\[\xymatrix{
+		H(X)\ar[r] & H(Y)\ar[r] & H(Z)\ar[r] & H(X[1])\ar[r] & H(Y[1])\ar[r] & H(Z[1])\ar[r] & H(X[2])\ar[r] &
+		\dotsb
+	}\]
+\end{enumerate}
+Then, $H$ is \term{representable}, i.e.\ there's an $X\in\fC$ and a natural isomorphism $\Hom_\fC(\bl,X)\to H$.
+\end{thm}
+\begin{proof}
+We're going to build $X$ inductively. Fix a generating set $T$ for $\fC$ of compact objects.
+
+In the base case, let
+\[U_0\coloneqq \coprod_{x\in T} H(x)\qquad\text{and}\qquad X_0 \coloneqq \coprod_{\substack{(\alpha,t)\in
+U_0\\\alpha\in H(t)}} t.\]
+Thus,
+\[H(X_0) = H\paren{\coprod_{(\alpha, t)\in U_0} t}\cong\prod_{(\alpha, t)\in U_0} H(t),\]
+and in particular there is a distinguished element $\alpha_0\in H(X_0)$ which is $\alpha$ at the $(\alpha,t)$
+factor. By the Yoneda lemma, $\alpha_0$ specifies a natural transformation $\theta_0\colon \Map_\fC(\bl,X_0)\to H$,
+and by construction, $\theta_0$ is surjective for each $t\in T$.
+
+Now we induct: assume we have $X_i$ and $\alpha_i$ specifying a natural transformation $\theta_i\colon
+\Map_\fC(\bl,X_i)\to H$. Then, define
+\[U_{i+1}\coloneqq \coprod_{t\in T} \ker(\theta_i(t)\colon\Map_\fC(t,X_i)\to H(t)).\qquad\text{and}\qquad
+K_{i+1}\coloneqq \coprod_{(f,t)\in U_{i+1}} t.\]
+There's a natural map $K_{i+1}\to X_i$ which applies $f$; let $X_{i+1}$ be its cofiber. Applying $H$, this
+produces a map
+\[\xymatrix{
+	H(X_{i+1})\ar[r] & H(X_i)\ar[r] & H(K_{i+1}),
+}\]
+and by construction, $\alpha_i\mapsto 0$, so by exactness, we can lift to $\alpha_{i+1}\in H(X_{i+1})$. This
+$\alpha_{i+1}$ specifies a natural transformation $\theta_{i+1}\colon \Map_\fC(\bl,X_{i+1})\to H$, and the
+following diagram commutes:
+\[\xymatrix{
+	\Map_\fC(\bl,X_i)\ar[r]^-{\theta_i}\ar[d] & H\\
+	\Map_\fC(\bl,X_{i+1}).\ar[ur]_{\theta_{i+1}}
+}\]
+Thus we have a tower $\N\to\fC$ sending $i\mapsto X_i$, and we can define
+\[X\coloneqq \hocolim_i X_i,\]
+which we'll show represents $H$. The \term{homotopy colimit} in a triangulated category is \TODO.
+\begin{rem}
+Though triangulated categories are a good language to know, as they're historically interesting and often useful,
+they have drawbacks: the octahedral axiom is awkward, for example, and sometimes the triangulated structure works
+against you.
+
+For this reason, it can be useful to remember that triangulated categories arise as the homotopy categories of
+stable $\infty$-categories, where there's additional versatility simplifying some arguments. For this reason, we
+use words such as ``cofiber'' and ``homotopy colimit,'' because they're secretly the same thing. % TODO cofiber is
+% assoc to any map...
+\end{rem}
+\begin{ex}
+The homotopy colimit is also called the \term{telescope}. Relate this to the usual definition of a telescope.
+\end{ex}
+Anyways, we'll construct a natural transformation $\theta\colon\Map_\fC(\bl,X)\to H$ as follows. Since $H$ sends
+cofiber sequences to long exact sequences, applying it to
+\[\xymatrix{
+	\coprod_i X_i\ar[r] & \coprod_i X_i\ar[r] & X
+}\]
+produces a long exact sequence
+\[\xymatrix{
+	\dotsb\ar[r] & H(X)\ar[r] & \prod_i H(X_i)\ar[r] & \prod_i H(X_i)\ar[r] & \dotsb,
+}\]
+so in particular we can lift the $\alpha_i\in X_i$ to an $\alpha\in X$, which defines $\theta$ as before, and there
+is a commutative diagram
+\[\xymatrix{
+	\Map_\fC(\bl,X_0)\ar[r]^-{\theta_0}\ar[d] & H.\\
+	\Map_\fC(\bl,X)\ar[ur]_{\theta}
+}\]
+In particular, $\theta$ is surjective on $T$ (namely, $\Map(t,X)\to H(t)$ is surjective for $t\in T$).
+
+To see that $\theta$ is injective on $T$, we use compactness. Let $f\in\Map_\fC(t,X)$ be such that $\theta(f) = 0$;
+we wish to show that $f = 0$. Since $t$ is compact, $f$ lies in some $\Map_\fC(t,X_i)$, i.e.\
+$f\in\ker(\Map(t,X_i)\to H(t))$. Therefore, $f\in U_{i+1}$, so it's killed in $X_{i+1}$, and thus is $0$ in the
+colimit. Therefore $\theta$ is injective on $T$, hence and isomorphism.
+
+There exists a largest full triangulated subcategory $\widetilde\fC$ of $\fC$ that's closed under small coproducts
+and such that $\theta|_{\widetilde\fC}$ is a natural isomorphism; we'll show that $\widetilde\fC =
+\fC$.\footnote{Dissecting what ``largest full triangulated subcategory'' means requires a little care, but such a
+$\widetilde\fC$ exists.}
+
+Running the whole argument again,\footnote{It's important that we use the same generating set $T$ for this.} we
+obtain a $Z\in\widetilde\fC$ and a natural transformation $\widetilde\theta\colon\Map_{\widetilde\fC}(\bl,Z)\to H$.
+We know $\Map_{\widetilde\fC}$ and $\Map_\fC$ are isomorphic, and proved that $\theta$ and $\widetilde\theta$ are
+isomorphisms on the generating set, we can consider the cofiber of
+\[\Map_\fC(\bl,Z)\longrightarrow\Map_\fC(\bl,X).\]
+By the Yoneda lemma, such natural transformations are naturally identified with $\Map_\fC(Z,X)$, and you can
+compute the cofiber of $Z\to X$ in terms of these maps. This is $0$, so $Z\cong X$.
+
+\TODO: from here, we need to conclude why $\widetilde\fC = \fC$. This ought to be true, but we got stuck.
+\end{proof}
+Next time, we'll discuss what Brown representability means for $G$-spectra, and use it to define Eilenberg-Mac Lane
+spectra as the spectra representing certain cohomology theories. One fun fact about $G$-spectra is that every
+$\Z$-graded cohomology theory uniquely extends to an $\RO(G)$-graded cohomology theory by taking shifts, but this
+is not true for $G$-spaces!
