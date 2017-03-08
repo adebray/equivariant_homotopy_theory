@@ -137,27 +137,48 @@ is a commutative diagram
 	\Map_\fC(\bl,X_0)\ar[r]^-{\theta_0}\ar[d] & H.\\
 	\Map_\fC(\bl,X)\ar[ur]_{\theta}
 }\]
-In particular, $\theta$ is surjective on $T$ (namely, $\Map(t,X)\to H(t)$ is surjective for $t\in T$).
+In particular, $\theta$ is surjective on $T$ (namely, $\Map_\fC(t,X)\to H(t)$ is surjective for $t\in T$).
 
 To see that $\theta$ is injective on $T$, we use compactness. Let $f\in\Map_\fC(t,X)$ be such that $\theta(f) = 0$;
 we wish to show that $f = 0$. Since $t$ is compact, $f$ lies in some $\Map_\fC(t,X_i)$, i.e.\
-$f\in\ker(\Map(t,X_i)\to H(t))$. Therefore, $f\in U_{i+1}$, so it's killed in $X_{i+1}$, and thus is $0$ in the
+$f\in\ker(\Map_\fC(t,X_i)\to H(t))$. Therefore, $f\in U_{i+1}$, so it's killed in $X_{i+1}$, and thus is $0$ in the
 colimit. Therefore $\theta$ is injective on $T$, hence and isomorphism.
 
-There exists a largest full triangulated subcategory $\widetilde\fC$ of $\fC$ that's closed under small coproducts
-and such that $\theta|_{\widetilde\fC}$ is a natural isomorphism; we'll show that $\widetilde\fC =
+There exists a largest full triangulated subcategory $\fC'$ of $\fC$ that's closed under small coproducts
+and such that $\theta|_{\fC'}$ is a natural isomorphism; we'll show that $\fC' =
 \fC$.\footnote{Dissecting what ``largest full triangulated subcategory'' means requires a little care, but such a
-$\widetilde\fC$ exists.}
+$\fC'$ exists.}
 
 Running the whole argument again,\footnote{It's important that we use the same generating set $T$ for this.} we
-obtain a $Z\in\widetilde\fC$ and a natural transformation $\widetilde\theta\colon\Map_{\widetilde\fC}(\bl,Z)\to H$.
-We know $\Map_{\widetilde\fC}$ and $\Map_\fC$ are isomorphic, and proved that $\theta$ and $\widetilde\theta$ are
-isomorphisms on the generating set, we can consider the cofiber of
+obtain a $Z\in\fC'$ and a natural transformation $\widetilde\theta\colon\Map_{\fC'}(\bl,Z)\to H$.  We know
+$\Map_{\fC'}$ and $\Map_\fC$ are isomorphic, and proved that $\theta$ and $\widetilde\theta$ are isomorphisms on
+the generating set, we can consider the cofiber of
 \[\Map_\fC(\bl,Z)\longrightarrow\Map_\fC(\bl,X).\]
 By the Yoneda lemma, such natural transformations are naturally identified with $\Map_\fC(Z,X)$, and you can
 compute the cofiber of $Z\to X$ in terms of these maps. This is $0$, so $Z\cong X$.
 
-\TODO: from here, we need to conclude why $\widetilde\fC = \fC$. This ought to be true, but we got stuck.
+So we've proven that $H$ is representable when restricted to the objects in the generating set $T$ in $\fC$.
+Furthermore, both $H$ and $\Hom_\fC(\bl,X)$ take coproducts to products and take cofiber sequences to long exact
+sequences. As a consequence, we can conclude that the full subcategory $\fC'$ of $\fC$ on which the natural
+transformation $\theta\colon \Hom_\fC(\bl,X)\to H$ is an isomorphism is a full triangulated subcategory of $\fC$
+which is closed under small coproducts (in $\fC$) and contains $T$.\footnote{Terminology: a triangulated
+subcategory that is closed under small coproducts (taken in the ambient category) is called \term{localizing}.}
+
+Therefore, it suffices to show that for any compactly generated triangulated category $\fC$, a full triangulated
+subcategory $\fC'$ that contains $T$ and has small coproducts must in fact be all of $\fC$. We show this as
+follows. Without loss of generality assume that $\fC'$ is the smallest full triangulated subcategory containing $T$
+and small coproducts; that is, take $\fC'$ to be the smallest localizing subcategory containing $T$.
+
+Now fix an object $c\in\fC$ and consider the functor $\Hom_\fC(\bl,c)$. Applying the construction from above, we
+obtain an object $z$ and a natural transformation $\Hom_\fC(\bl,z) \to \Hom_\fC(\bl,c)$. By construction, the
+object $z\in\fC'$ --- each $X_i$ is in $\fC'$, and so the homotopy colimit is too. Moreover, the map
+$\Hom_\fC(t,z)\to \Hom_\fC(t,c)$ is an isomorphism for all $t\in T$.
+
+The Yoneda lemma now implies that we have a map $z\to c$ which corresponds to the natural transformation
+$\Hom_\fC(\bl,z) \to \Hom_\fC(\bl,c)$. Consider the cofiber $c/z$. By the previous paragraph and the fact that
+$\Hom_\fC(t,\bl)$ takes triangles to long exact sequences, $\Hom_\fC(t, c/z) = 0$ for all $t\in T$, and so $c/z =
+0$. Therefore $c$ and $z$ are isomorphic. Since $z$ is in $\fC'$, $c\in\fC'$. As $c$ was chosen arbitrarily, we
+conclude that $\fC$ and $\fC'$ coincide. 
 \end{proof}
 Next time, we'll discuss what Brown representability means for $G$-spectra, and use it to define Eilenberg-Mac Lane
 spectra as the spectra representing certain cohomology theories. One fun fact about $G$-spectra is that every
