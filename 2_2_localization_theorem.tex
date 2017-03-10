@@ -5,11 +5,11 @@ There are three goals in today's lecture.
 \begin{enumerate}
 	\item We'll discuss the localization theorem (\cref{localization}) again, and prove it, providing a bit more
 	context for where it came from.
-	\item We'll talk about the Sullivan conjecture. This is really Sullivan's attack on Adams' conjecture, and is a
-	very important story. We won't prove the conjecture, because it's hard, but the context around it was a major
-	motivation for a lot of the work in algebraic and geometric topology in the past 40 years. Sullivan wrote up
-	some notes for a class of his at MIT, which have been published as~\cite{MITNotes}, and you should read them:
-	they are enlightening and contain all of the jokes he told in class!
+	\item We'll talk about the Sullivan conjecture (\cref{sullivan}). This is really Sullivan's attack on Adams'
+	conjecture, and is a very important story. We won't prove the conjecture, because it's hard, but the context
+	around it was a major motivation for a lot of the work in algebraic and geometric topology in the past 40
+	years. Sullivan wrote up some notes for a class of his at MIT, which have been published as~\cite{MITNotes},
+	and you should read them: they are enlightening and contain all of the jokes he told in class!
 	\item We'll introduce the stable category, discussing Spanier-Whitehead duality and the Pontrjagin-Thom
 	construction. If you want points (orbits) to have Spanier-Whitehead duals, you're inexorably forced to
 	construct this stable category.
@@ -115,7 +115,8 @@ space $K$, there exists a $G$-CW complex $X$ such that $X$ is nonequivariantly c
 finite-dimensional, and $X^G\simeq K$.
 \subsection*{The Sullivan conjecture.}
 \begin{thm}[Sullivan conjecture]
-Let $G$ be a finite, abelian $p$-group. Then, $X^{hG}\to H^G$ is an equivalence on $p$-completions.
+\label{sullivan}
+Let $G$ be a finite, abelian $p$-group. Then, $X^{hG}\to X^G$ is an equivalence on $p$-completions.
 \end{thm}
 Recall that $X^{hG} \coloneqq\Map(EG, X)^G$, so this asserts a weak equivalence (after $p$-completing) $\Map(EG,
 X)^G\to\Map(*, X)^G$.
@@ -140,9 +141,9 @@ Let $X$ be a manifold. We first have the homotopical data of $X$, $C^*(X;\Q)$ an
 ``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg algebras. They
 also have more structure as modules over the Steenrod algebra.} That $X$ is a manifold means we can see Poincaré
 duality, which doesn't appear in all $\E_\infty$ dg algebras. But we still need some way to encode additional
-geometry obstructions, e.g.\ a way to encode the tangent and normal bundles.
+geometric obstructions, e.g.\ a way to encode the tangent and normal bundles.
 
-It's been an interesting, but as yet unsuccessful attack, to use a Frobenius algebra structure to try to obtain
+It's been an interesting, but as yet unsuccessful, attack to use a Frobenius algebra structure to try to obtain
 this geometric data. It's neat to think about what the $\E_\infty$ analogue of a Frobenius algebra is, and this is
 intimately related to Lurie's approach to the cobordism hypothesis~\cite{Lur09}, thinking about fully dualizable
 objects in a symmetric monoidal $\infty$-category.

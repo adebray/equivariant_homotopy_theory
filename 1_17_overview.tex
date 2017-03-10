@@ -6,9 +6,9 @@ this in general, but it's particularly acute here. Nonetheless, here are some re
 \begin{itemize}
 	\item Adams, ``Prerequisites (on equivariant stable homotopy) for Carlsson's lecture.''~\cite{Adams84}. This is
 	old, and some parts of it don't reflect how we do things now.
-	\item The Alaska notes~\cite{AlaskaNotes}, edited by May, is newer, and is written by many authors. Some of it
-	is a grab bag, and some parts (e.g.\ the rational equivariant bits) aren't entirely right. It's also not a
-	textbook.
+	\item The Alaska notes~\cite{AlaskaNotes}, edited by May, are newer, and are written by many authors. Some
+	parts are a grab bag, and some parts (e.g.\ the rational equivariant bits) aren't entirely right. The notes are
+	also not a textbook.
 	\item Appendix A of Hill-Hopkins-Ravenel~\cite{HHR}. This is a paper which resolved an old conjecture on
 	manifolds using equivariant stable homotopy theory, but let this be a lesson on referee reports: the authors
 	were asked to provide more background, and so wrote a 150-page appendix on this material. Their suffering is
@@ -30,7 +30,7 @@ equivariant stable homotopy theory. Hill-Hopkins-Ravenel in particular required 
 of this subject which has been enlightening.
 
 In this class, we hope to cover the foundations of equivariant stable homotopy theory. On the one hand, this will
-be a modern take, insofar as we emphasize the norm and the presheaf on orbit categories (these will be explained in
+be a modern take, insofar as we emphasize the norm and presheaves on orbit categories (these will be explained in
 due time), the modern emerging consensus on how to think of these things, different than what's written in
 textbooks. The former is old, but has gained more attention recently; the latter is new. Moreover, there's an
 increasing sense that a lot of the foundations here are best done in $\infty$-categories. We will not take this
@@ -42,7 +42,7 @@ We'll cover some old topics such as Smith theory and the Segal conjecture, and n
 and Hill-Hopkins-Ravenel, depending on student interest. We will not have time to discuss many topics, including
 equivariant cobordism or equivariant surgery theory.
 \subsection*{Prerequisites.} If you don't know these prerequisites, that's okay; it means you're willing to read
-about it on your own.
+about them on your own.
 \begin{itemize}
 	\item Foundations of unstable homotopy theory at the level of May's \textit{A Concise Course in Algebraic
 	Topology}~\cite{ConciseCourse}. For example, we'll discuss equivariant CW complexes, so it will help to know
@@ -52,15 +52,16 @@ about it on your own.
 	simplicial methods with non-discrete Lie groups), but you will want to know the bar construction. An excellent source for this is \cite[Chapter 4]{RiehlCHT}.
 	\item A bit of abstract homotopy theory, e.g.\ what a model structure is. Good sources for model categories are \cite[Part III]{RiehlCHT} and \cite{Hovey}.
 \end{itemize}
-If you don't know these, feel free to ask the professor for references. His advisor suggested that a foundation for
-the stable category is Lewis-May-Steinberger's account~\cite{LMS} of the equivariant category and let $G = *$, but
-perhaps this isn't necessarily a good reference for nontrivial groups.
+If you don't know these, feel free to ask the professor for references. His advisor suggested learning
+nonequivariant stable homotopy theory by reading Lewis-May-Steinberger's book~\cite{LMS} on equivariant stable
+homotopy theory and letting $G = *$, but this may not appeal to everyone. In any case, perhaps this isn't
+necessarily a good reference for nontrivial groups.
 
 Unstable equivariant questions are very natural, and somewhat reasonable. But stable questions are harder; they
-ultimately arise from reasonable questions, but the formulation and answers are hard: even discussing the
-equivariant analogue of $\pi_0S^0$ requires some representation theory --- and yet of course it should. Thus
-there's a lot of foundations behind hard calculations. There will be problem sets; if you want to learn the
-material (or are an undergrad), you should do the problem sets.
+ultimately arise from reasonable questions, but their formulations and answers are hard: even discussing the
+equivariant analogue of $\pi_0S^0$ (see~\eqref{piGs0}) requires some representation theory --- and yet of course it
+should. Thus there's a lot of foundations behind hard calculations. There will be problem sets; if you want to
+learn the material (or are an undergrad), you should do the problem sets.
 \subsection*{Categories of topological spaces.}
 The category of topological spaces we consider is $\Top$, the category of compactly generated, weak Hausdorff
 spaces (and continuous maps); we'll also consider $\Top_*$, the category of based, compactly generated, weak
@@ -71,27 +72,28 @@ simplicial sets.
 \begin{defn}
 Let $X$ be a topological space.
 \begin{itemize}
-	\item A subset $A\subseteq X$ is \term{compactly closed} if $f^{-1}(A)$ is closed for every $f\colon Y\to X$,
-	where $Y$ is compact and Hausdorff.
+	\item A subset $A\subseteq X$ is \term{compactly closed} if for every compact Hausdorff space $Y$ and $f\colon
+	Y\to X$, $f^{-1}(A)$ is closed.
 	\item $X$ is \term{compactly generated} if every compactly closed subset of $X$ is closed.
 	\item $X$ is \term{weak Hausdorff} if the diagonal map $\Delta\colon X\to X\times X$ is closed when $X\times X$
 	has the compactly generated topology.
 \end{itemize}
 \end{defn}
 The intuition behind compact generation is that the topology is determined by compact Hausdorff spaces. The weak
-Hausdorff topology is strictly stronger than $T_1$ (points are closed), but strictly weaker than Hausdorff spaces.
+Hausdorff condition is strictly stronger than $T_1$ (points are closed), but strictly weaker than being Hausdorff.
 Any space you can think of without trying to be pathological will meet these criteria.
 
 There is a functor $k$ from all spaces to compactly generated spaces which adds the necessary closed sets. This has
-the unfortunate name of \term{$k$-ification} or \term{kaonification}; by putting the compactly generated topology
+the unfortunate name of \term{$k$-ification} or \term{kaonification};\footnote{Kaonification is of course distinct
+from koanification, the process which makes statements more confusing.} by putting the compactly generated topology
 on $X\times X$, we mean taking $k(X\times X)$. There's also a ``weak Hausdorffification'' functor $w$ which makes a
 space weakly Hausdorff, which is some kind of quotient.\footnote{The $k$ functor is right adjoint to the forgetful
 map, which tells you what it does to limits.}
 
-When computing limits and colimits, it's often possible to compute it in the category of spaces and then apply $k$
-and $w$ to return to $\Top$. This is fine for limits, but for colimits, $w$ is particularly badly behaved: you
-cannot compute the colimit in $\Top$ by computing it in $\Set$ and figuring out the topology; more generally, it
-will be some kind of quotient.
+When computing limits and colimits, it's often desirable to compute them in the category of spaces and then apply
+$k$ and $w$ to return to $\Top$. This works correctly for limits, but for colimits, $w$ is particularly badly
+behaved: you cannot compute the colimit in $\Top$ by computing it in $\Set$ and figuring out the topology. In
+general, you'll need to take a quotient.
 
 Nonetheless, there are nice theorems which make things work out anyways.
 \begin{prop}
@@ -116,26 +118,27 @@ Let $X$, $Y$, and $Z$ be in $\Top$; then, the natural map
 is a homeomorphism.
 \end{lem}
 \subsection*{Enrichments.}
-The categories $\Top$ and $\Top_*$ are enriched over themselves (as will categories of $G$-spaces, which we'll see
-later). This means a brief digression into enriched categories.
+The categories $\Top$ and $\Top_*$ are enriched over themselves (as are categories of $G$-spaces, which we'll see
+soon). This merits a brief digression into enriched categories.
 \begin{defn}
-Let $(\cat V,\otimes, \boldsymbol 1)$ be a symmetric monoidal category.\footnote{Briefly, this means $V$ has a
-tensor product $\otimes$ and a unit $\boldsymbol 1$; there are certain axioms these must satisfy.} Then, an
-\term{enrichment} of a category $\fC$ over $\cat V$ means
+Let $(\fV,\otimes, \boldsymbol 1)$ be a symmetric monoidal category.\footnote{Briefly, this means $V$ has a tensor
+product $\otimes$ and a unit $\boldsymbol 1$; there are certain axioms these must satisfy.} Then, an
+\term{enrichment} of a category $\fC$ over $\fV$ means
 \begin{itemize}
-	\item for every $x,y\in\fC$, there is a hom-object $\underline\fC(x,y)$, which is an object in $\cat V$,
-	\item for every $x\in\fC$, there is a unit $\boldsymbol 1\to\underline\fC(x,x)$,
+	\item for every $x,y\in\fC$, there is a hom-object $\underline\fC(x,y)$, which is an object in $\fV$,
+	\item for every $x\in\fC$, there is a unit $\fV$-morphism $\boldsymbol 1\to\underline\fC(x,x)$,
 	\item composition $\underline\fC(x,y)\otimes\underline\fC(y,z)\to\underline\fC(x,z)$ is associative and unital,
 	and
 	\item the underlying category is recovered as $\fC(x,y) = \Map(\boldsymbol 1, \underline\fC(x,y))$.
 \end{itemize}
 \end{defn}
-A great deal of category theory can be generalized to enriched categories, including $\cat V$-enriched functors,
-$\cat V$-enriched natural transformations, $\cat V$-enriched limits and colimits, and more. The canonical reference
-is Kelley~\cite{Kelley}, available free and legally online. It covers just about everything we need except for the
-Day convolution, which can be read from Day's thesis~\cite{DayThesis}. Another good source, with a view towards homotopy theory, is \cite[Chapter 3]{RiehlCHT}.
+A great deal of category theory can be generalized to enriched categories, including $\fV$-enriched functors,
+$\fV$-enriched natural transformations, $\fV$-enriched limits and colimits, and more. The canonical reference is
+Kelley~\cite{Kelley}, available free and legally online. It covers just about everything we need except for the Day
+convolution, which can be read from Day's thesis~\cite{DayThesis}. Another good source, with a view towards
+homotopy theory, is \cite[Chapter 3]{RiehlCHT}.
 \begin{defn}
-Let $\fC$ and $\fD$ be enriched over $\cat V$. Then, an \term{enriched functor} $F\colon\fC\to\fD$ is an assignment
+Let $\fC$ and $\fD$ be enriched over $\fV$. Then, an \term{enriched functor} $F\colon\fC\to\fD$ is an assignment
 of objects in $\fC$ to objects in $\fD$ and maps $\underline\fC(x,y)\to\underline\fD(Fx, Fy)$ that are $\cat
 V$-morphisms, and commute with composition.
 \end{defn}
@@ -153,10 +156,11 @@ with a good equivariant homotopy theory for discrete infinite groups, you will b
 the examples $C_p$ (the cyclic group of order $p$, sometimes also denoted $\Z/p$), $C_{p^n}$, the symmetric group
 $S_n$, and the circle group $S^1$.
 
-There's a monad $M_G$ on $\Top$ which sends $X\mapsto G\times X$, and analogously $M_G^*$ on $\Top_*$ sending $X\to
-G_+\land X$; then, one can define the category of \term{$G$-spaces} $G\Top$ (resp.\ \term{based $G$-spaces}
-$G\Top_*$) to be the category of algebras over $M_G$ (resp.\ $M_G^*$). This is probably not the most explicit way
-to define $G$-spaces, but it makes it evident that $G\Top$ and $G\Top_*$ are complete and cocomplete.
+There's a monad\footnote{We're going to say more about monads in \S\ref{monads}.} $M_G$ on $\Top$ which sends
+$X\mapsto G\times X$, and analogously a monad $M_G^*$ on $\Top_*$ sending $X\to G_+\land X$. One can define the
+category of \term{$G$-spaces} $G\Top$ (resp.\ \term{based $G$-spaces} $G\Top_*$) to be the category of algebras
+over $M_G$ (resp.\ $M_G^*$). This is probably not the most explicit way to define $G$-spaces, but it makes it
+evident that $G\Top$ and $G\Top_*$ are complete and cocomplete.
 
 More explicitly, $G\Top$ is the category of spaces $X\in\Top$ equipped with a continuous action $\mu\colon G\times
 X\to X$. That is, $\mu$ must be associative and unital. Associativity is encoded in the commutativity of the
@@ -173,7 +177,7 @@ The morphisms in $G\Top$ are the \term{$G$-equivariant} maps $f\colon X\to Y$, i
 It's possible (but not the right idea) to let $\underline G$ denote\footnote{There isn't really a standard notation for this category, but the closest is $BG$. This notation emphasizes the fact that groupoids are Quillen equivalent to 1-truncated spaces.} the category with an object $*$ such that
 $\underline G(*, *) = G$. Then, $G\Top$ is also the category of functors $\underline G\to\Top$, with morphisms as
 natural transformations. This realizes $G\Top$ as a \term{presheaf category}; it will eventually be useful to do
-something like this, but not in this specific way.
+something like this, but in a different way described by Elmendorf's theorem (\cref{elmendorf}).
 
 When we write $\Map(X, Y)$ in $G\Top$ or $G\Top_*$, we could mean three things:
 \begin{enumerate}
@@ -182,7 +186,7 @@ When we write $\Map(X, Y)$ in $G\Top$ or $G\Top_*$, we could mean three things:
 	As this suggests, $G\Top$ admits an enrichment over $\Top$ (resp.\ $G\Top_*$ admits an enrichment over
 	$\Top_*$).
 	\item\label{justmap} The $G$-space of all maps $X\to Y$, where $G$ acts by conjugation: $f\mapsto
-	g^{-1}f(g\cdot)$. This means $G\Top$ is enriched in itself, as is $G\Top_*$.
+	g^{-1}f(g\cdot)$. This realizes $G\Top$ as enriched over itself, and similarly for $G\Top_*$.
 \end{enumerate}
 Each of these is useful in its own way: for constructions it may be important to be self-enriched, or to only look
 at $G$-equivariant maps. We will let $\Map^G(X,Y)$ or $\Map(X,Y)$ denote~\eqref{geq} or its underlying
@@ -194,14 +198,13 @@ all maps. This is written $\Map(X,Y)^G = \Map^G(X,Y)$.
 Throughout this class, ``subgroup'' will mean ``closed subgroup'' unless specified otherwise.
 \begin{defn}
 Let $X$ be a $G$-set and $H\subseteq G$ be a subgroup. Then, the \term{$H$-fixed points} of $X$ is the space
-$X^H\coloneqq \set{x\in X\mid hx = x\text{ for all } h\in H}$. This is naturally a $WH$-space, where $WH = NH/H$
-(here $NH$ is the normalizer of $H$ in $G$).\footnote{If $H\trianglelefteq G$, then $X^H$ is also a
-$G/H$-space.}
+$X^H\coloneqq \set{x\in X\mid hx = x\text{ for all } h\in H}$. This is naturally a $\WH$-space, where $\WH = \NH/H$
+(here $\NH$ is the normalizer of $H$ in $G$).\footnote{If $H\trianglelefteq G$, then $X^H$ is also a $G/H$-space.}
 \end{defn}
 \begin{defn}
 The \term{isotropy group} of an $x\in X$ is $G_x\coloneqq \set{h\in G\mid hx = x}$.
 \end{defn}
-These are useful in the following two ways.
+Isotropy groups are useful in the following two ways.
 \begin{enumerate}
 	\item Often, it will be helpful to reduce questions from $G\Top$ to $\Top$ using $(-)^H$.
 	\item It's also useful to induct over isotropy types.
@@ -209,8 +212,8 @@ These are useful in the following two ways.
 Now, we'll see some examples of $G$-spaces.
 \begin{exm}
 Let $H$ be a subgroup of $G$; then, the \term{orbit space} $G/H$ is a useful example, because it corepresents the
-fixed points by $H$. That is, $X^H \cong G\Map(G/H, X)$. These spaces will play the role that points did when we
-build things such as equivariant CW complexes.
+fixed points by $H$. That is, $X^H \cong G\Map(G/H, X)$. These spaces will play the role of points when we build
+things such as equivariant CW complexes.
 \end{exm}
 \begin{exm}
 Let $H\subset G$ as usual and $U\colon G\Top\to H\Top$ be the forgetful functor. Then, $U$ has both left and right
@@ -231,10 +234,10 @@ adjoints:
 Here is a categorical perspective on ``change of group.'' Quite generally, a group homomorphism $G\morph^f H$
 induces adjunctions
 \[\dadjnctn[3em] {G\Top}{H\Top}{f_!}{f^*}{f_*}.\]
-These are given by $f_!(X) = H\times_G X$ and $f_*(X) = F_G(H, X)$ for a $G$-space $X$, where $H$ is given the
-structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the space of
-orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for categories of
-modules, given a ring homomorphism $R\morph^f S$.
+These are given by $f_!(X) \coloneqq H\times_G X$ and $f_*(X) \coloneqq F_G(H, X)$ for a $G$-space $X$, where $H$
+is given the structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the
+space of orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for
+categories of modules, given a ring homomorphism $R\morph^f S$.
 
 In fact, these are both cases of very general abstract nonsense. Let $BG$ denote the category with one object $*$
 with $\Hom(*,*)=G$; as we have said above, we can (naïvely) write $G\Top$ as the functor category $\Top^{BG}$. A group homomorphism $G\morph^f H$ induces a functor $BG\morph^F BH$ (it is not quite true that the two are equivalent---think about why this is). Now $f^*\colon H\Top\to G\Top$ is just restriction along $F$:
@@ -244,7 +247,8 @@ with $\Hom(*,*)=G$; as we have said above, we can (naïvely) write $G\Top$ as th
 	BH \ar[ur]_-Y
 }\]
 % 
-According to abstract nonsense, restriction along $F$ has a left and right adjoint, called \emph{left and right Kan extension along $F$}:
+According to abstract nonsense, restriction along $F$ has left and right adjoints, called \term{left and right Kan
+extension along $F$}, respectively:
 \[
 \vcenter{\xymatrix{
 	BG \ar[d]_-F \ar[r]^-X \ar@{}[dr]|(0.33){\Downarrow\eta} & \Top\\
@@ -256,7 +260,11 @@ According to abstract nonsense, restriction along $F$ has a left and right adjoi
 	BH \ar@{..>}[ur]_-{f_*(X) = \Ran_F X} &
 }}
 \]
-These diagrams do not commute, but there are natural maps $X \twomorph^\eta f^*f_!(X)$ and $f^*f_*(X) \twomorph^\epsilon X$. When $H$ is the trivial group, $BH$ is the trivial category, and it is known that left/right Kan extensions of a functor $X$along a functor to the trivial category pick out the colimit/limit of $X$. That is, still viewing a $G$-space $X$ as a functor $BG\to\Top$, we have $X_G = \mathop{\colim}\limits_{BG} X$ and $X^G = \lim\limits_{BG} X$.
+These diagrams do not commute, but there are natural transformations $X \twomorph^\eta f^*f_!(X)$ and $f^*f_*(X)
+\twomorph^\epsilon X$. When $H$ is the trivial group, $BH$ is the trivial category, and it is known that left/right
+Kan extensions of a functor $X$along a functor to the trivial category pick out the colimit/limit of $X$. That is,
+still viewing a $G$-space $X$ as a functor $BG\to\Top$, we have $X_G = \mathop{\colim}\limits_{BG} X$ and $X^G =
+\lim\limits_{BG} X$.
 
 For an introduction to Kan extensions, we recommend \cite[Chapter 6]{RiehlCTC} (which is almost the same as \cite[Chapter 1]{RiehlCHT} but with some more amusing examples). Like much of category theory, this is ultimately all trivial, but it may be highly non-trivial to understand why it is trivial.
 \end{rem}
@@ -272,23 +280,23 @@ unbased spaces, but we have a quotient sequence
 If $V = \R^n$ with the trivial $G$-action, $S^V$ is $S^n$ with the trivial $G$-action, so these generalize the
 usual spheres; thus, these $S^V$ are called \term{representation spheres}.
 \end{exm}
-We will let $S^n$ denote $S^{\R^n}$, namely our preferred model for the $n$-sphere with trivial $G$-action.
+We will let $S^n$ denote $S^{\R^n}$, our preferred model for the $n$-sphere with trivial $G$-action.
 \subsection*{Beginnings of homotopy theory.}
 \begin{defn}
 A \term{$G$-homotopy} is a map $h\colon X\times I\to Y$ in $G\Top$, where $G$ acts trivially on $I$. We generally
 think of it, as usual, as interpolating between $h(\bl, 0)$ and $h(\bl, 1)$. This is the same data as a path in
 $G\Map(X,Y)$. A \term{$G$-homotopy equivalence} between $X$ and $Y$ is a map $f\colon X\to Y$ such that there
-exists a $g\colon Y\to X$ such that there are $G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
+exists a $g\colon Y\to X$ and $G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
 \end{defn}
 The (well, a) natural question that might arise: what are $G$-weak equivalences and $G$-CW complexes? This closely
-relates to obstruction theory --- CW complexes are test objects.
+relates to obstruction theory: CW complexes are test objects.
 
 To define $G$-CW complexes, we need cells. One choice is $G/H\times D^{n+1}$ and $G/H\times S^n$, where the actions
 on $D^{n+1}$ and $S^n$ are trivial. This is a plausible choice (and in fact, will be the right choice), but it's
 not clear why --- why not $G\times_H D(V)$ or $G\times_H S(V)$ for some $H$-representation $V$? Ultimately, this
 comes from a (quite nontrivial) theorem that these can be triangulated in terms of the cells $G/H\times D^{n+1}$
 and $G/H\times S^n$.\footnote{Illman's thesis~\cite{IllmanThesis} is a reference, albeit not the most accessible
-one.} This is one of several triangulation results proven in the 1970s, which are now assumed without comment, but
+one.} This is one of several triangulation results proven in the 1970s which are now assumed without comment, but
 if you like this kind of math then it's a very interesting story.
 \begin{defn}
 A \term{$G$-CW complex} is a sequential colimit of spaces $X_n$, where $X_{n+1}$ is a pushout
@@ -307,14 +315,14 @@ $f_*\colon\pi_n^H(X)\to\pi_n^H(Y)$ is an isomorphism.
 \end{defn}
 These homotopy groups have a more complicated algebraic structure: they're indexed by the lattice of subgroups of
 $G$ and the integers. This is fine (you can do homological algebra), but some things get more complicated,
-including asking what the analogue of connectedness is!
+including asking what the analogue of connectedness is! (We'll broach this in \cref{equivariant_connected}.)
 
 One quick question: do we need all subgroups $H$? What if we only want finite-index ones? The answer, in a very
 precise sense, is that if you're willing to use fewer subgroups, you get fewer cells $G/H\times S^n$, and that's
 fine, and you get a different kind of homotopy theory.
 
-Finally, the Whitehead theorem is true for $G$-CW complexes. This follows for the same reason as in May's course:
-it follows word-for-word after proving the equivariant HELP lemma (homotopy extension lifting property), which is
-true by the same argument.
+Finally, the Whitehead theorem (\cref{eqWhite}) is true for $G$-CW complexes. This follows for the same reason as
+in May's course: it follows word-for-word after proving the equivariant HELP (homotopy extension lifting property)
+lemma (\cref{HELP}) , which is true by the same argument as in the nonequivariant case.
 
 We'll next talk about presheaves on the orbit category, leading to Bredon cohomology.
