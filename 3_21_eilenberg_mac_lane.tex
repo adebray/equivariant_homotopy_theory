@@ -1,0 +1,215 @@
+\begin{quote}\textit{
+	``The large print giveth and the small print taketh away.''
+}\end{quote}
+The big goal of today's lecture is to construct Eilenberg-Mac Lane spectra: if $\underline M$ is a Mackey functor,
+we'll produce a $G$-spectrum $H\underline M$ which represents ordinary cohomology with coefficients in $\underline
+M$. This will take some work, but will have some nice payoffs. We'll begin some computations: for $G = C_2$, we'll
+compute the Bredon cohomology $H_{C_2}(\pt;\underline\Z)$ and $H_{C_2}(\pt;A)$, where $\underline\Z$ is the
+constant $\Z$-valued Mackey functor and $A$ is the Burnside Mackey functor (\cref{Mackeyexm}).
+
+Last time, we proved Brown representability (\cref{brown_rep}) for triangulated categories, which are stable. We
+also want an unstable variant.
+\begin{thm}[Unstable Brown representability]
+Let $\fC$ denote the category of based, $G$-connected $G$-CW complexes and $H\colon \Ho(\fC)\op\to\Set$ be a
+functor such that
+\begin{enumerate}
+	\item $H$ satisfies the wedge axioms, and
+	\item $H$ takes homotopy pushpouts to (weak) pullbacks.
+\end{enumerate}
+Then, $H$ is represented, and the converse is true.
+\end{thm}
+Though we stated this theorem for $H$ going to $\Set$, it turns out all such functors factor through the forgetful
+functor $\Ab\to\Set$, and therefore can be taken to be $\Ab$-valued.
+\begin{warn}
+The basepoint and connectivity hypotheses are important: Brown representability does not hold in the unstable case
+if you fail to impose those requirements.
+\end{warn}
+We can use Brown representability to prove the following result.
+\begin{prop}
+Any $\RO(G)$-graded cohomology theory is represented by a $G$-spectrum.
+\end{prop}
+\begin{proof}
+Let $E$ be an $\RO(G)$-graded cohomology theory. We can apply Brown representability to $E_G^V(\bl)$ for each $V$,
+and the identification $E_G^V(\Sigma^W X)\cong E_G^{V\oplus W}(X)$ gives rise to a homotopy class of structure maps
+on representing objects, but there's a coherence issue: we constructed $G$-spectra with actual structure maps, not
+homotopy classes of maps.
+
+The usual way to solve this is with a trick: restrict attention to a cofinal indexing sequence $V_n\inj V_{n+1}\inj
+V_{n+2}\inj\dots$, and then observe that the homotopy theory of $G$-prespectra on this sequence is equivalent to
+$\Ho(\Spc^G)$, which is guaranteed by cofinality: limits are preserved, and the homotopy groups are the same. This
+fixes the coherence problem: we can pick a representative for each map and force transitivity. Then, we can left
+Kan extend back to an orthogonal $G$-spectrum.
+\end{proof}
+This would be an exercise, except that maybe it's a bit too hard to be one.
+\begin{ques}
+Can we build an object of $\Spc^G$ directly? It would be nice not to worry about prespectra on a cofinal sequence.
+
+There are different ways to think about doing this. One approach goes through the model of the $G$-stable category
+as spectral presheaves.
+\end{ques}
+This provides the connection between cohomology theories on $G$-spaces and $G$-spectra, just like in the
+nonequivariant world. They're almost the same, except for the existence of phantom maps,\footnote{A \term{phantom
+map} is a nonzero morphism between spectra that's not detected by any compact object. In particular, this means
+that as a natural transformation of cohomology theories, it's $0$, but arises from a nonzero morphism. These encode
+the non-uniqueness of Brown representability.} just like in the nonequivariant case. These are poorly understood,
+but of course we want to understand them better in the nonequivariant case.
+\begin{cor}
+\label{ZtoROG}
+A $\Z$-graded cohomology theory on $\Spc^G$ is represented by an object of $\Spc^G$.
+\end{cor}
+The proof is that $\Sigma^V$ and $\Omega^V$ are inverse equivalences in $\Ho(\Spc^G)$, so we can use them to extend
+to $\RO(G)$-graded theories. \Cref{ZtoROG} feels like a weird coincidence, but it's a key technical result that
+we'll use more than once. The unstable case is different, though.
+\begin{cor}
+\label{unstZtoR}
+A $\Z$-graded cohomology theory on $G\Top$ with coefficients in a coefficient system $M$ extends to an
+$\RO(G)$-graded theory iff $M$ extends to (the contravariant part of) a Mackey functor.
+\end{cor}
+Now we can build Eilenberg-Mac Lane spectra for a Mackey functor $\underline M$. There will be two constructions:
+one may be more satisfying. You might hope to use obstruction theory to build Eilenberg-Mac Lane spaces and chain
+them together, but this is a mess. We'll adopt one unfamiliar-looking approach, which always works, and also see a
+more familiar one.
+\begin{cons}
+Given $\underline M$, we'll construct a $\Z$-graded cohomology theory on $\Spc^G$; by \cref{unstZtoR}, this is
+represented by an object of $\Spc^G$, which will be $H\underline M$.
+
+Let $X$ be a $G$-CW complex, and define $\underline C_n(X)\coloneqq \underline\pi_n(X_n/X_{n-1})$ (where $X_n$ is
+the $n$-skeleton of $X$). Now we'll replicate the construction of Bredon cohomology; in particular, the long exact
+sequence for the triple $(X_n, X_{n-1}, X_{n-2})$ induces a differential $\underline C_n(X)\to\underline
+C_{n-1}(X)$. If $\cat{Mac}$ denotes the category of Mackey functors, consider the cochain complex
+\[\Hom_{\cat{Mac}}(\underline C_n(X), \underline M),\]
+and take the cohomology of this cochain complex.
+
+This is represented by an \term{Eilenberg-Mac Lane spectrum} $H\underline M\in\Spc^G$, and one can calculate that
+\[\pi_k^H(H\underline M) = \begin{cases}
+	0, &k\ne 0\\
+	\underline M(G/H), &k = 0.
+\end{cases}\]
+From this perspective, it's easy to show that $H$ is functorial, which is nice. But you might wonder if it's
+symmetric monoidal: in the nonequivariant case, $H(R\otimes S)\simeq HR\wedge HS$. This is false, and is one of
+the unfortunate things about the equivariant setting.
+\end{cons}
+Though the cohomology theory $H\underline M$ represents is explicit, the spectrum itself is not. Brown's original
+proof of Brown representability \cite{Brown} looks a lot like Postnikov induction, which closely resembles one
+classical construction of nonequivariant Eilenberg-Mac Lane spaces, which suggests a more explicit approach is
+possible.
+\begin{cons}
+One can build some Eilenberg-Mac Lane spectra via the equivariant Dold-Thom construction; this approach only works
+in certain settings (we'll say which ones in a bit), but is interesting enough to mention.
+
+First let's discuss the nonequivariant case. Let $\Sp^\infty\colon\Top_*\to\cat{TopCMod}$ be the free functor
+from based spaces to topological abelian monoids (i.e.\ adjoint to the forgetful functor). The proof of Dold-Thom
+amounts to check that $\Sp^\infty$ is a fibrant $\sW$-space, which means checking that it takes homotopy pushouts
+to homotopy pullbacks. We can identify this with $H\Z$.
+
+We'll now introduce the \term{McCord construction}: McCord's original paper is a good reference. Nick Kuhn has a
+talent for clarifying constructions and finding cool uses for them, and his papers on the McCord construction
+(which should have ``McCord'' in the title) are also great.
+
+Let $A$ be an abelian group and $X$ be a based space. Let $A\otimes X$ denote the free abelian topological monoid
+on pairs $(a,x)$, written $x^a$, subject to the relations
+\begin{enumerate}
+	\item $*^a = *$,
+	\item $x^0 = *$, and
+	\item $x^ax^b = x^{a+b}$.
+\end{enumerate}
+That is, $Y$ inherits the quotient topology from the free abelian topological monoid.
+\begin{rem}
+The McCord construction can be carried out very generally, e.g.\ Kuhn uses a closely related model to analyze the
+categorical tensor product in ring spectra.
+\end{rem}
+One can prove a version of the Dold-Thom theorem that implies that $\set{A\otimes\bl}$ is a model for $HA$. This is
+a $\sW$-space, and we can think of this as $\set{A\otimes S^n}$. There's also a $\Gamma$-space $\underline n\mapsto
+\underline n\otimes A$, and one can check this is fibrant, i.e.\ very special.
+
+In our case, suppose $M$ is a $\Z[G]$-module, and that $G$ is finite. We can extract a Mackey functor $\underline
+M(G/H)\coloneqq M^H$, where the transfer $\Tr_H^K$ sends
+\[x\mapsto \sum_{hH\in K/H} hx.\]
+You can check this is a Mackey functor. The equivariant McCord construction produces Eilenberg-Mac Lane spectra for
+the Mackey functors that arise in this way \citeme{Shimakawa, Dos Santos, Nies}.
+
+If $A$ is a based $G$-space and $M$ is a $\Z[G]$-module, then $A\otimes M$ is a $G$-space using the diagonal
+$G$-action. What you obtain is an equivariant $\Gamma$-space. We haven't talked much about these, and we won't, but
+they're interesting. Segal's preprint on equivariant $\Gamma$-spaces \citeme{Segal} is highly influential and
+widely circulated, but the statement has a mistake (though the proof is correct).
+\begin{ex}
+Find the mistake, and fix it. At this point, you have the background to do so.
+\end{ex}
+The correction was written up by~\citeme{Shimakawa}, and a related question about equivariant $\sW$-spaces is
+written up in Andrew Blumberg's thesis.
+\begin{thm}
+$\set{S^V\otimes M}$ is a model of $H\underline M$.
+\end{thm}
+So this construction is nice and explicit, but only works when $G$ is finite, and for Mackey functors that arise
+from $\Z[G]$-modules.
+\end{cons}
+Understanding the Dold-Thom construction is equivalent to understanding infinite loop space theory, and for general
+compact Lie groups we understand neither.
+
+There aren't many examples of calculations in Bredon cohomology, except for what people needed for other things:
+Stong has some lecture notes which might be published, and the motivic homotopy theorists (specifically Duggar and
+Voevodsky) used the $C_2$-equivariant category as a model for the motivic setting, and wrote up some calculations.
+
+The takeaway is that, even for groups such as $C_4$, calculating the Bredon cohomology of a point would almost be a
+paper. People probably know what it is, but it would be interesting to understand. The equivariant Steenrod and
+Dyer-Lashof algebras are also not understood well; Hill-Hopkins-Ravenel figured some of it out, but might not have
+written all of it down. This would be hard to attack via a Cartan-style seminar, unfortunately.
+
+Thus, it's not at all trivial that we're computing $H_{C_2}^*(\pt;\underline\Z)$. Recall that $\underline\Z$ comes
+from the coefficient system
+\[\xymatrix{
+	M(C_2/C_2)\\
+	M(C_2/e),\ar[u]\ar@(dl,dr)
+}\]
+but as a Mackey functor there's also a transfer map $f_*$:\footnote{\TODO: fix this \Xy{} collision with the text.}
+\[\xymatrix{
+	M(C_2/C_2)\ar@/^0.4cm/[d]^{f_*}\\
+	M(C_2/e).\ar@/^0.4cm/[u]^{f^*}\ar@(dl,dr)_\gamma
+}\]
+\begin{ex}
+Show that the double coset formulae force $f_*f^* = 1+\gamma$ and $f^*f_* = 2$.\footnote{\TODO: I'd like to
+double-check that I got this correct.}
+\end{ex}
+For $\underline\Z$,
+\begin{itemize}
+	\item The coefficients are $M(C_2/C_2) = \Z$ and $M(C_2/e) = \Z$.
+	\item $f^* = \id$, $f_*$ is multiplication by $2$, and $\gamma = \id$.
+\end{itemize}
+We'll introduce a bigrading on $H^*_{C_2}$, since $C_2$ has two irreducible $1$-dimensional representations: the
+triival representation on $\R$ and the sign representation $\sigma$. Thus, let $H_{C_2}^{p,q}$ denote $H_{C_2}^V$,
+where $V$ contains $p$ copies of the trivial representation and $q$ copies of $\sigma$.
+\begin{rem}
+There's an alternative \term{motivic indexing} $H_{C_2}^{p+q,q}$, where $q$ counts the number of copies of $\sigma$
+and $p+q$ counts the total underlying dimension. We're not going to use this grading.
+\end{rem}
+We'll first compute the additive structure, then sew things together.
+
+By adjunction, $H_{C_2}^{p,q}(C_2)\cong H^{p+q}(*)$ (ordinary cohomology), because $[C_{2+}\wedge X, Y]_{C_2}\cong
+[X,Y]$. Thus,
+\[H_{C_2}^{p,q}(C_2) = H^{p+q}(*) = \begin{cases}
+	\Z, &p+q=0\\
+	0, &\text{otherwise.}
+\end{cases}\]
+Next we'll compute $H_{C_2}^{p,q}(*)$. Let $S^{\sigma q}$ denote the representation sphere that's the one-point
+compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q > 0$,
+\[H_{C_2}^{p,-q}(*)\cong \wH_{C_2}^{p,-q}(S^0)\cong \wH_{C_2}^{p,0}(S^{\sigma q}).\]
+If $S(\sigma q)$ denotes the unit sphere inside $\R^{\sigma q}$ and $D(\sigma q)$ denotes the unit disc, then there
+is a cofiber sequence
+\[\xymatrix{
+	S(\sigma q)\ar[r] & D(\sigma q)\ar[r] & S^{\sigma q},
+}\]
+so $\wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH_{C_2}^{p,0}(\Sigma S(\sigma q))$. This is the $\Z$-graded Bredon
+cohomology of $\Sigma S(\sigma q)$, which if the $C_2$-action is free is the same thing as the ordinary cohomology
+of the quotient. The $C_2$-action on $S(\sigma q)$ is the antipodal map, so the quotient is $\RP^{q-1}$, so
+\[\wH_{C_2}^{p,0}(S^{\sigma q})\cong \wH_{C_2}^{p,0}(\Sigma S(\sigma q))\cong \wH^p(\Sigma\RP^{q-1}),\]
+and we know what this is.
+
+When $q > 0$, we use equivariant Spanier-Whitehead duality:
+\[H_{C_2}^{p,q}(*)\cong \wH_{C_2}^{p,q}(S^0)\cong \wH_{-p,-q}^{C_2}(S^0)\cong \wH_{-p,0}(S^{\sigma q}).\]
+Once again we'll apply $\wH_{*,0}$ to the cofiber sequence, and conclude when $k\ne 0,1$, $\wH_{k,0}(S^{\sigma
+q})\cong \wH_{k-1,0}(S(\sigma q))$, which will again relate to projective spaces; for $k = 0,1$, we'll have to open
+up the long exact sequence.
+
+Inducting over the cofiber sequence is a common trick, and is a good one to carry with you.
+
+We'll probably spend most of the next class on calculations.

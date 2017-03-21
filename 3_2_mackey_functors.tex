@@ -32,7 +32,9 @@ We'll find this useful later, when we need to do homological algebra.
 
 Suppose $H$ and $K$ are subgroups of $G$ and $f\colon G/H\to G/K$ is a $G$-map. Then, we call $\Res_H^K\coloneqq
 M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer map}.
-\begin{comp}{exm}{enumerate}
+\begin{exm}\hfill
+\label{Mackeyexm}
+\begin{enumerate}
 	\item Let $X$ be a $G$-space. Then, $\pi_n"\bl(X)$, the functor sending $G/H\mapsto\pi_n^H(X)$, is a Mackey
 	functor: by the Wirthmüller isomorphism and the fact that orbits are self-dual,
 	\[\pi_n^H(X)\cong [S^n\wedge G/H_+, X]\cong [S^n, X\wedge G/H_+],\]
@@ -47,7 +49,8 @@ M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer 
 	group of finite-dimensional $H$-representations, with transfer and restriction given by
 	$\Z[K]\otimes_{\Z[H]}\bl$.
 	\qedhere
-\end{comp}
+\end{enumerate}
+\end{exm}
 The representation Mackey functor contains the information of double coset formulae in representation theory.
 Namely, suppose $H$ and $K$ are subgroups of $G$ contained in a common subgroup $J\subseteq G$. The universal
 property of the product gives us a pullback diagram
