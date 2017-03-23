@@ -1,0 +1,198 @@
+Today, we're going to finish the computation of the $\RO(C_2)$-graded cohomology of a point with coefficients in
+the constant Mackey functor $\underline\Z$ and compute $H_{C_2}^{p,q}(*; A)$, where $A = A_{C_2}$ is the Burnside
+Mackey functor.
+
+First, though, let's recall some Mackey functors from \cref{Mackeyexm}. We'll write them out carefully so as to not
+make a mistake. The constant Mackey functor $\underline\Z$ is
+\[\xymatrix{
+	\Z\ar@/^0.4cm/[d]^2\ar@(ul,ur)^\id\\
+	\Z,\ar@/^0.4cm/[u]^\id
+}\]
+where the top entry corresponds to the orbit $C_2/e$, and the bottom to the orbit $C_2/C_2$. There's another Mackey
+functor, denoted $\underline\Z\op$, given by the diagram
+\[\xymatrix{
+	\Z\ar@/^0.4cm/[d]^\id\ar@(ul,ur)^\id\\
+	\Z.\ar@/^0.4cm/[u]^2
+}\]
+If $\pi\colon C_2\times X\to X$ is projection onto the second factor and $M$ is a Mackey functor, we get maps going
+both ways:
+\[\xymatrix{
+	H_{C_2}^{p,q}(X;M)\ar@<0.1cm>[r]^-{\pi^*} & H_{C_2}^{p,q}(C_2\times X; M).\ar@<0.1cm>[l]^-{\pi_!}
+}\]
+Finally, it'll be good to remember a fact about the dimension axiom: the transfers in a Mackey functor $M$ coincide
+with the transfer maps in cohomology induced by maps between orbits.
+
+Anyways, we were computing $H_{C_2}^{p,q}(*)$, where $p$ is the \term{fixed dimension} and $q$ is the \term{sign
+dimension}, i.e.\ indexed by the $C_2$-representation $V = \R^p\oplus\sigma^q$, where $\R$ is the trivial
+representation and $\sigma$ is the sign representation. First, we computed that
+\[H_{C_2}^{p,q}(C_2)\cong H^{p+q}(\pt) = \begin{cases}
+	\Z, &p+q = 0\\
+	0, &\text{otherwise.}
+\end{cases}\]
+If $q > 0$, then we computed
+\[H^{-p.-q}_{C_2}(*) \cong \wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH^p(\Sigma\RP^{q-1}),\]
+because the Eilenberg-Steenrod axioms meant that for a free action, we can compute the nonequivariant cohomology of
+the quotient.
+
+To compute $H_{C_2}^{p,q}(*)$, we use duality:
+\[H_{C_2}^{p,q}(*) \cong \wH^{p,q}_{C_2}(S^0)\cong \wH_{-p,-q}(S^0)\cong \wH_{-p,0}(S^{\sigma q}),\]
+and that's where we left off. To continue, we'll use the cofiber sequence~\eqref{signed_cofiber}, as well as its
+based version
+\begin{equation}
+\label{based_signed}
+\xymatrix{
+	S(\sigma q)_+\ar[r] & D(\sigma q)_+\ar[r] & S^{\sigma q},
+}
+\end{equation}
+and it's worth noting that the middle space is equivalent to $S^0$, which is sometimes implicit in the literature.
+
+If $k\ne 0,1$, apply $\wH_{k,0}$ to~\eqref{signed_cofiber} to conclude that
+\[\wH_{k,0}(S^{q\sigma})\cong \wH_{k-1}(S(\sigma q))\]
+and therefore that
+\[\wH_{C_2}^{p,q}(*)\cong \wH_{-p-1}(\RP^{q-1}).\]
+Recall that the cohomology of $\RP^m$ is
+\[H^i(\RP^m) = \begin{cases}
+	\Z, &i = 0\\
+	\Z, &i = m\text{ and $m$ is odd}\\
+	\Z/2, &0 < i < m\text{ and $i$ is odd}\\
+	0, &\text{otherwise,}
+\end{cases}\]
+so we get a bunch of copies of $\Z$ and $\Z/2$.
+
+That leaves $k = 0,1$, for which we must look at the long exact sequence
+\[\xymatrix{
+	0\ar[r] & \wH_{1,0}(S^{q\sigma})\ar[r] & \wH_{0,0}(S(q\sigma))\ar[r]^-\gamma &\Z\ar[r] &
+	\wH_{0,0}(S^{q\sigma})\ar[r] & 0.
+}\]
+\begin{claim}
+$\gamma$ is multiplication by $2$, and therefore $\wH_{1,0}(S^{q\sigma})\cong 0$ and
+$\wH_{0,0}(S^{q\sigma})\cong\Z/2$.
+\end{claim}
+\begin{proof}
+The idea is to identify the map $\gamma$ as the transfer map for the Mackey functor $\underline\Z$. Said another
+way, we want to see $\gamma$ as coming from the map $H_{0,0}(C_2)\to H_{0,0}(\pt)$ associated to the map $C_2\to
+*$. This follows from the dimension axiom and the fact that $S(\sigma)\cong C_2$.
+\end{proof}
+So now, how do we express this in terms of Mackey functors? This is only nontrivial in the $C_2$ orbit and when the
+cohomology is nonzero (the zero Mackey functor is not hard to define). Thus, e care about the case $p+q = 0$.
+
+Consider the long exact sequence
+\[\xymatrix{
+	H_{C_2}^{-(2n-1), 2n-1}(*) & H_{C_2}^{-2n,2n}(C_2)\ar[l]\\
+	& H_{C_2}^{-2n,2n}(C_2)\ar[u]_\zeta & H_{C_2}^{-2n,2n-1}(*),\ar[l]
+}\]
+which comes from~\eqref{signed_cofiber} when $q = 1$, i.e.\ the cofiber sequence $C_2\to S^0\to S^\sigma$. The map
+$\zeta$ is the transfer in the Mackey functor.
+\begin{ex}
+Show, using the double coset formula, that when $n > 0$, $\zeta$ is an isomorphism, and when $n < 0$, it's
+multiplication by $2$.
+\end{ex}
+That is, when $n > 0$, it comes from the Mackey functor $\underline\Z$, and when $n < 0$, it comes from
+$\underline\Z$.
+\subsection*{The Burnside Mackey functor.}
+Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
+source is~\citeme{Lewis}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
+define a whole bunch of Mackey functors along the way.
+\begin{comp}{beast}{enumerate}
+	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
+	Mackey functor takes the form\footnote{\TODO: I want to work through this and understand it.}
+	\[\xymatrix{
+		\Z\oplus\Z\ar@/_0.4cm/[d]_{(x,y)\mapsto x+2y}\\
+		\Z.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{(0,1)}
+	}\]
+	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$; for
+	example, for $C_p$, this is
+	\[\xymatrix{
+		C_p\ar@/_0.4cm/[d]_0\\
+		0.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_0
+	}\]
+	\item Given a $C_2$-Mackey functor, we can forget to a $\Z[C_2]$-module by evaluating at $C_2/e$. This has
+	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L_M$, is\footnote{\TODO:
+	are the maps wrong?}
+	\[\xymatrix{
+		M/C_2\ar@/_0.4cm/[d]\\
+		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\pi
+	}\]
+	where $\pi$ is projection. The right adjoint, denoted $R_M$, is
+	\[\xymatrix{
+		M^{C_2}\ar@/_0.4cm/[d]\\
+		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]
+	}\]
+	where the map down is the inclusion of fixed points, and the map up is the trace: if $\gamma\in C_2$ is the
+	nontrivial element, send $x\mapsto x+\gamma x$.
+	\item Regarding $\Z$ as a trivial $\Z[C_2]$-module, we obtain $L\coloneqq L_\Z$ and $R\coloneqq R_\Z$, which
+	are explicitly
+	\[\gathxy{
+		\Z\ar@/_0.4cm/[d]_{\cdot 2}\\
+		\Z\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\id
+	}\qquad\text{and}\qquad
+	\gathxy{
+		\Z\ar@/_0.4cm/[d]_\id\\
+		\Z,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{\cdot 2}
+	}
+	\]
+	respectively.
+	\item Regarding $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L^-$ and $R^-$, which are
+	explicitly
+	\[\gathxy{
+		\Z/2\ar@/_0.4cm/[d]_0\\
+		\Z\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_\pi
+	}\qquad\text{and}\qquad
+	\gathxy{
+		0\ar@/_0.4cm/[d]_0\\
+		\Z,\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_0
+	}
+	\]
+	respectively.
+\end{comp}
+\begin{ex}
+Show that $L_{(\bl)}$ and $R_{(\bl)}$ are really left and right adjoints to the forgetful map
+$\cat{Mac}\to\Mod_{\Z[C_2]}$.
+\end{ex}
+It's possible to write down lots of Mackey functors, and it's entertaining to do so. But the key examples arise as
+$\pi_0 X$, where $X$ is a $G$-spectrum. You might ask if all Mackey functors arise this way --- and for once we
+know the answer: we constructed Eilenberg-Mac Lane spectra for every Mackey functor, so the answer is yes!
+
+The next question: do functors on the category of Mackey functors arise as $\pi_0$ of functors on $\Spc^G$? You can
+also ask lots of questions from commutative algebra, e.g.\ how to think of rings and modules in this context, and
+the answers are generally harder than in the purely algebraic case.
+
+Anyways, using the bestiary, we can state the answer. It's complicated, but the dimension axiom is complicated in
+equivariant cohomology too.
+\begin{thm}
+\[H_{C_2}^{p,q}(*; A_{C_2}) = \begin{cases}
+	A, &p+q = 0\\
+	R, &p+q = 0,\ p < 0,\ p\text{\rm{} even}\\
+	R^-, &p+q = 0,\ p \le 1,\ p\text{\rm{} odd}\\
+	L, &p+q = 0,\ p > 0,\ p\text{\rm{} even}\\
+	L^-, &p+q = 0,\ p < 1,\ p\text{\rm{} odd}\\
+	\ang\Z, &p+q\ne 0, p = 0\\
+	\ang{\Z/2} & p+q > 0,\ p < 0,\ p\text{\rm{} even}\\
+	\ang{\Z/2} & p+q < 0,\ p > 1,\ p\text{\rm{} even}\\
+	0, &\text{\rm otherwise.}
+\end{cases}\]
+\end{thm}
+So the good news is, the answer is determined by the fixed and total dimensions. This also generalizes nicely to
+$C_p$ when $p$ is odd. Though this looks kind of frightening, Lewis proved that if $X$ has even-dimensional cells,
+then its cohomology is free over that of a point, which is good. Moreover, the $\RO(C_2)$-grading makes these
+statements cleaner; things like this just aren't true for the $\Z$-graded theories.
+
+The computation follows by analyzing the following cofiber sequence(s),\footnote{In the nonequivariant case, you
+probably wouldn't dwell on this so explicitly, just like we mentioned Spanier-Whitehead duality for a point to make
+it clearer what's going on.} and proceeds in a similar way as for $\underline\Z$, just with a harder
+answer.\footnote{\TODO: some confusion as to which cofiber sequences work out correctly.}
+\begin{gather}
+%\xymatrix{
+%	(C_2)_+\ar[r] & S(\eta)_+\ar[r] & \Sigma(C_2)_+
+%}\\
+% \xymatrix{
+% 	S(\eta)_+\ar[r] & D(\eta)_+\ar[r] & S^\eta
+% }\\
+\xymatrix{
+	(C_2)_+\cong S(\sigma)_+\ar[r] & D(\sigma)_+\ar[r] & S^\sigma
+}
+\end{gather}
+Here $\sigma$ is the sign representation, and we'd like $\eta$ to be the nontrivial irreducible complex
+$C_2$-representation, regarded as a two-dimensional real representation.
+
+At this point, things got confused, and we'll fix them Tuesday.

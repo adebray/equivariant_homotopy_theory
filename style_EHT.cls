@@ -205,11 +205,11 @@
 \newtheorem{lem}[equation]{Lemma}
 \newtheorem{cor}[equation]{Corollary}
 \newtheorem{prop}[equation]{Proposition}
+\newtheorem{claim}[equation]{Claim}
 \theoremstyle{definition}
 \newtheorem{ex}[equation]{Exercise}
 \newtheorem{exampx}[equation]{Example}
 \newtheorem{defn}[equation]{Definition}
-\newtheorem*{claim}{Claim}
 \theoremstyle{remark}
 \newtheorem*{remx}{Remark}
 \newtheorem*{fctx}{Fact}
