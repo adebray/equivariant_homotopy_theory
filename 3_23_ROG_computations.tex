@@ -74,7 +74,7 @@ way, we want to see $\gamma$ as coming from the map $H_{0,0}(C_2)\to H_{0,0}(\pt
 *$. This follows from the dimension axiom and the fact that $S(\sigma)\cong C_2$.
 \end{proof}
 So now, how do we express this in terms of Mackey functors? This is only nontrivial in the $C_2$ orbit and when the
-cohomology is nonzero (the zero Mackey functor is not hard to define). Thus, e care about the case $p+q = 0$.
+cohomology is nonzero (the zero Mackey functor is not hard to define). Thus, we care about the case $p+q = 0$.
 
 Consider the long exact sequence
 \[\xymatrix{
@@ -91,36 +91,35 @@ That is, when $n > 0$, it comes from the Mackey functor $\underline\Z$, and when
 $\underline\Z$.
 \subsection*{The Burnside Mackey functor.}
 Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
-source is~\citeme{Lewis}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
+source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
 define a whole bunch of Mackey functors along the way.
 \begin{comp}{beast}{enumerate}
 	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
-	Mackey functor takes the form\footnote{\TODO: I want to work through this and understand it.}
+	Mackey functor $A$ takes the form\footnote{\TODO: I want to work through this and understand it.}
 	\[\xymatrix{
 		\Z\oplus\Z\ar@/_0.4cm/[d]_{(x,y)\mapsto x+2y}\\
 		\Z.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{(0,1)}
 	}\]
-	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$; for
-	example, for $C_p$, this is
+	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$:
 	\[\xymatrix{
-		C_p\ar@/_0.4cm/[d]_0\\
+		G\ar@/_0.4cm/[d]_0\\
 		0.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_0
 	}\]
 	\item Given a $C_2$-Mackey functor, we can forget to a $\Z[C_2]$-module by evaluating at $C_2/e$. This has
-	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L_M$, is\footnote{\TODO:
+	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L(M)$, is\footnote{\TODO:
 	are the maps wrong?}
 	\[\xymatrix{
 		M/C_2\ar@/_0.4cm/[d]\\
 		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\pi
 	}\]
-	where $\pi$ is projection. The right adjoint, denoted $R_M$, is
+	where $\pi$ is projection. The right adjoint, denoted $R(M)$, is
 	\[\xymatrix{
 		M^{C_2}\ar@/_0.4cm/[d]\\
 		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]
 	}\]
 	where the map down is the inclusion of fixed points, and the map up is the trace: if $\gamma\in C_2$ is the
 	nontrivial element, send $x\mapsto x+\gamma x$.
-	\item Regarding $\Z$ as a trivial $\Z[C_2]$-module, we obtain $L\coloneqq L_\Z$ and $R\coloneqq R_\Z$, which
+	\item Regarding $\Z$ as a trivial $\Z[C_2]$-module, we obtain $L\coloneqq L(\Z)$ and $R\coloneqq R(\Z)$, which
 	are explicitly
 	\[\gathxy{
 		\Z\ar@/_0.4cm/[d]_{\cdot 2}\\
@@ -132,8 +131,8 @@ define a whole bunch of Mackey functors along the way.
 	}
 	\]
 	respectively.
-	\item Regarding $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L^-$ and $R^-$, which are
-	explicitly
+	\item If $\Z\sigma$ denotes $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L^-\coloneqq
+	L(\Z\sigma)$ and $R^-\coloneqq R(\Z\sigma)$, which are explicitly
 	\[\gathxy{
 		\Z/2\ar@/_0.4cm/[d]_0\\
 		\Z\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_\pi
@@ -146,7 +145,7 @@ define a whole bunch of Mackey functors along the way.
 	respectively.
 \end{comp}
 \begin{ex}
-Show that $L_{(\bl)}$ and $R_{(\bl)}$ are really left and right adjoints to the forgetful map
+Show that $L(\bl)$ and $R(\bl)$ are really left and right adjoints to the forgetful map
 $\cat{Mac}\to\Mod_{\Z[C_2]}$.
 \end{ex}
 It's possible to write down lots of Mackey functors, and it's entertaining to do so. But the key examples arise as
@@ -173,9 +172,9 @@ equivariant cohomology too.
 \end{cases}\]
 \end{thm}
 So the good news is, the answer is determined by the fixed and total dimensions. This also generalizes nicely to
-$C_p$ when $p$ is odd. Though this looks kind of frightening, Lewis proved that if $X$ has even-dimensional cells,
-then its cohomology is free over that of a point, which is good. Moreover, the $\RO(C_2)$-grading makes these
-statements cleaner; things like this just aren't true for the $\Z$-graded theories.
+$C_p$ when $p$ is odd. Though this looks kind of frightening, Lewis~\cite{Lew88} proved that if $X$ has
+even-dimensional cells, then its cohomology is free over that of a point, which is good. Moreover, the
+$\RO(C_2)$-grading makes these statements cleaner; things like this just aren't true for the $\Z$-graded theories.
 
 The computation follows by analyzing the following cofiber sequence(s),\footnote{In the nonequivariant case, you
 probably wouldn't dwell on this so explicitly, just like we mentioned Spanier-Whitehead duality for a point to make
