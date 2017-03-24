@@ -131,8 +131,8 @@ define a whole bunch of Mackey functors along the way.
 	}
 	\]
 	respectively.
-	\item If $\Z\sigma$ denotes $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L^-\coloneqq
-	L(\Z\sigma)$ and $R^-\coloneqq R(\Z\sigma)$, which are explicitly
+	\item If $\Z\sigma$ denotes $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L_-\coloneqq
+	L(\Z\sigma)$ and $R_-\coloneqq R(\Z\sigma)$, which are explicitly
 	\[\gathxy{
 		\Z/2\ar@/_0.4cm/[d]_0\\
 		\Z\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_\pi
@@ -160,17 +160,20 @@ Anyways, using the bestiary, we can state the answer. It's complicated, but the 
 equivariant cohomology too.
 \begin{thm}
 \[H_{C_2}^{p,q}(*; A_{C_2}) = \begin{cases}
-	A, &p+q = 0\\
+	A, &p = q = 0\\
 	R, &p+q = 0,\ p < 0,\ p\text{\rm{} even}\\
-	R^-, &p+q = 0,\ p \le 1,\ p\text{\rm{} odd}\\
+	R_-, &p+q = 0,\ p \le 1,\ p\text{\rm{} odd}\\
 	L, &p+q = 0,\ p > 0,\ p\text{\rm{} even}\\
-	L^-, &p+q = 0,\ p < 1,\ p\text{\rm{} odd}\\
+	L_-, &p+q = 0,\ p < 1,\ p\text{\rm{} odd}\\
 	\ang\Z, &p+q\ne 0, p = 0\\
 	\ang{\Z/2} & p+q > 0,\ p < 0,\ p\text{\rm{} even}\\
 	\ang{\Z/2} & p+q < 0,\ p > 1,\ p\text{\rm{} even}\\
 	0, &\text{\rm otherwise.}
 \end{cases}\]
 \end{thm}
+\begin{rem}
+The description of $H_{C_2}^*(*;A_{C_2})$ in~\cite[Thm.~2.1]{Lew88} use a different grading, indexing by $(p+q,p)$.
+\end{rem}
 So the good news is, the answer is determined by the fixed and total dimensions. This also generalizes nicely to
 $C_p$ when $p$ is odd. Though this looks kind of frightening, Lewis~\cite{Lew88} proved that if $X$ has
 even-dimensional cells, then its cohomology is free over that of a point, which is good. Moreover, the
