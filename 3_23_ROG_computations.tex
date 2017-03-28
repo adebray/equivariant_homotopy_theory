@@ -93,7 +93,9 @@ $\underline\Z$.
 Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
 source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
 define a whole bunch of Mackey functors along the way.
-\begin{comp}{beast}{enumerate}
+\begin{beast}\hfill
+\label{best_bestiary}
+\begin{enumerate}
 	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
 	Mackey functor $A$ takes the form\footnote{\TODO: I want to work through this and understand it.}
 	\[\xymatrix{
@@ -109,7 +111,7 @@ define a whole bunch of Mackey functors along the way.
 	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L(M)$, is\footnote{\TODO:
 	are the maps wrong?}
 	\[\xymatrix{
-		M/C_2\ar@/_0.4cm/[d]\\
+		M/C_2\ar@/_0.4cm/[d]_\tr\\
 		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\pi
 	}\]
 	where $\pi$ is projection. The right adjoint, denoted $R(M)$, is
@@ -143,7 +145,8 @@ define a whole bunch of Mackey functors along the way.
 	}
 	\]
 	respectively.
-\end{comp}
+\end{enumerate}
+\end{beast}
 \begin{ex}
 Show that $L(\bl)$ and $R(\bl)$ are really left and right adjoints to the forgetful map
 $\cat{Mac}\to\Mod_{\Z[C_2]}$.
@@ -159,6 +162,7 @@ the answers are generally harder than in the purely algebraic case.
 Anyways, using the bestiary, we can state the answer. It's complicated, but the dimension axiom is complicated in
 equivariant cohomology too.
 \begin{thm}
+\label{Aval}
 \[H_{C_2}^{p,q}(*; A_{C_2}) = \begin{cases}
 	A, &p = q = 0\\
 	R, &p+q = 0,\ p < 0,\ p\text{\rm{} even}\\
@@ -190,6 +194,7 @@ answer.\footnote{\TODO: some confusion as to which cofiber sequences work out co
 % \xymatrix{
 % 	S(\eta)_+\ar[r] & D(\eta)_+\ar[r] & S^\eta
 % }\\
+\label{sigmacofib}
 \xymatrix{
 	(C_2)_+\cong S(\sigma)_+\ar[r] & D(\sigma)_+\ar[r] & S^\sigma
 }
