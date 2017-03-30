@@ -179,23 +179,25 @@ compatible with the operadic multiplication. Here, $\times$ denotes the product 
 \end{enumerate}
 \end{exm}
 \begin{defn}
+\label{ninfty}
 An \term{$N_\infty$-operad}\footnote{The $N$ in $N_{\infty}$ stands for ``norm.''} is a $G$-operad $O = \set{O(n)}$
 such that
 \begin{enumerate}
 	\item $\Sigma_n$ acts freely on $O(n)$ (one says $O(n)$ is \term{$\Sigma_n$-free}), and
-	\item $O(n)$ is a universal space for some family $\sF$ of subgroups of $G\times\Sigma_n$ containing $H\times\set 1$
-	for all subgroups $H\subseteq G$. That is, if $\Gamma\subset G\times\Sigma_n$,
+	\item $O(n)$ is a universal space for some family $\sF_n$ of subgroups of $G\times\Sigma_n$ containing
+	$H\times\set 1$ for all subgroups $H\subseteq G$. That is, if $\Gamma\subset G\times\Sigma_n$,
 	\[O(n)^\Gamma = \begin{cases}
-		*, &\Gamma\in\sF\\
+		*, &\Gamma\in\sF_n\\
 		\varnothing, &\text{otherwise.}
 	\end{cases}\]
 	\item $O(n)$ is nonequivariantly contractible.\footnote{This means that if you forget from $G$-spaces to
 	spaces, $N_\infty$-operads become $E_\infty$-operads.}
 \end{enumerate}
 \end{defn}
-That $O(n)$ is $\Sigma_n$-free places strong constraints on $\sF$. For example, if $\Gamma\in\sF$, then
+That $O(n)$ is $\Sigma_n$-free places strong constraints on $\set{\sF_n}$. For example, if $\Gamma\in\sF_n$, then
 $\Gamma\cap\paren{\set 1\times\Sigma_n} = \set 1$.
 \begin{lem}
+\label{admlem}
 Let $\Gamma\subseteq G\times\Sigma_n$ be a subgroup. Then, the following are equivalent.
 \begin{enumerate}
 	\item $\Gamma\cap(\set 1\times\Sigma_n) = \set 1$.
@@ -203,8 +205,8 @@ Let $\Gamma\subseteq G\times\Sigma_n$ be a subgroup. Then, the following are equ
 	$p\colon H\to\Sigma_n$ such that $\Gamma = \set{(h,p(h))\mid h\in H}$.
 \end{enumerate}
 \end{lem}
-The proof is two lines, neither of which is too hard. In the context of a family $\sF$, subgroups therefore define
-maps $p\colon H\to\Sigma_n$ and therefore $H$-set structures on $\underline n$; such $H$-sets will be called
+The proof is two lines, neither of which is too hard. In the context of a family $\sF_n$, subgroups therefore
+define maps $p\colon H\to\Sigma_n$ and therefore $H$-set structures on $\underline n$; such $H$-sets will be called
 \term{admissible}.
 \begin{exm}
 The operad $\mathcal L_U$ from \cref{Gopexm} is $N_\infty$, which is a nontrivial fact: unlike for
