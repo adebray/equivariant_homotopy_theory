@@ -20,15 +20,15 @@ is an $n$-fold loop space for all $n$.
 
 We want to recognize $n$-fold loop spaces: how do you know when $X\simeq\Omega^n Y$ for some $Y$? One way to
 approach this is to define a delooping construction $B$, and be able to use it $n$ times. Beck (of Barr-Beck fame)
-provided an answer: $(\Sigma^n, \Omega^n)$ define an adjunction $\Top\rightleftarrows\Top$, whose associated
-comonad is $\Sigma^n\Omega^n$ and whose associated monad is $\Omega^n\Sigma^n$.
+provided an answer in~\cite{Beck}: $(\Sigma^n, \Omega^n)$ define an adjunction $\Top\rightleftarrows\Top$, whose
+associated comonad is $\Sigma^n\Omega^n$ and whose associated monad is $\Omega^n\Sigma^n$.
 
 What Beck observed is that if $X = \Omega^n Y$, $X$ admits an action of the monad $\Omega^n\Sigma^n$:
 \[\xymatrix{
 	\Omega^n\Sigma^n (\Omega^n Y) = \Omega^n (\Sigma^n\Omega^n) Y\ar[r]^-\eta &\Omega^n Y,
 }\]
 where $\eta\colon\Sigma^n\Omega^n\to\id$ is the counit of the adjunction.
-\begin{thm}[Beck]
+\begin{thm}[Beck \cite{Beck}]
 If $B(\Sigma^m, \Omega^n\Sigma^n, \Omega^n Y)$ is the simplicial bar construction, i.e.\ the simplicial space
 \[[q]\mapsto (\Sigma^m)(\Omega^n\Sigma^n)\Omega^n Y,\]
 then its geometric realization is equivalent to $\Omega^{n-m}Y$:
@@ -118,7 +118,7 @@ Let $\cat{Cat}$ denote the category of small categories and functors, and $\oper
 the category of small symmetric monoidal categories and strong monoidal functors.
 \begin{itemize}
 	\item A \term{categorical coefficient system} is a functor $\sO_G\op\to\cat{Cat}$.
-	\item A \term{symmetric monoidal categorical coefficient system} is a functor
+	\item A \term{symmetric monoidal categorical coefficient system} (SMCCS) is a functor
 	$\sO_G\op\to\operatorname{\otimes\cat{Cat}}$.
 \end{itemize}
 \end{defn}
@@ -132,12 +132,11 @@ This is also a symmetric monoidal categorical coefficient system.
 \end{exm}
 \begin{lem}
 Let $\set{\sF_n}$ be a collection of families of subgroups of $G$. Then, $\set{\sF_n}$ arises from an
-$N_\infty$-operad iff it's a sub symmetric monoidal coefficient system of $\underline\Set$.\footnote{\TODO: did I
-get this right?}
+$N_\infty$-operad iff it's a sub-SMCCS of $\underline\Set$.\footnote{\TODO: did I get this right?}
 \end{lem}
 That is, these are exactly the functors sending $G/H$ to admissible $H$-sets.
 \begin{defn}
-An \term{indexing system} $\underline I$ is a sub symmetric monoidal coefficient system of $\underline\Top$ which
+An \term{indexing system} $\underline I$ is a sub-SMCCS of $\underline\Top$ which
 is
 \begin{enumerate}
 	\item closed under self-induction,
@@ -228,9 +227,10 @@ The naïve approach is to send $X\mapsto X^{\wedge n}$, but what universe does $
 we're in $U^n$, which maps back down to $U$. But in $U^n$, we have good fixed-point behavior for representations of
 the form $(V,V,\dotsc,V)$ --- and only for representations of this form. So it's not clear how to make this work.
 
-Bökstedt's construction of $\mathit{THH}$ needed something like this, and so Bökstedt did the minimal amount
-necessary to get something to work. The technical solution to this uses ideas from group cohomology, specifically
-the \term{Evans norm}. And figuring out how to make this work was one of the important new ideas in~\cite{HHR}.
+Bökstedt's construction of $\mathit{THH}$~\cite{Bokstedt} needed something like this, and so Bökstedt did the
+minimal amount necessary to get something to work. The technical solution to this uses ideas from group cohomology,
+specifically the \term{Evans norm}. And figuring out how to make this work was one of the important new ideas
+in~\cite{HHR}.
 
 We'll eventually get to ring spectra and spectra with norm maps, which encode a kind of twisted multiplication.
 
