@@ -13,7 +13,7 @@ make a mistake. The constant Mackey functor $\underline\Z$ is
 	\Z,\ar@/^0.4cm/[u]^\id
 }\]
 where the top entry corresponds to the orbit $C_2/e$, and the bottom to the orbit $C_2/C_2$. There's another Mackey
-functor, denoted $\underline\Z\op$, given by the diagram
+functor, denoted $\underline\Z\rop$, given by the diagram
 \[\xymatrix{
 	\Z\ar@/^0.4cm/[d]^\id\ar@(ul,ur)^\id\\
 	\Z.\ar@/^0.4cm/[u]^2
@@ -92,7 +92,7 @@ Show, using the double coset formula, that when $n > 0$, $\zeta$ is an isomorphi
 multiplication by $2$.
 \end{ex}
 That is, when $n > 0$, the cohomology, as a Mackey functor, is $\underline\Z$, and when $n < 0$, it's
-$\underline\Z\op$.
+$\underline\Z\rop$.
 \subsection*{The Burnside Mackey functor.}
 Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
 source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
@@ -102,10 +102,13 @@ define a whole bunch of Mackey functors along the way.
 \begin{enumerate}
 	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
 	Mackey functor $A$ takes the form\footnote{\TODO: I want to work through this and understand it.}
-	\[\xymatrix{
+	\begin{equation}
+	\label{burnmack}
+	\gathxy{
 		\Z\oplus\Z\ar@/_0.4cm/[d]_{(x,y)\mapsto x+2y}\\
 		\Z.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{(0,1)}
-	}\]
+	}
+	\end{equation}
 	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$:
 	\[\xymatrix{
 		G\ar@/_0.4cm/[d]_0\\

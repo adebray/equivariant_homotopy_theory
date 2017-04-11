@@ -1,0 +1,216 @@
+We're going to pick up where we left off, discussing more multiplicative structures on equivariant spectra. As
+foreshadowed, we'll describe these using $N_\infty$-operads, the natural equivariant generalizations of
+$E_\infty$-operads. Today, though, we'll talk about the underlying algebra. For example, if $X$ is a $G$-spectrum,
+we know $\pi_0(X)$ is a Mackey functor, and in fact $\pi_*(X)$ is a graded Mackey functor. Thus Mackey functors are
+our replacement for abelian groups in equivariant stable homotopy theory. There's a very natural followup question.
+\begin{ques}
+Suppose $R$ is a commutative ring in orthogonal $G$-spectra. What structure does $\pi_0(R)$ have?
+\end{ques}
+Recall that the category $\Mac_G$ of Mackey functors can be defined as the functor category $\Fun(B_G\op,\Ab)$
+(i.e.\ the enriched functor category; in particular, we ask for additive functors). The Burnside category $B_G$
+admits several descriptions, but we described it as the category whose objects are orbits $G/H$ and whose morphisms
+are the homotopy classes of stable maps: $\Hom_{B_G}(G/H,G/K) \coloneqq \pi_0 F(\sus G/H, \sus
+G/K)$.\footnote{\TODO: should these be $G/H_+$, $G/K_+$?} One advantage of this is that functor categories of this
+sort automatically have a symmetric monoidal structure defined by Day convolution. Namely, if $\fC$ and $\fD$ are
+symmetric monoidal categories, then $\Fun(\fC,\fD)$ admits a symmetric monoidal product which is left Kan extension
+of the product in $\fD$ along the product in $\fC$. $\Ab$ is symmetric monoidal under tensor product, and $B_G\op$
+is a symmetric monoidal category under Cartesian product, so $\Mac_G$ inherits a symmetric monoidal structure.
+
+The Day convolution for Mackey functors is also called the \term{box product}, and has an explicit coend formula:
+if $\underline M$ and $\underline N$ are Mackey functors, their box product is
+\[\underline M\cotensor \underline N (X) = \int^{(Y,Z)\in B_G\op\times B_G\op} \underline M(Y)\otimes \underline
+M(Z)\otimes B_G\op(X, Y\times Z).\]
+Coends are in particular coequalizers: in general, the coend of two functors $F,G\colon \fC\to\fD$ is the
+coequalizer of the diagram
+\[\xymatrix{
+	\bigvee_{f: x\to y\in\fC} F(x)\otimes G(y)\dblarrow[r][\id\otimes f][f\otimes\id] &\bigvee_{c\in\fC}
+	F(c)\otimes G(c).
+}\]
+This implies formally that the unit for the symmetric monoidal structure on $\Mac_G$ is the Burnside Mackey
+functor $\underline A$, which is the functor $\Map_{B_G\op}(\bl,G/G)$.
+
+We also obtained the morphisms $G/H\to G/K$ in the Burnside category as the Grothendieck group of a category of
+spans, which is equivalent to the category of $G$-sets over $G/H$.\footnote{\TODO: this should depend on $K$,
+right? I'm probably missing something.} But this category is equivalent to the category of $H$-sets.
+
+Now we can do the usual thing to define rings, just as we did in orthogonal (nonequivariant) spectra.
+\begin{comp}{defn}{itemize}
+	\item A \term{(commutative) Green functor} is a commutative monoid in $(\Mac_G, \cotensor, \underline A)$.
+	\item A \term{module} $\underline M$ over a Green functor $\underline R$ is a Mackey functor together with an
+	associative, unital action map $\underline R\cotensor\underline M\to\underline M$.
+\end{comp}
+Green functors are our first guess for the algebraic analogue of a commutative ring in $\Spc^G$. This is plausible:
+if $O$ is an $E_\infty$-operad, we can regard it as a $G$-trivial $G$-operad, and $\Spc^G[O]$ corresponds to Green
+functors.
+
+So what kind of structure do we get from this definition?
+\begin{prop}
+A Mackey functor $\underline R$ is a Green functor iff all of the following are true:
+\begin{enumerate}
+	\item $R(G/H)$ is a commutative ring.
+	\item The restriction map $\res_K^H\colon R(G/H)\to R(G/K)$ is a ring homomorphism, and hence $R(G/K)$ is an
+	$R(G/H)$-module.
+	\item\label{frobref} The transfer map $\tr_K^H\colon R(G/K)\to R(G/H)$ is a map of $R(G/H)$-modules.
+\end{enumerate}
+\end{prop}
+Condition~\eqref{frobref} is also called \term{Frobenius reciprocity}, and implies the \term{push-pull formula}
+\[\tr_K^H(x)\cdot y = \tr_K^H(x\cdot\res_K^H(y)).\]
+\begin{exm}
+Let $G = C_p$ for concreteness.
+\begin{enumerate}
+	\item The constant Mackey functor $\underline\Z$ is a Green functor with the usual ring structure on each copy
+	of $\Z$,
+	\[\xymatrix{
+		\Z\ar@/_0.4cm/[d]_\id\\
+		\Z,\ar@/_0.4cm/[u]_p
+	}\]
+	The restriction map is on the right, and is a ring homomorphism, and the transfer, multiplication by $p$, is
+	$\Z$-linear.
+	\item The Burnside Mackey functor is also a Green functor, which follows formally because it's the unit for
+	$\cotensor$. For example, when $G = C_2$, it's given in~\eqref{burnmack}. So what ring structure do we get on
+	$\Z\oplus\Z$? There are two isomorphism classes in the Grothendieck group, $[C_2/C_2]$ and $[C_2/e]$. The
+	product tells us $[C_2/e]\cdot [C_2/e] = 2[C_2/e]$, so the ring structure is $\Z[x]/(x^2-2x)$. The restriction
+	map $\Z[x]/(x^2-2x)\to\Z$ sends $1\mapsto 1$ and $x\mapsto 2$, and the transfer map $\Z\to\Z[x]/(x^2-2x)$ sends
+	$1\mapsto x$, which is linear. The push-pull formula tells us that in the Grothendieck group of finite
+	$G$-sets,
+	\[[(H\times_K X)\times Y] = [H\times_K (X\times i_K^*Y)].\]
+	Since $\underline A$ is the unit, every Mackey functor is an $\underline A$-module. Can we describe this action
+	explicitly on a general Mackey functor $\underline M$? We want compatible actions of $\underline A(G/H)$ on
+	$\underline M(G/H)$, and this is a restriction-and-transfer construction: an element of $\underline A(G/H)$ is
+	(the class of) a $G/K\in G\Set_{/(G/H)}$, which comes with restriction and transfer maps between $G/K$ and
+	$G/H$. Thus, for an $x\in\underline M(G/H)$, we can restrict it to $\underline M(G/K)$ and transfer it back to
+	$\underline M(G/H)$ using those maps, and this defines the $\underline A(G/H)$-action.\qedhere
+\end{enumerate}
+\end{exm}
+Green functors are pretty cool, but we can and should expect more. Here's one reason. Suppose $R$ is an ordinary
+ring, or even a semiring, and let's look at the structure on $\set{R^X}$ (here, $R^X\coloneqq \Map(X,R)$) for some
+sets $X$. A map $X\to Y$ produces two kinds of maps $t, n\colon R^X\to R^Y$. The first, a transfer-like map, is
+defined by the formula
+\[t(f)(y)\coloneqq \sum_{f(x) = y} r(x),\]
+but we could also do
+\[n(f)(y)\coloneqq \prod_{f(x) = y} r(x),\]
+and there's no analogue of this in Green functors. The replacement is \term{Tambara functors} (or \term{TNR
+functors}).\footnote{TNR stands for ``transfer, norm, restriction.''} Strickland's paper~\cite{StricklandTambara}
+on Tambara functors is really nice: it's complete and careful. Lewis has unpublished notes~\cite{LewisGreen} on
+Green functors, which are also good; you can find them, along with almost everything else in equivariant homotopy
+theory, on Doug Ravenel's website. Lewis' notes owe a debt to McClure's unpublished notes, which have been lost to
+history.
+\begin{rem}
+This is related to the theory of \term{polynomial functors}, which we won't talk about. You can set this up in
+great abstraction; if you torture it, you can get it to output actual polynomials. Tambara functors are an example
+of polynomial functors.
+\end{rem}
+\begin{defn}
+Let $\fC$ be a locally Cartesian closed category and $X,Y\in\fC$. Then, the \term{category of bispans} from $X$ to
+$Y$, denoted $\Bispan_\fC(X,Y)$ is the category whose objects are diagrams
+\[\xymatrix{
+	X & S\ar[l]\ar[r] & T\ar[r] & Y
+}\]
+and whose morphisms are commutative diagrams
+\[\xymatrix@R=0.2cm{
+	& S\ar[r]\ar[dl]\ar[dd]^\cong & T\ar[dd]^\cong\ar[dr]\\
+	X &&& Y\\
+	& S'\ar[r]\ar[ul] & T'.\ar[ur]
+}\]
+\end{defn}
+\begin{exm}
+We'll care in particular about a few suggestively named bispans associated to a $\fC$-morphism $f\colon S\to T$:
+\begin{enumerate}
+	\item Let $R_f$ denote the bispan
+	\[\xymatrix{
+		T & S\ar[l]_f\ar[r]^\id & S\ar[r]^\id & S.
+	}\]
+	\item Let $N_f$ denote the bispan
+	\[\xymatrix{
+		S & S\ar[l]_\id\ar[r]^f & T\ar[r]^\id & T.
+	}\]
+	\item Let $T_f$ denote the bispan
+	\[\xymatrix{
+		S & S\ar[l]_\id\ar[r]^\id & S\ar[r]^f & T.\qedhere
+	}\]
+\end{enumerate}
+\end{exm}
+$R_f$ and $T_f$ will encode the restriction and transfer maps, respectively, in the underlying Mackey functor of a
+Tambara functor.
+
+One interesting question about bispans is when you can compose in the objects: is there a ``composition map''
+\begin{equation}
+\label{compbispan}
+\Bispan_\fC(Y,Z)\times\Bispan_\fC(X,Y)\longrightarrow\Bispan_\fC(X,Z)?
+\end{equation}
+To get this, we'll need to actually look at what being a locally Carteian closed category means. Specifically, it
+means that any map $f\colon X\to Y$ in $\fC$ induces a pullback $f^*:\fC_{/Y}\to\fC_{/X}$, and we require that this
+map has a left and a right adjoint, respectively called the \term{dependent sum} $\Sigma_f$ and the \term{dependent
+product} $\Pi_f$, respectively. These can be thought of (e.g.\ in $\Set$) as coproducts (resp.\ products) indexed
+by the fibers.
+\begin{rem}
+There's an interesting connection to homotopy type theory: one of the early big theorems in type theory is that
+propositional calculus and lambda calculus are formally equivalent to the theory of locally Cartesian closed
+categories, so there was a lot of research into importing these categorical notions into type theory.
+
+The dependent sum and product are examples of base-change functors $f_*$ and $f_!$; the given notation may be
+unfamiliar, but is standard in the category-theoretic literature.
+\end{rem}
+\begin{exm}
+Let's see what this means in $G\Set$. For a map $f\colon X\to Y$, we want to compute $\Pi_f$. If $q\colon A\to Y$
+is an object of $G\Set_{/X}$, then its dependent product is $q'\colon \Pi_fA\to Y$, where
+\[\Pi_f A = \set{(y,s)\mid y\in Y, s\colon f^{-1}(y)\to A\text{ such that } q\circ s = \id}.\]
+That is, it's elements of $y$ along with sections of $q$ above the fiber $f^{-1}(y)$.
+\end{exm}
+Tambara functors will be associated to a particular kind of diagram.
+\begin{defn}
+An \term{exponential diagram} in a locally Cartesian closed category $\fC$ is any diagram isomorphic\footnote{This
+means in the category of diagrams of this shape, i.e.\ there are isomorphisms for every object in the diagram that
+commute with the maps in the diagram.} to one of the form
+\[\xymatrix{
+	X\ar[d]^f & A\ar[l]_-q & X\times_Y \Pi_f A\ar[l]_-{\mathit{ev}}\ar[d]^{\pi_2}\\
+	Y & \Pi_f A\ar[l]_-{q'} & \Pi_fA.\ar@{=}[l]
+}\]
+This commutes.
+\end{defn}
+We can use this to build a diagram associated to two spans $X\gets A\to B\to Y$ and $Y\gets C\to D\to Z$: start
+with
+\[\xymatrix{
+	X & A\ar[l]\ar[d]\\
+	& B\ar[d]\\
+	& Y & C\ar[l]\ar[d]\\
+	& Z & D.\ar[l]
+}\]
+\TODO: in class, we got confused and didn't finish writing this diagram down. Anyways, you can use this (and in
+particular the exponential map) to define the composition operation we asked for in~\eqref{compbispan}.
+% bigdiag
+% (1), (2), (3) pullbacks
+% (4) is an exponential diagram
+If we let $0$ denote the bispan
+\[\xymatrix{
+	X & \emptyset\ar[l]\ar[r] & \emptyset\ar[r] & Y
+}\]
+and $1$ denote the bispan
+\[\xymatrix{
+	X & \emptyset\ar[l]\ar[r] & Y\ar[r]^\id & Y,
+}\]
+we get a semiring structure on the set of isomorphism classes of bispans. The sum of $[X\gets S\to T\to Y]$ and
+$[X\gets S'\to T'\to Y]$ is
+\[\xymatrix{
+	X & S\amalg S'\ar[l]\ar[r] & T\amalg T'\ar[r] & Y,
+}\]
+and their product is
+\[\xymatrix{
+	X & (S\times_Y T') \amalg (S'\times_Y T)\ar[l]\ar[r] & T\times_Y T'\ar[r] & Y,
+}\]
+and you can check $0$ and $1$ are the identities for the sum and product, respectively. When you see a semiring,
+you might think to take its Grothendieck group, and we will do this. We'll eventually also consider ``bispans with
+coefficients,'' i.e.\ those bispans $X\gets S\stackrel f\to T\to Y$ where $f$ is constrained to a subcategory $\fD$
+of $\fC$. You need a condition on $\fD$ for this to be a category,\footnote{The condition is that $\fD$ is
+\term{wide} (i.e.\ contains all objects in $\fC$), closed under pullbacks, and closed under coproducts. \TODO: I
+migth have gotten an axiom wrong.} which is exactly the same as the condition for an indexing system! So there's
+$N_\infty$-operads floating around, and hence from a categorical perspective, we're forced to consider this notion
+of multiplication.
+
+We'll then discuss Tambara functors and how the multipliative structure on $\pi_0$ of a ring spectrum is a Tambara
+functor. Then, we'll move to discussing the norm functor and some of its myriad uses.
+\begin{rem}
+Spans (sometimes also called correspondences) are useful in many different contexts. That bispans come up is
+weirder: they're certainly less ubiquitous. On the other hand, when you want one wrong-way map and two right-way
+maps, it does seem like a good idea.
+\end{rem}
