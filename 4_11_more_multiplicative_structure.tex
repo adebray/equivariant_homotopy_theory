@@ -117,6 +117,7 @@ and whose morphisms are commutative diagrams
 }\]
 \end{defn}
 \begin{exm}
+\label{suggest_name}
 We'll care in particular about a few suggestively named bispans associated to a $\fC$-morphism $f\colon S\to T$:
 \begin{enumerate}
 	\item Let $R_f$ denote the bispan
@@ -165,20 +166,26 @@ Tambara functors will be associated to a particular kind of diagram.
 An \term{exponential diagram} in a locally Cartesian closed category $\fC$ is any diagram isomorphic\footnote{This
 means in the category of diagrams of this shape, i.e.\ there are isomorphisms for every object in the diagram that
 commute with the maps in the diagram.} to one of the form
-\[\xymatrix{
+\begin{equation}
+\label{exponential}
+\gathxy{
 	X\ar[d]^f & A\ar[l]_-q & X\times_Y \Pi_f A\ar[l]_-{\mathit{ev}}\ar[d]^{\pi_2}\\
 	Y & \Pi_f A\ar[l]_-{q'} & \Pi_fA.\ar@{=}[l]
-}\]
+}
+\end{equation}
 This commutes.
 \end{defn}
 We can use this to build a diagram associated to two spans $X\gets A\to B\to Y$ and $Y\gets C\to D\to Z$: start
 with
-\[\xymatrix{
+\begin{equation}
+\label{snake}
+\gathxy{
 	X & A\ar[l]\ar[d]\\
 	& B\ar[d]\\
 	& Y & C\ar[l]\ar[d]\\
 	& Z & D.\ar[l]
-}\]
+}
+\end{equation}
 \TODO: in class, we got confused and didn't finish writing this diagram down. Anyways, you can use this (and in
 particular the exponential map) to define the composition operation we asked for in~\eqref{compbispan}.
 % bigdiag

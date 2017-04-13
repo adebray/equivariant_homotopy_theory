@@ -1,0 +1,301 @@
+Recall that we've been discussing the category $\Bispan_\fC(X,Y)$ of bispans
+\begin{equation}
+\label{span1}
+\xymatrix{
+	X & S\ar[l]_f\ar[r]^g & T\ar[r]^h & Y,
+}
+\end{equation}
+with morphisms
+\[\xymatrix@R=0.2cm{
+	& S\ar[r]\ar[dl]\ar[dd]^\cong & T\ar[dd]^\cong\ar[dr]\\
+	X &&& Y\\
+	& S'\ar[r]\ar[ul] & T'.\ar[ur]
+}\]
+These can be used to understand polynomial functors, but the papers on polynomial functors are written in the
+language of type theory and things internal to the relevant topos. This is fine, but it may be unfamiliar.
+
+Given the bispan~\eqref{span1} in the category of sets, we obtain a sequence of functors
+\[\xymatrix{
+	\Set_{/X}\ar[r]^{f^*} & \Set_{/S}\ar[r]^{\Pi_g} & \Set_{/T}\ar[r]^{\Sigma_h} & \Set_{/Y}.
+}\]
+Their composition is called a \term{polynomial functor}: it's a sum of a product of ``monomials.'' The sum and
+product are the dependent ones we defined last time, and can be a little confusing, but $f^*$ is pullback and
+$\Sigma_h$ is composition, so that's not so bad.
+
+We'd like to compose bispans. Last time, we defined exponential diagrams to be those isomorphic to diagrams of the
+form~\eqref{exponential}.
+\begin{ex}
+Show that an exponential diagram is a pullback diagram.
+\end{ex}
+We can use this to define the composition of two bispans $[Y\gets C\stackrel f\to D\to Z]\circ[X\gets A\to B\to
+Y]$. We start by superimposing the two diagrams as in~\eqref{snake}, and then let $B'\coloneqq B\times_Y C$ and
+$A'\coloneqq A\times_B B'$:
+\[\xymatrix{
+	X & A\ar[l]\ar[d] & \textcolor{blue}{A'}\ar@[blue][l]\ar@[blue][d]\\
+	& B\ar[d] & \textcolor{blue}{B'}\ar@[blue][l]\ar@[blue][d]\\
+	& Y & C\ar[l]\ar[d]^f\\
+	& Z & D.\ar[l]
+}\]
+Now we can form the exponential diagram for $B'\to C\to D$:
+\[\xymatrix{
+	X & A\ar[l]\ar[d] & A'\ar[l]\ar[d]\\
+	& B\ar[d] & B'\ar[l]\ar[d] & \textcolor{blue}{C\times_D\Pi_fB'}\ar@[blue][l]\ar@[blue][dd]\\
+	& Y & C\ar[l]\ar[d]^f\\
+	& Z & D\ar[l] & \textcolor{blue}{\Pi_fB'}.\ar@[blue][l]
+}\]
+Finally, let $\widetilde A\coloneqq A'\times_{B'} (C\times_D\Pi_fB')$:
+\[\xymatrix{
+	X & A\ar[l]\ar[d] & A'\ar[l]\ar[d] & \textcolor{blue}{\widetilde A}\ar@[blue][l]\ar@[blue][d]\\
+	& B\ar[d] & B'\ar[l]\ar[d] & C\times_D\Pi_fB'\ar[l]\ar[dd]\\
+	& Y & C\ar[l]\ar[d]^f\\
+	& Z & D\ar[l] & \Pi_fB'.\ar[l]
+}\]
+Now, we can define the \term{composition} of these two bispans to be the bispan $[X\gets \widetilde A\to\Pi_fB'\to
+Z]$.
+
+We'd like this to actually behave like a composition.
+\begin{lem}
+Composition with the \term{identity bispan}
+\[\xymatrix{
+	Y & Y\ar[l]_\id\ar[r]^\id & Y\ar[r]^\id & Y
+}\]
+is the identity, up to natural isomorphism.
+\end{lem}
+\begin{proof}[Partial proof]
+Let $[X\stackrel f\gets A\stackrel g\to B\stackrel h\to Y]$ be some other bispan. Then, $\Pi_\id B\cong B$, and
+pulling back by the identity acts as the identity, so $B' = B$ and $A' = A$. Thus, $Y\times_Y\Pi_\id B \cong
+\Pi_\id B = B$ and $\widetilde A = A$ (again, we're pulling back by the identity map), so we obtain the diagram
+\[\xymatrix{
+	X & A\ar[l]_f\ar[d]^g & A\ar[l]_\id\ar[d]^g & A\ar[l]_\id\ar[d]^g\\
+	& B\ar[d]^h & B\ar[l]_\id\ar[d]^h & B\ar[l]_\id\ar[dd]\\
+	& Y & Y\ar[l]_\id\ar[d]^\id\\
+	& Y & Y\ar[l]_\id & B.\ar[l]_h
+}\]
+and therefore the composition is $[X\gets A\to B\to Y]$ again, at least up to natural isomorphism.
+\end{proof}
+\begin{ex}
+Finish the proof by checking composition with the identity on the right.
+\end{ex}
+\begin{rem}
+We're working towards showing that isomorphism classes of bispans are the morphisms in a category. If you don't
+like taking isomorphism classes, you can use bispans on the nose, in which case you'll get a bicategory. If you
+like this, it's an exercise to write this out carefully. In general, since working through this argument (at either
+categorical level) is a useful exercise, it's not written down explicitly: if you work through this stuff, feel
+free to add it to the notes.
+
+That said, associativity is going to be a chore no matter how you go about it.
+\end{rem}
+Last time in \cref{suggest_name}, we defined three bispans $R_f$, $N_f$, and $T_f$ associated with a map $f\colon
+S\to T$.
+\begin{lem}
+\label{compasNTR}
+$[X\stackrel f\gets A\stackrel g\to B\stackrel h\to Z]$ is isomorphic to the composition $T_h\circ N_g\circ R_f$.
+\end{lem}
+\begin{proof}[Partial proof]
+Recall $R_f = [X\stackrel f\gets S\stackrel\id\to S\stackrel\id\to S]$ and $N_g = [S\stackrel\id\gets S\stackrel
+g\to T\stackrel\id\to T]$. We'll show their composition is
+\begin{equation}
+\label{firstcomp}
+\xymatrix{
+	X & S\ar[l]_f\ar[r]^g & T\ar[r]^\id &T.
+}
+\end{equation}
+Pullbacks by the identity are the identity, so we can start with
+\[\xymatrix{
+X & S\ar[l]_f\ar[d]^\id & S\ar[l]_\id\ar[d]^\id\\
+& S\ar[d]^\id & S\ar[l]_\id\ar[d]^\id\\
+& S & S\ar[l]_\id\ar[d]^g\\
+& T & T.\ar[l]_\id
+}\]
+We claim $\Pi_gS\cong T$, which we'll check momentarily; under this assumption, $S\times_T \Pi_g S\cong S$, so the
+full diagram is
+\[\xymatrix{
+X & S\ar[l]_f\ar[d]^\id & S\ar[l]_\id\ar[d]^\id &S\ar[l]_\id\ar[d]_\id\\
+& S\ar[d]^\id & S\ar[l]_\id\ar[d]^\id & S\times_T\Pi_gS\cong S\ar[dd]^g\ar[l]_-\id\\
+& S & S\ar[l]_\id\ar[d]^g\\
+& T & T\ar[l]_\id & \Pi_g S\cong T,\ar[l]_\id
+}\]
+and the composition is~\eqref{firstcomp}, as desired.
+
+Now let's prove the claim. Given an $f\colon X\to Y$ and an $A\to X$, $\Pi_f A$ fits into a pullback
+\begin{equation}
+\label{Pif}
+\gathxy{
+	\Pi_f A\ar[r]\ar[d] & \Map_T(X,X)\ar[d]\\
+	Y\ar[r] & \Map_T(A,X).
+}
+\end{equation}
+This is a kind of fiberwise mapping space: $\Map_T(X,X)_b\cong \Map(X_b, X_b)$, But you have to topologize this,
+and this is one place where point-set technicalities cannot be avoided, and you have to worry about whether your
+spaces are compactly generated and weakly Hausdorff. Suffice to say this has been worked out; we won't worry about
+those details.
+
+Anyways, from~\eqref{Pif}, $\Pi_g S$ is the space of functions $s\colon g^{-1}(t)\to S$ such that $\id\circ s(x) =
+x$, and this space can be identified with $T$.
+
+The second step of the proof is analogous, composing with $T_h$, is analogous.
+\end{proof}
+\begin{prop}\hfill
+\label{NTRcomp}
+\begin{enumerate}
+	\item $N_g\circ N_{g'} = N_{gg'}$.
+	\item\label{hh'} $T_h\circ T_{h'} = T_{hh'}$.
+	\item $R_f\circ R_{f'} = R_{f'f}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}[Proof of part~\eqref{hh'}]
+Explicitly, we want to compose $X\stackrel\gets\id X\stackrel{g'}\to Y\stackrel\id\to Y$ and $X\stackrel\gets\id
+X\stackrel{g}\to Y\stackrel\id\to Y$. We can fill in the pullbacks on the left immediately:
+\[\xymatrix{
+	X & X\ar[l]_\id\ar[d]^{g'} & X\ar[l]_\id\ar[d]^{g'}\\
+	& Y\ar[d]^\id & Y\ar[l]_\id\ar[d]^\id\\
+	& Y & Y\ar[l]_\id\ar[d]^g\\
+	& Z & Z.\ar[l]_\id
+}\]
+To form the exponential diagram, observe that by the same argument as in the proof of \cref{compasNTR}, $\Pi_g
+Y\cong Z$, and therefore $Y\times_Z\Pi_g Y\cong Y$. Thus, the finished diagram is
+\[\xymatrix{
+	X & X\ar[l]_\id\ar[d]^{g'} & X\ar[l]_\id\ar[d]^{g'} & X\ar[l]_\id\ar[d]^{g'}\\
+	& Y\ar[d]^\id & Y\ar[l]_\id\ar[d]^\id & Y\ar[l]_\id\ar[dd]^g\\
+	& Y & Y\ar[l]_\id\ar[d]^g\\
+	& Z & Z\ar[l]_\id & Z\ar[l]_\id,
+}\]
+so the composition realls is $T_{hh'}$.
+\end{proof}
+Again, it's instructive to fill in the other two parts, which have similar proofs.
+
+The next proposition is harder.
+\begin{prop}
+Given a pullback diagram
+\[\xymatrix{
+	X'\ar[r]^{g'}\ar[d]^{f'} & X\ar[d]^f\\
+	Y'\ar[r]^g & Y,
+}\]
+then
+\begin{enumerate}
+	\item $R_f\circ N_g = N_{g'}\circ R_{f'}$, and
+	\item $R_f\circ T_g = T_{g'}\circ R_{f'}$.
+\end{enumerate}
+\end{prop}
+\begin{prop}
+Given an exponential diagram
+\[\xymatrix{
+	X\ar[d]^g & A\ar[l]_h & X\times_Y \Pi_g A\ar[l]_-{f'}\ar[d]^{g'}\\
+	Y && \Pi_g A,\ar[ll]_-{h'}
+}\]
+$N_g\circ T_h = T_{h'}\circ N_{g'}\circ R_{f'}$.
+\end{prop}
+With all of these in place, we get what we're looking for.
+\begin{cor}
+The category $P(\fC)$ whose objects are objects of $\fC$ and morphisms are isomorphism classes of bispans really is
+a category, in that composition of bispans satisfies the necessary axioms.
+\end{cor}
+\TODO: I missed the thing right after this.
+
+For a reference on this stuff, check out Tambara's original paper~\cite{Tambara}. This is really recent, from the
+early 1990s, and this business about using bispans to encode right-way and wrong-way maps is not as well explored
+as they could be.
+\begin{rem}
+This category of bispans is reminiscent of the Dwyer-Kan hammock localization, and it may be possible to obtain
+bispans from the hammock localization of a particular category with weak equivalences. Is this useful? Maybe.
+\end{rem}
+If $\fC = G\Set$, then we'll let $\tilde{P}^G\coloneqq P(\fC)$. The hom sets of $\tilde{P}^G$ are commutative
+monoids under direct sum. Taking the Grothendieck group of each hom-set (as we did with Mackey functors), we obtain
+a category $P^G$.
+\begin{defn}
+A \term{Tambara functor} is an additive functor $P^G\to\Ab$.
+\end{defn}
+\begin{comp}{rem}{enumerate}
+	\item Just as you can think of $G$-spectra as spectrally enriched Mackey functors, you can think of $G$-ring
+	spectra as spectrally enriched Tambara functors. This is harder to make precise, but is still a useful guiding
+	analogy.
+% "the algebra of Tambara functors is still under construction" TODO
+% nakaoka: algebra of Tambara functors, 3 or 4 papers. very recent, closely related to project of equivariant DAG ~
+% Tambara functor AG. how do you localize? what happens when you localize? interesting and complicated. I suspect
+% strongly there are algebraic questions easy to find, pose, and answer becausenot very many people are looking.
+	\item Just as we described Mackey functors as a pair of a covariant and a contravariant functor satisfying a
+	push-pull axiom, there's a similar (more complicated) definition for Tambara functors, with three functors
+	satisfying some interoperability conditions. We won't need this for the time being, so we're not going to write
+	it out. \qedhere
+\end{comp}
+\begin{exm}
+Let $R$ be a ring with a $G$-action. Then, $\Map_G(\bl,R)$ is a Tambara functor. In this case, given a map $f\colon
+X\to Y$, the descriptions of $f^*$, $\Sigma_f$, and $\Pi_f$ are pretty concrete:
+\begin{align*}
+	f^*(\theta)(x) &= \theta(f(x))\\
+	\Sigma_f(\theta)(x) &= \sum_{x\in f^{-1}(y)} \theta(x)\\
+	\Pi_f(\theta)(x) &= \prod_{x\in f^{-1}(y)} \theta(x).\qedhere
+\end{align*}
+\end{exm}
+\begin{exm}[Burnside Tambara functor]
+The Burnside ring continues to keep giving. Let $B_G(X)$ denote the category of $G$-sets over $X$. Given a map
+$f\colon \to Y$ of sets, $f^*(B\to Y)$ is $X\times_Y B$, $\Sigma_f(A\to X)$ is $A\to X\to Y$, and $\Pi_f(A\to X) =
+\Pi_fA\to X$.
+\end{exm}
+\begin{exm}\hfill
+\label{Evansexm}
+\begin{enumerate}
+	\item Group cohomology is a Tambara functor: the transfer and restriction maps are what we've seen before, and
+	the norm is the \term{Evans multiplicative transfer}, which we'll talk about next time.
+	\item Let $X$ be a commutative ring object in $\Sp^G$. Then, $\pi_0(X)$ is a Tambara functor. The idea is that
+	it'll be an algebra over an $N_\infty$ operad over a ``complete'' indexing system (again, this will be
+	elaborated next time).
+	\item Let $\fD\subseteq G\Set$ be a wide subcategory, meaning it has all the objects (but perhaps not all the
+	morphisms). Then, let $P_\fD^G$ denote the category of bispans $X\stackrel f\gets A\stackrel g\to B\stackrel
+	h\to Y$ where $g$ is in $\fD$. We'd like $P_\fD^G$ to be a category, and there's a criterion that's not too
+	hard to check.\qedhere
+\end{enumerate}
+\end{exm}
+\begin{prop}
+$P_\fD^G$ is a category if $\fD$ is \term{stable under pullback}, i.e.\ for any pullback diagram
+\[\xymatrix{
+	Q\ar[r]\ar[d]^f & Z\ar[d]^g\\
+	X\ar[r] & Y,
+}\]
+if $g\in\fD$, then $f\in\fD$.
+\end{prop}
+One also says that $\fD$ is \term{pullback stable} or \term{closed under base change}.
+\begin{proof}[Proof sketch]
+The argument amounts to showing that $(T_h N_g R_f)(T_{h'}N_{g'}R_{f'})$ can be put in some normal form where the
+$N$ piece is obtained from something in $\fD$. We mostly only have to worry about interchanging $N$ with things:
+since $\fD$ is a category, $N_gN_{g'} = N_{gg'}$ keeps us inside $P_\fD^G$.
+
+We use the pullback stability to address the exponential diagram
+\[\xymatrix{
+	X\ar[d]^f & A\ar[l] & X\times_Y\Pi_fA\ar[d]^\vp\ar[l]\\
+	Y && \Pi_f A.\ar[ll]
+}\]
+This is a pullback diagram, so if $f\in\fD$, then so is $\vp$.
+\end{proof}
+Since $G$-sets are sums of orbits, we want to be able to work with sums of orbits as we've done before. Let
+$\Orb_\fD$ be the full subcategory of $\fD$ on the orbits $\set{G/H}$.
+\begin{defn}
+We say that $\fD$ is \term{coproduct complete} if coproducts in $\fD$ are the same as those in $\fC$, and $\fD$ is
+closed under coproducts.
+\end{defn}
+\begin{lem}
+If $\fD$ is coproduct complete, then $\fD$ is the coproduct completion of $\Orb_\fD$.
+\end{lem}
+That is, we start with orbits, throw in coproduct, and obtain everything, which is nice.
+\begin{defn}
+Let $\fD$ be a wide, pullback stable, coproduct complete subcategory of $\fC$. Then, a \term{$\fD$-Tambara functor}
+is a functor $P_\fD^G\to\Ab$. You might call these ``incomplete Tambara functors.''
+\end{defn}
+We won't be able to delve into the following proof.
+\begin{thm}
+There is an equivalence of categories between the poset of wide, pullback stable, coproduct complete subcategories
+of $G\Set$ and the category of indexing systems for $G$.
+\end{thm}
+This tells us that all of the conditions imposed on indexing systems are inevitably imposed on us 
+
+Next time, we'll discuss the Evans norm and $\pi_0$ of ring spectra as promised in \cref{Evansexm}, then proceed to
+the norm as defined in~\cite{HHR}: what its structure is, what you do with it, and why it was useful in their
+argument. Once we've finished with that, we've almost arrived at the frontier of equivariant stable homotopy
+theory. It would be good to have a proof of the Adams isomorphism and Tate spectra and Tate cohomology, so we'll
+see what's left.
+
+To the degree that you can fill in the details, this is a large subset of what people know about equivariant stable
+homotopy theory. Fifteen years ago, very few computations were known, and the computations were hard. But the
+development of the slice filtration and slice spectral sequence is a recent innovation, used to attack the Kervaire
+invariant one problem, and has led to lots of computations. We won't discuss this in detail, but it will probably
+lead to further useful and interesting computations.
