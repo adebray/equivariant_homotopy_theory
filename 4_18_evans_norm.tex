@@ -1,0 +1,172 @@
+\begin{quote}\textit{
+	``Speaking as someone who spent three years thinking about this as a graduate student, this is hard.''
+}\end{quote}
+Today, we're going to talk about the Evens norm in group cohomology, tensor induction, and the norm in $\Spc^G$.
+All of this is about motivating the norm structure on Tambara functors, an extra covariant map $N_H^G$. We're going
+to explain where this is coming from in the context of topology and/or group cohomology. We've seen one approach
+already, using the dependent sum and dependent product, but that was kind of abstract, and it's always useful to
+have more than one approach.
+
+Even if you don't care about equivariant ring spectra, the Evens norm is a cool construction, less well known than
+it should be, and is a useful tool for proving things. It was introduced by Evens in~\citeme{Evens} and also written
+about in~\citeme{Greenlees-May}.
+
+Today, $H$ will be a finite-index subgroup of $G$. Of course, if $G$ is finite, any subgroup will do.
+
+Let's recall first the definition of the transfer map $H^*(H;M)\to H^*(G;M)$. Here, the $H$-action on the
+$\Z[G]$-module $M$ is through restriction $i_H^*$. We can also write $H^*(H;M)\cong\Ext_{\Z[H]}(\Z, M)$, the
+derived functors of $M^H$.
+
+The right adjoint of restriction is $\Hom_{\Z[G]}(\Z[H], \bl)$, but the Wirthmüller isomorphism, in this
+group-theoretic context, says this is the same as the left adjoint $\Z[G]\otimes_{\Z[H]}\bl$. Thus, we get a map
+\[H^*(H; i^*M)\cong H^*(G; \Hom_{\Z[G]}(\Z[H], M))\cong H^*(G, \Z[G]\otimes_{\Z[H]} i_H^*M)\longrightarrow
+H^*(G;M),\]
+where the map is induced by the counit $\Z[G]\otimes_{\Z[H]} i_H^*M\to M$.
+
+Another way to describe the transfer is through the map $M^H\to M^G$ sending
+\begin{equation}
+\label{addtransfer}
+x\mapsto \sum_{g\in G/H} gx.
+\end{equation}
+Then, the transfer is the induced map between derived functors. It's not hard to show these are the same: since
+both of them are effaceable $\delta$-functors, it suffices to check on degree $0$, where it's straightforward. The
+idea is that information about derived functors can be obtained from their degree-$0$ terms.
+
+In~\eqref{addtransfer}, we added. But if $M$ is a $\Z[G]$-algebra, then we should also be able to multiply. This
+will give us a variant description of
+\[\Z[G]\otimes_{\Z[H]} M\cong \bigoplus_{g\in G/H} g\otimes M,\]
+where $g\otimes M$ denotes $M$ with the action twisted by $g$.
+
+We want to describe this more explicitly, and will do so with a wreath product.
+\begin{defn}
+The \term{wreath product} of $\Sigma_n$ and $H$ is the group
+\[\Sigma_n\wr H\coloneqq \set{(\sigma, h_1,\dotsc,h_n)\mid \sigma\in\Sigma_n, h_i\in H}\]
+with the multiplication
+\[(\sigma, h_1,\dotsc, h_n)(\tau, \overline h_1,\dotsc,\overline h_n) = (\sigma\tau, h_{\tau(1)}\overline h_1,
+h_{\tau(2)}\overline h_2,\dotsc, h_{\tau(n)}\overline h_n).\]
+\end{defn}
+This is a kind of semidirect product. If $n = [G:H]$, there's a natural homomorphism $\theta\colon G\to\Sigma_n\wr
+H$, because $G$ acts by permutating the elements of $H$. Namely, if $g_1,\dotsc,g_n$ is a set of coset
+representatives for $G/H$, let $\pi_g\in\Sigma_n$ and $h_i(g)\in H$ be such that $gg_i = g_{\pi(i)} h_i(g)$. Then,
+$\theta$ sends $g\mapsto (\pi, h_1(g),\dotsc,h_n(g))$.
+\begin{comp}{prop}{enumerate}
+	\item\label{ishom} $\theta$ is a group homomorphism.
+	\item\label{isocnj} A different choice of coset representativies determines a map conjugate to $\theta$.
+	\item\label{action} $\theta$ induces a natural $G$-action on $\bigoplus_{i=1}^n M$, which is naturally a
+	$\Sigma_n\wr H$-object.
+	\item The $\Z[G]$-module $\bigoplus_{i=1}^n M$ induced by $\theta$ is precisely $\Z[G]\otimes_{\Z[H]} M$.
+\end{comp}
+\begin{proof}[Partial proof]
+For~\eqref{ishom},
+\begin{align*}
+	(\gamma_1\gamma_2)g &= \gamma_1(\gamma_2 g_i)\\
+	&= \gamma_1(g_{\pi_1(i)} h_i(\gamma_2))\\
+	&= g_{\pi_2(\pi_1(i))} h_{\pi_1(i)}(\gamma_1)h_i(\gamma_2).
+\end{align*}
+This plays well with the group structure on $\Sigma_n\wr H$, and implies that $\theta$ is a homomorphism.
+\eqref{isocnj} follows from a similar calculation.
+
+The action of $\Sigma_n\wr H$ on $\bigoplus_{i=1}^n M$ is
+\[(\sigma,h_1,\dotsc,h_n)\cdot (m_1,\dotsc,m_n) = (h_{\sigma^{-1}(1)}m_{\sigma^{-1}(1)},
+h_{\sigma^{-1}(2)}m_{\sigma^{-1}(2)},\dotsc, h_{\sigma^{-1}(n)} m_{\sigma^{-1}(n)}). \qedhere\]
+\end{proof}
+The key observation is that you can do this in any symmetric monoidal category: we haven't used anything specific
+about the symmetric monoidal structure, just the fact that there's an $\Sigma_n$-action on an $n$-fold monoidal
+product.
+\begin{defn}
+Let $M$ be an object in a symmetric monoidal category $\fC$. Its \term{tensor induction} is the $G$-object
+\[N_H^GM\coloneqq \theta^*\paren{\bigotimes_{i=1}^n M},\]
+where we give the iterated tensor product the $\Sigma_n\wr H$-action described above.
+\end{defn}
+There are a lot of interesting properties of tensor induction, which you can work out.
+\begin{comp}{prop}{enumerate}
+	\item Let $H_2\subseteq H_1\subseteq G$. Then, $N_{H_1}^G N_{H_2}^{H_1}\cong N_{H_2}^G$.
+	\item $N_H^G(M_1\oplus M_2)$ is isomorphic to $N_H^GM_1\oplus N_H^G M_2$ plus some norms to $K$, where $K$ is a
+	proper subgroup containing $\bigcap {^gH}$.
+\end{comp}
+The Evens norm is a kind of multiplicative transfer. Segal~\citeme{Segal} made this literal, writing down an
+equivariant cohomology theory whose transfer map is the Evens norm.
+\begin{thm}[Evens]
+If $R$ is a Noetherian ring, then $H^*G;R)$ is finitely generated over $R$.
+\end{thm}
+Evens wrote a book~\cite{EvensBook} on group cohomology which adopts the Evens norm as an organizing principle, and
+this theorem is probably proved in there.
+\begin{defn}
+The \term{Evens norm} is a map $H^p(H;R)\to H^{p^n}(G;R)$ (where $R$ is a $\Z[G]$-algebra) which sends $\alpha\in
+H^p(H;R)$ to $\alpha^{\otimes n}$ in $N_H^GR$ (with its $\Sigma_n\wr H$-action), then pulls back by
+$\theta^*(\alpha^{\otimes n})$ to define the Evens norm of $\alpha$.
+\end{defn}
+We will assume $\alpha$ is in even degree: otherwise, there are factors $(-1)$ to the sign of a permutation. The
+trick is that instead of using the counit $\Z[G]\otimes_{\Z[H]} i_H^*M\to M$, we use the twisted counit
+\[\bigotimes_{i=1}^n R\longrightarrow R\]
+coming from multiplication. The interesting piece is that this plays well with the $G$-action: it's really a map
+$N_H^G(i_H^*R)\to R$. In other words, it's easy to get a map $H^p(H;M)\to H^{p^n}(G;R^n)$, and we use the ring
+structue to get back to $R$. There's a nice analogy of the norm as the multiplicative transfer, where we've
+replaced one counit with another. From this perspective, the definition of an $N_\infty$-operad makes more sense.
+
+More explicitly, let $P_\bullet\to R$ be a projective resolution of $R$ as a $\Z[H]$-module, so we obtain a
+resolution $P_\bullet^{\otimes n}\to R^{\otimes n}\to R$. Then, let $\e\colon Q_\bullet\to R$ be a resolution of
+$R$ as a $\Z[\Sigma_n]$-object (induced from the $\Sigma_n\wr H$-action).\footnote{Don't we need to act on
+$R^{\oplus n}$, rather than $R$?} We can join these into a resolution
+\[\xymatrix{
+	Q_\bullet\otimes_R P_\bullet^{\otimes n}\ar[r] & R\otimes_R R^{\otimes n}\ar[r] & R,
+}\]
+and given some cocycle $f\colon P_p\to R$, $\e\otimes f^n$ is a cocycle for $H^{pn}$ whose cohomology class is the
+Evens norm of $f$. This is far from obvious, but comes from the fact that
+\[\xymatrix{
+	(P_\bullet^{\otimes n})_{np}\ar[r] & P_p^{\otimes n}\ar[r] & R
+}\]
+produces cocycles for $H^{np}(H;R)$.\footnote{\TODO: I didn't follow this.}
+\begin{comp}{rem}{enumerate}
+	\item The Evens norm satisfies a double coset formula, similarly to the transfer map.
+	\item The Evens norm is part of a Tambara functor structure where
+	\[G/H\mapsto \bigoplus_{i=0} H^{2i}(H; \bl).\]
+	\item Multiplicative transfers, e.g.\ power operations, are ubiquitous, e.g.\ the Steenrod operations. In fact,
+	one can realize the Steenrod operations as a homotopical version of this norm construction, and this is a
+	fruitful approach to research for some homotopy theorists. The analogue of the twisted action is a map
+	$E\Sigma_n\times_{\Sigma_n} X^n\to X$, which is used to construct the Steenrod operations. \qedhere
+\end{comp}
+Now we want to talk about a norm map $N_H^G\colon \Spc^H\to\Spc^G$. We know what we want to do, but the
+technicalities are tricky.
+\begin{notdefn}
+The \term{norm map} $N_H^G\colon \Spc^H\to\Spc^G$ sends
+\[M\mapsto \theta^*\paren{\bigwedge_{g\in G/H} M},\]
+which is the indexed smash product, in direct analogue with tensor induction.
+\end{notdefn}
+The reason we use the smash product instead of the wedge sum is that spectra are already abelian groups. The
+additive analogue of this construction is the Wirthmüller isomorphism.
+
+What makes this construction tricky is figuring out how to give $\bigwedge_{g\in G/H} M$ a $\Sigma_n\wr H$-action.
+The issue is the universe.
+\begin{exm}
+Let $X\in\Spc$, and let's consider $N_e^{C_2}X$. If $U$ is the universe we started with, $X\wedge X$ is in $U\oplus
+U$, and the smash product is a Kan extension along $U\oplus U\to U$.
+
+If $X$ is a space, $C_2$ acts on $X\times X$ by switching the pairs. And we know the diagonal map $x\mapsto (x,x)$
+defines an isomorphism $X\congto (N_e^{C_2} X)^{C_2}$. But if you have spectra instead, and the two universes are
+different, i.e.\ $U_1\oplus U_2$ instead of $U\oplus U$, which makes it hard to resolve.
+\end{exm}
+The solution is a trick, due to unpublished work of Lydakis and elucidated by~\cite{HHR}. Consider $X$ in the
+trivial $H$-universe, i.e.\ $X$ is an $H$-object in $\Spc$. Then there's no problem: $N_e^{C_2}X$ is a $C_2$-object
+in $\Spc$, or $\Spc^{C_2}$ with the trivial universe. If we're not keeping track of the equivariant universe, it's
+easy to make sense of the map $N_H^G\colon H\Spc\to G\Spc$.
+
+The trick is the following point, which is extremely subtle: we can define $N_G^H\colon \Spc^H\to\Spc^G$ by
+changing the universe from $\Spc^H$ to $H\Spc$ (i.e.\ the trivial universe), then using the tensor induction to get
+to $G\Spc$ (i.e.\ the trivial universe), then changing universe again to get back to $\Spc^G$. As a point-set
+construction, well, sure, this is a functor. But the crazy thing is that this works: you can make this a homotopical
+functor such that its derived functor is the right thing.
+
+We'll discuss the change-of-universe map next time; this is a Kan extension along diagrams, which will make this
+construction less sketchy.
+
+Recall that $\Spc^G[\P]$ denotes the category of commutative ring objects in $G$-spectra (sometimes also written
+$\cat{Comm}_H$). We'll show that $N_H^G\colon\Spc^H[\P]\to\Spc^G[\P]$ is left adjoint to $i^*_H$, and hence, if $R$
+is a commutative ring $G$-spectrum, we have a counit $N_H^Gi_H^*R\to R$ as we did in group cohomology.
+
+The principal player in~\cite{HHR} is obtained from this norm and a concrete $C_2$-spectrum: we'll later define
+real bordism $\mathit{MR}$, the cobordism theory of stably almost complex manifolds with a $C_2$-action by complex
+conjugation (there are some nuances to writing this down). Then, they consider the $C_8$-theory
+$N_{C_2}^{C_8}\mathit{MR}$, and do a lot of hard work to show this detects the Kervaire invariant in the stable
+homotopy groups of spheres. People are still working out the applications of this spectrum and this idea more
+generally, and you could count yourself among their numbers.
