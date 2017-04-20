@@ -1,0 +1,207 @@
+\begin{quote}\textit{
+	``The genuine equivariant model is always the most painful of the two options.''
+}\end{quote}
+Today, we're going to discuss the construction and some properties of the HHR norm $N_H^G\colon \Spc^H\to\Spc^G$
+and $N_H^G\colon \Spc^H[\P]\to\Spc^G[\P]$. This is the left adjoint to $i_H^*$ (for commutative algebras), and is
+the basis for multiplicative induction in the spectral setting. Thus it specializes to the norm in algebra.
+
+First, though, we'll take a historical detour and discuss the difference between $\Gamma$-$G$-spaces and
+$\Gamma_G$-spaces. This arises from a reasonable question: what's the analogue of a $\Gamma$-space in the
+equivariant context?
+
+Recall that $\Gamma$ is the category of based finite sets and based maps, and the category of $\Gamma$-spaces is
+the functor category $\Fun(\Gamma, \Top_*)$, as we discussed in \cref{gamma_spaces}. A special $\Gamma$-space $X$
+is the analogue of an abelian group: we ask that the induced map
+\[X(n)\longrightarrow\prod_{i=1}^n X(1)\]
+is an equivalence.
+
+In the equivariant setting, we can think of \term{$G$-$\Gamma$-spaces}, $\Gamma$-objects in $G\Top_*$, which is
+sensible, or we can think of \term{$\Gamma_G$-spaces} through $\Gamma_G$, the category of finite based $G$-sets and
+all based maps, so it's $G$-enriched, where $G$ acts by conjugation on the mapping space. Then, we could consider
+the category of enriched functors $\Gamma_G\to G\Top_*$. Which of these is right? Turns out both are.
+\begin{prop}
+These two categories are equivalent.
+\end{prop}
+We can also line up the special conditions in a nice way. The proof uses that one weird trick in diagram spectra.
+The manifestation in orthogonal spectra means that the category of orthogonal spectra on the trivial universe is
+equivalent (on the point-set level) to orthogonal spectra on the complete universe! And in fact this is true for
+any universe.
+
+The reason this happens is that diagram spectra mix the point-set and homotopical data in a way that can be
+confusing. Of course, the homotopy groups depend on the universe, so the homotopy theory and homotopy category are
+genuinely different.
+\begin{rem}
+You might be thinking that this is an artifact of one's desire for concreteness and model categories, but the
+$\infty$-categorical view isn't necessarily easier: yes, you don't have to worry as much about point-set phenomena,
+and all functors are derived, but it's a lot harder to infer the homotopy theory from first principles and you can
+write stuff down, but it's not at all clear how to prove it's the right thing.
+
+To be sure, some of the difficulties in writing down the correct norm map were point-set in nature; but not all of
+them were.
+\end{rem}
+Since finite based sets are finite based $G$-sets (with $G$ acting trivially), there is an inclusion
+$\Gamma\to\Gamma_G$, which induces a functor
+\[R\colon\Fun(\Gamma_G, G\Top_*)\longrightarrow\Fun(\Gamma, G\Top_*).\]
+It has a left adjoint
+\[L\colon\Fun(\Gamma, G\Top_*)\longrightarrow\Fun(\Gamma_G, G\Top_*),\]
+which is a Kan extension, explicitly given by the coend
+\[LX = \int^\Gamma \Hom(n, \bl)\times X(\bl) = \coprod_{n\ge 0} \Map(n, S)\times X(n)/\sim,\]
+where $(sf, x)\sim (s, X(f)x)$ for any $\Gamma$-morphism $f\colon n\to m$. The $G$-action is $g[s,x] = [gs,gx]$.
+This was all written down in~\cite{Shimakawa91}.
+
+Now, $L$ is an equivariant functor: if $f\colon S\to T$ is a $\Gamma_G$-morphism,
+\begin{align*}
+	LX(gfg^{-1})[s,x] &= [gfg^{-1}s, x]\\
+	&= g[fg^{-1}s, g^{-1}x]\\
+	&= gLX(f)[g^{-1}s, g^{-1}x].
+\end{align*}
+\begin{ex}
+Check that $L$ and $R$ are adjoint. This follows from essentially formal reasons.
+\end{ex}
+\begin{prop}
+\label{LReq}
+$(L,R)$ are adjoint equivalences.
+\end{prop}
+\begin{proof}
+We need to check that the natural transformations $\id\to RL$ and $LR\to\id$ are natural isomorphisms. The first is
+formal: we're Kan extending along a full subcategory, and in this case $\id\to RL$ is always an equivalence.
+
+Now, we want to recover $X(S)$ from $X(n)$, where $\abs S = n$.\footnote{We're using $n$ to denote both the set
+$\set{1,\dotsc,n}$ and its cardinality; hopefully they can be distinguished from context.} Choose a bijection
+$f\colon S\to n$. The key is that this defines a map $\rho\colon G\to\Hom(n, n)\cong\Sigma_n$, through the
+$G$-action on $S$. But now this looks familiar from the story of $G$-operads. Why were we able to get away with
+indexing them on finite sets rather than on finite $G$-sets? Well, from the $\infty$-categorical perspective, maybe
+it would be better, but we were able to get away with using just finite sets by the same trick!
+
+So now we have a commutative diagram
+\[\xymatrix{
+	S\ar[r]^f\ar[d]^g & n\ar[d]^{\rho(g)}\\
+	S\ar[r]_f &n. 
+}\]
+Endow $X(n)$ with a new $G$-action\footnote{$X(n)$ was already a $G$-space, but we're putting a different
+$G$-action on it.} via the map $G\times X(n)\to X(n)$ sending
+\[g,x\mapsto X(\rho(g))(gx).\]
+We'll call this $G$-space $X(n)_\rho$. This is another manifestation of a common principle from this class: just
+like finite sums and finite products are the same in the stable setting, in the equivariant stable setting, finite
+$G$-indexed sums and finite $G$-indexed products are the same. Since $X(n)$ is a product of $n$ copies of $X(1)$,
+this is a $G$-indexed product.
+
+Now, we claim that as $G$-spaces, $X(S)\cong X(n)_\rho$.
+\begin{ex}
+Prove this. There's an obvious map, and you just have to check that it's $G$-equivariant, like we did for $L$
+above.
+\end{ex}
+Assuming this exercise, we get that $LR\to\id$ is a natural isomorphism.
+\end{proof}
+Now, what does it mean to be special in the equivariant setting?
+\begin{comp}{defn}{itemize}
+	\item A \term{special $\Gamma_G$-space} is one for which the natural map
+	\[X(S)\stackrel\cong\longrightarrow \prod_S X(1)\]
+	is an equivalence.
+	\item A \term{special $\Gamma$-$G$-space} is one for which the natural map
+	\[X(S)\stackrel\cong\longrightarrow \prod_{i=1}^n X(1)\] 
+	is an equivalence\footnote{\TODO: I might have gotten this criterion wrong.} --- not just of $G$-spaces, but
+	for the family of subsets $H\subset G\times\Sigma_n$ such that $H\cap\set{(e,\sigma)} =
+	\emptyset$.\footnote{This is what Segal missed.}
+\end{comp}
+The definition for $\Gamma$-$G$-spaces again is reminiscent to the operadic story: we're asking for homomorphisms.
+\begin{ex}
+Show that under the equivalence of \cref{LReq}, these two notions of special objects are identified.
+\end{ex}
+\begin{comp}{rem}{enumerate}
+	\item You can run the rest of Segal's story: there's a notion of a very special $\Gamma$-$G$-space or
+	$\Gamma_G$-space, which is a condition on fixed points, and using similar machinery as before, you can turn
+	very special objects into connective genuine $G$-spectra.
+	\item We didn't discuss the homotopy theory of these two categories: the natural notions of fibrancy for
+	$\Gamma_G$-spaces and $G$-$\Gamma$-spaces are different. This is analogous to the difference between the naïve
+	homotopy groups of $G$-spectra on the trivial universe, and the more sophisticated homotopy groups that you
+	could define on them, and which agree with the homotopy groups of $G$-spectra on the complete universe. This
+	is really saying something about Kan extensions and diagram spaces. \qedhere
+\end{comp}
+We're going to do some constructions with orthogonal spectra now, so let's recall how orthogonal $G$-spectra are
+defined, especially since we covered it rather quickly.\footnote{\TODO: there may be notational inconsistencies
+with the first time orthogonal spectra were covered, which I should fix at some point.}
+
+Recall that if $V$ and $V'$ are real $G$-representations on inner product spaces, we defined $I_G(V,V')$ to be the
+$G$-space of linear isometries $V\to V'$. We defined $J_G(V,V')$ to be the Thom space for $E\subseteq
+I_G(V,V')\times V'\to I_G(V,V')$, where $E$ is the \term{orthogonal complement}
+\[E \coloneqq \set{(f,x)\mid x \in V - fV}.\]
+When $V\subseteq V'$, you can write this explicitly as
+\[J_G(V,V') = \O(V')_+\wedge_{\O(V' - V)} S^{V' - V}.\]
+Now, let $J_G$ be the category whose objects are $G$-representations on finite-dimensional real inner product
+spaces and whose morphism spaces are $J_G(V,V')$ as we defined them. In particular, there's a composition law
+$J_G(V',V'')\times J_G(V,V')\to J_G(V, V'')$ and a symmetric monodial product
+\begin{align*}
+	(f,x) + (f',x') &= (f+f', x+x')\\
+	(g,y)(f,x) &= (gf, gx+y).
+\end{align*}
+The unit is $(\id,0)$.
+
+Now, we were able to define $\Spc^G = \Fun(J_G, G\Top_*)$, and we saw this has a symmetric monoial structure.
+
+One important point is that the Yoneda lemma implies
+\begin{equation}
+\label{tautpres}
+\xymatrix{\bigvee_{V,W} S^{-W}\wedge J_G(V,W)\wedge X(V)\dblarrow[r]
+& \bigvee_V S^{-V}\wedge X(V)\ar[r] &
+X}
+\end{equation}
+is a coequalizer of $X$ in terms of representable objects. This is true in general for presheaves, and in this
+context,~\cite{HHR} call it the \term{tautological presentation} of $X$.
+
+Now we'll introduce the point-set change-of-universe functor $\Spc^G[U']\to\Spc^G[U]$, where $U$ and $U'$ are
+$G$-universes. Let
+\[I_{U'}^UX(V)\coloneqq J_G(\R^n, V)\wedge_{\O(n)} X(\R^n),\]
+where $\dim V = n$. If $W$ is a $p$-dimensional $G$-representation, the action of $J_G(V,W)$ on this comes through
+the diagram
+\[\xymatrix{
+	J_G(V,W)\wedge J_G(\R^n, V)\wedge_{\O(n)} X(\R^n)\ar[d] \\
+	J_G(\R^n, W)\wedge_{\O(n)} X(\R^n)\ar[r] &J_G(\R^p,
+	W)\wedge_{\O(p)} J_G'(\R^n,\R^p)\wedge_{\O(n)} X(\R^n)\ar[r] & J_G(\R^p, W)\wedge_{\O(p)} X(\R^p).
+}\]
+\begin{ex}
+Show that $I_{U'}^U I_U^{U'} = \id$. This is not hard. Also, check that $I_{U'}^U$ is strong symmetric monoidal.
+\end{ex}
+Thus, for any $U$ and $U'$, $\Spc^G[U]$ and $\Spc^G[U']$ are equivalent! This is true for the same reason as
+\cref{LReq}.
+\begin{rem}
+It's also quick to check that $I^{\R^\infty}_U$ is the forgetful functor.
+\end{rem}
+Let $U$ be a complete $H$-universe and $\widetilde U$ be a complete $G$-universe. Then, we'll define
+$N_H^G\colon\Spc_U^H\to\Spc_{\widetilde U}^G$ by
+\[X\mapsto I_{\R^\infty}^{\widetilde U} \theta^*\paren{\bigwedge_{G/H} X} I_U^{\R^\infty} X.\]
+Here $\theta$ is the wreath action we introduced last time. This functor is clearly strong symmetric monoidal, and
+turns out to be left-adjoint to $i_H^*\colon\Spc^G_{\widetilde U}[\P]\to\Spc_U^H[\P]$, i.e.\ on the categories of
+commutative algebras.
+
+The miracle is that this can be derived in the usual model structure by cofibrant replacement, so it's
+homotopically the right thing. We won't prove this; it's one of the technically hardest parts of~\cite{HHR}: it's
+not a left adjoint on modules, so it doesn't commute with colimits, and one has to carefully analyze what it does
+to pushouts.
+
+There are a few  key facts:
+\begin{itemize}
+	\item $N_H^G$ is symmetric monoidal.
+	\item $N_H^G S^{-V} = S^{-\Ind_H^G V}$.
+	\item There's a diagonal map $\Phi^HX\to\Phi^G N_H^G X$, and it's an equivalence. In fact, when $X$ is
+	cofibrant, this is a point-set equivalence!
+\end{itemize}
+We'll begin showing this by describing $\Phi^G$, which is a strong symmetric monoidal functor such that if $Z$ is a
+space, $\Phi^G(S^{-V}\wedge Z)\cong S^{-V^G}\wedge Z^G$. In the $\infty$-categorical sense, it commutes with
+colimits, but this is not true in the point-set case; in any case, mirroring the tautological
+presentation~\eqref{tautpres}, $\Phi^GX$ is the coequalizer
+\[\xymatrix{
+	\bigvee_{V,W} S^{-W^G}\wedge J_G(V,W)^G\wedge X(V)^G\dblarrow[r] & \bigvee_V S^{-V^G}\wedge X(V)^G\ar[r] &
+	\Phi^G X.
+}\]
+It's not too hard to check this is the same as the model described in~\citeme{Mandell-May}. We'll use this
+description to construct the diagonal map. Using the fact that $Z^H\cong (N_H^G Z)^G$,
+\[\Phi^G N_H^G S^{-V}\cong \Phi^G\paren{S^{-\Ind_H^G V}} \cong S^{-V^H}\cong\Phi^H S^{-V}.\]
+Therefore we have an isomorphism
+\[\Phi^H(S^{-V}\wedge Z)\stackrel\cong\longrightarrow \Phi^G N_H^G(S^{-V}\wedge Z).\]
+Applying this termwise to the tautological construction, we obtain a map
+\[\xymatrix{
+	\bigvee_{V,W} S^{-W^H}\wedge I_H(V,W)^G\wedge X(V)^H\dblarrow[r] & \bigvee_V S^{-V^G}H\wedge X(V)^H\ar[r] &
+	\Phi^G N_H^G X,
+}\]
+hence by the universal property of the coequalizer, a map $\Phi^HG\to\Phi^G N_H^G X$.
