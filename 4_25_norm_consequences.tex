@@ -1,0 +1,157 @@
+Today we're going to talk about some applications of the norm map, including why $\pi_0$ of an $E_\infty$-ring
+spectrum is a Tambara functor and how the norm construction interacts with the resolution of the Kervaire invariant
+$1$ problem. In the next two classes we'll talk about the Tate construction and the Tate spectral sequence; the
+last class is more open, and we can talk about current directions in research or anything else.
+
+Over the summer, there will be more work on the notes: if you did any exercises while working this material out,
+feel free to include them, even if they're very rough. If anything is unclear or not useful or you have any other
+comments, feel free to leave them in the notes.
+
+Today, $R$ will be a commutative ring in orthogonal $G$-spectra, i.e.\ an object of $\Spc^G[\P]$. The forgetful
+functor from $G$-ring spectra to $H$-ring spectra is lax symmetric monoidal and has a left adjoint, which is the
+HHR norm; it was known that this left adjoint existed for a long time, and that it wasn't the same adjoint as for
+$G$-spectra without a ring structure, but it wasn't understood how to think of it until recently.
+
+One consequence is the existence of the counit $\eta\colon N_H^Gi_H^*R\to R$. If $X\in\Spc^H$, then $R_H^0(X) = [X,
+i_H^*R]_H$, so the norm provides us with a map $R_H^0(X)\to R_G^0(N_G^HX)$: given a map $f\colon X\to i_H^*R$,
+norm it and apply the counit: $\e\circ N_H^G(f)\colon N_H^GX\to N_H^G i_H^*R\to R$. This and a few similar
+constructions are reminiscent of the Evens norm: if $V$ is an $H$-representation and $X = S^V$, this is a map
+$R_H^0(S^V)\to R_G^0(N_H^GS^V) = R_G^0(S^{\Ind_H^GV})$, and these are homotopy groups: $R_H^0(S^V) = [S^V, i_H^*R]
+= \pi_V(i_H^*R)$, so we obtain a map $\pi_V(i_H^*R)\to\pi_{\Ind_H^GV}(R)$.
+
+For example, if $A$ is a $G$-space, given a map $f\colon\sus A\to i_H^*R$, we can construct a map $R_H^0(i_H^*A)\to
+R_G^0(A)$ sending $\sus A\to\sus N_H^G A$, which is homeomorphic to $N_H^G\sus A$ (here this is the norm map on
+spaces); then, using $f$, map to $N_H^Gi_H^*R$ then to $R$ by the counit.
+\begin{ex}
+This is nearly saying that $\pi_0R = R_{(\bl)}^0$ is a Tambara functor; check that this is really the case.
+\end{ex}
+There's lots of things to check: figuring out why the double coset formula holds is work, though not too
+conceptually hard if you've followed everything so far. The original papers are complicated, because this check is
+inevitably notation-heavy.
+
+On the other hand, there's a converse:
+\begin{thm}[Ullman~\cite{Ullman}]
+All Tambara functors arise as $\pi_0R$ for some ring spectrum $R$, e.g.\ an Eilenberg-Mac Lane spectrum. However,
+there is no Eilenberg-Mac Lane functor that is symmetric monoidal.
+\end{thm}
+\begin{rem}
+There's a cool connection between the structures of Tambara functors and Witt vectors. For example,
+\citeme{Hesselholt-Madsen} identify $\pi_0\THH$ and $\pi_0\THH^{C_{p^n}}$ with certain rings of Witt vectors. This
+fits into a bigger picture.
+\end{rem}
+$N_\infty$-operads come back. We used them to specify which transfer maps you have, and here they will control
+which norm maps you get. There are some complicated questions here: distributivity of norm and transfer maps is
+intricate, and the interactions between two different $N_\infty$-operads, neither of which is complete, is not
+written down.
+
+The rough idea is that any commutative $G$-ring spectrum should be charactrized by having certain norm maps
+$N_H^Gi_H^*X\to X$.
+\begin{lem}
+Let $T$ be an admissible $H$-set for an $N_\infty$-operad $O$. Then,
+\[(G\times\Sigma_{\abs T}/\Gamma_T)_+\wedge_{\Sigma_{\abs T}} X^{\abs T} \cong G_+\wedge_H \bigwedge_i
+N_{K_i}^Hi_{K_i}^*X.\]
+\end{lem}
+The idea is that we can write $T$ as a coproduct of orbits $H/K_i$.
+
+Using this lemma, since $T$ is admissible, we get a map $G\times\Sigma_{\abs T}/\Gamma_{\abs T}\to O(\abs T)$, and
+therefore if $X$ is an $O$-algebra (i.e.\ is in $\Spc^G[O]$), this becomes a map
+\[\xymatrix{
+	G_+\wedge_H\bigwedge N_{K_i}^H i_{K_i}^*X\ar[r] & O(\abs T)\wedge_{\Sigma_{\abs T}} X^{\abs T}\ar[r] & X,
+}\]
+so for $X$ an $N_\infty$-algebra over $O$, $N_H^G: \Spc^H[O]\rightleftarrows \Spc^G[O]: i_H^*$ is homotopical
+whenever $G/H$ is admissible. In this case, $\pi_0X$ is an incomplete Tambara functor: we asked for it to contain
+the norm maps for $O$, and we have to accept certain other ones.
+
+If instead $A$ is an $N_\infty$-algebra in $G$-spaces, then $\Sigma_+^\infty A$ is an $N_\infty$-algebra in
+$\Spc^G$, and is in fact the spectral group ring (also denoted $\Sph[A]$). The multiplication comes from the
+isomorphism
+\[\O(n)\times_{\Sigma_n} (\sus_+A)^n\cong \sus_+(\O(n)\times_{\Sigma_n} A^n).\]
+\begin{rem}
+The nonequivariant analogue of this is called the \term{spherical group ring} of a space $M$, $\Sph[\Omega
+M]\coloneqq \Sigma_+^\infty \Omega M$. It's worth thinking about the similarities between these two cases.
+\end{rem}
+What ends up happening is that $\sus_+$ takes transfers to norms, which is a good slogan to remember.
+
+We can also look at what happens to the units of a commutative ring spectrum. Nonequivariantly, let $R$ be a
+commutative ring spectrum. Its \term{group of units} was initially defined as the space $\GL_1R$ that fits into the
+pullback diagram
+\begin{equation}
+\label{GL1}
+\gathxy{
+	\GL_1R\pullback\ar[r]\ar[d] & \Omega^\infty R\ar[d]\\
+	(\pi_0\Omega^\infty R)^\times\ar[r] & \pi_0\Omega^\infty R.
+}\end{equation}
+This definition makes sense for any $A_\infty$-ring spectrum, but behaves better when $R$ is commutative.
+\begin{comp}{fct}{enumerate}
+	\item If $R$ is an $E_\infty$-ring spectrum, then $\GL_1R$ is an $E_\infty$-space, and therefore extends to a
+	spectrum called $\mathrm{gl}_1R$.
+	\item $\GL_1R$ is (homotopically) the right adjoint to $\sus_+$.\qedhere
+\end{comp}
+This relates to the theory of orientations, and in fact this was originally considered for this purpose by Dennis
+Sullivan, and expanded on by~\cite{MQR}. The modern approach was written down in~\cite{ABGHR2, ABGHR1}.
+\citeme{May} has three articles from the 2009 Banff conference about these things that are particularly clear.
+
+Another characterization of $\GL_1R$ is as the homotopy automorphisms of $R$ in the category of $R$-modules:
+$\GL_1R = \LD\Aut_{\Mod_R}(R)$.
+
+Anyways, there's an analogous construction in the equivariant setting~\citeme{???}, where you have to work
+out~\eqref{GL1} for all fixed points simultaneously. But this works out, and you can show that $\GL_1$ sends norms
+to transfers, which makes sense.
+\subsection*{An outline of the Kervaire invariant 1 proof.}
+Of course, this is the proof in~\cite{HHR}. \citeme{Kervaire} connected his invariant to the stable homotopy groups
+of spheres, and therefore was able to show that every $10$-dimensional smooth manifold has Kervaire invariant zero,
+then produced a PL manifold with Kervaire manifold $1$ (hence a nonsmoothable manifold).
+
+Browder managed to connect this to elements $\theta_j\in\pi_{2^{j+1}-2}^s(\Sph)$, so that a manifold of Kervaire
+invariant one exists in a certain dimension iff there's a differential in the Adams spectral sequence showing that
+$\theta_j\ne 0$.
+
+The proof idea was concocted by Ravenel in the 1970s, but the tools to implement it weren't available until very
+recently. The idea is to construct a designer cohomology theory $\Omega$ meeting the following criteria.
+\begin{enumerate}
+	\item $\Omega$ is multiplicative, therefore admitting a map $\Sph\to\Omega$ such that the image of $\theta_j$
+	is nonzero.
+	\item The homotopy groups $\pi_i\Omega$ are zero in degrees $0 < i < 4$.
+	\item $\pi_*\Omega\cong\pi_{*+256}\Omega$.
+\end{enumerate}
+These suffice: the idea is that for $j\ge 7$, $\theta_j$ is detected by $\Omega$, but lands in degree between $0$
+and $4\bmod 256$, so must be zero.
+\begin{rem}
+For a while, people suspected there were infinitely many dimensions in which manifolds with Kervaire invariant $1$
+existed. This simplifies a lot of Adams spectral sequence computations. See~\citeme{Mahowald} for a ``doomsday
+conjecture'' about this.
+\end{rem}
+Then, Hill, Hopkins, and Ravenel constructed $\Omega$ as $N_{C_2}^{C_8}\MR[\kappa^{-1}]$: take real bordism, norm
+it up from $C_2$ to $C_8$, and then invert something (an analogue of the Bott element), and they showed it meets
+the desired criteria. \citeme{Schwede's notes}
+\begin{defn}
+Consider the space
+\[\MU_n\coloneqq E\U(n)_+\wedge_{\U(n)} S^{\C^n},\]
+where $\U(n)$ is the group of unitary matrices. Then, $\MU_n$ is a $C_2$-space, where the action is by complex
+conjugation.\footnote{Here, $E\U(n) = B(\U(n), \U(n), *)$ is a contractible space with a free $\U(n)$-action, and
+the quotient is $B\U(n) = B(*, \U(n), *)$.}
+
+We'll use these spaces to define a $C_2$-ring spectrum. First, the decomposition $\C^{n+m}\cong\C^n\oplus\C^m$
+induces a multiplication map $\MU_n\wedge\MU_m\longrightarrow \MU_{n+m}$, and the map $\U(n)\to B(\U(n), \U(n), *)$
+defines a map $S^{\C^n}\to E\U(n)\times_{\U(n)} S^{\C^n}$; together, these define $C_2$-equivariant structure maps
+$S^{\C^n}\wedge\MU_m\to \MU_{n+m}$.
+
+This is very close to the definition of an orthogonal ring spectrum, but indexed on complex representations rather
+than real ones. One of the lessons of this class is that the diagram you index spectra by doesn't matter all that
+much, and there's a way to turn these \term{unitary spectra} into orthogonal ones.
+
+Namely, using the decomposition $\C = \R\oplus i\R$, we can define
+\[\MR_n\coloneqq \Map(i\R^n, \MU_n),\]
+where $\O_n$ and $C_2$ both act by conjugation. The structure maps for $\MU_n$ factor as
+\[S^n\wedge S^{i\R^n}\wedge\MU_k\longrightarrow \MU_{n+k},\]
+where $C_2$ acts on $\R^n$ by the sign representation and on $\MU_N$ by complex conjugation.
+
+Now, we get a $C_2$-object in $\Spc$:
+\[\MR_V \coloneqq \Map(S^{iV}, E\U(V_\C)_+\wedge_{\U(V(\C))}S^{V_\C}),\]
+where $V_\C\coloneqq V\otimes_\R\C$.
+\end{defn}
+Real bordism relates to usual cobordism spectra in nice ways: the geometric fixed points
+$\Phi^{C_2}\MR\cong\mathit{MO}$, and $i_{C_2}^*\MR = \MU$.
+
+From here, one uses spectral sequences to compute that $\Omega$ satisfies the various criteria, including the
+homotopy fixed points spectral sequence and the slice spectral sequence.
