@@ -85,11 +85,12 @@ This definition makes sense for any $A_\infty$-ring spectrum, but behaves better
 \begin{comp}{fct}{enumerate}
 	\item If $R$ is an $E_\infty$-ring spectrum, then $\GL_1R$ is an $E_\infty$-space, and therefore extends to a
 	spectrum called $\mathrm{gl}_1R$.
-	\item $\GL_1R$ is (homotopically) the right adjoint to $\sus_+$.\qedhere
+	\item $\GL_1$ is (homotopically) the right adjoint to $\sus_+$.\qedhere
 \end{comp}
 This relates to the theory of orientations, and in fact this was originally considered for this purpose by Dennis
-Sullivan, and expanded on by~\cite{MQR}. The modern approach was written down in~\cite{ABGHR2, ABGHR1}.
-\citeme{May} has three articles from the 2009 Banff conference about these things that are particularly clear.
+Sullivan, and expanded on by~\cite{MQR}. The modern approach was written down in~\cite{ABGHR2, ABGHR1}.  Peter May
+has three articles~\cite{WhatAre2, WhatAre3, WhatAre1} from the 2009 Banff conference about these things that are
+particularly clear.
 
 Another characterization of $\GL_1R$ is as the homotopy automorphisms of $R$ in the category of $R$-modules:
 $\GL_1R = \LD\Aut_{\Mod_R}(R)$.
@@ -98,13 +99,13 @@ Anyways, there's an analogous construction in the equivariant setting~\citeme{??
 out~\eqref{GL1} for all fixed points simultaneously. But this works out, and you can show that $\GL_1$ sends norms
 to transfers, which makes sense.
 \subsection*{An outline of the Kervaire invariant 1 proof.}
-Of course, this is the proof in~\cite{HHR}. \citeme{Kervaire} connected his invariant to the stable homotopy groups
-of spheres, and therefore was able to show that every $10$-dimensional smooth manifold has Kervaire invariant zero,
-then produced a PL manifold with Kervaire manifold $1$ (hence a nonsmoothable manifold).
+Of course, this is the proof in~\cite{HHR}. Kervaire~\cite{Kervaire} connected his invariant to the stable homotopy
+groups of spheres, and therefore was able to show that every $10$-dimensional smooth manifold has Kervaire
+invariant zero, then produced a PL manifold with Kervaire manifold $1$ (hence a nonsmoothable manifold).
 
-Browder managed to connect this to elements $\theta_j\in\pi_{2^{j+1}-2}^s(\Sph)$, so that a manifold of Kervaire
-invariant one exists in a certain dimension iff there's a differential in the Adams spectral sequence showing that
-$\theta_j\ne 0$.
+Browder~\cite{Browder} managed to connect this to elements $\theta_j\in\pi_{2^{j+1}-2}^s(\Sph)$, so that a manifold
+of Kervaire invariant one exists in a certain dimension iff there's a differential in the Adams spectral sequence
+showing that $\theta_j\ne 0$.
 
 The proof idea was concocted by Ravenel in the 1970s, but the tools to implement it weren't available until very
 recently. The idea is to construct a designer cohomology theory $\Omega$ meeting the following criteria.
@@ -123,8 +124,11 @@ conjecture'' about this.
 \end{rem}
 Then, Hill, Hopkins, and Ravenel constructed $\Omega$ as $N_{C_2}^{C_8}\MR[\kappa^{-1}]$: take real bordism, norm
 it up from $C_2$ to $C_8$, and then invert something (an analogue of the Bott element), and they showed it meets
-the desired criteria. \citeme{Schwede's notes}
-\begin{defn}
+the desired criteria.
+\begin{defn}[Real cobordism]
+Real cobordism $\MR$ is a $C_2$-spectrum originally defined by Landweber~\cite{LandweberMR}. We'll provide a
+construction for it as an orthogonal $C_2$-spectrum due to Schwede~\cite{SchwedeEquivariant}.
+
 Consider the space
 \[\MU_n\coloneqq E\U(n)_+\wedge_{\U(n)} S^{\C^n},\]
 where $\U(n)$ is the group of unitary matrices. Then, $\MU_n$ is a $C_2$-space, where the action is by complex
@@ -146,11 +150,11 @@ where $\O_n$ and $C_2$ both act by conjugation. The structure maps for $\MU_n$ f
 \[S^n\wedge S^{i\R^n}\wedge\MU_k\longrightarrow \MU_{n+k},\]
 where $C_2$ acts on $\R^n$ by the sign representation and on $\MU_N$ by complex conjugation.
 
-Now, we get a $C_2$-object in $\Spc$:
+Now, we get an object $\MR\in\Spc^{C_2}$ called \term{real cobordism}.
 \[\MR_V \coloneqq \Map(S^{iV}, E\U(V_\C)_+\wedge_{\U(V(\C))}S^{V_\C}),\]
 where $V_\C\coloneqq V\otimes_\R\C$.
 \end{defn}
-Real bordism relates to usual cobordism spectra in nice ways: the geometric fixed points
+Real cobordism relates to usual cobordism spectra in nice ways: the geometric fixed points
 $\Phi^{C_2}\MR\cong\mathit{MO}$, and $i_{C_2}^*\MR = \MU$.
 
 From here, one uses spectral sequences to compute that $\Omega$ satisfies the various criteria, including the
