@@ -15,13 +15,18 @@ is the analogue of an abelian group: we ask that the induced map
 \[X(n)\longrightarrow\prod_{i=1}^n X(1)\]
 is an equivalence.
 
-In the equivariant setting, we can think of \term{$G$-$\Gamma$-spaces}, $\Gamma$-objects in $G\Top_*$, which is
-sensible, or we can think of \term{$\Gamma_G$-spaces} through $\Gamma_G$, the category of finite based $G$-sets and
-all based maps, so it's $G$-enriched, where $G$ acts by conjugation on the mapping space. Then, we could consider
-the category of enriched functors $\Gamma_G\to G\Top_*$. Which of these is right? Turns out both are.
-\begin{prop}
+In the equivariant setting, there are two things we can do:
+\begin{itemize}
+	\item \term{$\Gamma$-$G$-spaces} are $\Gamma$-objects in $G\Top_*$. These were introduced by
+	Segal~\cite{SegalEquivariant}.
+	\item Let $\Gamma_G$ be the category of finite based $G$-sets and all based maps, so it's $G$-enriched, where
+	$G$ acts by conjugation on the mapping space. Then, \term{$\Gamma_G$-spaces} are the enriched functors
+	$\Gamma_G\to G\Top_*$. These were introduced by Shimakawa~\cite{Shi89}.
+\end{itemize}
+Which of these is right? Turns out both are.
+\begin{thm}[Shimakawa~\cite{Shimakawa91}]
 These two categories are equivalent.
-\end{prop}
+\end{thm}
 We can also line up the special conditions in a nice way. The proof uses that one weird trick in diagram spectra.
 The manifestation in orthogonal spectra means that the category of orthogonal spectra on the trivial universe is
 equivalent (on the point-set level) to orthogonal spectra on the complete universe! And in fact this is true for
@@ -47,7 +52,6 @@ It has a left adjoint
 which is a Kan extension, explicitly given by the coend
 \[LX = \int^\Gamma \Hom(n, \bl)\times X(\bl) = \coprod_{n\ge 0} \Map(n, S)\times X(n)/\sim,\]
 where $(sf, x)\sim (s, X(f)x)$ for any $\Gamma$-morphism $f\colon n\to m$. The $G$-action is $g[s,x] = [gs,gx]$.
-This was all written down in~\cite{Shimakawa91}.
 
 Now, $L$ is an equivariant functor: if $f\colon S\to T$ is a $\Gamma_G$-morphism,
 \begin{align*}
