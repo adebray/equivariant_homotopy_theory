@@ -131,10 +131,12 @@ The \term{equivariant stable category} (\term{structured by $U$}) is the homotop
 \end{defn}
 This is the category in which we have Poincaré duality for the orbits $G/H$ that embed in $U$. The functors
 $\Sigma^V\coloneqq S^V\wedge\bl$ and $\Omega^V\coloneqq\Map(S^V,\bl)$ are inverse equivalences.
-
-There's an equivariant triangulated structure on the homotopy theory; this hasn't been written down, because it's
-messy and not super useful. The idea is that a cofiber sequence induces a long exact sequence of equivariant
-homotopy groups, where the shift is any choice of $\Sigma^V$.
+\begin{rem}
+It would be nice to write down some sort of equivariant analogue of a triangulated structure on the equivariant
+stable category, but trying to get an $\RO(G)$-grading (i.e.\ shifts by arbitrary representations of $G$) does not
+work except in ad hoc ways for $G = C_2$. However, you can keep track of the action of the Picard group
+$\operatorname{Pic}(\Spc^G)$ on the equivariant stable category.
+\end{rem}
 \subsection*{Orthogonal $G$-spectra.}
 Let's build a point-set model of the equivariant stable category. Let $V$ and $V'$ be finite-dimensional
 irreducible $G$-representations (by which we mean finite-dimensional subspaces of $U$), and let $I_G(V,V')$ be the

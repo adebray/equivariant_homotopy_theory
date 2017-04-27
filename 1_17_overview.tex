@@ -190,7 +190,9 @@ When we write $\Map(X, Y)$ in $G\Top$ or $G\Top_*$, we could mean three things:
 \end{enumerate}
 Each of these is useful in its own way: for constructions it may be important to be self-enriched, or to only look
 at $G$-equivariant maps. We will let $\Map^G(X,Y)$ or $\Map(X,Y)$ denote~\eqref{geq} or its underlying
-set~\eqref{geqset}, and $G\Map(X,Y)$ denote~\eqref{justmap}.
+set~\eqref{geqset}, and $G\Map(X,Y)$ denote~\eqref{justmap}.\footnote{Later, when we discuss $G$-spectra, we will
+use $F(X, Y)$ to denote function spectrum of $X$ and $Y$ as a $G$-spectrum, or $F_G(X,Y)$ when $G$ needs to be
+explicit.}
 
 It turns out you can recover $\Map^G$ from $\Map$: the equivariant maps are the fixed points under conjugation of
 all maps. This is written $\Map(X,Y)^G = \Map^G(X,Y)$.
@@ -223,18 +225,17 @@ adjoints:
 	$(gh, x)\sim (g, hx)$ for all $g\in G$, $h\in H$, and $x\in X$. Despite the notation, this is \emph{not} a
 	pullback! (In the based case, the balanced product is $G_+\wedge_H X$.) $G$ acts via the left action on $G$.
 	This is called the \term{induced $G$-action} on $G\times_H X$.
-	\item The right adjoint is $F_H(G,X)$ (or $F_H(G_+, X)$ in the based case), the space of $H$-maps $G\to X$,
-	with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on
-	$F_H(G,X)$.\footnote{This actually \emph{is} a group action, since if $a,b,g\in G$, then $(a(b f))(g) =
-	(bf)(ga) = f(gab) = (ab(f))(g)$.} \qedhere
-\end{itemize}
+	\item The right adjoint is $\Map^H(G,X)$ (or $\Map^H(G_+, X)$ in the based case), the space of $H$-equivariant
+	maps $G\to X$, with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on
+	$\Map^H(G,X)$.\footnote{This actually \emph{is} a group action, since if $a,b,g\in G$, then $(a(b f))(g) =
+	(bf)(ga) = f(gab) = (ab(f))(g)$.} Sometimes this is also denoted $F_H(G, X)$.\qedhere \end{itemize}
 \end{exm}
 
 \begin{rem}
 Here is a categorical perspective on ``change of group.'' Quite generally, a group homomorphism $G\morph^f H$
 induces adjunctions
 \[\dadjnctn[3em] {G\Top}{H\Top}{f_!}{f^*}{f_*}.\]
-These are given by $f_!(X) \coloneqq H\times_G X$ and $f_*(X) \coloneqq F_G(H, X)$ for a $G$-space $X$, where $H$
+These are given by $f_!(X) \coloneqq H\times_G X$ and $f_*(X) \coloneqq\Map^G(H, X)$ for a $G$-space $X$, where $H$
 is given the structure of a $G$-space by $f$. When $H=*$, an $H$-space is just a space, and $f_!(X) = X_G$ is the
 space of orbits while $f_*(X) = X^G$ is the space of fixed points. Observe that similar statements hold for
 categories of modules, given a ring homomorphism $R\morph^f S$.

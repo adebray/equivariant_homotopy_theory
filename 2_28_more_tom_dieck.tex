@@ -22,7 +22,7 @@ If $K\not\in (H)$, then $X^K\simeq *$, since $X$ is concentrated at $(H)$. If $K
 *$, so either way what we obtain is an isomorphism for $\theta_2^K$.
 
 For $\theta_1$, we needed to prove \cref{restrlem}, that if $H\trianglelefteq G$ and $Y$ is concentrated at $(H)$,
-then the restriction map $\Map_G(X,Y)\to\Map_{G/H}(X^H,Y^H)$ is an isomorphism.
+then the restriction map $\Map^G(X,Y)\to\Map^{G/H}(X^H,Y^H)$ is an isomorphism.
 \begin{proof}[Proof of \cref{restrlem}]
 The proof will proceed by cellular induction. Consider attaching a cell to a $G$-space $Z$ to form a space
 $\tilde Z$, which is expressed by the pushout
@@ -30,12 +30,12 @@ $\tilde Z$, which is expressed by the pushout
 	G/K_+\wedge S^{n-1}\ar[r]\ar[d] & Z\ar[d]\\
 	G/K_+\wedge D^n\ar[r] & \pushout \tilde Z.
 }\]
-If we apply $\Map_G(\bl,Y)$ to this diagram, it becomes a pullback
+If we apply $\Map^G(\bl,Y)$ to this diagram, it becomes a pullback
 \[\xymatrix{
-	\Map_G(G/K_+\wedge S^{n-1}, Y) & \Map_G(Z,Y)\ar[l]\\
-	\Map_G(G/K_+\wedge D^n, Y)\ar[u]_{\psi_1} & \Map_G(\tilde Z,Y)\ar[l]\ar[u]_{\psi_2}.
+	\Map^G(G/K_+\wedge S^{n-1}, Y) & \Map^G(Z,Y)\ar[l]\\
+	\Map^G(G/K_+\wedge D^n, Y)\ar[u]_{\psi_1} & \Map^G(\tilde Z,Y)\ar[l]\ar[u]_{\psi_2}.
 }\]
-Since $\Map_G(G/K_+\wedge S^{n-1}, Y)\simeq \Map(S^{n-1}, Y^K)$, then $\psi_1$ is trivial, so $\psi_2$ is an
+Since $\Map^G(G/K_+\wedge S^{n-1}, Y)\simeq \Map(S^{n-1}, Y^K)$, then $\psi_1$ is trivial, so $\psi_2$ is an
 isomorphism.
 
 Let
@@ -48,10 +48,10 @@ use a Mayer-Vietoris argument associated to the pullback
 	X_0\cup X^H & X^H\ar[l]_{\phi_1}\\
 	X_0\ar[u] & X_0\cap X^H\ar[l]_{\phi_2}\ar[u].
 }\]
-We again apply $\Map_G(\bl,Y)$; this time, the same argument shows that $\phi_2^*$ is an isomorphism. Now the map
+We again apply $\Map^G(\bl,Y)$; this time, the same argument shows that $\phi_2^*$ is an isomorphism. Now the map
 we want factors as
 \[\xymatrix{
-	\Map_G(X,Y)\ar[r] & \Map_G(X_0\cup X, Y)\ar[r] & \Map_G(X^H,Y)\ar[r] & \Map_{G/H}(X^H,Y^H).
+	\Map^G(X,Y)\ar[r] & \Map^G(X_0\cup X, Y)\ar[r] & \Map^G(X^H,Y)\ar[r] & \Map^{G/H}(X^H,Y^H).
 }\]
 The last map comes from the adjunction, and in particular is a known weak equivalence. And by induction, the first
 two maps are weak equivalences.
