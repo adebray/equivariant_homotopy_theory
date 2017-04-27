@@ -38,7 +38,7 @@
 \RequirePackage[missing=MISSING, dirty={, plus uncommited changes}]{gitinfo2}
 \RequirePackage[all]{xy}
 \RequirePackage{adforn}
-\RequirePackage{hyperref}
+\RequirePackage[backref=page]{hyperref}
 \RequirePackage[all]{hypcap}
 % This has to be before cleveref, see http://tex.stackexchange.com/questions/126364
 % However, this still doesn't solve the problem. TODO

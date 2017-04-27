@@ -1,0 +1,175 @@
+Today (and possibly next lecture): Tate spectra. Next week, we'll talk about the slice spectral sequence and future
+research directions.
+
+Tate spectra are the spectral analogue of Tate cohomology in group cohomology. This is yet another instance of a
+fruitful phenomenon: \emph{group cohomology is an important source of inspiration in equivariant homotopy theory}.
+By looking at group cohomology in the right way, we found Mackey functors, the Wirthmüller isomorphism, norms,
+Tambara functors, and more (though some of these were hard to see from group cohomology first). Group cohomology is
+a nice testing ground, because of its concreteness: there are elements and you can add and multiply things!
+\begin{rem}
+The definitive reference on Tate spectra is Greenlees-May~\cite{GeneralizedTate}, which builds on~\cite{ACD}. The
+latter is lower-tech, but is more direct and has nice ideas. Another good reference is~\cite[\S 4]{HM03}, a section
+of Hesselholt-Madsen's paper about the algebraic $K$-theory of local fields.
+
+The reason you can find Tate spectra in an \latin{a priori} unrelated paper is that they are important for
+computing algebraic $K$-theory via trace methods: it's possible to compute algebraic $K$-theory from topological
+cyclic homology and topological Hochschild homology, and the computation passes through iterated Tate spectral
+sequences. The best examples for the use of Tate spectra were until quite recently from the literature on trace
+methods, e.g.\ almost all of Hesselholt-Madsen's papers.
+
+There's also a connection between Tate spectra and chromatic homotopy theory: like the redshift conjecture asserts
+that algebraic $K$-theory raises chromatic height, Tate spectra seem to have blueshift, lowering by a chromatic
+level.
+\end{rem}
+Let $M$ be a $k[G]$-module. Then, the \term{algebraic orbits} are $M_G\coloneqq k\otimes_{k[G]} M$, and the
+\term{algebraic fixed points} are $M^G\coloneqq\Hom_{k[G]}(k, M)$. We'll define a map $N\colon M_G\to M^G$, which
+is called a norm map, but it's more like a transfer map. Namely, there's a distinguished element in $G$,
+$N_G\coloneqq \sum_{g\in G} g$, and $N$ is multiplication by $N_G$:
+\[N\colon \overline x\mapsto\sum_{g\in G} gx.\]
+This lands in $M$, but is clearly a fixed point.
+\begin{ex}
+Show that this is independent of the choice of representative for $\overline x\in M_G$.
+\end{ex}
+This is slightly less obvious, but not hard.
+
+We'll think of $N$ as a map $H_0(G;M)\to H^0(G;M)$, which ``sews together'' group homology and group cohomoloy with
+coefficients in $M$. Nonetheless, it's an interesting object in its own right. What we'll get is
+\begin{subequations}
+\begin{equation}
+\label{mosttate}
+\begin{gathered}
+\tH^i(G; M) = \begin{cases}
+	H^i(G;M), &i\ge 1\\
+	H_{-i-1}(G;M), &i\le -2,
+\end{cases}
+\end{gathered}
+\end{equation}
+and for $i = 0,1$ there's an exact sequence
+\begin{equation}
+\label{resttate}
+\xymatrix{
+	0\ar[r] & \tH^{-1}(G;M)\ar[r] & H_0(G;M)\ar[r]^N & H^0(G;M)\ar[r] &\tH^0(G;M)\ar[r] & 0.
+}
+\end{equation}
+\end{subequations}
+You can build this by forming \term{complete resolutions}: beginning with a pair $P_*\to k$ and $k\to I_*$,
+respectively a projective and an injective resolution of $k$ as a $k[G]$-module, and you can sew these together by
+truncating $I_*$ and dualizing to $k\to\overline P_*$, then connecting them along $k$.\footnote{\TODO: make
+precise.}
+
+Another construction is to let $\widetilde P_*$ be the mapping cone of a projective resolution $P_*\to k$ of $k$ as
+a $k[G]$-module. This extends to a sequence
+\[\xymatrix{
+	P_*\ar[r] & k\ar[r] & \widetilde P_*\ar[r] & \Sigma P_*\ar[r] & \dotsb
+}\]
+\begin{defn}
+Using this, define the \term{Tate cohomology} $\tH^*(G;M)$ is the cohomology of the complex
+\[(\widetilde P_*\otimes\Hom(P_*, M))^G.\]
+\end{defn}
+To see that this agrees with~\eqref{mosttate} and~\eqref{resttate}, use the long exact sequence and a comparison
+\[(P_*\otimes\Hom(P_*, M))^G\cong (P_*\otimes M)_G\cong (P_*\otimes M)^G.\]
+We'd like to imitate this construction topologically. The analogue of the projective resolution of $k$ is $EG_+\to
+S^0$ which collapses everything to the non-basepoint. Let $\widetilde{EG}$ be the cofiber of this map. Thus we get
+a map
+\[X\cong F(S^0, X)\longrightarrow F(EG_+, X),\]
+and thus obtain a diagram of cofiber sequences:
+\begin{equation}
+\label{pretate}
+\gathxy{
+	EG_+\wedge X\ar[r]\ar[d] & X\ar[d]\ar[r] & \tEG\wedge X\ar[d]\\
+	EG_+\wedge F(EG_+, X)\ar[r] & F(EG_+, X)\ar[r] & \tEG\wedge F(EG_+, X).
+}
+\end{equation}
+Using the Adams isomorphism,\footnote{We haven't discussed the Adams isomorphism in
+this class, but you can also show this directly: the idea is that smashing with $EG_+$ makes things free, hence you
+just have to check on underlying spaces, and taking $F(EG_+,\bl)$ makes it cofree, so you can work with that.}, you
+can check that
+\[(EG_+\wedge X)^G\cong X_{hG}.\]
+Now, apply $(\bl)^G$ to~\eqref{pretate}, and you obtain
+\begin{equation}
+\label{tatedefn}
+\gathxy{
+	X_{hG}\ar[r]\ar[d]^\cong & X^G\pullback\ar[d]\ar[r] & \Phi^GX\ar[d]\\
+	X_{hG}\ar[r]^N & X^{hG}\ar[r] & X^{tG}.
+}
+\end{equation}
+The map $N$ is the canonical orbits-to-fixed-points map. The spectrum in the lower right, $X^{tG}$, is called the
+\term{Tate spectrum} of $X$.
+\begin{comp}{rem}{enumerate}
+	\item The fact that the right-hand square is a pullback diagram means that you can recover $X^G$ from $\Phi^G
+	X$. For example, if $G = C_p$, so there's only one nontrivial subgroup, you can describe the homotopy theory of
+	$G$-spectra diagramatically, since geometric fixed points capture weak equivalences. This philosophy is put to
+	work in Saul Glassman's papers.
+	\item The right-hand square looks like an arithmetic square or fracture square, and this is a perspective
+	worth taking seriously. \qedhere
+\end{comp}
+\begin{defn}
+The \term{free homotopy type} or \term{Borel homotopy type} of a $G$-spectrum $X$ is the homotopy type of
+$EG_+\wedge X$.
+\end{defn}
+If you make the action free, you lose some information, but often enough remains to be useful. In particular, the
+bottom row of~\eqref{tatedefn} is a cofiber sequence, so $X^{tG}$ only depends on the free homotopy type of $X$.
+\begin{rem}
+Since $EG_+$ is a space, it has a diagonal, and $(EG\times EG)_+\cong EG_+$, so it's a ring, and therefore
+$(\bl)^{tG}$ is lax monoidal. It's a bit of a chore to make this precise.
+
+The Tate spectrum construction is not functorial in $G$; however, it does define a Mackey functor, which we will
+return to later.
+\end{rem}
+This construction now leads to the Tate spectral sequence.\footnote{In this argument, we'll make nice (co)fibrancy
+assumptions, e.g.\ that $X$ is fibrant and $EG_+$ is cofibrant; a careful treatment would make the (co)fibrant
+replacements explicit.} The filtrations on $\tEG$ and $EG$ combine to product a filtration on $\tEG\wedge F(EG_+,
+X)$.\footnote{One unpleasant aspect of this construction is that, though these filtrations are both cellular, and
+the maps in~\eqref{pretate} can be made cellular. But if you do this, it's extremely hard to see the multiplicative
+structure. Ongoing work of~\citeme{Blumberg-Mandell} is trying to resolve this.} Namely, let $\set{E_r}$ be a CW
+filtration of $EG$ and $\set{\widetilde E_r}$ be a CW filtration of $\tEG$. Let
+\begin{align*}
+	X_{r,s} &\coloneqq \widetilde E_r\wedge F(E/E_{-s-1}, X)\\
+	\overline X_{r,s} &\coloneqq \hocolim_{\substack{0\le x\le r\\0\le y\le s}} X_{x,y}\\
+	\overline X_t &\coloneqq \bigcup_{r+s=t} \overline X_{r,s}.
+\end{align*}
+\begin{defn}
+The \term{Tate spectral sequence} is the spectral sequence induced from $\set{\overline X_t}$. It is a
+\emph{conditionally convergent} spectral sequence
+\[E_{s,t}^2 = \tH^s(G; \pi_tX)\Longrightarrow \pi_{s+t}X^{tG}.\]
+\end{defn}
+\begin{rem}
+Conditionally convergent spectral sequences may be somewhat unfamiliar, and are less well behaved.  Boardman's
+``Conditionally convergent spectral sequences''~\cite{BoardmanCCSS} is a great paper separating the information of
+a spectral sequence into a structural piece and a calculational piece (using homotopy limits). Conditional
+convergence means the structural part exists. Boardman also proves a spectral sequence comparison theorem for
+conditionally convergent spectral sequences! Hesselholt-Madsen~\cite{HM92} make heavy use of a nonconvergent
+spectral sequence to make calculations about the $S^1$-Tate spectrum of the image-of-$J$ spectrum, which is a
+really interesting use of nonconvergence. Their papers in general are a masterclass in thinking with spectral
+sequences, and this one is particularly accessible.
+\end{rem}
+The Tate spectral sequence has a relationship to the homotopy fixed-point spectral sequence, which you might
+expect.
+
+There's an alternate construction of the Tate spectral sequence using the \term{Greenlees filtration} of $\tEG$:
+\[E_r'\coloneqq \begin{cases}
+	E_r, &r\ge 0\\
+	DE_r, &r\le 0.
+\end{cases}\]
+(Here, $DE_r = \Map(E_r, \Sph)$.) Then, you can smash using $E_r'$ instead of $E_r$, and this was Greenlees'
+original construction of the Tate spectral sequence.
+
+Let's analyze the $E^1$ term a bit more. There's an isomorphism
+\[\overline X_r/\overline X_{r-1}\cong\bigvee_s W_{r,s},\]
+where
+\[W_{r,s}\coloneqq (\widetilde E_r/\widetilde E_{r-1})\wedge F(E_{-s}/E_{-s-1}, X).\]
+Now, taking $G$-fixed points,
+\[\pi_{r+s+t}((\widetilde E_r/\widetilde E_{r-1})\wedge F(E_{-s}/E_{-s-1}, X)^G)\cong \pi_r(\widetilde
+E_r/\widetilde E_{r-1})\otimes \pi_{s+t}(F(E_{-s}/E_{-s-1}, X)),\]
+and
+\[\pi_r(\widetilde E_s/\widetilde E_{r-1})\otimes\Hom(\pi_s(E_{-s}, E_{-s-1}), \pi_tX)\cong
+H_r(\bl)\otimes\Hom(H_s(\bl), \pi_tX),\]
+which is the Tate resolution.
+\begin{rem}
+As mentioned, there are connections between Tate spectra and chromatic phenomena. This is the subject of
+Hopkins-Lurie's work on ambidexterity~\cite{Ambidexterity}, the astounding fact that $K(n)$-locally, $\mathit{BG}$
+(and more generally any orbifold) is dualizable. This was first noticed computationally by Ravenel and
+Wilson~\cite{RavenelWilson}, but can be understood as the $K(n)$-local Tate spectrum vanishing.
+
+There are also interesting connections to the stable module category and modular representation theory.
+\end{rem}

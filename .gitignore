@@ -6,6 +6,7 @@
 *.fdb_latexmk
 *.bbl
 *.blg
+*.brf
 *.pdf
 Makefile
 todo.txt
