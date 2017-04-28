@@ -46,12 +46,12 @@ with the multiplication
 h_{\tau(2)}\overline h_2,\dotsc, h_{\tau(n)}\overline h_n).\]
 \end{defn}
 This is a kind of semidirect product. If $n = [G:H]$, there's a natural homomorphism $\theta\colon G\to\Sigma_n\wr
-H$, because $G$ acts by permutating the elements of $H$. Namely, if $g_1,\dotsc,g_n$ is a set of coset
+H$, because $G$ acts by permuting the elements of $H$. Namely, if $g_1,\dotsc,g_n$ is a set of coset
 representatives for $G/H$, let $\pi_g\in\Sigma_n$ and $h_i(g)\in H$ be such that $gg_i = g_{\pi(i)} h_i(g)$. Then,
 $\theta$ sends $g\mapsto (\pi, h_1(g),\dotsc,h_n(g))$.
 \begin{comp}{prop}{enumerate}
 	\item\label{ishom} $\theta$ is a group homomorphism.
-	\item\label{isocnj} A different choice of coset representativies determines a map conjugate to $\theta$.
+	\item\label{isocnj} A different choice of coset representatives determines a map conjugate to $\theta$.
 	\item\label{action} $\theta$ induces a natural $G$-action on $\bigoplus_{i=1}^n M$, which is naturally a
 	$\Sigma_n\wr H$-object.
 	\item The $\Z[G]$-module $\bigoplus_{i=1}^n M$ induced by $\theta$ is precisely $\Z[G]\otimes_{\Z[H]} M$.
@@ -101,7 +101,7 @@ trick is that instead of using the counit $\Z[G]\otimes_{\Z[H]} i_H^*M\to M$, we
 \[\bigotimes_{i=1}^n R\longrightarrow R\]
 coming from multiplication. The interesting piece is that this plays well with the $G$-action: it's really a map
 $N_H^G(i_H^*R)\to R$. In other words, it's easy to get a map $H^p(H;M)\to H^{p^n}(G;R^n)$, and we use the ring
-structue to get back to $R$. There's a nice analogy of the norm as the multiplicative transfer, where we've
+structure to get back to $R$. There's a nice analogy of the norm as the multiplicative transfer, where we've
 replaced one counit with another. From this perspective, the definition of an $N_\infty$-operad makes more sense.
 
 More explicitly, let $P_\bullet\to R$ be a projective resolution of $R$ as a $\Z[H]$-module, so we obtain a
