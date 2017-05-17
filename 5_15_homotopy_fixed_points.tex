@@ -1,0 +1,159 @@
+Today's lecture is not part of the class: it was delivered by Richard Wong as part of a mini-course on spectral
+sequences in equivariant stable homotopy theory. See
+\url{https://www.ma.utexas.edu/users/richard.wong/2017/Resources.html} for more information.
+
+We'll start with the Bousfield-Kan spectral sequence (BKSS). One good reference for this is Guillou's
+notes~\cite{Guillou}, and Hans Baues~\cite{Baues} set it up in a general model category.
+
+We'll work in $\sSet$, so that everything is connective. Consider a tower of fibrations
+\begin{equation}
+\label{fibtower}
+\xymatrix{
+	\dotsb\ar[r] & Y_s\ar[r]^{p_s} & Y_{s-1}\ar[r]^{p_{s-1}} &Y_{s-2}\ar[r] & \dotsb 
+}
+\end{equation}
+for $s\ge 0$, and let $Y\coloneqq \varprojlim Y_s$. Let $F_s$ be the fiber of $p_s$.
+\begin{thm}[Bousfield-Kan~\cite{BK72}]
+In this situation, there is a spectral sequence, called the \term{Bousfield-Kan spectral sequence}, with signature
+\[E_1^{s,t} = \pi_{t-s}(F_s)\Longrightarrow \pi_{t-s}(Y).\]
+\end{thm}
+If everything here is connective (which is not always the case in other model categories, as in one of our
+examples), this is first-quadrant. One common convention is to use the \term{Adams grading} $(t-s,s)$ instead of
+$(s,t)$.
+
+We can extend~\eqref{fibtower} into a diagram
+\[\xymatrix{
+	\dotsb\ar[r] & Y_s\ar[r]^{p_s} & Y_{s-1}\ar[r]^{p_{s-1}} &Y_{s-2}\ar[r] & \dotsb\\
+	& F_s\ar[u]_{i_s} & F_{s-1}\ar[u]_{i_{s-1}} & F_{s-2},\ar[u]_{i_{s-2}}
+}\]
+and hence into an exact couple
+\[\xymatrix{
+	\dotsb\ar[r] & \pi_*(Y_{s+1})\ar[r] & \pi_*(Y_s)\ar[r]\ar[dl]_\delta & \pi_*(Y_{s-1})\ar[dl]_\delta\ar[r] &
+	\dotsb\\
+	& \pi_*(F_{s})\ar[u]^{i_{s*}} & \pi_*(F_{s-1})\ar[u]^(0.4){i_{(s-1)*}} &
+	\pi_*(F_{s-2}),\ar[u]^(0.4){i_{(s-2)*}}
+}\]
+and the differentials are the compositions of the maps $\pi_*(F_s)\to\pi_*(Y_s)\to \pi_*(F_{s+1})$:
+\[\xymatrix{
+	\dotsb\ar[r] & \pi_*(Y_{s+1})\ar[r] & \pi_*(Y_s)\ar[r]\ar[dl]_\delta & \pi_*(Y_{s-1})\ar[dl]_\delta\ar[r] &
+	\dotsb\\
+	& \pi_*(F_{s})\ar[u]^{i_{s*}}\ar@[red][l] & \pi_*(F_{s-1}) \ar[u]^(0.4){i_{(s-1)*}}
+	\ar@[red][l]^{\textcolor{red}{d_1}} & \pi_*(F_{s-2}). \ar[u]^(0.4){i_{(s-2)*}}
+	\ar@[red][l]^{\textcolor{red}{d_1}} &\ar@[red][l]
+}\]
+Taking homology, we'll get a differential $d_2$ that jumps two steps to the left, then $d_3$ three steps to the
+left, and so on. After you check that $\Im(d_r)\subset\ker(d_r)$, you can define $E_r^{s,s+1}\coloneqq
+\ker(d_r)/\Im(d_r)$. Let $A_s\coloneqq\Im(\pi_0(Y_{s+r})\to\pi_0(Y_s))$, and let $Z_r^{s,s}\coloneqq
+(i_s)^{-1}_*(A_s)$. Then, $E_{r+1}^{s,s} = Z_r^{s,s} / d_r(E_r^{s-r, s-r+1})$.
+\begin{rem}
+One important caveat is that for $i\le 2$, $\pi_i$ does not produce abelian groups, but rather groups or just sets!
+This means that a few of the columns of this spectral sequence don't quite work, but the rest of it is normal, and
+the degenerate columns can still be useful. This is an example of a \term{fringed spectral sequence}.
+\end{rem}
+Bousfield and Kan cared about this spectral sequence because it allowed them to write down a useful long exact
+sequence, the \term{$r^{\text{th}}$ derived homotopy sequence}: let $\pi_iY^{(r)}\coloneqq
+\Im(\pi_i(Y_{n+r})\to\pi_i(Y_n))$; then, there's a long exact sequence
+\[\xymatrix{
+	\dotsb\ar[r] & \pi_{t-s-1}Y_{s-r-1}^{(r)}\ar[r] & E_{r+1}^{s,t}\ar[r] & \pi_{t-s}Y_s^{(r)}\ar[r]^\delta &
+	\pi_{t-s}Y_{s-1}^{(r)}\ar[r] & E_{r+1}^{s+r, t+r+1}\ar[r] & \pi_{t-s+1}Y_s^{(r)}\ar[r] & \dotsb
+}\]
+You can do something like this in general given a spectral sequence, though you need to know how to obtain it from
+the exact couple.
+\begin{rem}
+When $r = 0$, $E_1^{s,t} = \pi_{t-s}(F_s)$, and so the first derived homotopy sequence is the long exact sequence
+of homotopy groups of a fibration.
+\end{rem}
+One nice application is to \term{Tot towers} (``Tot'' for totalization).
+\begin{defn}
+Let $X^\bullet$ be a cosimplicial object in $\sSet$. Then, its \term{totalization} is the complex
+\[\Tot(X^\bullet) \coloneqq \sSet(\Delta^\bullet, X^\bullet),\]
+i.e.
+\[\Tot_n(X^\bullet) \coloneqq \sSet(\sk_n\Delta^\bullet, X^\bullet).\]
+Here $(\sk_n\Delta^\bullet)^n\coloneqq \sk_n\Delta^m$.
+\end{defn}
+Then
+\[\varprojlim\Tot_n(X^\bullet) = \Tot(X^\bullet),\]
+reconciling the two definitions.
+\begin{ex}
+In the Reedy model structure, $\Tot_n(X^\bullet)\to\Tot_{n-1}(X^\bullet)$ is a fibration.
+\end{ex}
+Assuming this exercise, we can apply the Bousfield-Kan spectral sequence.
+
+One place this pops up is that if $C,D\in\fC$ and $X_\bullet\to C$ is a simplicial resolution in a simplicial
+category $\fC$,\footnote{Meaning that after geometrically realizing, there's an equivalence.} then
+$\Hom_{\fC}(X_\bullet, D)$ is a cosimplicial object, and this spectral sequence can be used to compute
+homotopically meaningful information about $\sSet(C, D)$.
+
+We can use this formalism to derive the homotopy fixed point spectral sequence. Let $G$ be a group, and $X$ be a
+spectrum with a $G$-action. Then, the \term{homotopy fixed points} of $X$ are
+\[X^{hG}\coloneqq F((EG)_+, X)^G,\]
+i.e.\ the $G$-equivariant maps $(EG)_+\to X$.\footnote{Notationally, this is the function spectrum of maps from
+$\Sigma^\infty (EG)_+$ to $X$, or you can use the fact that spectra are cotensored over spaces.} The bar
+construction gives us a simplicial resolution of $(EG)_+$, producing a cosimplicial object that can be plugged into
+the Bousfield-Kan spectral sequence. Specifically, we write $EG = B^\bullet(G,G,*)$, add a disjoint basepoint, and
+then take maps into $X$.
+\begin{thm}
+If $X$ is a spectrum with a $G$-action, there's a spectral sequence, called the \term{homotopy fixed-point spectral
+sequence}, with signature
+\[E_2^{p,q} = H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG}).\]
+\end{thm}
+\begin{exm}
+The first example is really easy. Let $k$ be a field, and consider the Eilenberg-Mac Lane spectrum $Hk$. Let $G$
+act trivially on $k$; we want to understand $\pi_*(Hk^{hG})$. The homotopy fixed-points spectral sequence is
+particularly simple:
+\[E_2^{p,q} = H^p(G; \pi_q(Hk)) = \begin{cases}
+	H^p(G; k) &q = 0\\
+	0, &\text{otherwise.}
+\end{cases}\]
+Since this is a single row,\footnote{It's a single row in the usual grading, and a single diagonal line with slope
+$-1$ in the Adams grading.} all differentials vanish, and this is also the $E_\infty$ page. So we just have to
+compute $H^p(G;k)$ for $k\ge 0$.
+
+For example, if $G = \Z/2$ and $k = \F_2$, then $H^*(\Z/2; \F_2) = H^*(\RP^\infty;\F_2) = \F_2[x]$, $\abs x = 1$.
+There are no extension issues, since there's only one nonzero term in each total degree. Thus,
+\[\pi_{-p}(Hk^{hG}) = H^p(G; k).\]
+If you let $G = \Z/2$ and $k$ be any field of odd characteristic, then $H^*(\Z/2; k) = k$ in degree $0$, so the
+homotopy groups of $Hk^{h\Z/2}$ are all trivial except for $\pi_0$, which is $k$.
+\end{exm}
+In the context of group actions on spectra, there's another spectral sequence called the Tate spectral sequence.
+If $X$ is a genuine $G$-spectrum, there's a norm map $X_{hG}\to X^{hG}$ whose cofiber is called the \term{Tate
+spectrum} $X^{tG}$.\footnote{The norm map is the spectral analogue of a more concrete construction: let $M$ be a
+$\Z[G]$-module. Then, the assignment
+\[m\mapsto\sum_{g\in G} g\cdot m\]
+lands in $M^G$, so it factors through orbits, defining a map $M_G\to M^G$.} This is a generalization of Tate
+cohomology $\widehat H^p$ in group cohomology. Here, $X_{hG}\coloneqq (EG_+\wedge X)_G$ is the \term{homotopy
+orbits} of $X$. Then, there is a spectral sequence, called the \term{Tate spectral sequence}, with signature
+\[E_2^{p,q} = \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).\]
+The similarities with the homotopy fixed point spectral sequence are no coincidence.
+\begin{exm}
+\label{reflection}
+Let $C_2$ act on $S^1$ by reflection. Then, $\pi_i(S^1)$ is trivial unless $i = 1$, in which case we get $\Z$.
+Hence,
+\[E_2^{p,q} = \begin{cases}
+	H^p(C_2;\Z), &q = 1\\
+	0, &\text{otherwise}.
+\end{cases}\]
+Under the isomorphism $\Z[C_2]\cong \Z[x]/(x^2-1)$, the $\Z[C_2]$-module structure on $\Z$ is the map
+$\Z[C_2]\to\Z$ sending $x\mapsto -1$, i.e.\ $C_2$ acts on $\Z$ through the nontrivial action. We'll let $\Z_\sigma$
+denote $\Z$ with this action, and $\Z$ denote the integers with the trivial $C_2$-action. To compute the group
+cohomology, we need to compute a free resolution $P_\bullet\to\Z$ as a \emph{trivial} $\Z[C_2]$-module:
+\[\xymatrix{
+	\dotsb\ar[r] & \Z[C_2]\ar[r]^{\cdot(x-1)}\ar[r] & \Z[C_2]\ar[r]^{\cdot(x+1)} & \Z[C_2]\ar[r]^{\cdot(x-1)} &
+	\Z[C_2]\ar[r]^-{x\mapsto 1} & \Z\ar[r] & 0.
+}\]
+Now we compute $\Hom_{\Z[C_2]}(P_\bullet, \Z_\sigma)$:
+\[\xymatrix{
+	\dotsb & \Z\ar[l] & \Z\ar[l]_{-2} & \Z\ar[l]_0 & \Z.\ar[l]_{-2}
+}\]
+Taking homology, we conclude that
+\[H^p(\Z/2, \Z_\sigma) = \begin{cases}
+	\Z/2, &p > 0\text{ odd}\\
+	0, &\text{otherwise.}
+\end{cases}\]
+Since the spectral sequence degenerates at page $2$, this is also the homotopy groups of $(S^1)^{hC_2}$. This 
+\latin{a priori} doesn't make any sense, though --- $(S^1)^{hC_2}$ is a space, so cannot have negative-degree
+homotopy groups. But since this is a fringed spectral sequence, the stuff in negative degrees doesn't apply to the
+calculation of homotopy groups, and $q - p = 0,1$ mixes together in a complicated way. In this case, it tells us
+that $\pi_0((S^1)^{hC_2}) = \Z/2$ and higher homotopy groups vanish.\footnote{Thanks to Tyler Lawson for this
+insight.}
+\end{exm}
