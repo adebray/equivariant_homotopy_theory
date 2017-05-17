@@ -84,16 +84,15 @@ category $\fC$,\footnote{Meaning that after geometrically realizing, there's an 
 $\Hom_{\fC}(X_\bullet, D)$ is a cosimplicial object, and this spectral sequence can be used to compute
 homotopically meaningful information about $\sSet(C, D)$.
 
-We can use this formalism to derive the homotopy fixed point spectral sequence. Let $G$ be a group, and $X$ be a
-spectrum with a $G$-action. Then, the \term{homotopy fixed points} of $X$ are
-\[X^{hG}\coloneqq F((EG)_+, X)^G,\]
-i.e.\ the $G$-equivariant maps $(EG)_+\to X$.\footnote{Notationally, this is the function spectrum of maps from
-$\Sigma^\infty (EG)_+$ to $X$, or you can use the fact that spectra are cotensored over spaces.} The bar
-construction gives us a simplicial resolution of $(EG)_+$, producing a cosimplicial object that can be plugged into
-the Bousfield-Kan spectral sequence. Specifically, we write $EG = B^\bullet(G,G,*)$, add a disjoint basepoint, and
-then take maps into $X$.
+We can use this formalism to derive the homotopy fixed point spectral sequence. Recall
+(\cref{spectra_fixed_points}) that if $X$ is a $G$-spectrum, its homotopy fixed points is the nonequivariant
+spectrum $X^{hG}\coloneqq F((EG)_+, X)^G$, i.e.\ the spectrum $G$-equivariant maps $(EG)_+\to
+X$.\footnote{Notationally, this is the function spectrum of maps from $\Sigma^\infty (EG)_+$ to $X$, or you can use
+the fact that spectra are cotensored over spaces.} The bar construction gives us a simplicial resolution of
+$(EG)_+$, producing a cosimplicial object that can be plugged into the Bousfield-Kan spectral sequence.
+Specifically, we write $EG = B^\bullet(G,G,*)$, add a disjoint basepoint, and then take maps into $X$.
 \begin{thm}
-If $X$ is a spectrum with a $G$-action, there's a spectral sequence, called the \term{homotopy fixed-point spectral
+If $X$ is a $G$-spectrum, there's a spectral sequence, called the \term{homotopy fixed-point spectral
 sequence}, with signature
 \[E_2^{p,q} = H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG}).\]
 \end{thm}
@@ -102,7 +101,7 @@ The first example is really easy. Let $k$ be a field, and consider the Eilenberg
 act trivially on $k$; we want to understand $\pi_*(Hk^{hG})$. The homotopy fixed-points spectral sequence is
 particularly simple:
 \[E_2^{p,q} = H^p(G; \pi_q(Hk)) = \begin{cases}
-	H^p(G; k) &q = 0\\
+	H^p(G; k), &q = 0\\
 	0, &\text{otherwise.}
 \end{cases}\]
 Since this is a single row,\footnote{It's a single row in the usual grading, and a single diagonal line with slope
@@ -115,16 +114,19 @@ There are no extension issues, since there's only one nonzero term in each total
 If you let $G = \Z/2$ and $k$ be any field of odd characteristic, then $H^*(\Z/2; k) = k$ in degree $0$, so the
 homotopy groups of $Hk^{h\Z/2}$ are all trivial except for $\pi_0$, which is $k$.
 \end{exm}
-In the context of group actions on spectra, there's another spectral sequence called the Tate spectral sequence.
-If $X$ is a genuine $G$-spectrum, there's a norm map $X_{hG}\to X^{hG}$ whose cofiber is called the \term{Tate
-spectrum} $X^{tG}$.\footnote{The norm map is the spectral analogue of a more concrete construction: let $M$ be a
-$\Z[G]$-module. Then, the assignment
-\[m\mapsto\sum_{g\in G} g\cdot m\]
-lands in $M^G$, so it factors through orbits, defining a map $M_G\to M^G$.} This is a generalization of Tate
-cohomology $\widehat H^p$ in group cohomology. Here, $X_{hG}\coloneqq (EG_+\wedge X)_G$ is the \term{homotopy
-orbits} of $X$. Then, there is a spectral sequence, called the \term{Tate spectral sequence}, with signature
-\[E_2^{p,q} = \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).\]
-The similarities with the homotopy fixed point spectral sequence are no coincidence.
+\begin{rem}
+The homotopy fixed points of $X$ are related to the Tate spectrum through a fiber sequence~\eqref{tatedefn}, and
+the homotopy fixed point spectral sequence has a similar-looking signature to the Tate spectral sequence
+(\cref{tateSS}):
+\begin{align*}
+E_2^{p,q} &= H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG})\\
+E_2^{p,q} &= \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).
+\intertext{As Tate cohomology puts group homology and group cohomology together, you might expect there's a third
+similar-looking spectral sequence, and you're right:}
+E_2^{p,q} &= H_p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X_{hG})
+\end{align*}
+This is called the \term{homotopy orbit spectral sequence}.
+\end{rem}
 \begin{exm}
 \label{reflection}
 Let $C_2$ act on $S^1$ by reflection. Then, $\pi_i(S^1)$ is trivial unless $i = 1$, in which case we get $\Z$.
@@ -136,7 +138,8 @@ Hence,
 Under the isomorphism $\Z[C_2]\cong \Z[x]/(x^2-1)$, the $\Z[C_2]$-module structure on $\Z$ is the map
 $\Z[C_2]\to\Z$ sending $x\mapsto -1$, i.e.\ $C_2$ acts on $\Z$ through the nontrivial action. We'll let $\Z_\sigma$
 denote $\Z$ with this action, and $\Z$ denote the integers with the trivial $C_2$-action. To compute the group
-cohomology, we need to compute a free resolution $P_\bullet\to\Z$ as a \emph{trivial} $\Z[C_2]$-module:
+cohomology, we need to compute a free resolution $P_\bullet\to\Z$ as a \emph{trivial}
+$\Z[C_2]$-module:\footnote{\TODO: why was this again?}
 \[\xymatrix{
 	\dotsb\ar[r] & \Z[C_2]\ar[r]^{\cdot(x-1)}\ar[r] & \Z[C_2]\ar[r]^{\cdot(x+1)} & \Z[C_2]\ar[r]^{\cdot(x-1)} &
 	\Z[C_2]\ar[r]^-{x\mapsto 1} & \Z\ar[r] & 0.
@@ -146,14 +149,24 @@ Now we compute $\Hom_{\Z[C_2]}(P_\bullet, \Z_\sigma)$:
 	\dotsb & \Z\ar[l] & \Z\ar[l]_{-2} & \Z\ar[l]_0 & \Z.\ar[l]_{-2}
 }\]
 Taking homology, we conclude that
-\[H^p(\Z/2, \Z_\sigma) = \begin{cases}
+\[H^p(C_2, \Z_\sigma) = \begin{cases}
 	\Z/2, &p > 0\text{ odd}\\
 	0, &\text{otherwise.}
 \end{cases}\]
-Since the spectral sequence degenerates at page $2$, this is also the homotopy groups of $(S^1)^{hC_2}$. This 
-\latin{a priori} doesn't make any sense, though --- $(S^1)^{hC_2}$ is a space, so cannot have negative-degree
-homotopy groups. But since this is a fringed spectral sequence, the stuff in negative degrees doesn't apply to the
-calculation of homotopy groups, and $q - p = 0,1$ mixes together in a complicated way. In this case, it tells us
-that $\pi_0((S^1)^{hC_2}) = \Z/2$ and higher homotopy groups vanish.\footnote{Thanks to Tyler Lawson for this
-insight.}
+The spectral sequence degenerates at page $2$, but we haven't yet calculated $\pi_*((S^1)^{hC_2})$ ---
+$(S^1)^{hC_2}$ is a space, so cannot have negative-degree homotopy groups. But since this is a fringed spectral
+sequence, the stuff in negative degrees doesn't apply to the calculation of homotopy groups, and $q - p = 0,1$
+mixes together in a complicated way. In this case, it tells us that $\pi_0((S^1)^{hC_2}) = \Z/2$ and the higher
+homotopy groups vanish.\footnote{\TODO: can we calculate $(S^1)^{hC_2}$ explicitly and see this?}
 \end{exm}
+\begin{exm}
+Atiyah~\cite{AtiyahKR} showed that complex conjugation places a $C_2$-equivariant structure on $\KU$; the resulting
+$C_2$-spectrum is called \term{$\KR$-theory}, and denoted $\KR$. Its homotopy fixed points are real $K$-theory:
+\begin{thm}
+$\KR^{hC_2} = \KO$.
+\end{thm}
+Playing with the homotopy fixed-point spectral sequence for $\KR$, as in~\cite{HS14}, is a good way to become more
+familiar with it. \TODO: let's say more about this.
+\end{exm}
+There are some other examples of calculations with this spectral sequence, including Bruner-Greenlees~\cite{BG10}
+and Hill-Hopkins-Ravenel~\cite{HHREO2, HHR}.

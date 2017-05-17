@@ -216,12 +216,15 @@ $Y$.
 $\Spc^G$ is tensored and cotensored over $G$-spaces, meaning we can smash $G$-spectra with $G$-spaces, and take
 function objects from $G$-spaces to $G$-spectra: if $A$ is a $G$-space, tensoring with $A$ is $A_+\wedge\bl$
 applied levelwise, and cotensoring with $A$ is $F(A_+,\bl)$ applied levelwise.
-\begin{comp}{defn}{itemize}
+\begin{defn}\hfill
+\label{spectra_fixed_points}
+\begin{itemize}
 	\item The \term{homotopy fixed points} is the functor $X\mapsto F(EG_+, X)^G$. (Here, $EG_+$ is a $G$-space, so
 	we're using the cotensor of $G$-spaces and $G$-spectra.)
 	\item The \term{categorical fixed points} is the functor $(\bl)^H\colon X\mapsto F(G/H_+, X)$. As the notation
 	suggests, this is analogous to $(\bl)^H$ on $G$-spaces.
-\end{comp}
+\end{itemize}
+\end{defn}
 \begin{warn}
 You might hope that $(\Sigma^\infty A_+)^H = \Sigma^\infty A_+^H$, so that fixed points of spaces lead to fixed
 points of spectra, but this is \emph{not} true. It has a more complicated description called \term{tom Dieck
