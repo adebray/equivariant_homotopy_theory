@@ -97,8 +97,8 @@ possible.
 One can build some Eilenberg-Mac Lane spectra via the equivariant Dold-Thom construction; this approach only works
 in certain settings (we'll say which ones in a bit), but is interesting enough to mention.
 
-First let's discuss the nonequivariant case. Let $\Sp^\infty\colon\Top_*\to\cat{TopCMod}$ be the free functor
-from based spaces to topological abelian monoids (i.e.\ adjoint to the forgetful functor). The proof of Dold-Thom
+First let's discuss the nonequivariant case. Let $\Sp^\infty\colon\Top_*\to\cat{TopCMon}$ be the free functor from
+based spaces to topological abelian monoids (i.e.\ adjoint to the forgetful functor). The proof of Dold-Thom
 amounts to check that $\Sp^\infty$ is a fibrant $\sW$-space, which means checking that it takes homotopy pushouts
 to homotopy pullbacks. We can identify this with $H\Z$.
 
@@ -126,7 +126,8 @@ In our case, suppose $M$ is a $\Z[G]$-module, and that $G$ is finite. We can ext
 M(G/H)\coloneqq M^H$, where the transfer $\Tr_H^K$ sends
 \[x\mapsto \sum_{hH\in K/H} hx.\]
 You can check this is a Mackey functor. The equivariant McCord construction produces Eilenberg-Mac Lane spectra for
-the Mackey functors that arise in this way \citeme{Shimakawa, Dos Santos, Nies}.
+the Mackey functors that arise in this way; see dos Santos~\cite{dosSantos}, dos Santos-Nie~\cite{dSN09}, or
+Shimakawa~\cite{Shi89}.
 
 If $A$ is a based $G$-space and $M$ is a $\Z[G]$-module, then $A\otimes M$ is a $G$-space using the diagonal
 $G$-action. What you obtain is an equivariant $\Gamma$-space. We haven't talked much about these, and we won't, but
@@ -138,6 +139,7 @@ Find the mistake, and fix it. At this point, you have the background to do so.
 \cite{Shi89} wrote up the correction, and~\cite{BlumbergWSpace} answers a related question about equivariant
 $\sW$-spaces.
 \begin{thm}
+\label{EMmodel}
 $\set{S^V\otimes M}$ is a model of $H\underline M$.
 \end{thm}
 So this construction is nice and explicit, but only works when $G$ is finite, and for Mackey functors that arise

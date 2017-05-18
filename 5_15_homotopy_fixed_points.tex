@@ -96,6 +96,7 @@ If $X$ is a $G$-spectrum, there's a spectral sequence, called the \term{homotopy
 sequence}, with signature
 \[E_2^{p,q} = H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG}).\]
 \end{thm}
+\TODO: discuss the multiplicative structure.
 \begin{exm}
 The first example is really easy. Let $k$ be a field, and consider the Eilenberg-Mac Lane spectrum $Hk$. Let $G$
 act trivially on $k$; we want to understand $\pi_*(Hk^{hG})$. The homotopy fixed-points spectral sequence is
@@ -123,10 +124,14 @@ E_2^{p,q} &= H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG})\\
 E_2^{p,q} &= \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).
 \intertext{As Tate cohomology puts group homology and group cohomology together, you might expect there's a third
 similar-looking spectral sequence, and you're right:}
-E_2^{p,q} &= H_p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X_{hG})
+E^2_{p,q} &= H_p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X_{hG})
 \end{align*}
 This is called the \term{homotopy orbit spectral sequence}.
 \end{rem}
+\TODO: the cofiber sequence $X_{hG}\to H^{hG}\to X^{tG}$ induces a morphism of multiplicative spectral sequences
+from the homotopy fixed point spectral sequence to the Tate spectral sequence. You can use this, as
+in~\cite[Prop.~11]{HS14}, to show that $\KR^{tC_2}\simeq *$ and therefore $\KR^{hC_2}\simeq\KR_{hC_2}$. Does the
+homotopy orbit spectral sequence fit into this? Would we have to grade it cohomologically?
 \begin{exm}
 \label{reflection}
 Let $C_2$ act on $S^1$ by reflection. Then, $\pi_i(S^1)$ is trivial unless $i = 1$, in which case we get $\Z$.
@@ -168,5 +173,18 @@ $\KR^{hC_2} = \KO$.
 Playing with the homotopy fixed-point spectral sequence for $\KR$, as in~\cite{HS14}, is a good way to become more
 familiar with it. \TODO: let's say more about this.
 \end{exm}
+\begin{ques}
+It should be possible to do something similar with $\mathit{KSp}$ and $i\mapsto -i$, $j\mapsto -j$, and $k\mapsto
+-k$. If we take homotopy fixed points with respect to the last two, do we end up with $\KU$? If we take homotopy
+fixed points with respect to all three, do we get $\KO$?
+\end{ques}
+\begin{ex}
+The analogous result doesn't hold for Eilenberg-Mac Lane spectra. Let $C_2$ act on $\Z[i]$ by complex conjugation,
+making $\Z[i]$ into a $\Z[C_2]$-module. This data determines a Mackey functor $\underline{\Z[i]}$ and therefore an
+Eilenberg-Mac Lane $C_2$-spectrum $H\underline{\Z[i]}$ as in \cref{EMmodel}.
+
+Though $\Z[i]^{C_2} = \Z$, run the homotopy fixed-point spectral sequence to show that
+$H\underline{\Z[i]}^{hC_2}\not\simeq H\underline\Z$.
+\end{ex}
 There are some other examples of calculations with this spectral sequence, including Bruner-Greenlees~\cite{BG10}
 and Hill-Hopkins-Ravenel~\cite{HHREO2, HHR}.
