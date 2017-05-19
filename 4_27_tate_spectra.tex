@@ -105,7 +105,10 @@ The map $N$ is the canonical orbits-to-fixed-points map. The spectrum in the low
 \end{comp}
 \begin{defn}
 The \term{free homotopy type} or \term{Borel homotopy type} of a $G$-spectrum $X$ is the homotopy type of
-$EG_+\wedge X$.
+$EG_+\wedge X$.\footnote{Borel homotopy types capture the naïve notion of equivariant spectra, namely spectra with
+a $G$-action or spectra over $BG$. They have some nice properties, e.g.\ their homotopy fixed points are the same
+as their ordinary fixed points~\cite[Prop.~6.19]{MNN17}, and are often useful outside homotopy theory, such as
+in~\cite{FreedHopkins}.}
 \end{defn}
 If you make the action free, you lose some information, but often enough remains to be useful. In particular, the
 bottom row of~\eqref{tatedefn} is a cofiber sequence, so $X^{tG}$ only depends on the free homotopy type of $X$.
@@ -113,8 +116,8 @@ bottom row of~\eqref{tatedefn} is a cofiber sequence, so $X^{tG}$ only depends o
 Since $EG_+$ is a space, it has a diagonal, and $(EG\times EG)_+\cong EG_+$, so it's a ring, and therefore
 $(\bl)^{tG}$ is lax monoidal. It's a bit of a chore to make this precise.
 
-The Tate spectrum construction is not functorial in $G$; however, it does define a Mackey functor, which we will
-return to later.
+The Tate spectrum construction is not functorial in $G$; however, it does define a Mackey
+functor~\cite{GeneralizedTate}.
 \end{rem}
 This construction now leads to the Tate spectral sequence.\footnote{In this argument, we'll make nice (co)fibrancy
 assumptions, e.g.\ that $X$ is fibrant and $EG_+$ is cofibrant; a careful treatment would make the (co)fibrant

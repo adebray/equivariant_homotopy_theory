@@ -188,6 +188,29 @@ Tor $X\wedge^\LD Y$. Another way to say this is that if $X$ is cofibrant, $X\wed
 The proof is where cofibrantly generated model categories: $X\wedge\bl$ is a colimit, so it commutes with colimits,
 and cofibrant objects are retracts of cell complexes, so you can reduce to the case where $X$ is a single cell,
 which admits a direct proof. Once again the stable homotopy category behaves like homological algebra.
+\begin{exm}
+Let $X\in\Spc$. Then, ``letting $G$ act trivially on $X$'' defines a $G$-spectrum also denoted $X$, such that for
+any $n$-dimensional $G$-representation $V$, $X(V)$ is, as an $\O_n$-space, equal to $X_n$. However, the $G$-action
+on $X(V)$ need not be trivial: $V$ and its $G$-invariant inner product determine a map $G\to O(V)$, and $G$ acts on
+$X(V)$ through this map. Since the structure maps respect the $G$-action, this defines an orthogonal $G$-spectrum.
+
+One important example is the \term{equivariant sphere spectrum} $\Sph$: $\Sph(V) = S^V$. It is the unit of
+$\Spc^G$.
+\end{exm}
+\begin{exm}[Suspension spectra]
+Let $X$ be a based $G$-space; then, the \term{suspension spectrum} of $X$, denoted $\Sigma^\infty X$, is the
+$G$-spectrum whose component on a $G$-representation $V$ is
+\[\Sigma^\infty X(V)\coloneqq X\wedge S^V.\]
+Given an equivariant map $V\to W$, the structure map $\Sigma^\infty X(V)\to\Sigma^\infty X(W)$ is its one-point
+compactification smashed with $\id_X$.
+
+In particular, if you give $S^0$ the trivial $G$-action, $\Sigma^\infty S^0\cong\Sph$.
+\end{exm}
+\begin{exm}[Real $K$-theory]
+Real $K$-theory, as discovered by Atiyah~\cite{AtiyahKR}, is a less generic example. \TODO
+\end{exm}
+We'll discuss another important example, equivariant Eilenberg-Mac Lane spectra, in \cref{EMcons}.
+
 \subsection*{Functors on $\Spc^G$.}
 Let $H\subset G$ be a subgroup, so restriction defines a functor $i_H\colon \Spc^G\to\Spc^H$. Just as for
 $G$-spaces, $i_H$ has a left adjoint $G_+\wedge_H\bl$ and a right adjoint $F_H(G_+,\bl)$, and these are constructed
