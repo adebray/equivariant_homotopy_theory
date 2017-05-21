@@ -3,29 +3,30 @@
 \begin{quote}\textit{
 	``Smith's theorem was proven by Smith, hence the name.''
 }\end{quote}
-Today I was running about two minutes late. Sorry, everybody! (What I missed: Andrew discussed holding a ``Q and
-A'' session next week on a weeknight, perhaps with pizza. If you're interested in this, email him to let him know
-which nights work for you.)
+% Today I was running about two minutes late. Sorry, everybody! (What I missed: Andrew discussed holding a ``Q and
+% A'' session next week on a weeknight, perhaps with pizza. If you're interested in this, email him to let him know
+% which nights work for you.)
+%
+Today we'll continue Bredon cohomology, and state a version of the Eilenberg-Steenrod axioms that characterize it.
+Then, we'll turn to the circle of ideas around Smith theory, including the Sullivan conjecture (which we won't
+prove, because it's hard). Smith theory is about when one can recover $H_*(X^G)$ from algebraic information derived
+from the $G$-action on $X$.
 
-Today we're going to talk more about Bredon cohomology, including an analogue of the Eilenberg-Steenrod axioms for
-it. Then, we'll turn to the circle of ideas around Smith theory, including the Sullivan conjecture (which we won't
-prove, because it's hard). Smith theory discusses when one can recover $H_*(X^G)$ from a $G$-action on $X$ and on
-$H_*(X)$.
-
-Recall that if $X$ is a $G$-CW complex, we defined Bredon cohomology as follows: we set up a chain complex of
-coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$) $\underline C_*(X)$, where
+Let's recall the definition of Bredon cohomology from last time: if $X$ is a $G$-CW complex, let $\underline
+C_*(X)$ denote the chain complex of coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$)
 \[\underline C_n(G/H)\coloneqq H^n((X^n)^H, (X^{n-1})^H; \Z).\]
 The differential $\partial\colon\underline C_n(X)\to\underline C_{n-1}(X)$ is induced by the connecting morphism in
 the long exact sequence for the triple $(X^n, X^{n-1}, X^{n-2})$; that $\partial^2 = 0$ is something you have to
 check, though it's not very difficult.
 
-With this you can define two things:
+Using this chain complex, we define Bredon homology and cohomology.
 \begin{itemize}
 	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
 	\[H_G^n(X;M) \coloneqq H^n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
 	We defined this last time.
-	\item For homology to be covariant, we need the coefficient system $M$ to be a functor $\sO_G\to\Ab$ rather
-	than $\sO_G\op\to\Ab$ (e.g.\ $\underline H^*(X)$ for a $G$-space $X$, which sends $G/H\mapsto\set{H^n(X^H)}$).
+	\item For homology to be a covariant functor, we need the coefficient system $M$ to be a functor $\sO_G\to\Ab$
+	rather than $\sO_G\op\to\Ab$ (e.g.\ $\underline H^*(X)$ for a $G$-space $X$, which sends
+	$G/H\mapsto\set{H^n(X^H)}$).\footnote{Would it be appropriate to call such a functor an ``efficient system?''}
 	With $M$ such a coefficient system, the \term{Bredon homology} with coefficients in $M$ is
 	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
 	By this tensor product, we mean a coend:
@@ -37,7 +38,7 @@ With this you can define two things:
 	instances of coends; instead of inducing an equivalence $mr\otimes n\sim m\otimes rn$, you flip a map across
 	the two objects. One might write $y\cdot f$ for $f^* y$ and $f\cdot z$ for $f_* z$ to emphasize this point of view.}
 \end{itemize}
-The whole philosophy of Bredon (co)homology is that you understand the cohomology or homology through the
+The whole philosophy of Bredon (co)homology is to understand equivariant cohomology and homology through the
 fixed-point sets and the lattice of subgroups of $G$.
 \begin{exm}
 Let's return to \cref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell $C_2\times I$,
@@ -47,7 +48,7 @@ all $H$).
 
 The orbit category for $C_2$ is particularly simple:
 \[\xymatrix{
-	C_2/e\ar[d]\ar@(ul, ur)\\
+	C_2/e\ar[d]\ar@(ul, ur)_{}\\
 	C_2/C_2.
 }\]
 So a coefficient system is determined by a map $M_1\to M_2$ and an involution on $M_2$. In our case, $\underline
