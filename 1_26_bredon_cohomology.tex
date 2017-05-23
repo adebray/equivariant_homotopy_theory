@@ -14,10 +14,10 @@ from the $G$-action on $X$.
 
 Let's recall the definition of Bredon cohomology from last time: if $X$ is a $G$-CW complex, let $\underline
 C_*(X)$ denote the chain complex of coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$)
-\[\underline C_n(X)(G/H)\coloneqq H_n((X^n)^H, (X^{n-1})^H; \Z).\]
-The differential $\partial\colon\underline C_n(X)\to\underline C_{n-1}(X)$ is induced by the connecting morphism in
-the long exact sequence for the triple $(X^n, X^{n-1}, X^{n-2})$; that $\partial^2 = 0$ is something you have to
-check, though it's not very difficult.
+\[\underline C_n(X)(G/H)\coloneqq H_n((X^H)_n, (X^H)_{n-1}; \Z).\]
+The differential $\partial\colon\underline C_n(X)\to\underline C_{n-1}(X)$ is the same as in CW cohomology, the
+connecting morphism in the long exact sequence for the triple $(X_n, X_{n-1}, X_{n-2})$; that $\partial^2 = 0$ is
+something you have to check, though it's not very difficult.
 
 Using this chain complex, we define Bredon homology and cohomology.
 \begin{itemize}
@@ -32,7 +32,7 @@ Using this chain complex, we define Bredon homology and cohomology.
 	By this tensor product, we mean a coend:
 	\begin{align*}
 	\underline C_n(X)\otimes_{\sO_G} M &= \int^{G/H\in \sO_G} \underline C_n(X)(G/H)\otimes M(G/H)\\
-	&= \coprod_{G/H} {\underline C_n(X)(G/H)\otimes M(G/H)} \mathbin/ {\mathord\sim},
+	&= \bigoplus_{G/H} {\underline C_n(X)(G/H)\otimes M(G/H)} \mathbin/ {\mathord\sim},
 	\end{align*}
 	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
 	instances of coends; instead of inducing an equivalence $mr\otimes n\sim m\otimes rn$, you flip a map across
@@ -40,26 +40,54 @@ Using this chain complex, we define Bredon homology and cohomology.
 \end{itemize}
 The whole philosophy of Bredon (co)homology is to understand equivariant cohomology and homology through the
 fixed-point sets and the lattice of subgroups of $G$.
-\begin{exm}
-Let's return to \cref{S2pi}. We had a $C_2$-action on $S^2$. There were two $0$-cells, one $1$-cell $C_2\times I$,
-and one $2$-cell $C_2\times D^2$, and the chain complexes $\underline C_n(C_2/H)$ as we wrote down last lecture. We
-aim to compute the Bredon cohomology for the constant coefficient system $M = \underline\Z$ (so $M(C_2/H) = \Z$ for
-all $H$).
 
-The orbit category for $C_2$ is particularly simple:
-\[\xymatrix{
+Now we'll compute some simple examples of Bredon homology and cohomology over $C_2$. Its orbit category is simple:
+\begin{equation}
+\label{C2orbit}
+\gathxy{
 	C_2/e\ar[d]\ar@(ul, ur)_{}\\
 	C_2/C_2.
-}\]
-So a coefficient system is determined by a map $M_1\to M_2$ and an involution on $M_2$. In our case, $\underline
-C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips the two factors.  Therefore we obtain a chain complex of coefficient systems which is
+}
+\end{equation}
+The map $C_2/e\to C_2/C_2$ crushes $C_2/e$ to a point, and the map $C_2/e\to C_2/e$ exchanges the two points.
+\begin{exm}
+\label{2sigmaBC}
+Let $C_2$ act on $S^2$ by rotation by $\pi$. We'll compute the Bredon cohomology of this $C_2$-space with
+coefficients in $\underline\Z$.
+\begin{ex}
+If $\sigma\colon C_2\to\GL_1(\R)$ denotes the sign representation, verify this $C_2$-action on $S^2$ makes it into
+the representation sphere $S^{2\sigma}$.
+\end{ex}
+To compute the Bredon cohomology of $S^{2\sigma}$, we first need a $C_2$-CW structure on it. We've already computed
+one in \cref{S2sigmaCW}: the two fixed points are two $0$-cells $C_2/C_2\times D^0$, a great circle through them is
+the single $1$-cell $C_2/e\times D^1$, and the two hemispheres are the single $2$-cell $C_2/e\times D^2$. See
+\cref{S2CWrotation} for a picture.
+\begin{figure}[h!]
+\begin{tikzpicture}
+  \shade[ball color = gray!40, opacity = 0.4] (0,0) circle (2cm);
+  \draw (0,0) circle (2cm);
+  \draw[red!40!black] (0,2) arc (90:270:1cm and 2cm);
+  \draw[dashed, red!40!black] (0,2) arc (90:-90:1cm and 2cm);
+  \fill[green!40!black, fill=green!40!black] (0,2) circle (2pt);
+  \fill[green!40!black, fill=green!40!black] (0,-2) circle (2pt);
+\end{tikzpicture}
+\caption{A $C_2$-CW structure on $S^{2\sigma}$, the $2$-sphere with a $C_2$-action by rotation through $180^\circ$.
+The two green dots are the two $0$-cells $C_2/C_2\times D^0$; the red circle is the single $1$-cell $C_2/e\times
+D^1$, and the gray hemispheres are the single $2$-cell $C_2/e\times D^2$.}
+\label{S2CWrotation}
+\end{figure}
+
+Next we compute $\underline C_*(S^{2\sigma})$. A coefficient system is determined by a map $M_1\to M_2$ and an
+involution on $M_2$. In our case, $\underline C_k(X)(C_2/e) = \Z\oplus\Z$ for $k = 0,1,2$, and the involution flips
+the two factors.  Therefore we obtain a chain complex of coefficient systems which is
 \[
-\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z}\quad
+\shortexact[f_1][f_2]{\Z\oplus\Z}{\Z\oplus\Z}{\Z\oplus\Z}{}
 \]
 at $C_2/e$ and
-\[
-\shortexact{0}{0}{\Z\oplus\Z}\quad
-\]
+\begin{equation}
+\label{C_2/C_2}
+\shortexact{0}{0}{\Z\oplus\Z}{}
+\end{equation}
 at $C_2/C_2$.
 Next we need to determine the differentials.  By definition, these are determined by the cellular boundary maps, i.e.\ the attaching maps. Let $(x,y)$ denote the standard basis of $\Z\oplus\Z$.
 \begin{itemize}
@@ -74,7 +102,7 @@ In terms of matrices, the differentials are given by
 }\]
 \fi
 
-Next, we compute the $\Hom$ from this coefficient system to the constant coefficient system $\Z$.  These groups are evidently determined by what happens at the $C_2/e$ spot.  For the first two terms, we are looking at maps $\Z \oplus \Z \to \Z$ that are equivariant (where $g \in C_2$ acts by transposition on the left and trivially on the right).  Such a map is determined by where it sends $(1,0)$, and so these two terms are isomorphic to $\Z$.  The last term is simply all homomorphisms $\Z \oplus \Z \to \Z \oplus \Z$, which is isomorphic to $\Z \oplus \Z$.
+Next, we compute the $\Hom$ from this coefficient system to the constant coefficient system $\underline\Z$.  These groups are evidently determined by what happens at the $C_2/e$ spot.  For the first two terms, we are looking at maps $\Z \oplus \Z \to \Z$ that are equivariant (where $g \in C_2$ acts by transposition on the left and trivially on the right).  Such a map is determined by where it sends $(1,0)$, and so these two terms are isomorphic to $\Z$.  The last term is simply all homomorphisms $\Z \oplus \Z \to \Z \oplus \Z$, which is isomorphic to $\Z \oplus \Z$.
 Therefore, we have the cochain complex
 \[
 \shortexact{\Z \oplus \Z}{\Z}{\Z}.
@@ -82,15 +110,272 @@ Therefore, we have the cochain complex
 Computing the differentials, we find that the first map is $(a,b) \mapsto a+b$ and the second map is $0$.
 
 Taking the cohomology of this complex then produces
-\[H^n(S^V;\underline\Z) = \begin{cases}
+\[H^n(S^{2\sigma};\underline\Z) = \begin{cases}
 	\Z, & n = 0, 2\\
 	0, &\text{otherwise.}
 \end{cases}\]
+Now, we'll compute the Bredon homology of $S^{2\sigma}$, again with coefficients in the constant functor valued in
+$\Z$. First we need to compute the tensor product $\underline C_\bullet(X)\otimes_{\sO_{C_2}}\underline\Z$:
+
+
+%Let $C_2$ act on the sphere by rotation by $\pi$, as before, with the same $C_2$-CW structure. Thus $\underline
+%C_\bullet(S^2)$ is the same, and we need to tensor it with $\underline\Z$. The result is the chain complex
+\[\xymatrix{
+	\Z^2 & \Z^2/\ang{[1,-1]}\ar[l]_-{\begin{psmallmatrix*}[r]1\\-1\end{psmallmatrix*}} & \Z^2/\ang{[1,-1]}.\ar[l]_0
+}\]
+Hence the Bredon homology of $S^{2\sigma}$ is
+\[H^{C_2}_k(S^{2\sigma}; \underline\Z) = \begin{cases}
+	\Z^2, &k = 0\\
+	\Z, &k = 2\\
+	0, &\text{otherwise.}
+\end{cases}\]
+\TODO: shouldn't it be $\Z$, $0$, $\Z$?
 \end{exm}
 \begin{rem}
 We're used to reading off properties of a space from its cohomology, and this is still true here, if harder. For
 example, $H^0$ tells us the number of connected components of $S^2/C_2$.
 \end{rem}
+\begin{ex}
+Generalize \cref{2sigmaBC} to $S^{n\sigma}$, the $n$-sphere with a $C_2$-action given by a half-turn.
+\end{ex}
+\begin{exm}
+Let $C_2$ act on $S^2$ by the antipodal action. We get a $C_2$-CW structure of \TODO. We'll again compute the
+Bredon cohomology of $S^2$ with coefficients in $\underline\Z$.
+
+The chain complex $\underline C_\bullet(X)$ is
+\[\xymatrix@C=1.5cm{
+	\Z^2\ar@(ur,ul)_{\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}} &
+	\Z^2\ar[l]_{\begin{psmallmatrix*}[r]1&-1\\-1&1\end{psmallmatrix*}}
+	\ar@(ur,ul)_{\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}} &
+	\Z^2\ar[l]_{\begin{psmallmatrix}1&1\\1&1\end{psmallmatrix}}
+	\ar@(ur,ul)_{\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}}\\
+	0\ar[u] & 0\ar[u]\ar[l] & 0.\ar[u]\ar[l]
+}\]
+Now we need to take $\Hom(\bl,\underline\Z)$. In each degree we get a one-dimensional space of maps generated by
+$(1,1)$. The differential $\partial\colon C^0\to C^1$ sends
+\[(1,1)\mapsto (1,1)\circ\begin{pmatrix*}[r]1 & -1\\-1 & 1\end{pmatrix*} = \begin{pmatrix}0\\0\end{pmatrix},\]
+and the differential $\partial\colon C^1\to C^2$ sends
+\[(1,1)\mapsto (1,1)\circ\begin{pmatrix*}[r]1 & 1\\1 & 1\end{pmatrix*} = \begin{pmatrix}2\\2\end{pmatrix}.\]
+Hence the cochain complex is
+\[\xymatrix{
+	\Z\ar[r]^0 & \Z\ar[r]^2 & \Z,
+}\]
+so the Bredon cohomology is
+\[H_{C_2}^k(S^2;\underline\Z) = \begin{cases}
+	\Z, &k = 0\\
+	\Z/2, &k = 1\\
+	0, &\text{otherwise,}
+\end{cases}\]
+which is exactly the cohomology of $\RP^2 = S^2/C_2$.
+\end{exm}
+This is no coincidence: if $G$ acts freely on $X$, then the Bredon cohomology and homology is that of the quotient.
+\begin{prop}
+Let $G$ act freely on a CW complex $X$, let $M\colon\sO_G\op\to\Ab$, and let $N\colon\sO_G\to\Ab$. Then,
+\[H_G^*(X;M) \cong H^*(X/G; M(G/e))\qquad\text{and}\qquad H^G_*(X; N)\cong H_*(X/G; N(G/e)).\]
+\end{prop}
+\begin{proof}
+\TODO
+\end{proof}
+\begin{cor}
+If $G$ acts on $X$ trivially, $H_G^*(X;M)\cong H^*(X; M(e))$, and similarly for homology.
+\end{cor}
+\begin{exm}
+Let's generalize to $C_n$. Let $C_n$ act on $S^2$ by rotation through an angle $2\pi/n$. If $V$ denotes the
+$2$-dimensional $C_n$-representation generated by a rotation through $2\pi/n$, then this $C_n$-space is the
+representation sphere $S^V$.
+
+The $C_2$-CW structure on $S^{2\sigma}$ from \cref{2sigmaBC} generalizes to the ``beachball'' $C_n$-CW structure on
+$S^V$:
+\begin{itemize}
+	\item There are two $0$-cells $C_n/C_n\times D^0$, which are the fixed points.
+	\item There is a single $1$-cell $C_n/e\times D^1$, which is $n$ equally spaced meridians.
+	\item There is a single $2$-cell $C_n/e\times D^2$, which fills in the rest of the sphere.
+\end{itemize}
+We'll first compute Bredon cohomology with respect to the trivial family $\sF_0$ of subgroups of $C_n$, i.e.\ just
+$C_n$ and $e$. The orbit category looks similar to the one for $C_2$ \eqref{C2orbit}, but there are more
+automorphisms of $C_n/e$: $\Map^{C_n}(C_n/e, C_n/e)\cong (C_n/e)^{\set e}$, so there are $n$ of them. Namely, for
+$0\le i < n$, let $\vp_i$ send $x\mapsto x+i\bmod n$; these are equivariant, so we've found them all. Thus the
+orbit category for the trivial family of subgroups of $C_n$ is
+\[\xymatrix{
+	C_n/e\ar[d]\ar@(ur,ul)_{\vp_0,\dotsc,\vp_{n-1}}\\
+	C_n/C_n.
+}\]
+Since $\vp_1$ generates $\Aut_{\sO_{C_n}}(C_n/C_n)$, we'll keep track of it and leave the rest of the $\vp_i$
+implicit.
+
+First, we calculate $\underline C_\bullet(S^V)$. At $C_n/e$, this is just the CW chains for $S^2$, but with the
+nonequivariant CW structure induced by forgetting the $C_n$-action on $S^V$. That is, there are two $0$-cells, $n$
+$1$-cells, and $n$ $2$-cells:
+\[\xymatrix{
+	\Z^2 & \Z^n\ar[l] & \Z^n.\ar[l]
+}\]
+At $C_n/C_n$, this is the CW chains for the fixed points, which are an $S^0$:
+\[\xymatrix{
+	\Z^2 & 0\ar[l] & 0\ar[l]
+}\]
+just as in \eqref{C_2/C_2}.
+
+Next we should figure out the bonding maps. Since the fixed points are the $0$-skeleton, the maps in $\underline
+C_0(S^V)$ are all the identity. In degrees $1$ and $2$, $\vp_1^*\colon\Z^n\to\Z^n$ is the shift matrix sending the
+standard basis vector $e_i\mapsto e_{i+1\bmod n}$.
+
+Next the differentials. Let $e_1$ denote the north pole, $e_2$ denote the south pole, $f_1,\dotsc,f_n$ denote the
+$1$-cells and $g_1,\dotsc,g_n$ denote the $2$-cells. Orient the $1$-cells as pointing north and the $2$-cells as
+counterclockwise if the north pole is at the top.
+\begin{itemize}
+	\item For $d\colon \underline C_1(S^V)\to\underline C_0(S^V)$, $d(f_i) = e_1 - e_2$ and thus is the matrix
+	\[A\coloneqq \begin{pmatrix*}[r] 1 & 1 & \dotsb & 1\\
+	-1 & -1 & \dotsb & -1\end{pmatrix*}.\]
+	\item For $d\colon \underline C_2(S^V)\to\underline C_1(S^V)$, $d(g_i) = f_{i+1\bmod n} - f_i$, so its matrix
+	is
+	\[B\coloneqq \begin{pmatrix*}[r]
+		-1 &&& 1\\
+		1 & -1\\
+		& 1 & \ddots\\
+		&& \ddots\\
+		&&& -1
+		\end{pmatrix*}.\]
+\end{itemize}
+Thus $\underline C_\bullet(X)$ is
+\begin{equation}
+\label{C_*Cn}
+\gathxy{
+	\Z^2\ar@(ul,ur)^\id & \Z^n\ar[l]_A\ar@(ul,ur)^{\vp_1^*} & \Z^n\ar[l]_B\ar@(ul,ur)^{\vp_1^*}\\
+	\Z^2\ar[u]_\id & 0\ar[l]\ar[u] & 0.\ar[l]\ar[u]
+}
+\end{equation}
+Next we apply $\Hom(\bl,\underline\Z)$. The cochain complex is
+\[\xymatrix{
+	\Z^2\ar[r]^{d^0} & \Z\ar[r]^{d^1} & \Z,
+}\]
+and the differentials are:
+\begin{itemize}
+	\item $d^0\colon\Z^2\to\Z$ is the matrix $\begin{pmatrix}1 & -1\end{pmatrix}$.
+	\item $d^1\colon\Z\to\Z$ is the zero map.
+\end{itemize}
+Hence
+\begin{equation}
+\label{Cncoh}
+H_{G;\sF_0}^k(S^V) = \begin{cases}
+	\Z, &k = 0,2\\
+	0, &\text{otherwise.}
+\end{cases}
+\end{equation}
+It would also be good to compute the Bredon cohomology with respect to the complete family, but depending on $n$,
+this could get complicated. If $n$ is prime, the complete and trivial families coincide, so we're done. A slightly
+more interesting example is $n = p^2$, where $p$ is prime. In this case the orbit category is
+\begin{equation}
+\label{Cp2orbit}
+\gathxy[@R=0.4cm]{
+	C_{p^2}/e\ar[d]\ar@(ur,dr)^{C_{p^2}}\\
+	C_{p^2}/C_p\ar[d]\ar@(ur,dr)^{C_p}\\
+	C_{p^2}/C_{p^2}.
+}
+\end{equation}
+To compute $\underline C_\bullet(S^V)$, we need to know the $H$-CW structures on $(S^V)^H$, where $H$ ranges over
+the subgroups of $C_{p^2}$.
+\begin{itemize}
+	\item For $H = e$, this is the $C_{p^2}$-CW structure we started with: there are two fixed, $0$-cells, one free
+	$1$-cell, and one free $2$-cell.
+	\item For $H = C_p$, $(S^V)^{C_p}$ is just the two poles, so there are two free $0$-cells.
+	\item For $H = C_{p^2}$, this is the ordinary CW structure on the poles: there are two $0$-cells.
+\end{itemize}
+So the chain complex is not very different from~\eqref{C_*Cn}:
+\[\xymatrix{
+	\Z^2\ar@(ul,ur)^\id & \Z^{p^2}\ar[l]_A\ar@(ul,ur)^{\vp_1^*} & \Z^{p^2}\ar[l]_B\ar@(ul,ur)^{\vp_1^*}\\
+	\Z^2\ar[u]_\id\ar@(dl,ul)^\id & 0\ar[l]\ar[u] & 0\ar[l]\ar[u]\\
+	\Z^2\ar[u]_\id & 0\ar[l]\ar[u] & 0.\ar[l]\ar[u]
+}\]
+Therefore the Bredon cohomology is the same as in~\eqref{Cncoh}. In fact, this generalizes to $n\ne p^2$, because
+for any $H\subset C_n$, $(S^V)^H$ is the two poles. The orbit category is fancier, but the Bredon cohomology is
+exactly the same.
+\end{exm}
+\begin{exm}
+Our next example will be a $C_4$-space with nontrivial $C_2$-fixed points. Namely, consider a star graph $X$ with
+one central vertex, six peripheral vertices, and six edges as in \cref{star_graph}.
+\begin{figure}[h!]
+\begin{tikzpicture}[very thick]
+\draw (-1, -1/2) -- (1, 1/2);
+\draw (-1, 1/2) -- (1, -1/2);
+\draw (0,-1) -- (0,1);
+\node[right] at (1, 1/2) {$\alpha_3$};
+\node[right] at (1, -1/2) {$\alpha_2$};
+\node[left] at (-1, 1/2) {$\alpha_4$};
+\node[left] at (-1, -1/2) {$\alpha_1$};
+\node[above] at (1/2, 1/4) {$a_3$};
+\node[below] at (1/2, -1/4) {$a_2$};
+\node[below] at (-1/2, 1/4) {$a_4$};
+\node[below] at (-1/2, -1/4) {$a_1$};
+\node[above] at (0, 1) {$\beta_2$};
+\node[below] at (0, -1) {$\beta_1$};
+\node[left] at (0, 3/4) {$b_2$};
+\node[right] at (0, -3/4) {$b_1$};
+\node[right=2mm] at (0,0) {$\gamma$};
+\end{tikzpicture}
+\caption{A star graph $X$ which $C_4$ acts on by sending $\alpha_i\mapsto\alpha_{i+1\bmod 4}$, and by
+$\beta_i\mapsto\beta_{i+1\bmod 2}$. If we think of this as coordinate axes, $C_4$ acts by rotation on the
+$xy$-plane and reflection on the $z$-axis.}
+\label{star_graph}
+\end{figure}
+
+Let $C_4$ act by sending $\alpha_i\mapsto\alpha_{i+1\bmod 4}$ and $\beta_i\mapsto\beta_{i+1\bmod 2}$. That is, it
+reflects the $\beta$s and rotates the $\alpha$s. Hence $X$ has a $C_4$-CW structure as follows.
+\begin{itemize}
+	\item A single $C_4/C_4$ $0$-cell at the center $\gamma$.
+	\item A single $C_4/C_2$ $0$-cell $\set{\beta_1,\beta_2}$.
+	\item A single $C_4/e$ $0$-cell $\set{\alpha_1,\alpha_2,\alpha_3,\alpha_4}$.
+	\item A single $C_4/C_2$ $1$-cell, which is the edges $b_1$ and $b_2$.
+	\item A single $C_4/e$ $1$-cell, which is the edges $a_1,\dotsc,a_4$.
+\end{itemize}
+The orbit category is as in~\eqref{Cp2orbit}. Keep in mind that there are multiple maps $C_4/e\rightrightarrows
+C_4/C_2$, but they're all conjugates of each other under the $C_4$-action on $C_4/e$.
+
+To compute $\underline C_\bullet(X)$, we look at the fixed points under $\set e$, $C_2$, and $C_4$.
+\begin{itemize}
+	\item The fixed points under $\set e$ are of course the whole space, and so the CW chain complex is
+	\[\Z\cdot\set{b_1,b_2,a_1,a_2,a_3,a_4}\longrightarrow \Z\cdot
+	\set{\gamma,\beta_1,\beta_2,\alpha_1,\alpha_2,\alpha_3,\alpha_4}\]
+	(seven total $0$-cells, and six total $1$-cells).
+	\item The $C_2$-fixed points is the line between $\beta_1$ and $\beta_2$, so its CW chain complex is
+	\[\Z\cdot\set{b_1,b_2}\longrightarrow \Z\cdot\set{\gamma, \beta_1,\beta_2}.\]
+	\item The $C_4$-fixed points are just the center point, so the chain complex is $0\to\Z$.
+\end{itemize}
+With bases for chain groups as above, the differentials are
+\[d_{C_4} = \begin{pmatrix*}[r]
+	-1 & -1 & -1 & -1 & -1 & -1\\
+	1 & 0\\0 & 1\\
+	&& 1 & 0 & 0 & 0\\
+	&&0& 1 & 0 & 0\\
+	&&0&0& 1 & 0\\
+	&&0&0&0& 1
+\end{pmatrix*} \qquad\text{and}\qquad
+d_{C_2} = \begin{pmatrix*}[r]
+	-1 & -1\\
+	1 & 0\\0 & 1
+\end{pmatrix*},
+\]
+i.e.\ $\underline C_\bullet(X)$ is
+\[\xymatrix{
+	\ar@(dl,ul)^{C_4}\Z^6 & \Z^7\ar[l]_{d_{C_4}}\ar@(dr,ur)_{C_4}\\
+	\Z^3\ar@(dl,ul)^{C_2}\ar@{^(->}[u] & \Z^2\ar@{^(->}[u]\ar[l]_{d_{C_2}}\ar@(dr,ur)_{C_2}\\
+	\Z\ar@{^(->}[u] & 0.\ar[l]\ar[u]
+}\]
+The $C_4$-actions in the top row are the regular $C_4$-representation on the subspace generated by the $\alpha_i$
+or the edges they touch. Similarly, the $C_2$-actions in the middle row are the regular representations on the
+subspaces generated by the $\beta_j$ and their edges. The inclusions in the diagram $\Z^k\inj\Z^m$ are as the first
+$k$ components.
+
+Applying $\Hom(\bl,\underline\Z)$, we get a cochain complex
+\[\xymatrix{
+	\Z^3\ar[r]^{\begin{psmallmatrix*}-1 & 1 & 0\\-1 & 0 & 1\end{psmallmatrix*}} & \Z^2.
+}\]
+so the cohomology is that of a point, which is reassuring.
+\end{exm}
+
+
+
+
+
 We want cohomology to have nice formal properties analogous to the Eilenberg-Steenrod axioms. We'll think of $H_G$
 as a general $G$-equivariant cohomology theory of pairs $H_G^n(X, A; M)$, but in our case this will just be
 $H_G^n(X/A; M)$.

@@ -82,10 +82,10 @@ The missing steps in this proofs can be filled in by explicitly identifying the 
 $\Fun(\sO_G\op, \Top)$. These are free diagrams on the orbit category; not hard to write down, but messy enough to
 avoid on the chalkboard.
 \begin{rem}
-Elmendorf's original proof of his theorem was in the 1980s did not use model categories, even though Quillen had
-already introduced them at the time. Until the mid-1990s (30 years after Quillen introduced them), many homotopy
-theorists avoided them, thinking of them as formal gobbledygook. However, about the time EKMM introduced a
-symmetric monoidal category of spectra, people began realizing they were unavoidable.
+Elmendorf's original proof of his theorem was in the 1980s and did not use model categories, even though Quillen
+had already introduced them at the time. Until the mid-1990s (30 years after \citeme{``Homotopical algebra''}),
+many homotopy theorists avoided them, thinking of them as formal gobbledygook. However, about the time EKMM
+introduced a symmetric monoidal category of spectra, people began realizing they were unavoidable.
 \end{rem}
 You might not like the given proof of Elmendorf's theorem because it's extremely inexplicit: cofibrant replacement
 is an infinite process, and many of the steps involved are quite abstract. The next proof will be more explicit,
@@ -164,41 +164,58 @@ Another application of Elmendorf's theorem, which we will not discuss in detail 
 filtration), is Postnikov towers. They're constructed in the same way, by either using the small object argument or
 killing homotopy groups.
 \end{rem}
+Coefficient systems have an important role in Bredon cohomology, which is calculated with coefficients in a
+coefficient system, and whose construction makes use of a chain complex of coefficient systems. In this way,
+coefficient systems play the part in Bredon cohomology that abelian groups do in CW cohomology. Indeed, coefficient
+systems form an abelian category; it may be helpful to think of it as the category of ``right $\sO_G$-modules,''
+even if that isn't literally true.
+
 Here are some examples of coefficient systems (which are often denoted with underlines).
 \begin{comp}{exm}{enumerate}
+	\item $\underline \Z$ will denote the \term{constant coefficient system} with coefficients in $\Z$, i.e.\ the
+	functor which sends all objects to $\Z$ and all morphisms to $\id_\Z$. You can replace $\Z$ with your favorite
+	abelian group.
 	\item For a $G$-space $X$, the coefficient system $\underline\pi_n(X)$ ($n\ge 2$) sends $G/H\mapsto\set{\pi_nX^H}$. This is an example of
 	a general formula: given a functor $\Top\to\Ab$, we can compose to obtain a map $\Fun(\sO_G\op,
 	\Top)\to\Fun(\sO_G\op, \Ab)$.
 	\item In the same way, $\underline H_n(X)$ sends $G/H\mapsto\set{H_n(X^H;\Z)}$.\qedhere
 \end{comp}
-We will now define Bredon cohomology, which is what you think it is.
+We will now define Bredon cohomology, which is the analogue of CW cohomology for $G$-CW complexes.
 \begin{defn}
-Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
-\[\underline C_n(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
-i.e.\ the coefficient system sending $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z)$. The connecting homomorphism comes
-as usual from the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$.\footnote{This requires knowing how to obtain a CW
+We first define a chain complex of coefficient systems $\underline C_\bullet(X)$, which is the analogue of the CW
+chain complex. It sends an orbit $G/H$ to the CW chains of $X^H$.\footnote{This requires knowing how to obtain a CW
 structure on $X^H$ given a $G$-CW structure on $X$. If $G$ is finite, this is easy to see; for general compact Lie
 groups, though, this requires a triangulation argument. One wants the resulting coefficient system to be
 independent of the choice of triangulation, but as in the nonequivariant case, this is proven via an axiomatic
 characterization of cohomology.}
 
-The \term{Bredon cohomology} for the coefficient system $M$ is
+Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
+\[\underline C_n(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
+i.e.\ the coefficient system sending $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z) = C_n^{\text{CW}}(X^H)$. The
+differential at $G/H$ is the CW chain complex differential for $X^H$, i.e.\ the connecting morphism in the long
+exact sequence of the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$. One should check that this commutes with the
+bonding maps for $\underline C_n(X)$, but it does, so this works.
+
+The \term{Bredon cohomology} with coefficients in a coefficient system $M$ is
 \[H^n_G(X;M) \coloneqq H^n\paren{\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_\bullet(X), M)}.\]
 \end{defn}
-That is, it's the cohomology of the cochain complex of natural transformations from $\underline C_\bullet(X)$ to $M$.
-\begin{exm}
-\label{S2pi}
-Give $S^2$ the $C_2$-action that rotates by $\pi$, and call it $Z$, and let $M$ denote the constant coefficient
-system at $\Z$. First, we compute the cells:
-\begin{itemize}
-	\item $\underline C_2(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_2(Z)(C_2/C_2) = 0$.
-	\item $\underline C_1(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_1(Z)(C_2/C_2) = 0$.
-	\item $\underline C_0(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_0(Z)(C_2/C_2) = \Z\oplus\Z$.\qedhere
-\end{itemize}
-\end{exm}
-\begin{ex}
-Figure out the differentials in the above example.
-\end{ex}
+That is, we take the chains on $X$ and compute the maps into $M$; since $\Fun(\sO_G\op,\Ab)$ is an abelian
+category, this is a cochain complex of abelian groups, and we can take its homology to obtain a sequence of abelian
+groups.
+% \begin{exm}
+% \label{S2pi}
+% Give $S^2$ the $C_2$-action that rotates by $\pi$, and call it $Z$, and let $M$ denote the constant coefficient
+% system at $\Z$. First, we compute the cells:
+% \begin{itemize}
+% 	\item $\underline C_2(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_2(Z)(C_2/C_2) = 0$.
+% 	\item $\underline C_1(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_1(Z)(C_2/C_2) = 0$.
+% 	\item $\underline C_0(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_0(Z)(C_2/C_2) = \Z\oplus\Z$.\qedhere
+% \end{itemize}
+% \end{exm}
+% \begin{ex}
+% Figure out the differentials in the above example.
+% \end{ex}
+
 We'll continue to discuss Bredon cohomology next lecture, and introduce an axiomatic viewpoint. This is basic and
 fundamental, but not too relevant to the rest of the class. It's also good to calculate; there are surprisingly few
 examples out in the world.

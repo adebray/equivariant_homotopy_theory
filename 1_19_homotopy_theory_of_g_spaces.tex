@@ -15,6 +15,7 @@ that ``orbits are points.'' Keep in mind that if $G$ is a compact Lie group, thi
 other, more familiar kinds of dimension.
 \end{exm}
 \begin{exm}
+\label{S2sigmaCW}
 Let $S^1$ act on $\R^2$ by rotation along the origin. This also induces a $C_n$-action, as $C_n\subseteq S^1$ as
 the $n^{\text{th}}$ roots of unity. Let $V$ denote this $C_n$-space.
 
@@ -304,9 +305,10 @@ G\Top\to\Fun(\sO_G\op, \Top)$.
 $\Fun(\sO_G\op, \Top)$ has a projective model structure where the weak equivalences and fibrations are taken
 pointwise.
 \end{prop}
-The point is the following result, a revisionist interpretation of Elmendorf's theorem.\footnote{Elmendorf proved
-that these two categories have the same homotopy theory, but his proof was more explicit.}
-\begin{thm}
+The point is the following result, a revisionist interpretation of Elmendorf's theorem. Elmendorf's original
+proof~\cite{Elmendorf} showed these two categories have the same homotopy theory, but his proof was more explicit
+and did not use model categories.
+\begin{thm}[Elmendorf~\cite{Elmendorf, Stephan}]
 \label{revElmen}
 $\psi$ is the right adjoint in a Quillen equivalence; the left adjoint $\theta$ is evaluation at $G/e$.
 \end{thm}
