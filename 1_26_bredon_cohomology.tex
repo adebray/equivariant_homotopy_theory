@@ -169,13 +169,10 @@ so the Bredon cohomology is
 which is exactly the cohomology of $\RP^2 = S^2/C_2$.
 \end{exm}
 This is no coincidence: if $G$ acts freely on $X$, then the Bredon cohomology and homology is that of the quotient.
-\begin{prop}
-Let $G$ act freely on a CW complex $X$, let $M\colon\sO_G\op\to\Ab$, and let $N\colon\sO_G\to\Ab$. Then,
+\begin{ex}
+Let $G$ act freely on a CW complex $X$, let $M\colon\sO_G\op\to\Ab$, and let $N\colon\sO_G\to\Ab$. Show that
 \[H_G^*(X;M) \cong H^*(X/G; M(G/e))\qquad\text{and}\qquad H^G_*(X; N)\cong H_*(X/G; N(G/e)).\]
-\end{prop}
-\begin{proof}
-\TODO
-\end{proof}
+\end{ex}
 \begin{cor}
 If $G$ acts on $X$ trivially, $H_G^*(X;M)\cong H^*(X; M(e))$, and similarly for homology.
 \end{cor}
@@ -371,10 +368,42 @@ Applying $\Hom(\bl,\underline\Z)$, we get a cochain complex
 }\]
 so the cohomology is that of a point, which is reassuring.
 \end{exm}
+\begin{exm}
+Let's compute Bredon cohomology with coefficients in a non-constant coefficient system. For $C_2$, this is the data
+of an abelian group $A$, an involution $\vp\colon A\to A$, and a map $\Z\to A$ equivariant with respect to $\vp$.
+For example, let's take $\Z[i]$ with $\vp$ acting by complex conjugation, and call this coefficient system $M$.
+system.
 
+Let $C_2$ act on $S^2$ by reflection across a meridian $m$; this is the representation sphere $S^{1+\sigma}$. It
+has a
+$C_2$-CW structure as follows.
+\begin{itemize}
+	\item One $0$-cell $e$ of the form $C_2/C_2\times D^0$ at the north pole.
+	\item One $1$-cell $f$ of the form $C_2/C_2\times D^1$, which is the meridian $m$.
+	\item One $2$-cell $g$ of the form $C_2/e\times D^2$, which is everything else.
+\end{itemize}
+\TODO: add picture.
 
+Let $g_1$ and $g_2$ denote the two nonequivariant $2$-cells that make up $g$. Then, orient $f$ and $g$ such that
+$\partial f = e - e = 0$ and $\partial g_1 = \partial g_2 = f$.
 
-
+Then, $\underline C_\bullet(S^{1+\sigma})$ is
+\[\xymatrix{
+	\Z\cdot e\ar@(ul,ur)^\id & \Z\cdot f\ar@(ul,ur)^\id\ar[l]_0 & \Z\cdot\set{g_1,g_2} \ar@(ul,ur)^{\text{swap}}
+	\ar[l]_-{\begin{psmallmatrix}1 & 1\end{psmallmatrix}}\\
+	\Z\cdot e\ar[u]_\id & \Z\cdot f\ar[l]_0 \ar[u]_\id & 0.\ar[l]\ar[u]
+}\]
+Now we map to $M$. We have two copies of $\Hom(\underline\Z, M) = \Z$, and at degree $2$ we get
+$\Hom_{\Z[C_2]}(\Z[C_2], \Z[i])$, which is free of rank $2$. The cochain complex is
+\[\xymatrix{
+	\Z\ar[r]^0 & \Z\ar[r]^{\text{rank }1} & \Z^2,
+}\]
+so the Bredon cohomology is
+\[H_{C_2}^k(S^{1+\sigma}; M) = \begin{cases}
+	\Z, &k = 0,2\\
+	0, &\text{otherwise.}
+\end{cases}\qedhere\]
+\end{exm}
 
 We want cohomology to have nice formal properties analogous to the Eilenberg-Steenrod axioms. We'll think of $H_G$
 as a general $G$-equivariant cohomology theory of pairs $H_G^n(X, A; M)$, but in our case this will just be
