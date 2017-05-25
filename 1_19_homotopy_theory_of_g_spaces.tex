@@ -2,13 +2,46 @@
 \begin{quote}\textit{
 	``It's nice to write down, but oh so false.''
 }\end{quote}
-Last time, we saw the definition of a $G$-CW complex, but no examples were provided. Today, we'll start with some
-examples.
+After defining a $G$-homotopy, the (well, a) natural question that might arise: what are $G$-weak equivalences and
+$G$-CW complexes? This closely relates to obstruction theory: CW complexes are test objects.
 
-Recall that a $G$-CW complex is a sequential colimit $X = \colim_n X_n$, where $X_n$ is formed by attaching cells
-$G/H\times D^n$ along maps $G/H\times S^{n-1}\to X_{n-1}$: just like the CW complexes we know and love, but with
-new cells $G/H$ indexed by the closed subgroups $H\subset G$. The idea is that you're building up a space by
-attaching different spaces with different isotropy groups ($G/H$ has isotropy group $H$, just by construction).
+To define $G$-CW complexes, we need cells. One choice is $G/H\times D^{n+1}$ and $G/H\times S^n$, where the actions
+on $D^{n+1}$ and $S^n$ are trivial. This is a plausible choice (and in fact, will be the right choice), but it's
+not clear why --- why not $G\times_H D(V)$ or $G\times_H S(V)$ for some $H$-representation $V$? Ultimately, this
+comes from a (quite nontrivial) theorem that these can be triangulated in terms of the cells $G/H\times D^{n+1}$
+and $G/H\times S^n$.\footnote{Illman's thesis~\cite{IllmanThesis} is a reference, albeit not the most accessible
+one.} This is one of several triangulation results proven in the 1970s which are now assumed without comment, but
+if you like this kind of math then it's a very interesting story.
+\begin{defn}
+A \term{$G$-CW complex} is a sequential colimit of spaces $X_n$, where $X_{n+1}$ is a pushout
+\[\xymatrix{\coprod G/H\times S^n\ar[r]\ar[d] & X_n\ar[d]\\
+\coprod G/H\times D^{n+1}\ar[r] & \pushout X_{n+1},
+}\]
+where $H$ varies over all closed subgroups of $G$.
+\end{defn}
+That is, it's formed by attaching cells just as usual, though now we have more cells.
+
+This immediately tells you what the homotopy groups have to be: $[G/H\times S^n, X]$, which by an adjunction game
+is isomorphic to $\pi_n(X^H)$. We let $\pi_n^H(X)\coloneqq \pi_n(X^H)$. Thus, we can define weak equivalences.
+\begin{defn}
+A map $f\colon X\to Y$ of $G$-spaces is a \term{weak equivalence} if for all subgroups $H\subset G$,
+$f_*\colon\pi_n^H(X)\to\pi_n^H(Y)$ is an isomorphism.
+\end{defn}
+These homotopy groups have a more complicated algebraic structure: they're indexed by the lattice of subgroups of
+$G$ and the integers. This is fine (you can do homological algebra), but some things get more complicated,
+including asking what the analogue of connectedness is! (We'll broach this in \cref{equivariant_connected}.)
+
+One quick question: do we need all subgroups $H$? What if we only want finite-index ones? The answer, in a very
+precise sense, is that if you're willing to use fewer subgroups, you get fewer cells $G/H\times S^n$, and that's
+fine, and you get a different kind of homotopy theory.
+
+Finally, the Whitehead theorem (\cref{eqWhite}) is true for $G$-CW complexes. This follows for the same reason as
+in May's course: it follows word-for-word after proving the equivariant HELP (homotopy extension lifting property)
+lemma (\cref{HELP}) , which is true by the same argument as in the nonequivariant case.
+
+$G$-CW complexes are just like the CW complexes we know and love, but with new cells $G/H$ indexed by the closed
+subgroups $H\subset G$. The idea is that you're building up a space by attaching different spaces with different
+isotropy groups ($G/H$ has isotropy group $H$, just by construction).
 \begin{exm}[Zero-dimensional complexes]
 The zero-dimensional complexes are $G/H$ or disjoint unions $\amalg_i G/H_i$. This is an instance of the slogan
 that ``orbits are points.'' Keep in mind that if $G$ is a compact Lie group, this might not be zero-dimensional in
@@ -273,46 +306,3 @@ Let $f\colon X\to Y$ be a weak equivalence of cofibrant-fibrant objects in a mod
 homotopy equivalence.
 \end{thm}
 In $\Top$ and $G\Top$, all objects are fibrant, so this is particularly applicable.
-\subsection*{The orbit category.}
-We'll begin talking about the orbit category in the rest of today's lecture, and discuss the bar construction next
-class.
-\begin{defn}
-The \term{orbit category} $\sO_G$ is the full subcategory of $G\Top$ on the objects $G/H$.
-\end{defn}
-That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $\Map^G(G/H,
-G/K)\cong (G/K)^H$. These maps are the same thing as subconjugacy relations, i.e.\ those of the form
-\begin{equation}
-\label{subconj}
-gHg^{-1}\subseteq K,
-\end{equation}
-since for all $h \in H, h(gK) = gK$ if and only if $K = g^{-1}hgK$ if and only if $gHg^{-1} \subseteq K$.  A
-$G$-map $f\colon G/H\to G/K$ is completely specified by what it does to the identity coset $f(eH) = gK$, and this
-$g$ implies the subconjugacy relation~\eqref{subconj}, since, as above, $h(gK) = gK$ for all $h \in H$.
-
-There's another description of the orbit category.
-\begin{prop}
-Let $G$ be a finite group. Then, the orbit category $\sO_G$ is equivalent to the category of finite transitive
-$G$-sets and $G$-maps.
-\end{prop}
-The observation that ignites the proof is that if $x\in X$ has isotropy group $H$, then its orbit space is
-isomorphic to $G/H$.
-\begin{defn}
-Given a $G$-space $X$, we obtain a presheaf on the orbit category, namely a functor
-$X^{(\bl)}\colon\sO_G\op\to\Top$, by sending $G/H\to X^H$. This assignment itself is a functor $\psi\colon
-G\Top\to\Fun(\sO_G\op, \Top)$.
-\end{defn}
-\begin{prop}
-$\Fun(\sO_G\op, \Top)$ has a projective model structure where the weak equivalences and fibrations are taken
-pointwise.
-\end{prop}
-The point is the following result, a revisionist interpretation of Elmendorf's theorem. Elmendorf's original
-proof~\cite{Elmendorf} showed these two categories have the same homotopy theory, but his proof was more explicit
-and did not use model categories.
-\begin{thm}[Elmendorf~\cite{Elmendorf, Stephan}]
-\label{revElmen}
-$\psi$ is the right adjoint in a Quillen equivalence; the left adjoint $\theta$ is evaluation at $G/e$.
-\end{thm}
-The point is, these two model categories have the same homotopy theory.
-\begin{ex}
-Check that evaluation at $G/e$ is a left adjoint to $\psi$.
-\end{ex}

@@ -7,23 +7,79 @@
 % A'' session next week on a weeknight, perhaps with pizza. If you're interested in this, email him to let him know
 % which nights work for you.)
 %
-Today we'll continue Bredon cohomology, and state a version of the Eilenberg-Steenrod axioms that characterize it.
-Then, we'll turn to the circle of ideas around Smith theory, including the Sullivan conjecture (which we won't
-prove, because it's hard). Smith theory is about when one can recover $H_*(X^G)$ from algebraic information derived
-from the $G$-action on $X$.
+Another consequence of Elmendorf's theorem (\cref{revElmen}) is that presheaves on the orbit category that are
+valued in abelian groups are Eilenberg-Mac Lane $G$-spaces. Homotopy classes of maps into these $G$-spaces gives
+what's known as Bredon cohomology; we'll introduce this and compute several examples.
+\begin{defn}
+Let $G$ be a finite group, A \term{coefficient system} is a presheaf $X\in\Fun(\sO_G\op, \Ab)$.\footnote{For $G$ a
+compact Lie group, the definition is almost the same, but we need to use $\Fun(h\sO_G\op, \Ab)$, taking presheaves
+on the homotopy category. For finite groups these definitions coincide.}
+\end{defn}
+Elmendorf's theorem says that for any coefficient system, we have an Eilenberg-Mac Lane $G$-space. You could say
+here that (Bredon) cohomology is completely determined: cohomology is the things represented by Eilenberg-Mac Lane
+spaces. But it will be good to see it explicitly. Bredon cohomology is explicit, but there are serious drawbacks:
+it has poor formal properties, and you need a lot of geometric insight to compute things. We'll later see that this
+abelian category (meaning we can do homological algebra) is the wrong one; it produces a $\Z$-graded cohomology
+theory (or rather, one graded on subgroups of $\Z$); this will be the wrong answer, especially if you want Poincaré
+duality, and the right answer uses a grading by the representation ring. But we'll get there.
 
-Let's recall the definition of Bredon cohomology from last time: if $X$ is a $G$-CW complex, let $\underline
-C_*(X)$ denote the chain complex of coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$)
-\[\underline C_n(X)(G/H)\coloneqq H_n((X^H)_n, (X^H)_{n-1}; \Z).\]
-The differential $\partial\colon\underline C_n(X)\to\underline C_{n-1}(X)$ is the same as in CW cohomology, the
-connecting morphism in the long exact sequence for the triple $(X_n, X_{n-1}, X_{n-2})$; that $\partial^2 = 0$ is
-something you have to check, though it's not very difficult.
+Coefficient systems have an important role in Bredon cohomology, which is calculated with coefficients in a
+coefficient system, and whose construction makes use of a chain complex of coefficient systems. In this way,
+coefficient systems play the part in Bredon cohomology that abelian groups do in CW cohomology. Indeed, coefficient
+systems form an abelian category; it may be helpful to think of it as the category of ``right $\sO_G$-modules,''
+even if that isn't literally true.
 
+Here are some examples of coefficient systems (which are often denoted with underlines).
+\begin{comp}{exm}{enumerate}
+	\item $\underline \Z$ will denote the \term{constant coefficient system} with coefficients in $\Z$, i.e.\ the
+	functor which sends all objects to $\Z$ and all morphisms to $\id_\Z$. You can replace $\Z$ with your favorite
+	abelian group.
+	\item For a $G$-space $X$, the coefficient system $\underline\pi_n(X)$ ($n\ge 2$) sends $G/H\mapsto\set{\pi_nX^H}$. This is an example of
+	a general formula: given a functor $\Top\to\Ab$, we can compose to obtain a map $\Fun(\sO_G\op,
+	\Top)\to\Fun(\sO_G\op, \Ab)$.
+	\item In the same way, $\underline H_n(X)$ sends $G/H\mapsto\set{H_n(X^H;\Z)}$.\qedhere
+\end{comp}
+We will now define Bredon cohomology, due to Bredon~\cite{Bredon}, which is the analogue of CW cohomology for
+$G$-CW complexes.
+\begin{defn}
+We first define a chain complex of coefficient systems $\underline C_\bullet(X)$, which is the analogue of the CW
+chain complex. It sends an orbit $G/H$ to the CW chains of $X^H$.\footnote{This requires knowing how to obtain a CW
+structure on $X^H$ given a $G$-CW structure on $X$. If $G$ is finite, this is easy to see; for general compact Lie
+groups, though, this requires a triangulation argument. One wants the resulting coefficient system to be
+independent of the choice of triangulation, but as in the nonequivariant case, this is proven via an axiomatic
+characterization of cohomology.}
+
+Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
+\[\underline C_n(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
+i.e.\ the coefficient system sending $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z) = C_n^{\text{CW}}(X^H)$. The
+differential at $G/H$ is the CW chain complex differential for $X^H$, i.e.\ the connecting morphism in the long
+exact sequence of the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$. One should check that this commutes with the
+bonding maps for $\underline C_n(X)$, but it does, so this works.
+\end{defn}
+%The \term{Bredon cohomology} with coefficients in a coefficient system $M$ is
+%\[H^n_G(X;M) \coloneqq H^n\paren{\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_\bullet(X), M)}.\]
+%\end{defn}
+%
+%We'll continue to discuss Bredon cohomology next lecture, and introduce an axiomatic viewpoint. This is basic and
+%fundamental, but not too relevant to the rest of the class. It's also good to calculate; there are surprisingly few
+%examples out in the world.
+%Today we'll continue Bredon cohomology, and state a version of the Eilenberg-Steenrod axioms that characterize it.
+%Then, we'll turn to the circle of ideas around Smith theory, including the Sullivan conjecture (which we won't
+%prove, because it's hard). Smith theory is about when one can recover $H_*(X^G)$ from algebraic information derived
+%from the $G$-action on $X$.
+% Let's recall the definition of Bredon cohomology from last time: if $X$ is a $G$-CW complex, let $\underline
+% C_*(X)$ denote the chain complex of coefficient systems (i.e.\ functors $\sO_G\op\to\Ab$)
+% \[\underline C_n(X)(G/H)\coloneqq H_n((X^H)_n, (X^H)_{n-1}; \Z).\]
+% The differential $\partial\colon\underline C_n(X)\to\underline C_{n-1}(X)$ is the same as in CW cohomology, the
+% connecting morphism in the long exact sequence for the triple $(X_n, X_{n-1}, X_{n-2})$; that $\partial^2 = 0$ is
+% something you have to check, though it's not very difficult.
 Using this chain complex, we define Bredon homology and cohomology.
-\begin{itemize}
+\begin{comp}{defn}{itemize}
 	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
 	\[H_G^n(X;M) \coloneqq H^n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
-	We defined this last time.
+	That is, we take the chains on $X$ and compute the maps into $M$; since $\Fun(\sO_G\op,\Ab)$ is an abelian
+	category, this is a cochain complex of abelian groups, and we can take its homology to obtain a sequence of
+	abelian groups.
 	\item For homology to be a covariant functor, we need the coefficient system $M$ to be a functor $\sO_G\to\Ab$
 	rather than $\sO_G\op\to\Ab$ (e.g.\ $\underline H^*(X)$ for a $G$-space $X$, which sends
 	$G/H\mapsto\set{H^n(X^H)}$).\footnote{Would it be appropriate to call such a functor an ``efficient system?''}
@@ -36,8 +92,9 @@ Using this chain complex, we define Bredon homology and cohomology.
 	\end{align*}
 	where if $f\in\Map_{\sO_G}(G/H, G/K)$, $(f^*y, z)\sim (y, f_*z)$.\footnote{Tensor products are particular
 	instances of coends; instead of inducing an equivalence $mr\otimes n\sim m\otimes rn$, you flip a map across
-	the two objects. One might write $y\cdot f$ for $f^* y$ and $f\cdot z$ for $f_* z$ to emphasize this point of view.}
-\end{itemize}
+	the two objects. One might write $y\cdot f$ for $f^* y$ and $f\cdot z$ for $f_* z$ to emphasize this point of
+	view.}
+\end{comp}
 The whole philosophy of Bredon (co)homology is to understand equivariant cohomology and homology through the
 fixed-point sets and the lattice of subgroups of $G$.
 
@@ -470,50 +527,4 @@ the resulting double complex, one obtains a spectral sequence
 There's a corresponding $\Tor$ spectral sequence.
 \end{rem}
 Since the category is more complicated, one expects to have to do more work. But sometimes there are nice results
-nonetheless; Smith theory is an example. This theorem is very old, from the 1940s, so none of the cohomology in the
-statement is equivariant.
-\begin{thm}[Smith]
-\label{smith}
-Let $G$ be a finite $p$-group and $X$ be a finite $G$-CW complex such that (the underlying topological space of)
-$X$ is an $\F_p$-cohomology sphere.\footnote{A space $X$ is an \term{$\F_p$-cohomology sphere} if there is an
-isomorphism of graded abelian groups $H^*(X;\F_p)\cong H^*(S^n;\F_p)$ for some $n$.} Then, $X^G$ is either empty or
-an $\F_p$-cohomology sphere of smaller dimension.
-\end{thm}
-There are sharper statements, but we can prove this one. It's the start of a long program to understand $H_*(X^G)$
-using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the \term{Borel
-construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
-pullback). This is a ``fattened up'' version of $X/G$.
-\begin{defn}
-The \term{Borel cohomology} of $X$ is $H_G^*(X) \coloneqq H^*(EG\times_G X)$.
-\end{defn}
-\begin{warn}
-This notation is potentially confusing. Outside of the field of equivariant homotopy theory, ``equivariant
-cohomology'' generally means Borel cohomology, not Bredon cohomology. In equivariant homotopy theory, $H_G^*$ can
-be used to denote both. We will always make the coefficient system for Bredon cohomology explicit, so that
-$H_G^*(X)$ unambiguously refers to Borel cohomology, as is standard in the literature.\footnote{The nLab uses a
-different convention: Borel cohomology is $H_G^*(X;A)$, and Bredon cohomology is $\mathbf H^*(X_G)$.}
-\end{warn}
-The finiteness in \cref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with non-equivariant
-homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should be looking at a
-different thing than the fixed points, namely the homotopy fixed points.
-\begin{defn}
-The \term{homotopy fixed points} of a $G$-space $X$ is $X^{hG}\coloneqq \Map(EG, X)^G$.
-\end{defn}
-This can also be defined as a homotopy limit. This is ``easy'' to compute (relative to the rest of equivariant
-homotopy theory, that is), as there are spectral sequences, nice models for $EG$, and other tools.
-
-The terminal map $EG\to *$ induces a map $X^G\to X^{hG}$. The Sullivan conjecture is all about when this happens:
-when you $p$-complete, things become really nice. (There will be a precise statement next lecture.)
-
-Returning to \cref{smith}, we can use Bredon cohomology to give an easy, modern proof. The idea is to adroitly
-choose coefficient systems such that we recover $H^n(X)$, $H^n(X^G)$, and $H^n((X/G)/G)$ from Bredon cohomology.
-They'll fit into exact sequences, and using tools like Mayer-Vietoris, we'll get inequalities on the ranks of
-groups. This will also use the fact that a short exact sequence of coefficient systems induces a long exact
-sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's original proof!
-
-\Cref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon cohomology
-at the expense of obscuring the overarching goal of Smith theory. There's another proof by Dwyer and Wilkerson in
-``Smith theory revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the
-unstable Steenrod algebra to prove \cref{smith} and more.
-
-Over the next day or so, there will be a problem set and a course webpage. Doing the problem sets is recommended!
+nonetheless; Smith theory, which we discuss in the next section, is an example.

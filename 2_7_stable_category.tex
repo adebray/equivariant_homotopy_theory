@@ -2,7 +2,58 @@
 	``The sun, it burns!''
 }\end{quote}
 
-Pursuant to promises we made last lecture, today's lecture is about duality. This is a reinvention of the original
+Before constructing the equivariant stable category, we'll provide some motivation, much of which is also good
+motivation for the nonequivariant stable category. There's a choice here: you could just say ``let's take the
+category of orthogonal $G$-spectra,'' but having some motivation for why we're doing what we're doing is important.
+
+There are lots of ways to think about where stabilization comes from.
+\begin{enumerate}
+	\item The Freudenthal suspension theorem says that if $X$ is nondegenerately based (meaning the based inclusion
+	map $*\inj X$ is a cofibration) and $n-1$-connected, then $\pi_q(X)\to\pi_{q+1}(\Sigma
+	X)$ is an isomorphism for $q < 2n-1$ and a surjection when $q = 2n-1$.\footnote{The map comes from the
+	loop-suspension adjunction, which gives us a unit $X\to\Omega\Sigma X$, hence a map
+	$\Omega^qX\to\Omega^{q+1}\Sigma X$, and the map on homotopy groups is $\pi_0$ of that map. This is the based
+	version of the mapping space and Cartesian product adjunction: $\Sigma X\coloneqq S^1\wedge X$ and $\Omega X
+	\coloneqq \Map(S^1, X)$ are adjoint functors.} It's easier to see that cohomology groups are stable under
+	suspension, but this tells us that homotopy groups stabilize in a range that increases at about twice the rate
+	that the connectivity of $X$ does. Since $\Sigma^n X$ is at least $n$-connected, this suggests you could
+	replace $X$ by the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and keep track of that instead, regarding
+	it as a repository for the \term{stable homotopy groups} $\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$.
+	One way to think of this is as formally making homotopy theory into a homology theory (which it isn't \textit{a
+	prioiri}); you end up taking the same kind of colimit.
+
+	You could do this equivariantly: we have representation spheres. But it's not entirely clear what to do.
+	\item Another perspective is that the stable category is the result of inverting the canonical map\footnote{The
+	existence of this map follows from the universal property of the product.}
+	\begin{equation}
+	\label{wedges_are_products}
+	\bigvee_{i=1}^k X\to\prod_{i=1}^k X.
+	\end{equation}
+	Again, this is something you can think about making precise; the stable category is the initial triangulated
+	category constructed from $\Top$ in which~\eqref{wedges_are_products} is an isomorphism. In particular, this
+	forces the homotopy category to be additive.
+
+	Again, we could do this equivariantly.
+	\item Suppose we have a functor $F$ from finite CW complexes to $\Top$ such that $F(*) = *$, and suppose $F$
+	commutes with filtered colimits and preserves weak equivalences (e.g.\ if it's topologically or simplicially
+	enriched, for formal reasons). By taking colimits, we can obtain a functor $\widehat F$ from CW complexes to
+	$\Top$. We say $F$ is \term{excisive} if it takes pushouts to pullbacks; this is an old perspective, which was
+	used to show the Dold-Thom theorem, that the infinite symmetric product $\mathrm{SP}^\infty$ is a cohomology
+	theory. In any case, if $F$ is excisive, $\set{F(S^n)}$ represents a cohomology theory. Namely, the homotopy
+	pushout
+	\[\xymatrix{S^n\ar[r]\ar[d] & D^{n+1}\ar[d]\\
+	D^{n+1}\ar[r] & S^{n+1}
+	}\]
+	creates suspension, and via $F$, becomes a pullback creating $\Omega$. Asking what the excisive functors are
+	leads to the stable category, and is also something you could do equivariantly.
+	\item Another perspective: what is the Spanier-Whitehead dual of a point? Taking shifts, what's the
+	Spanier-Whitehead dual of $S^n$? Equivariantly, one wants to know the Spanier-Whitehead duals of $G/H_+$. This
+	is important for defining Poincaré duality, etc. Nonequivariantly, the best way to answer this is the
+	Pontrjagin-Thom construction, which not only answers this, but provides a deep understanding for what the
+	stable homotopy groups of the spheres are. We'll do this equivariantly next time, and it will tell us what the
+	spheres are.
+\end{enumerate}
+Pursuant to motivating the stable category, this section is about duality. This is a reinvention of the original
 construction of the stable category --- Spanier's original construction of spectra was motivated by answering
 questions on duality, and we'll proceed similarly, if a bit ahistorically. Since we're in the equivariant setting,
 the answers will be slightly different.

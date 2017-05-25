@@ -1,11 +1,52 @@
 \begin{quote}\textit{
 	``It seems that the people registered for the class and the people showing up for class are disjoint.''
 }\end{quote}
-Today, we will give one or two proofs of \cref{smith}: let $G$ be a finite $p$-group, $X$ be a finite-dimensional
-$G$-CW complex such that as a topological space, $X$ is an $\F_p$-cohomology sphere (i.e.\ as graded abelian
-groups, $H^*(X;\F_p)\cong H^*(S^n;\F_p)$). Then, either $X^G = \varnothing$, or $H^*(X^G;\F_p)\cong H^*(S^m;\F_p)$
-as graded abelian groups, for some $m\le\dim X$. We'll try to be consistent with the notation
-in~\cite{MaySmithTheory, AlaskaNotes}.
+Smith theory is an example application of Bredon cohomology. This theorem is very old, from the 1940s, so none of
+the cohomology in the statement is equivariant.
+\begin{thm}[Smith]
+\label{smith}
+Let $G$ be a finite $p$-group and $X$ be a finite $G$-CW complex such that (the underlying topological space of)
+$X$ is an $\F_p$-cohomology sphere.\footnote{A space $X$ is an \term{$\F_p$-cohomology sphere} if there is an
+isomorphism of graded abelian groups $H^*(X;\F_p)\cong H^*(S^n;\F_p)$ for some $n$.} Then, $X^G$ is either empty or
+an $\F_p$-cohomology sphere of smaller dimension.
+\end{thm}
+There are sharper statements, but we can prove this one. It's the start of a long program to understand $H_*(X^G)$
+using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the \term{Borel
+construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
+pullback). This is a ``fattened up'' version of $X/G$.
+\begin{defn}
+The \term{Borel cohomology} of $X$ is $H_G^*(X) \coloneqq H^*(EG\times_G X)$.
+\end{defn}
+\begin{warn}
+This notation is potentially confusing. Outside of the field of equivariant homotopy theory, ``equivariant
+cohomology'' generally means Borel cohomology, not Bredon cohomology. In equivariant homotopy theory, $H_G^*$ can
+be used to denote both. We will always make the coefficient system for Bredon cohomology explicit, so that
+$H_G^*(X)$ unambiguously refers to Borel cohomology, as is standard in the literature.\footnote{The nLab uses a
+different convention: Borel cohomology is $H_G^*(X;A)$, and Bredon cohomology is $\mathbf H^*(X_G)$.}
+\end{warn}
+The finiteness in \cref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with non-equivariant
+homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should be looking at a
+different thing than the fixed points, namely the homotopy fixed points.
+\begin{defn}
+The \term{homotopy fixed points} of a $G$-space $X$ is $X^{hG}\coloneqq \Map(EG, X)^G$.
+\end{defn}
+This can also be defined as a homotopy limit. This is ``easy'' to compute (relative to the rest of equivariant
+homotopy theory, that is), as there are spectral sequences, nice models for $EG$, and other tools.
+
+The terminal map $EG\to *$ induces a map $X^G\to X^{hG}$. The Sullivan conjecture is all about when this happens:
+when you $p$-complete, things become really nice. (There will be a precise statement next lecture.)
+
+Returning to \cref{smith}, we can use Bredon cohomology to give an easy, modern proof. The idea is to adroitly
+choose coefficient systems such that we recover $H^n(X)$, $H^n(X^G)$, and $H^n((X/G)/G)$ from Bredon cohomology.
+They'll fit into exact sequences, and using tools like Mayer-Vietoris, we'll get inequalities on the ranks of
+groups. This will also use the fact that a short exact sequence of coefficient systems induces a long exact
+sequence on $H_G^*$. The proof will be beautiful and short, unlike Smith's original proof!
+
+\Cref{smith} is sufficiently classical that there are several different proofs. Ours illuminates Bredon cohomology
+at the expense of obscuring the overarching goal of Smith theory. We'll try to be consistent with the notation
+in~\cite{MaySmithTheory, AlaskaNotes}. We'll also discuss another proof by Dwyer and Wilkerson in ``Smith theory
+revisited'' \cite{SmithRevisit}, a short, beautiful paper which is highly recommended. It uses the unstable
+Steenrod algebra to prove \cref{smith} and more.
 \begin{proof}[Proof of \cref{smith}]
 First, we can quickly reduce to the case where $G = \Z/p$: if $H\subset G$ is a normal subgroup, then $X^G\cong
 (X^H)^{G/H}$, so you can induct on the order of the group using the Sylow theorems. Thus, we will assume $G =
@@ -173,7 +214,105 @@ inserts itself into the argument.
 Finish the Serre spectral sequence proof of \cref{smith}. Hint: there's a simple geometric reason why the
 spectral sequence collapses, which is what makes this whole thing go.
 \end{ex}
-Soon we'll start talking about the stable category. As preparation for this, if you don't already know it, it's
-good to remind yourself of it.
+Recall that the Borel cohomology $H^*(EG\times_G X)$ is an $H^*(BG)$-module, through the map $EG\times_G X\to
+EG\times_G * = BG$. Thus, we should compute $H^*(BG)$ as a ring. In the case we care about, $G = (\Z/p)^n$; let's
+start with $n = 1$.
 
-The Q\&A session will be Thursday at 8:30 PM.
+There's a nice geometric model for $B\Z/p$ as an ``infinite-dimensional lens space:'' let $S^\infty$ denote the
+unit sphere in an infinite-dimensional complex Hilbert space,\footnote{Alternatively, you could choose $S^\infty$
+to be the colimit of $S^n$ for all $n$, through the inclusion $S^n\inj S^{n+1}$ at the equator. These two choices
+are not homeomorphic, but produce homotopy equivalent models of $B\Z/p$.} and give it a $C_p$-action by $z\mapsto
+e^{2\pi i/p}z$. Then, the infinite-dimensional lens space is $S^\infty/C_p$.
+
+The quotient $S^\infty\surj S^\infty/C_p$ is a covering map, and $S^\infty$ is contractible. The proof goes through
+some version of the Eilenberg swindle:
+\begin{itemize}
+	\item There is a homotopy from $\id_{S^\infty}$ to $s: (x_1,x_2,\dotsc)\mapsto (0, x_1, x_2, \dotsc)$. In fact,
+	it's a straight-line homotopy.
+	\item There is a straight-line homotopy from $s$ to $(0,x_1,\dotsc)\mapsto (1, 0, 0,\dotsc)$.
+\end{itemize}
+Thus $S^\infty/C_p$ is the quotient of a contractible space by a free $G$-action, so it deserves to be called
+$B\Z/p$.
+
+You can set up a cell structure on $B\Z/p$ as with finite-dimensional lens spaces, and therefore compute that
+\[H^k(B\Z/p) \cong\begin{cases}
+	\Z/p, &k\text{ even}\\
+	0, &k\text{ odd.}
+\end{cases}\]
+Using the universal coefficient theorem, you can then deduce that
+\[H^k(B\Z/p;\Z/p) \cong \Z/p\]
+for all $k$. Now we want to deduce the ring structure.
+
+Recall that if
+\[\shortexact{M}{L}{N}{}\]
+is a short exact sequence, it induces a long exact sequence in cohomology:
+\[\xymatrix{
+	\dotsb\ar[r] & H^k(\bl;M)\ar[r] &H^k(\bl;L)\ar[r] &H^k(\bl;N)\ar[r]^\beta &H^{k+1}(\bl;M)\ar[r] & \dotsb
+}\]
+Let's apply this to the short exact sequences
+\[\xymatrix{
+	0\ar[r] & \Z\ar[r]^{\cdot p}\ar[d]&\Z\ar[r]\ar[d] & \Z/p\ar[r]\ar[d] &0\\
+	0\ar[r] & \Z/p\ar[r]^{\cdot p} &\Z/p^2\ar[r] & \Z/p\ar[r] &0.
+}\]
+This is a map of short exact sequences, inducing a map of their long exact sequences.
+\begin{equation}
+\gathxy{
+	\dotsb\ar[r] & H^q(X;\Z)\ar[r]\ar[d] & H^q(X;\Z)\ar[r]\ar[d] & H^q(X;\Z/p)\ar[r]\ar[d] &
+	H^{q+1}(X;\Z)\ar[r]\ar[d] &
+	\dotsb\\
+	\dotsb\ar[r] & H^q(X;\Z/p)\ar[r] & H^q(X;\Z/p^2)\ar[r] & H^q*(X;\Z/p)\ar[r]^\beta &H^{q+1}(X;\Z/p)\ar[r] &
+	\dotsb
+}
+\end{equation}
+The map $\beta:H^q(X;\Z/p)\to H^{q+1}(X;\Z/p)$ will be called the \term{Bockstein homomorphism}, and is a simple
+example of a cohomology operation.
+
+We now assume $p$ is odd.
+\begin{lem}
+If $n$ is odd, the Bockstein for $B\Z/p$ is an isomorphism; if $n$ is even, it's $0$.
+\end{lem}
+\begin{proof}
+First, observe that the diagram
+\[\xymatrix{
+	H^n(B\Z/p;\Z)\ar[r]^f & H^n(B\Z/p;\Z/p)\ar[r]^g\ar[dr]_\beta & H^{n+1}(B\Z/p;\Z)\ar[d]^\pi\ar[r] &
+	H^{n+1}(B\Z/p;\Z)\\
+	&& H^{n+1}(B\Z/p;\Z/p)
+}\]
+commutes, and the top row is exact.
+\begin{itemize}
+	\item If $n$ is even, $f$ is an isomorphism, so $g = 0$, so $\beta = 0$.
+	\item if $n$ is odd, $g$ and $\pi$ are surjections, so $\beta$ is a surjection between two $\F_p$-vector spaces
+	of the same rank, so $\beta$ is an isomorphism.\qedhere
+\end{itemize}
+\end{proof}
+Next, a nice way to compute the cup product. The map $B\Z/p\to\CP^\infty$ is cellular, and is a homeomorphism when
+restricted to even-dimensional cells. As the cell structure determines the cup product structure, the cup products
+on $H^{\text{even}}(B\Z/p;\Z/p)$ and $H^{\text{even}}(\CP^\infty;B\Z/p)\cong \Z/p[y_1]$ agree.\footnote{By
+$\CP^\infty$, we mean the colimit of $\CP^n$ over all $n$, and similarly for $\RP^\infty$. However, there are
+models for them based on the unit sphere in an infinite-dimensional Hilbert space modulo an $S^1$ (resp.\ $\Z/2$)
+action. These are homotopic to, but not homeomorphic to, the colimit realizations of $\CP^\infty$ and $\RP^\infty$.
+} On the odd-dimensional cells, the cup product is graded commutative rather than strictly commutative, so we get
+an exterior algebra. Therefore we conclude that
+\[H^*(B\Z/p;\Z/p)\cong \Lambda(x_1)\otimes \Z/p[y_1],\]
+where $\abs{x_1} = 1$, $\abs{y_1} = 2$, and $\beta x_1 = y_1$.
+
+By essentially the same argument, one can compute the cohomology ring for $B(\Z/p)^n$.
+\begin{prop}
+As rings, there is an isomorphism
+\[H^*(B(\Z/p)^n; \Z/p) \cong \Lambda(x_1,\dotsc,x_n)\otimes\Z/p[y_1,\dotsc,y_n],\]
+where $\beta x_i = y_i$.
+\end{prop}
+\begin{ex}
+Figure out the slight changes needed for $p = 2$.
+\end{ex}
+Recall that the localization theorem asserted that if $G$ is a finite $p$-group, $S_H^{-1}H^*(EG\times_G
+X)\cong S_H^{-1}H^*(EG\times_G X^G)$, where $S$ is the multiplicative system generated by images of the Bockstein
+homomorphism in $H^*(BG;\Z/p)$. We'll prove this in the case when $G$ is abelian.
+
+We mentioned above that it's possible to inductively reduce to considering $H^*(BH)\otimes H^*\paren{\bigvee
+S^{q_i}}$. It's now clear\footnote{{\color{red}TODO}: I didn't follow this proof in class.} that something in $S$
+restricts to $0$ in $H^*(BH)$, completing the proof (in the abelian case).
+
+The localization fails terribly for infinite nonabelian compact Lie groups $G$. For example, for any topological
+space $K$, there exists a $G$-CW complex $X$ such that $X$ is nonequivariantly contractible, $X$ is
+finite-dimensional, and $X^G\simeq K$.

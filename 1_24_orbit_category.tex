@@ -5,17 +5,49 @@
 	``It appeals to machinery we didn't develop in this class?''\\
 	``No, that's perfectly fine.''
 }\end{quote}
-We'll start by reviewing the connection between the orbit category and $G$-sets.
+We'll begin talking about the orbit category in the rest of today's lecture, then discuss the bar construction in
+the context of Elmendorf's theorem (\cref{revElmen}).
+\begin{defn}
+The \term{orbit category} $\sO_G$ is the full subcategory of $G\Top$ on the objects $G/H$.
+\end{defn}
+That is, its objects are the spaces $G/H$, where $H\subset G$ is closed, and its morphisms are $\Map^G(G/H,
+G/K)\cong (G/K)^H$. These maps are the same thing as subconjugacy relations, i.e.\ those of the form
+\begin{equation}
+\label{subconj}
+gHg^{-1}\subseteq K,
+\end{equation}
+since for all $h \in H, h(gK) = gK$ if and only if $K = g^{-1}hgK$ if and only if $gHg^{-1} \subseteq K$.  A
+$G$-map $f\colon G/H\to G/K$ is completely specified by what it does to the identity coset $f(eH) = gK$, and this
+$g$ implies the subconjugacy relation~\eqref{subconj}, since, as above, $h(gK) = gK$ for all $h \in H$.
 
-Let $X$ be a finite $G$-set. Then, $X$ is the coproduct (disjoint union) of a bunch of orbits:
-\[X \cong \coprod_i G/H_i.\]
-The way you see this is that for any $x\in X$, its orbit is isomorphic to $G/G_x$. This is yet another
-manifestation of the slogan that ``orbits are points.'' But it also implies that, rather than just presheaves on
-$\sO_G$, one could work with certain presheaves on the category of finite $G$-sets, and this perspective will turn
-out to be useful. By ``certain'' we mean a compatibility with orbits.
-
-Last time, we talked about Elmendorf's theorem in the form of \cref{revElmen}. It's also possible to state
-it in a more general form.
+There's another description of the orbit category.
+\begin{prop}
+Let $G$ be a finite group. Then, the orbit category $\sO_G$ is equivalent to the category of finite transitive
+$G$-sets and $G$-maps.
+\end{prop}
+The observation that ignites the proof is that if $x\in X$ has isotropy group $H$, then its orbit space is
+isomorphic to $G/H$.
+\begin{defn}
+Given a $G$-space $X$, we obtain a presheaf on the orbit category, namely a functor
+$X^{(\bl)}\colon\sO_G\op\to\Top$, by sending $G/H\to X^H$. This assignment itself is a functor $\psi\colon
+G\Top\to\Fun(\sO_G\op, \Top)$.
+\end{defn}
+\begin{prop}
+$\Fun(\sO_G\op, \Top)$ has a projective model structure where the weak equivalences and fibrations are taken
+pointwise.
+\end{prop}
+The point is the following result, a revisionist interpretation of Elmendorf's theorem. Elmendorf's original
+proof~\cite{Elmendorf} showed these two categories have the same homotopy theory, but his proof was more explicit
+and did not use model categories.
+\begin{thm}[Elmendorf~\cite{Elmendorf, Stephan}]
+\label{revElmen}
+$\psi$ is the right adjoint in a Quillen equivalence; the left adjoint $\theta$ is evaluation at $G/e$.
+\end{thm}
+That is, these two model categories have the same homotopy theory.
+\begin{ex}
+Check that evaluation at $G/e$ is a left adjoint to $\psi$.
+\end{ex}
+It's also possible to state Elmendorf's theorem in a more general form.
 \begin{thm}[Elmendorf]
 \label{elmendorf}
 The functor $G\Top\to\Fun(\sO_G\op, \Top)$ determined by $X\mapsto \paren{G/H\mapsto X^H}$ induces an equivalence
@@ -27,6 +59,14 @@ Without delving into $(\infty,1)$-categories, this means
 	\item homotopy limits and colimits behave identically.
 \end{itemize}
 In other words, from the perspective of abstract homotopy theory, these are the same.
+
+Let $X$ be a finite $G$-set. Then, $X$ is the coproduct (disjoint union) of a bunch of orbits:
+\[X \cong \coprod_i G/H_i.\]
+The way you see this is that for any $x\in X$, its orbit is isomorphic to $G/G_x$. This is yet another
+manifestation of the slogan that ``orbits are points.'' But it also implies that, rather than just presheaves on
+$\sO_G$, one could work with certain presheaves on the category of finite $G$-sets, and this perspective will turn
+out to be useful. By ``certain'' we mean a compatibility with orbits.
+
 \begin{defn}
 By a \term{family} of subgroups $\sF$ of $G$, we mean a collection of subgroups of $G$ closed under conjugation and
 taking subgroups.
@@ -146,77 +186,9 @@ Let $X$ be a $G$-space and $x\in X^G$. Let $Y_x$ be the presheaf on the orbit ca
 component containing $x\in X^H$. Then, the \term{$G$-connected component} of $x$ is $\Phi(Y_x)$.
 \end{defn}
 The third useful application is defining Eilenberg-Mac Lane spaces. This will lead us to cohomology (and then to
-Smith theory and other things). These will be constructed by working pointwise, then applying $\Phi$.
-\begin{defn}
-Let $G$ be a finite group, A \term{coefficient system} is a presheaf $X\in\Fun(\sO_G\op, \Ab)$.\footnote{For $G$ a
-compact Lie group, the definition is almost the same, but we need to use $\Fun(h\sO_G\op, \Ab)$, taking presheaves
-on the homotopy category. For finite groups these definitions coincide.}
-\end{defn}
-Elmendorf's theorem says that for any coefficient system, we have an Eilenberg-Mac Lane $G$-space. You could say
-here that (Bredon) cohomology is completely determined: cohomology is the things represented by Eilenberg-Mac Lane
-spaces. But it will be good to see it explicitly. Bredon cohomology is explicit, but there are serious drawbacks:
-it has poor formal properties, and you need a lot of geometric insight to compute things. We'll later see that this
-abelian category (meaning we can do homological algebra) is the wrong one; we'll later see this is a $\Z$-graded
-cohomology theory (or rather graded on subgroups of $\Z$); this will be the wrong answer, especially if you want
-Poincaré duality, and the right answer uses a grading by the representation ring. But we'll get there.
+Smith theory and other things).
 \begin{rem}
 Another application of Elmendorf's theorem, which we will not discuss in detail (unless we get to the slice
 filtration), is Postnikov towers. They're constructed in the same way, by either using the small object argument or
 killing homotopy groups.
 \end{rem}
-Coefficient systems have an important role in Bredon cohomology, which is calculated with coefficients in a
-coefficient system, and whose construction makes use of a chain complex of coefficient systems. In this way,
-coefficient systems play the part in Bredon cohomology that abelian groups do in CW cohomology. Indeed, coefficient
-systems form an abelian category; it may be helpful to think of it as the category of ``right $\sO_G$-modules,''
-even if that isn't literally true.
-
-Here are some examples of coefficient systems (which are often denoted with underlines).
-\begin{comp}{exm}{enumerate}
-	\item $\underline \Z$ will denote the \term{constant coefficient system} with coefficients in $\Z$, i.e.\ the
-	functor which sends all objects to $\Z$ and all morphisms to $\id_\Z$. You can replace $\Z$ with your favorite
-	abelian group.
-	\item For a $G$-space $X$, the coefficient system $\underline\pi_n(X)$ ($n\ge 2$) sends $G/H\mapsto\set{\pi_nX^H}$. This is an example of
-	a general formula: given a functor $\Top\to\Ab$, we can compose to obtain a map $\Fun(\sO_G\op,
-	\Top)\to\Fun(\sO_G\op, \Ab)$.
-	\item In the same way, $\underline H_n(X)$ sends $G/H\mapsto\set{H_n(X^H;\Z)}$.\qedhere
-\end{comp}
-We will now define Bredon cohomology, due to Bredon~\cite{Bredon}, which is the analogue of CW cohomology for
-$G$-CW complexes.
-\begin{defn}
-We first define a chain complex of coefficient systems $\underline C_\bullet(X)$, which is the analogue of the CW
-chain complex. It sends an orbit $G/H$ to the CW chains of $X^H$.\footnote{This requires knowing how to obtain a CW
-structure on $X^H$ given a $G$-CW structure on $X$. If $G$ is finite, this is easy to see; for general compact Lie
-groups, though, this requires a triangulation argument. One wants the resulting coefficient system to be
-independent of the choice of triangulation, but as in the nonequivariant case, this is proven via an axiomatic
-characterization of cohomology.}
-
-Let $X$ be a $G$-CW complex and $X_n$ denote its $n$-skeleton. Let
-\[\underline C_n(X) \coloneqq \underline H_n(X_n, X_{n-1};\Z),\]
-i.e.\ the coefficient system sending $G/H\mapsto H_n((X^H)_n, (X^H)_{n-1};\Z) = C_n^{\text{CW}}(X^H)$. The
-differential at $G/H$ is the CW chain complex differential for $X^H$, i.e.\ the connecting morphism in the long
-exact sequence of the triple $((X^H)_n, (X^H)_{n-1}, (X^H)_{n-2})$. One should check that this commutes with the
-bonding maps for $\underline C_n(X)$, but it does, so this works.
-
-The \term{Bredon cohomology} with coefficients in a coefficient system $M$ is
-\[H^n_G(X;M) \coloneqq H^n\paren{\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_\bullet(X), M)}.\]
-\end{defn}
-That is, we take the chains on $X$ and compute the maps into $M$; since $\Fun(\sO_G\op,\Ab)$ is an abelian
-category, this is a cochain complex of abelian groups, and we can take its homology to obtain a sequence of abelian
-groups.
-% \begin{exm}
-% \label{S2pi}
-% Give $S^2$ the $C_2$-action that rotates by $\pi$, and call it $Z$, and let $M$ denote the constant coefficient
-% system at $\Z$. First, we compute the cells:
-% \begin{itemize}
-% 	\item $\underline C_2(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_2(Z)(C_2/C_2) = 0$.
-% 	\item $\underline C_1(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_1(Z)(C_2/C_2) = 0$.
-% 	\item $\underline C_0(Z)(C_2/e) = \Z\oplus\Z$ and $\underline C_0(Z)(C_2/C_2) = \Z\oplus\Z$.\qedhere
-% \end{itemize}
-% \end{exm}
-% \begin{ex}
-% Figure out the differentials in the above example.
-% \end{ex}
-
-We'll continue to discuss Bredon cohomology next lecture, and introduce an axiomatic viewpoint. This is basic and
-fundamental, but not too relevant to the rest of the class. It's also good to calculate; there are surprisingly few
-examples out in the world.
