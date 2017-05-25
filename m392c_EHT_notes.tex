@@ -1,12 +1,17 @@
-\documentclass{style_EHT}
+\documentclass[openany]{style_EHT}
 \input{macros}
 \begin{document}
 
-\frontstuff
+\frontmatter
 
-\section{\texorpdfstring{$G$}{G}-spaces: 1/17/17}
+\frontstuff % TODO: better name for this part
+
+\mainmatter
+
+\chapter{Unstable equivariant homotopy theory}
+\section{$G$-spaces: 1/17/17}
 	\input{1_17_overview}
-\section{Homotopy theory of \texorpdfstring{$G$}{G}-spaces: 1/19/17}
+\section{Homotopy theory of $G$-spaces: 1/19/17}
 	\input{1_19_homotopy_theory_of_g_spaces}
 \section{Elmendorf's theorem: 1/24/17}
 	\input{1_24_orbit_category}
@@ -18,6 +23,8 @@
 	\input{2_2_localization_theorem}
 \section{Question-and-answer session: 2/2/17}
 	\input{2_2_q_and_a}
+
+\chapter{Building the equivariant stable category}
 \section{Dualities: Alexander, Spanier-Whitehead, Atiyah, Poincaré: 2/7/17}
 	\input{2_7_stable_category}
 \section{Transfers and the Burnside category: 2/9/17}
@@ -32,6 +39,8 @@
 	\input{2_23_tom_dieck}
 \section{Question-and-answer session II: 2/24/17}
 	\input{2_24_q_and_a}
+
+\chapter{Mackey functors and $\RO(G)$-graded cohomology}
 \section{The Burnside category and Mackey functors: 2/28/17}
 	\input{2_28_more_tom_dieck}
 \section{Mackey functors: 3/2/17}
@@ -42,6 +51,8 @@
 	\input{3_21_eilenberg_mac_lane}
 \section{Computations in $\RO(G)$-graded cohomology theories: 3/23/17}
 	\input{3_23_ROG_computations}
+
+\chapter{Multiplicative structures in the equivariant stable category}
 \section{More computations and ring spectra: 3/28/17}
 	\input{3_28_operadic_multiplication}
 \section{$N_\infty$-operads: 3/30/17}
@@ -56,6 +67,8 @@
 	\input{4_20_change_of_universe}
 \section{Consequences of the construction of the norm map: 4/25/17}
 	\input{4_25_norm_consequences}
+
+\chapter{Spectral sequences}
 \section{Tate spectra: 4/27/17}
 	\input{4_27_tate_spectra}
 \section{The slice spectral sequence: 5/2/17}
@@ -63,8 +76,10 @@
 \section{The homotopy fixed point spectral sequence: 5/15/17}
 	\input{5_15_homotopy_fixed_points}
 
-\addcontentsline{toc}{section}{References}
-\fancyhead[LO]{\small\itshape References}
+\backmatter
+
+\clearpage
+\fancyhead[LO]{\small\itshape Bibliography}
 \bibliography{references}{}
 \bibliographystyle{alpha}
 

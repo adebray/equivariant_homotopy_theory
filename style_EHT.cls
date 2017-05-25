@@ -20,18 +20,18 @@
 % Other options can be handed off to the amsart class (e.g. fontsize)
 % TODO: for larger notes, I want to use amsbook instead. How should I efficiently unify
 % this with shorter notes, which use amsart?
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsart}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsbook}}
 %
 \ProcessOptions\relax
 %
-\LoadClass{amsart}
+\LoadClass{amsbook}
 \RequirePackage[utf8]{inputenc}
 % Keeping this because, even for minimal notes, makes printing take up considerably less paper
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{mathtools}
-\RequirePackage{amssymb}
-\RequirePackage{amsthm}
+%\RequirePackage{amssymb}
+%\RequirePackage{amsthm}
 \RequirePackage{xparse}
 \RequirePackage{mathrsfs}
 \RequirePackage[usenames, dvipsnames]{xcolor}
@@ -382,8 +382,8 @@
 % 2. I still can't get fancyhdr to work the way I want it to.
 %
 \RequirePackage{fancyhdr}
-\RequirePackage{titlesec}
-\RequirePackage[dotinlabels]{titletoc}
+%\RequirePackage{titlesec}
+%\RequirePackage[dotinlabels]{titletoc}
 % after the font has been chosen
 \AtBeginDocument{
  \usepackage{microtype}
@@ -398,16 +398,17 @@
 }
 %
 % Custom section titles
+% TODO: make this work with amsbook
 % I really want to not depend on titlesec, as it's frustrating to use. However,
 % this setup is stable.
-\titleformat{\section}[frame]
-  {\normalfont}
-  {\filright
-   \footnotesize
-   \enspace Lecture \arabic{section}.\enspace}
-  {8pt}
-  {\Large\bfseries\filcenter}
-\titlecontents{section}[1.5em]{}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\hfill\contentspage}
+% \titleformat{\section}[frame]
+%   {\normalfont}
+%   {\filright
+%    \footnotesize
+%    \enspace Lecture \arabic{section}.\enspace}
+%   {8pt}
+%   {\Large\bfseries\filcenter}
+% \titlecontents{section}[1.5em]{}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\hfill\contentspage}
 %
 % Ornament to divide different parts of a section without introducing a new subsection
 \newcommand{\orbreak}{
@@ -449,6 +450,8 @@
 \newcommand*{\d@e}{\@empty}
 \renewcommand*{\author}[1]{\renewcommand{\@author}{#1}}
 \renewcommand*{\date}[1]{\renewcommand{\d@e}{#1}}
+
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
 %
 % These things should be defined after the user sets everything up in the preamble
 \AtBeginDocument{
