@@ -150,9 +150,9 @@ Restricting to spans of the form $X\stackrel\id\gets X\to Y$ defines a covariant
 $\sO_G\to B_G$, and restricting to spans of the form $Y\gets X\stackrel\id\to X$ defines a contravariant functor
 $\sO_G\op\to B_G$. Composing with a Mackey functor $F$ defines a pair of functors $\sO_G\op\to\Ab$ and
 $\sO_G\to\Ab$. We'll denote the image of an $f\colon X\to Y$ under these functors as $f^*$ and $f_*$, and given a
-diagram
+pullback diagram
 \[\xymatrix{
-	X'\ar[r]^{f'}\ar[d]^{g'} & X\ar[d]^g\\
+	X'\ar[r]^{f'}\ar[d]^{g'}\pushoutcorner & X\ar[d]^g\\
 	Y'\ar[r]^f & Y,
 }\]
 Mackey functors satisfy the \term{Chevalley condition} $g^*f_* = f_*'(g')^*$.
