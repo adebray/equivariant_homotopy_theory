@@ -1,6 +1,7 @@
 \begin{quote}\textit{
 	``Speaking as someone who spent three years thinking about this as a graduate student, this is hard.''
 }\end{quote}
+\label{evenssec}
 Today, we're going to talk about the Evens norm in group cohomology, tensor induction, and the norm in $\Spc^G$.
 All of this is about motivating the norm structure on Tambara functors, an extra covariant map $N_H^G$. We're going
 to explain where this is coming from in the context of topology and/or group cohomology. We've seen one approach
@@ -126,47 +127,5 @@ produces cocycles for $H^{np}(H;R)$.\footnote{\TODO: I didn't follow this.}
 	fruitful approach to research for some homotopy theorists. The analogue of the twisted action is a map
 	$E\Sigma_n\times_{\Sigma_n} X^n\to X$, which is used to construct the Steenrod operations. \qedhere
 \end{comp}
-Now we want to talk about a norm map $N_H^G\colon \Spc^H\to\Spc^G$. We know what we want to do, but the
-technicalities are tricky.
-\begin{notdefn}
-The \term{norm map} $N_H^G\colon \Spc^H\to\Spc^G$ sends
-\[M\mapsto \theta^*\paren{\bigwedge_{g\in G/H} M},\]
-which is the indexed smash product, in direct analogue with tensor induction.
-\end{notdefn}
-The reason we use the smash product instead of the wedge sum is that spectra are already abelian groups. The
-additive analogue of this construction is the Wirthmüller isomorphism.
-
-What makes this construction tricky is figuring out how to give $\bigwedge_{g\in G/H} M$ a $\Sigma_n\wr H$-action.
-The issue is the universe.
-\begin{exm}
-Let $X\in\Spc$, and let's consider $N_e^{C_2}X$. If $U$ is the universe we started with, $X\wedge X$ is in $U\oplus
-U$, and the smash product is a Kan extension along $U\oplus U\to U$.
-
-If $X$ is a space, $C_2$ acts on $X\times X$ by switching the pairs. And we know the diagonal map $x\mapsto (x,x)$
-defines an isomorphism $X\congto (N_e^{C_2} X)^{C_2}$. But if you have spectra instead, and the two universes are
-different, i.e.\ $U_1\oplus U_2$ instead of $U\oplus U$, which makes it hard to resolve.
-\end{exm}
-The solution is a trick, due to unpublished work of Lydakis and elucidated by~\cite{HHR}. Consider $X$ in the
-trivial $H$-universe, i.e.\ $X$ is an $H$-object in $\Spc$. Then there's no problem: $N_e^{C_2}X$ is a $C_2$-object
-in $\Spc$, or $\Spc^{C_2}$ with the trivial universe. If we're not keeping track of the equivariant universe, it's
-easy to make sense of the map $N_H^G\colon H\Spc\to G\Spc$.
-
-The trick is the following point, which is extremely subtle: we can define $N_G^H\colon \Spc^H\to\Spc^G$ by
-changing the universe from $\Spc^H$ to $H\Spc$ (i.e.\ the trivial universe), then using the tensor induction to get
-to $G\Spc$ (i.e.\ the trivial universe), then changing universe again to get back to $\Spc^G$. As a point-set
-construction, well, sure, this is a functor. But the crazy thing is that this works: you can make this a homotopical
-functor such that its derived functor is the right thing.
-
-We'll discuss the change-of-universe map next time; this is a Kan extension along diagrams, which will make this
-construction less sketchy.
-
-Recall that $\Spc^G[\P]$ denotes the category of commutative ring objects in $G$-spectra (sometimes also written
-$\cat{Comm}_H$). We'll show that $N_H^G\colon\Spc^H[\P]\to\Spc^G[\P]$ is left adjoint to $i^*_H$, and hence, if $R$
-is a commutative ring $G$-spectrum, we have a counit $N_H^Gi_H^*R\to R$ as we did in group cohomology.
-
-The principal player in~\cite{HHR} is obtained from this norm and a concrete $C_2$-spectrum: in \cref{MRdefn},
-we'll define real bordism $\mathit{MR}$, the cobordism theory of stably almost complex manifolds with a
-$C_2$-action by complex conjugation (there are some nuances to writing this down). Then, they consider the
-$C_8$-theory $N_{C_2}^{C_8}\mathit{MR}$, and do a lot of hard work to show this detects the Kervaire invariant in
-the stable homotopy groups of spheres. People are still working out the applications of this spectrum and this idea
-more generally, and you could count yourself among their numbers.
+We'll soon bring this from group cohomology into equivariant stable homotopy theory, where it becomes the
+Hill-Hopkins-Ravenel norm.

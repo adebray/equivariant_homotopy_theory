@@ -1,18 +1,148 @@
-Recall that we've been discussing the category $\Bispan_\fC(X,Y)$ of bispans
+Green functors are pretty cool, but we can and should expect more. Here's one reason. Suppose $R$ is an ordinary
+ring, or even a semiring, and let's look at the structure on $\set{R^X}$ (here, $R^X\coloneqq \Map(X,R)$) for some
+sets $X$. A map $X\to Y$ produces two kinds of maps $t, n\colon R^X\to R^Y$. The first, a transfer-like map, is
+defined by the formula
+\[t(f)(y)\coloneqq \sum_{f(x) = y} r(x),\]
+but we could also do
+\[n(f)(y)\coloneqq \prod_{f(x) = y} r(x),\]
+and there's no analogue of this in Green functors. The replacements are called \term{Tambara functors} (or
+\term{TNR functors}).\footnote{TNR stands for ``transfer, norm, restriction.''} Strickland's
+paper~\cite{StricklandTambara} on Tambara functors is really nice: it's complete and careful. Lewis has unpublished
+notes~\cite{LewisGreen} on Green functors, which are also good; you can find them, along with almost everything
+else in equivariant homotopy theory, on Doug Ravenel's website. Lewis' notes owe a debt to McClure's unpublished
+notes, which have been lost to history.
+\begin{rem}
+This is related to the theory of \term{polynomial functors}, which we won't talk about. You can set this up in
+great abstraction; if you torture it, you can get it to output actual polynomials. Tambara functors are an example
+of polynomial functors.
+\end{rem}
+\begin{defn}
+Let $\fC$ be a locally Cartesian closed category and $X,Y\in\fC$. Then, the \term{category of bispans} from $X$ to
+$Y$, denoted $\Bispan_\fC(X,Y)$ is the category whose objects are diagrams
 \begin{equation}
 \label{span1}
 \xymatrix{
-	X & S\ar[l]_f\ar[r]^g & T\ar[r]^h & Y,
+	X & S\ar[l]\ar[r] & T\ar[r] & Y
 }
 \end{equation}
-with morphisms
+and whose morphisms are commutative diagrams
 \[\xymatrix@R=0.2cm{
 	& S\ar[r]\ar[dl]\ar[dd]^\cong & T\ar[dd]^\cong\ar[dr]\\
 	X &&& Y\\
 	& S'\ar[r]\ar[ul] & T'.\ar[ur]
 }\]
-These can be used to understand polynomial functors, but the papers on polynomial functors are written in the
-language of type theory and things internal to the relevant topos. This is fine, but it may be unfamiliar.
+\end{defn}
+\begin{exm}
+\label{suggest_name}
+We'll care in particular about a few suggestively named bispans associated to a $\fC$-morphism $f\colon S\to T$:
+\begin{enumerate}
+	\item Let $R_f$ denote the bispan
+	\[\xymatrix{
+		T & S\ar[l]_f\ar[r]^\id & S\ar[r]^\id & S.
+	}\]
+	\item Let $N_f$ denote the bispan
+	\[\xymatrix{
+		S & S\ar[l]_\id\ar[r]^f & T\ar[r]^\id & T.
+	}\]
+	\item Let $T_f$ denote the bispan
+	\[\xymatrix{
+		S & S\ar[l]_\id\ar[r]^\id & S\ar[r]^f & T.\qedhere
+	}\]
+\end{enumerate}
+\end{exm}
+$R_f$ and $T_f$ will encode the restriction and transfer maps, respectively, in the underlying Mackey functor of a
+Tambara functor.
+
+One interesting question about bispans is when you can compose in the objects: is there a ``composition map''
+\begin{equation}
+\label{compbispan}
+\Bispan_\fC(Y,Z)\times\Bispan_\fC(X,Y)\longrightarrow\Bispan_\fC(X,Z)?
+\end{equation}
+To get this, we'll need to actually look at what being a locally Cartesian closed category means. Specifically, it
+means that any map $f\colon X\to Y$ in $\fC$ induces a pullback $f^*:\fC_{/Y}\to\fC_{/X}$, and we require that this
+map has a left and a right adjoint, respectively called the \term{dependent sum} $\Sigma_f$ and the \term{dependent
+product} $\Pi_f$, respectively. These can be thought of (e.g.\ in $\Set$) as coproducts (resp.\ products) indexed
+by the fibers.
+\begin{rem}
+There's an interesting connection to homotopy type theory: one of the early big theorems in type theory is that
+propositional calculus and lambda calculus are formally equivalent to the theory of locally Cartesian closed
+categories, so there was a lot of research into importing these categorical notions into type theory.
+
+The dependent sum and product are examples of base-change functors $f_*$ and $f_!$; the given notation may be
+unfamiliar, but is standard in the category-theoretic literature.
+\end{rem}
+\begin{exm}
+Let's see what this means in $G\Set$. For a map $f\colon X\to Y$, we want to compute $\Pi_f$. If $q\colon A\to Y$
+is an object of $G\Set_{/X}$, then its dependent product is $q'\colon \Pi_fA\to Y$, where
+\[\Pi_f A = \set{(y,s)\mid y\in Y, s\colon f^{-1}(y)\to A\text{ such that } q\circ s = \id}.\]
+That is, it's elements of $y$ along with sections of $q$ above the fiber $f^{-1}(y)$.
+\end{exm}
+Tambara functors will be associated to a particular kind of diagram.
+\begin{defn}
+An \term{exponential diagram} in a locally Cartesian closed category $\fC$ is any diagram isomorphic\footnote{This
+means in the category of diagrams of this shape, i.e.\ there are isomorphisms for every object in the diagram that
+commute with the maps in the diagram.} to one of the form
+\begin{equation}
+\label{exponential}
+\gathxy{
+	X\ar[d]^f & A\ar[l]_-q & X\times_Y \Pi_f A\ar[l]_-{\mathit{ev}}\ar[d]^{\pi_2}\\
+	Y & \Pi_f A\ar[l]_-{q'} & \Pi_fA.\ar@{=}[l]
+}
+\end{equation}
+This commutes.
+\end{defn}
+We can use this to build a diagram associated to two spans $X\gets A\to B\to Y$ and $Y\gets C\to D\to Z$: start
+with
+\begin{equation}
+\label{snake}
+\gathxy{
+	X & A\ar[l]\ar[d]\\
+	& B\ar[d]\\
+	& Y & C\ar[l]\ar[d]\\
+	& Z & D.\ar[l]
+}
+\end{equation}
+\TODO: in class, we got confused and didn't finish writing this diagram down. Anyways, you can use this (and in
+particular the exponential map) to define the composition operation we asked for in~\eqref{compbispan}.
+% bigdiag
+% (1), (2), (3) pullbacks
+% (4) is an exponential diagram
+If we let $0$ denote the bispan
+\[\xymatrix{
+	X & \emptyset\ar[l]\ar[r] & \emptyset\ar[r] & Y
+}\]
+and $1$ denote the bispan
+\[\xymatrix{
+	X & \emptyset\ar[l]\ar[r] & Y\ar[r]^\id & Y,
+}\]
+we get a semiring structure on the set of isomorphism classes of bispans. The sum of $[X\gets S\to T\to Y]$ and
+$[X\gets S'\to T'\to Y]$ is
+\[\xymatrix{
+	X & S\amalg S'\ar[l]\ar[r] & T\amalg T'\ar[r] & Y,
+}\]
+and their product is
+\[\xymatrix{
+	X & (S\times_Y T') \amalg (S'\times_Y T)\ar[l]\ar[r] & T\times_Y T'\ar[r] & Y,
+}\]
+and you can check $0$ and $1$ are the identities for the sum and product, respectively. When you see a semiring,
+you might think to take its Grothendieck group, and we will do this. We'll eventually also consider ``bispans with
+coefficients,'' i.e.\ those bispans $X\gets S\stackrel f\to T\to Y$ where $f$ is constrained to a subcategory $\fD$
+of $\fC$. You need a condition on $\fD$ for this to be a category,\footnote{The condition is that $\fD$ is
+\term{wide} (i.e.\ contains all objects in $\fC$), closed under pullbacks, and closed under coproducts. \TODO: I
+might have gotten an axiom wrong.} which is exactly the same as the condition for an indexing system! So there's
+$N_\infty$-operads floating around, and hence from a categorical perspective, we're forced to consider this notion
+of multiplication.
+
+%We'll then discuss Tambara functors and how the multiplicative structure on $\pi_0$ of a ring spectrum is a Tambara
+%functor. Then, we'll move to discussing the norm functor and some of its myriad uses.
+\begin{rem}
+Spans (sometimes also called correspondences) are useful in many different contexts. That bispans come up is
+weirder: they're certainly less ubiquitous. On the other hand, when you want one wrong-way map and two right-way
+maps, it does seem like a good idea.
+\end{rem}
+One can also use the category of bispans can be used to understand polynomial functors, but the papers on
+polynomial functors are written in the language of type theory and things internal to the relevant topos. This is
+fine, but it may be unfamiliar.
 
 Given the bispan~\eqref{span1} in the category of sets, we obtain a sequence of functors
 \[\xymatrix{
@@ -242,10 +372,10 @@ $f\colon \to Y$ of sets, $f^*(B\to Y)$ is $X\times_Y B$, $\Sigma_f(A\to X)$ is $
 \label{Evensexm}
 \begin{enumerate}
 	\item Group cohomology is a Tambara functor: the transfer and restriction maps are what we've seen before, and
-	the norm is the \term{Evens multiplicative transfer}, which we'll talk about next time.
+	the norm is the \term{Evens multiplicative transfer}, which we'll talk about in \S\ref{evenssec}.
 	\item Let $X$ be a commutative ring object in $\Sp^G$. Then, $\pi_0(X)$ is a Tambara functor. The idea is that
 	it'll be an algebra over an $N_\infty$ operad over a ``complete'' indexing system (again, this will be
-	elaborated next time).
+	elaborated on).
 	\item Let $\fD\subseteq G\Set$ be a wide subcategory, meaning it has all the objects (but perhaps not all the
 	morphisms). Then, let $P_\fD^G$ denote the category of bispans $X\stackrel f\gets A\stackrel g\to B\stackrel
 	h\to Y$ where $g$ is in $\fD$. We'd like $P_\fD^G$ to be a category, and there's a criterion that's not too
@@ -292,7 +422,8 @@ We won't be able to delve into the following proof.
 There is an equivalence of categories between the poset of wide, pullback stable, coproduct complete subcategories
 of $G\Set$ and the category of indexing systems for $G$.
 \end{thm}
-This tells us that all of the conditions imposed on indexing systems are inevitably imposed on us 
+This tells us that all of the conditions imposed on indexing systems are inevitably imposed on us if we want
+equivariant ring spectra.
 
 Next time, we'll discuss the Evens norm and $\pi_0$ of ring spectra as promised in \cref{Evensexm}, then proceed to
 the norm as defined in~\cite{HHR}: what its structure is, what you do with it, and why it was useful in their
