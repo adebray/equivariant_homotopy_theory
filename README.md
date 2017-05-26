@@ -5,8 +5,12 @@ class on [equivariant homotopy theory](https://ncatlab.org/nlab/show/equivariant
 Austin in Spring 2017. This repo holds the source code, in `.tex`, `.bib`, and `.cls` files; the compiled
 PDF [is available here](https://www.ma.utexas.edu/users/a.debray/lecture_notes/m392c_EHT_notes.pdf).
 
-I live-TeX these notes each day in class, and then go back afterwards to correct typos, add references,
+These notes were live-TeXed each day in class, then edited afterwards to correct typos, add references,
 etc. If you find typos or errors, you can email me to let me know, or just submit a pull request directly.
+
+Now that the semester is over, the notes have been cleaned up a bit. If you'd like to see what we covered
+in a given lecture, [here's a version of the PDF indexed by
+lecture](https://www.ma.utexas.edu/users/a.debray/lecture_notes/m392c_EHT_notes_old.pdf).
 
 ## Organization
 
@@ -15,7 +19,7 @@ etc. If you find typos or errors, you can email me to let me know, or just submi
 - The `style_EHT.cls` file contains some stylistic changes as well as a bunch of useful macros.  
 - The `macros.tex` file contains additional macros.  
 - The references are stored in BibTeX format in `references.bib`.  
-- Each lecture is placed in its own `.tex` file. Consult `m392c_EHT_notes.tex` to see which lecture
+- Each section is placed in its own `.tex` file. Consult `m392c_EHT_notes.tex` to see which section
   corresponds to which file.
 
 If you want to add a macro, add it to `macros.tex`, rather than the `.cls` file. If it's a common macro,
