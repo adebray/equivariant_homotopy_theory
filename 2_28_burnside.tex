@@ -1,7 +1,7 @@
 %!TEX root = m392c_EHT_notes.tex
 Just as coefficient systems for Bredon cohomology were $\Ab$-valued presheaves on the orbit category, Mackey
-functors are $\Ab$-valued presheaves on the Burnside category. We'll begin discussing this in this section, and
-provide another deifnition for the Burnside category which is more hands-on.
+functors are $\Ab$-valued presheaves on the Burnside category. We'll begin discussing this in this section, provide
+another deifnition for the Burnside category which is more hands-on, and provide an example.
 
 Let $\fC$ be a small category with finite limits and finite coproducts. In $\fC$, consider the diagram
 \[\xymatrix{
@@ -77,61 +77,6 @@ this is a functor $\Span(G\Set^{\mathrm{fin}})\to\pi_0\tilde B_G$, and therefore
 $B_G\to\pi_0\tilde B_G$. This is essentially surjective (i.e.\ for objects), and we've already computed that it's
 an isomorphism on hom sets.\footnote{\TODO: I think this was tom Dieck splitting, but want to make sure.}
 \end{proof}
-\begin{defn}
-A \term{Mackey functor} is a functor $B_G\op\to\Ab$.
-\end{defn}
-Restricting to spans of the form $X\stackrel\id\gets X\to Y$ defines a covariant functor
-$\sO_G\to B_G$, and restricting to spans of the form $Y\gets X\stackrel\id\to X$ defines a contravariant functor
-$\sO_G\op\to B_G$. Composing with a Mackey functor $F$ defines a pair of functors $\sO_G\op\to\Ab$ and
-$\sO_G\to\Ab$. We'll denote the image of an $f\colon X\to Y$ under these functors as $f^*$ and $f_*$, and given a
-pullback diagram
-\[\xymatrix{
-	X'\ar[r]^{f'}\ar[d]^{g'}\pushoutcorner & X\ar[d]^g\\
-	Y'\ar[r]^f & Y,
-}\]
-Mackey functors satisfy the \term{Chevalley condition} $g^*f_* = f_*'(g')^*$.
-\begin{prop}
-$\pi_*^H(\bl)$ defines a Mackey functor.
-\end{prop}
-The two functors $\sO_G,\sO_G\op\to\Ab$ are evident, coming from the usual maps in the orbit category and the
-transfer maps, but there are axioms to check.
-
-Let $M$ be a Mackey functor. Then, there exists an object $\mathit{HM}\in\Spc^G$, called the \term{equivariant
-Eilenberg-Mac Lane spectrum} for $M$, whose homotopy groups $\pi_G^*$ are determined by $M$.
-\begin{defn}
-The \term{cohomology} of an $X\in\Spc^G$ with coefficients in a Mackey functor $M$ is
-\[H^n(X;M)\coloneqq [X, \Sigma^n \mathit{HM}],\]
-which defines a $\Z$-graded cohomology theory. Moreover, one can define an $\RO(G)$-graded cohomology theory
-\[H^V(X;M)\coloneqq [X, \Sigma^V \mathit{HM}],\]
-where $V$ is a representation in $U$.
-\end{defn}
-The definition of an $\RO(G)$-graded cohomology theory requires some care, and we will investigate this; the naïve
-definition (which is worth writing down) you might write down is likely to be wrong for subtle reasons.
-
-The central algebraic analogue of the equivariant stable category is given by the category of Mackey functors.
-Mackey functors form a symmetric monoidal category under something called the box product; we'll define this in
-detail later, but it's familiar, arising as a Kan extension just like Day convolution.
-
-The point is, it makes sense to talk about commutative monoids in the category of Mackey functors, which are called
-\term{Green functors}~\cite{Green}. These aren't quite the right objects, however: we need to account for stable
-transfer data, which is what makes the equivariant stable category act the way it does.
-
-The more sophisticated notion of a commutative ring in Mackey functors involves additional multiplicative transfer
-data; these are called \term{Tambara functors} or \term{TNR functors}~\cite{Tambara}.
-
-Up to now, everything we've done was known to tom Dieck and can be found (perhaps not in this language)
-in~\cite{LMS}. But this stuff is more modern: this perspective on Tambara functors was popularized by~\cite{HHR}.
-Multiplicative transfers were originally considered by \cite{Evens} in representation theory, and
-\cite{GreenleesMay} also wrote about them, but~\cite{HHR} innovated the norm and how it interacts with these
-multiplicative transfer maps.
-
-This leads to an interesting question about calculations, which appears as soon as you try to start doing things.
-\begin{ques}
-On the homotopy groups $\pi_*"\bl$, we have restrictions and transfer maps. What can we say about the composite of
-a restriction map and a transfer map, or a transfer map and a restriction map?
-\end{ques}
-The answer involves double coset formulae, and can be thought of in a few ways: we'll start with the classical
-perspective and become more modern.
-
-Next time, we'll talk more about Mackey functors and $\RO(G)$-graded cohomology theories, including how to
-construct Eilenberg-Mac Lane spectra, which is considerably more difficult than in the nonequivariant case.
+\begin{exm}
+\TODO: carefully construct the Burnside category of $C_2$.
+\end{exm}

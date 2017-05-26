@@ -1,7 +1,64 @@
-Today, we'll talk about Mackey functors, picking up more or less where we left off. The category of Mackey
-functors is a replacement for the category of abelian groups for the purpose of defining cohomology theories; it's
-also an abelian category, but it's more complicated. For now, let's assume $G$ is a finite group; we will address
-the compact case later.
+In this section, we introduce Mackey functors, which play a role analogous to abelian groups for equivariant stable
+homotopy theory: given a Mackey functor $\underline M$, we can define an Eilenberg-Mac Lane $G$-spectrum
+$H\underline M$, which represents $\RO(G)$-graded cohomology in $M$. Moreover, by remembering the transfer map, we
+can realize cohomology theories as valued in Mackey functors.
+\begin{defn}
+A \term{Mackey functor} is a functor $B_G\op\to\Ab$.
+\end{defn}
+Restricting to spans of the form $X\stackrel\id\gets X\to Y$ defines a covariant functor
+$\sO_G\to B_G$, and restricting to spans of the form $Y\gets X\stackrel\id\to X$ defines a contravariant functor
+$\sO_G\op\to B_G$. Composing with a Mackey functor $F$ defines a pair of functors $\sO_G\op\to\Ab$ and
+$\sO_G\to\Ab$. We'll denote the image of an $f\colon X\to Y$ under these functors as $f^*$ and $f_*$, and given a
+pullback diagram
+\[\xymatrix{
+	X'\ar[r]^{f'}\ar[d]^{g'}\pushoutcorner & X\ar[d]^g\\
+	Y'\ar[r]^f & Y,
+}\]
+Mackey functors satisfy the \term{Chevalley condition} $g^*f_* = f_*'(g')^*$.
+\begin{prop}
+$\pi_*^H(\bl)$ defines a Mackey functor.
+\end{prop}
+The two functors $\sO_G,\sO_G\op\to\Ab$ are evident, coming from the usual maps in the orbit category and the
+transfer maps, but there are axioms to check.
+
+Let $M$ be a Mackey functor. Then, there exists an object $\mathit{HM}\in\Spc^G$, called the \term{equivariant
+Eilenberg-Mac Lane spectrum} for $M$, whose homotopy groups $\pi_G^*$ are determined by $M$.
+\begin{defn}
+The \term{cohomology} of an $X\in\Spc^G$ with coefficients in a Mackey functor $M$ is
+\[H^n(X;M)\coloneqq [X, \Sigma^n \mathit{HM}],\]
+which defines a $\Z$-graded cohomology theory. Moreover, one can define an $\RO(G)$-graded cohomology theory
+\[H^V(X;M)\coloneqq [X, \Sigma^V \mathit{HM}],\]
+where $V$ is a representation in $U$.
+\end{defn}
+The definition of an $\RO(G)$-graded cohomology theory requires some care, and we will investigate this; the naïve
+definition (which is worth writing down) you might write down is likely to be wrong for subtle reasons.
+
+The central algebraic analogue of the equivariant stable category is given by the category of Mackey functors.
+Mackey functors form a symmetric monoidal category under something called the box product; we'll define this in
+detail later, but it's familiar, arising as a Kan extension just like Day convolution.
+
+The point is, it makes sense to talk about commutative monoids in the category of Mackey functors, which are called
+\term{Green functors}~\cite{Green}. These aren't quite the right objects, however: we need to account for stable
+transfer data, which is what makes the equivariant stable category act the way it does.
+
+The more sophisticated notion of a commutative ring in Mackey functors involves additional multiplicative transfer
+data; these are called \term{Tambara functors} or \term{TNR functors}~\cite{Tambara}.
+
+Up to now, everything we've done was known to tom Dieck and can be found (perhaps not in this language)
+in~\cite{LMS}. But this stuff is more modern: this perspective on Tambara functors was popularized by~\cite{HHR}.
+Multiplicative transfers were originally considered by \cite{Evens} in representation theory, and
+\cite{GreenleesMay} also wrote about them, but~\cite{HHR} innovated the norm and how it interacts with these
+multiplicative transfer maps.
+
+This leads to an interesting question about calculations, which appears as soon as you try to start doing things.
+\begin{ques}
+On the homotopy groups $\pi_*"\bl$, we have restrictions and transfer maps. What can we say about the composite of
+a restriction map and a transfer map, or a transfer map and a restriction map?
+\end{ques}
+The answer involves double coset formulae, and can be thought of in a few ways: we'll start with the classical
+perspective and become more modern.
+
+For the rest of this section, assume $G$ is a finite group.
 
 We'll let $G\Set$ denote the category of finite $G$-sets and equivariant maps. When we work with $\RO(G)$-graded
 theories, it will be important to embed everything in some universe, an infinite $G$-set containing all finite
@@ -10,10 +67,10 @@ theories that make this important; \cite{GuillouMay} provided the first proof of
 $G$-spectra are spectral presheaves on the Burnside category, but there were important coherence issues to work
 out, for example.
 
-Anyways, we saw last time that a Mackey functor $\underline M$ is specified by a pair of functors $M_*,M^*$, where
-$M_*\colon G\Set\to\Ab$ is covariant, $M^*\colon (G\Set)\op\to\Ab$ is contravariant, and $M_*$ and $M^*$ agree on
-objects, so it makes sense to write $\underline M(T)$ or $\underline M(G/H)$ (the latter may also be written
-$\underline M(H)$).
+We've seen that a Mackey functor $\underline M$ is specified by a pair of functors $M_*,M^*$, where $M_*\colon
+G\Set\to\Ab$ is covariant, $M^*\colon (G\Set)\op\to\Ab$ is contravariant, and $M_*$ and $M^*$ agree on objects, so
+it makes sense to write $\underline M(T)$ or $\underline M(G/H)$ (the latter may also be written $\underline
+M(H)$).
 
 Mackey functors are determined by their restrictions to orbits, as $\underline M(A\amalg B) = \underline
 M(A)\oplus\underline M(B)$ and given a pullback
@@ -102,73 +159,3 @@ including the double coset formula~\eqref{double_coset_formula}. The more abstra
 functors are sketched or left out in the literature, but \cite{Webb} and \citeme{Devinatz} are pretty good
 references.
 \end{rem}
-\subsection*{$\RO(G)$-graded cohomology theories.}
-In the back of your mind, you should be wondering about the connection between $G$-spectra, equivariant cohomology
-theories, and Mackey functors. In the nonequivariant setting, Brown representability establishes an (almost)
-equivalence between spectra and cohomology theories. Equivariantly, things are very similar: $G$-spectra play the
-role of spectra, equivariant cohomology theories play the role of cohomology theories, and, less tautologically,
-Mackey functors play the role of abelian groups. We'll talk about rings later.
-
-Roughly speaking, an $\RO(G)$-graded cohomology theory should be some collection of functors $E^\alpha$ indexed by
-$\alpha\in\RO(G)$ such that for any $G$-representation $V$, $E^\alpha(X) \cong E^{\alpha+V}(\Sigma^V X)$, and any
-fixed $\alpha$ should satisfy the wedge and cofiber axioms, taking wedge products to coproducts and cofiber
-sequences to long exact sequences.
-
-The (well, an) issue that makes this tricky is that you can't really work with isomorphism classes of
-representations, even though you need that to define $\RO(G)$. As a workaround, let's fix a $G$-universe $U$ and
-define $\cat{RO}(G;U)$ to be the category whose objects are finite-dimensional representations $V$ that embed
-equivariantly in $U$ and whose morphisms $V\to W$ are $G$-equivariant isometric isomorphisms.\footnote{The data of
-the embedding $V\inj U$ is not used in $\cat{RO}(G;U)$. When we discuss multiplicative structures, this will
-change.} We say that two maps $f,g\colon V\to W$ are \term{homotopic} if their one-point compactifications
-$\overline f, \overline g\colon S^V\to S^W$ are stably homotopic. We don't have enough structure to set up a model
-category or anything, but we can define the homotopy category $\Ho(\cat{RO}(G;U))$ by passing to homotopy classes
-of maps.
-
-A finite-dimensional $G$-representation defines a suspension functor
-\[\Sigma^W\colon \Ho(\cat{RO}(G;U))\times\Ho(G\Top)\longrightarrow \Ho(\cat{RO}(G;U))\times\Ho(G\Top)\]
-which sends
-\[(V,X)\mapsto (V\oplus W, \Sigma^W X).\]
-This feels a lot like ordinary $S^W$-suspension, but we're keeping track of the automorphisms of $W$.
-\begin{defn}
-An \term{$\RO(G)$-graded cohomology theory} is a functor $E\colon\Ho(\cat{RO}(G;U))\times\Ho(G\Top)\op\to\Ab$,
-where $E(V,X)$ is generally written $E^V(X)$, together with
-isomorphisms
-\[\sigma_W\colon E^V(X)\longrightarrow E^{V\oplus W}(\Sigma^W X),\]
-such that for each $V$, $E^V(\bl)$ satisfies the wedge and cofiber axioms and for each isometric isomorphism
-$\alpha\colon W\to W'$, the map
-\[\xymatrix{
-	E^V(X)\ar[r]^-{\sigma_W}\ar[d]^{\sigma_{W'}} & E^{V\oplus W}(\Sigma^W X)\ar[d]^{(\id\oplus\alpha, \id)}\\
-	E^{V\oplus W'}(\Sigma^{W'}X)\ar[r]^{(\id\oplus\id, \alpha)} & E^{V\oplus W'}(\Sigma^W X).
-}\]
-We further require that $\sigma_0 = \id$ and the $\set{\sigma_W}$ are transitive: $\sigma_W\circ\sigma_V =
-\sigma_{V\oplus W}$.
-\end{defn}
-\begin{defn}
-The \term{formal differences} of objects in $\cat{RO}(G;U)$ are equivalence classes of pairs $(V,W)$ of objects in
-$\cat{RO}(G;U)$, where $(V,W)\sim(V',W')$ if $V\oplus W'\cong V'\oplus W$. The pair $(V,W)$ is also denoted
-$V\ominus W$.
-\end{defn}
-We can extend an $\cat{RO}(G;U)$-graded cohomology theory to formal differences by $E_{V\ominus W}(X)\coloneqq
-E_V(\Sigma^W X)$.
-
-Let $\tau\colon V\oplus W\to W\oplus V$ be the transposition natural isomorphism. Then, the coherence condition on
-the $\sigma_{(\bl)}$ means that the diagram
-\[\xymatrix{
-	E_V(\Sigma^W X)\ar[r]\ar[d] & E_{V\oplus W'}(\Sigma^{W\oplus W'}X)\ar[d]^{\tau_*}\\
-	E_{V'}(\Sigma^{W'}X)\ar[r] & E_{V'\oplus W}(\Sigma^{W'\oplus W}X)
-}\]
-commutes.
-\begin{rem}
-When you add ring structures to this story, the coherence conditions become gnarlier: there's a cocycle arising
-from the pentagon diagram for associativity. Unfortunately, this is not treated well in the literature; Lewis'
-thesis~\cite{LewisThesis} discusses it, but was not fully published. \cite[Appendix A]{LewisMandell} talks about
-it, and \citeme{Dugger} worked it out in the abstract in the motivic setting.
-\end{rem}
-We'll also need to talk about the equivalence between $\Spc^G$ and $\RO(G)$-graded cohomology theories; one
-direction is Brown representability, and the other is more or less straightforward.
-
-You may be asking why we use $\RO(G)$-graded theories at all. One great reason is that there are known examples of
-$\Z$-graded cohomology theories that are extremely chaotic, but the $\RO(G)$-graded theories have nice patterns.
-% earliest example I know is big hard book by Gaunce Lewis
-Another, more recent, realization is that in many cases the $\RO(G)$-graded theories carry more useful information.
-However, of course, they're extremely hard to compute.

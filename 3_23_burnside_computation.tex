@@ -1,0 +1,228 @@
+\begin{quote}\textit{
+	``I came here to chew bubblegum and compute cohomology groups, and I'm all out of bubblegum.''
+}\end{quote}
+Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
+source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
+define a whole bunch of Mackey functors along the way.
+\begin{beast}\hfill
+\label{best_bestiary}
+\begin{enumerate}
+	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
+	Mackey functor $A$ takes the form\footnote{\TODO: I want to work through this and understand it.}
+	\begin{equation}
+	\label{burnmack}
+	\gathxy{
+		\Z\oplus\Z\ar@/_0.4cm/[d]_{(x,y)\mapsto x+2y}\\
+		\Z.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{(0,1)}
+	}
+	\end{equation}
+	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$:
+	\[\xymatrix{
+		G\ar@/_0.4cm/[d]_0\\
+		0.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_0
+	}\]
+	\item Given a $C_2$-Mackey functor, we can forget to a $\Z[C_2]$-module by evaluating at $C_2/e$. This has
+	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L(M)$, is\footnote{\TODO:
+	are the maps wrong?}
+	\[\xymatrix{
+		M/C_2\ar@/_0.4cm/[d]_\tr\\
+		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\pi
+	}\]
+	where $\pi$ is projection. The right adjoint, denoted $R(M)$, is
+	\[\xymatrix{
+		M^{C_2}\ar@/_0.4cm/[d]\\
+		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]
+	}\]
+	where the map down is the inclusion of fixed points, and the map up is the trace: if $\gamma\in C_2$ is the
+	nontrivial element, send $x\mapsto x+\gamma x$.
+	\item Regarding $\Z$ as a trivial $\Z[C_2]$-module, we obtain $L\coloneqq L(\Z)$ and $R\coloneqq R(\Z)$, which
+	are explicitly
+	\[\gathxy{
+		\Z\ar@/_0.4cm/[d]_{\cdot 2}\\
+		\Z\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\id
+	}\qquad\text{and}\qquad
+	\gathxy{
+		\Z\ar@/_0.4cm/[d]_\id\\
+		\Z,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{\cdot 2}
+	}
+	\]
+	respectively.
+	\item If $\Z\sigma$ denotes $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L_-\coloneqq
+	L(\Z\sigma)$ and $R_-\coloneqq R(\Z\sigma)$, which are explicitly
+	\[\gathxy{
+		\Z/2\ar@/_0.4cm/[d]_0\\
+		\Z\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_\pi
+	}\qquad\text{and}\qquad
+	\gathxy{
+		0\ar@/_0.4cm/[d]_0\\
+		\Z,\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_0
+	}
+	\]
+	respectively.
+\end{enumerate}
+\end{beast}
+\begin{ex}
+Show that $L(\bl)$ and $R(\bl)$ are really left and right adjoints to the forgetful map
+$\cat{Mac}\to\Mod_{\Z[C_2]}$.
+\end{ex}
+It's possible to write down lots of Mackey functors, and it's entertaining to do so. But the key examples arise as
+$\pi_0 X$, where $X$ is a $G$-spectrum. You might ask if all Mackey functors arise this way --- and for once we
+know the answer: we constructed Eilenberg-Mac Lane spectra for every Mackey functor, so the answer is yes!
+
+The next question: do functors on the category of Mackey functors arise as $\pi_0$ of functors on $\Spc^G$? You can
+also ask lots of questions from commutative algebra, e.g.\ how to think of rings and modules in this context, and
+the answers are generally harder than in the purely algebraic case.
+
+Anyways, using the bestiary, we can state the answer. It's complicated, but the dimension axiom is complicated in
+equivariant cohomology too.
+\begin{thm}
+\label{Aval}
+\[H_{C_2}^{p,q}(*; A_{C_2}) = \begin{cases}
+	A, &p = q = 0\\
+	R, &p+q = 0,\ p < 0,\ p\text{\rm{} even}\\
+	R_-, &p+q = 0,\ p \le 1,\ p\text{\rm{} odd}\\
+	L, &p+q = 0,\ p > 0,\ p\text{\rm{} even}\\
+	L_-, &p+q = 0,\ p < 1,\ p\text{\rm{} odd}\\
+	\ang\Z, &p+q\ne 0, p = 0\\
+	\ang{\Z/2} & p+q > 0,\ p < 0,\ p\text{\rm{} even}\\
+	\ang{\Z/2} & p+q < 0,\ p > 1,\ p\text{\rm{} even}\\
+	0, &\text{\rm otherwise.}
+\end{cases}\]
+\end{thm}
+\begin{rem}
+The description of $H_{C_2}^*(*;A_{C_2})$ in~\cite[Thm.~2.1]{Lew88} use a different grading, indexing by $(p+q,p)$.
+\end{rem}
+So the good news is, the answer is determined by the fixed and total dimensions. This also generalizes nicely to
+$C_p$ when $p$ is odd. Though this looks kind of frightening, Lewis~\cite{Lew88} proved that if $X$ has
+even-dimensional cells, then its cohomology is free over that of a point, which is good. Moreover, the
+$\RO(C_2)$-grading makes these statements cleaner; things like this just aren't true for the $\Z$-graded theories.
+
+The computation follows by analyzing the following cofiber sequence(s),\footnote{In the nonequivariant case, you
+probably wouldn't dwell on this so explicitly, just like we mentioned Spanier-Whitehead duality for a point to make
+it clearer what's going on.} and proceeds in a similar way as for $\underline\Z$, just with a harder
+answer.\footnote{\TODO: some confusion as to which cofiber sequences work out correctly.}
+\begin{gather}
+%\xymatrix{
+%	(C_2)_+\ar[r] & S(\eta)_+\ar[r] & \Sigma(C_2)_+
+%}\\
+% \xymatrix{
+% 	S(\eta)_+\ar[r] & D(\eta)_+\ar[r] & S^\eta
+% }\\
+\label{sigmacofib}
+\xymatrix{
+	(C_2)_+\cong S(\sigma)_+\ar[r] & D(\sigma)_+\ar[r] & S^\sigma
+}
+\end{gather}
+Here $\sigma$ is the sign representation, and we'd like $\eta$ to be the nontrivial irreducible complex
+$C_2$-representation, regarded as a two-dimensional real representation.
+
+Recall that we defined a zoo of Mackey functors for $C_2$ in \cref{best_bestiary}, and we will continue to use that
+notation today. We stated the answer to the calculation of $\underline H_{C_2}^{p,q}(S^0;A_{C_2})$ (the underline
+means calculating the Mackey functors) in \cref{Aval}, and it may help to see it as a plot indexed in $x = p$
+(fixed dimension) and $y = p+q$ (total dimension), as in \cref{ROgdiag}.
+\begin{figure}[h!]
+\[\xymatrix@R=0.2cm@C=0.2cm{ % TODO wrong
+	& & \vdots     && \vdots     && \vdots\\
+	& & \ang{\Z/2} && \ang{\Z/2} && \ang\Z\\
+	& & \ang{\Z/2} && \ang{\Z/2} && \ang\Z\\
+	& & \ang{\Z/2} && \ang{\Z/2} && \ang\Z\\
+	& & \ang{\Z/2} && \ang{\Z/2} && \ang\Z\\
+	\dotsb & R^- & R & R^- & R & R^- & A & R^- & L & L^- & L & L^- & \dotsb\\
+	& & & & & & \ang\Z && \ang{\Z/2} && \ang{\Z/2}\\
+	& & & & & & \ang\Z && \ang{\Z/2} && \ang{\Z/2}\\
+	& & & & & & \ang\Z && \ang{\Z/2} && \ang{\Z/2}\\
+	& & & & & & \ang\Z && \ang{\Z/2} && \ang{\Z/2}\\
+	& & & & & & \vdots && \vdots && \vdots
+}\]
+\caption{$\underline H_{C_2}^{p,q}(S^0;A_{C_2})$, indexed by $(p,p+q)$.}
+\label{ROgdiag}
+\end{figure}
+
+The approach we'll use to prove \cref{Aval}, which is a general strategy for understanding $H_G^*(S^0)$ is to
+calculate $H_0^*(S^V)$ and use the Künneth spectral sequence to combine $S^{V\oplus W}$. However, this has only
+been done for cyclic groups and $D_3$; if you do it for pretty much any other group, it would be novel (and
+publishable). If you like spectral sequences and homological algebra, you could work on it --- but it might not be
+interesting. On the other hand, the engine that lets \cite{HHR} prove the Kervaire invariant $1$ problem is a
+computation of $\RO((C_2)^n)$-graded cohomology of a point with coefficients in constant Mackey functors, which
+leads to the gap theorem, using a method Doug Ravenel suggested in the 1970s, so who knows what you could discover?
+
+In our calculation, we'll exploit the cofiber sequence~\eqref{sigmacofib} heavily. The first example is the
+calculation of $H_{C_2}^{p,q}((C_2)_+)$.
+\begin{prop}
+\[H_{C_2}^{p,q}((C_2)_+) = \begin{cases}
+	A_{C_2}, &p +q = 0\\
+	0, &\text{\rm otherwise.}
+\end{cases}\]
+\end{prop}
+\begin{proof}[Proof sketch]
+Let $M$ be an abelian group and $M^2$ denote the $\Z[C_2]$-module $M\oplus M$, where the nontrivial element of
+$C_2$ acts by switching the factors.\footnote{\TODO: I didn't follow this proof at all.}
+\begin{ex}
+Show that $L(M^2) = R(M^2)$.
+\end{ex}
+We'll let $M_{C_2}$ denote $L(M^2)$. If $M$ is a Mackey functor, the notation $M_{C_2}$ means $L(M(e)^2)$.
+
+Observe that $\underline H_{C_2}^{p,q}((C_2)_+)\cong (\underline H_{C_2}^{p,q}(S^0)(e))_{C_2}$.
+\end{proof}
+Using the long exact sequence associated to~\eqref{sigmacofib}, the map
+\[H_{C_2}^{p,q-1}(S^0)\cong H_{C_2}^{p,q}(S^\sigma)\longrightarrow H_{C_2}^{p,q}(S^0)\]
+is injective if $p+q\ne 1$ and surjective when $p+q\ne 0$, hence an isomorphism when $p+q\ne 0,1$.
+
+Therefore, we conclude that there are $0$s in the upper right and lower left quadrants (indexing by $(p,p+q)$ as in
+\cref{ROgdiag}): when $H_{C_2}^{p,q-1}(S^0)\cong H_{C_2}^{p,q}(S^0)$, we can pull the $\sigma$ factors out of the
+representation and use the dimension axiom.
+\begin{prop}
+When $p+q = 1$, we have
+\[\underline H_{C_2}^{p,q}(S^0)\cong \coker\paren{\underline H_{C_2}^{p,q-1}((C_2)_+)\longrightarrow \underline
+H_{C_2}^{p,q-1}(S^0)}\]
+and when $p+q = -1$,
+\[\underline H_{C_2}^{p,q}(S^0)\cong \ker\paren{\underline H_{C_2}^{p,q+1}(S^0)\longrightarrow \underline
+H_{C_2}^{p,q+1}((C_2)_+)}.\]
+We also have
+\[(\underline H_{C_2}^{p,q}(S^0))(e) = 0.\]
+\end{prop}
+These follow from the long exact sequences for~\eqref{sigmacofib} in cohomology and homology, using the dualities
+\[\underline H_{C_2}^{p,q}(S^0)\cong \underline H_{-p,-q}^{C_2}(S^0)\qquad\qquad\text{and}\qquad\qquad\underline
+H_{C_2}^{p,q}((C_2)_+)\cong \underline H_{-p,-q}^{C_2}((C_2)_+).\]
+\begin{lem}
+$\underline H_{C_2}^{1,-1}(S^0)\cong R^-$.
+\end{lem}
+\begin{proof}
+Once again we use the long exact sequence
+\[\xymatrix{
+	H_{C_2}^{0,0}(S^0)\ar[r] & H_{C_2}^{0,0}((C_2)_+)\ar[r] & H_{C_2}^{1,0}(S^\sigma)\ar[r] &
+	H_{C_2}^{1,0}(S^0).
+}\]
+Since $H_{C_2}^{0,0}(S^0) = A$, $H_{C_2}^{0,0}((C_2)_+)= A_{C_2}$, $H_{C_2}^{1,0}(S^\sigma) \cong
+H_{C_2}^{1,-1}(S^0)$, and $H_{C_2}^{1,0}(S^0) = 0$, then this long exact sequence is actually
+\[\xymatrix{
+	A\ar[r] & A_{C_2}\ar[r] & H_{C_2}^{1,-1}(S^0)\ar[r] & 0,
+}\]
+from which the result follows.
+\end{proof}
+Thus, the only piece left is the case when $p+q = 0$.
+\begin{ex}
+Compute $\underline H_{C_2}^{p,q}(S^0)$ when $p+q = 0$. This will again involve a manipulation of the long exact
+sequence.
+\end{ex}
+\begin{ex}
+What happens for other primes? Though it's more difficult, it isn't that different from the case where $p = 2$, and
+$H^\alpha$ still only depends on $\abs\alpha$ and $\abs{\alpha^{C_p}}$. The key will be to use two cofiber
+sequences associated to an irreducible $C_p$-representation $V$:
+\begin{subequations}
+\begin{gather}
+	\xymatrix{
+		(C_p)_+\ar[r] & S^0\ar[r] & S^V
+	}\\
+	\xymatrix{
+		(C_p)_+\ar[r] & S(V)\ar[r] & \Sigma(C_p)_+.
+	}
+\end{gather}
+\end{subequations}
+\end{ex}
+If you like computations, working through this will be enlightening.
+\begin{rem}
+This $\RO(G)$-graded structure is a lot of extra data and pain, but there are good reasons for it: the nice
+symmetry present in \cref{ROgdiag} collapses into confusing data in the $\Z$-graded theory, and freeness results
+that ought to be true require the $\RO(G)$-grading.
+\end{rem}
