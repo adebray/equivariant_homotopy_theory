@@ -1,6 +1,5 @@
-Today, we're going to talk about the Wirthmüller isomorphism and tom Dieck splitting. The Wirthmüller isomorphism
-is the equivariant analogue of the nonequivariant statement that in the stable homotopy category $\Ho(\Spc)$,
-finite sums and products are equivalent:
+In this section, we'll conver the Wirthmüller isomorphism, the equivariant analogue of the nonequivariant statement
+that in the stable homotopy category $\Ho(\Spc)$, finite sums and products are equivalent:
 \begin{equation}
 \label{additivespec}
 \bigvee_{i=1}^n X_i\stackrel\cong\longrightarrow \prod_{i=1}^n X_i.
@@ -153,46 +152,15 @@ observation is that the composition $S^V\to G\wedge_H S^V\to S^V$ is the identit
 this: it's possible to write down an explicit homotopy inverse). This motivates the slogan that ``the Wirthmüller
 isomorphism is the inverse of the transfer map,'' which we'll say more about later.
 \end{rem}
-\subsection*{Tom Dieck splitting.}
-Tom Dieck splitting is a decomposition of the fixed points of a suspension $G$-spectrum, either of the statements
-\begin{subequations}
-\begin{align}
-\label{splevelTD}
-(\Sigma^\infty X)^G &\cong \bigvee_{(H)\subseteq G} E\mathit{WH}_+\wedge_{\mathit{WH}} X^H\\
-\pi_*(\Sigma^\infty X)^G &\cong\bigoplus_{(H)\subseteq G}
-\pi_*^{\mathit{WH}}\paren{\Sigma^\infty E\mathit{WH}_+\wedge_{\mathit{WH}}X^H}.
-\label{what_well_prove}
-\end{align}
-\end{subequations}
-By $(H)\subseteq G$, we mean indexing over the conjugacy classes of subgroups of $G$. Here $\mathit{WH} =
-\mathit{NH}/H$ as usual; if $H\trianglelefteq G$, then this is $G/H$. Tom Dieck splitting looks complicated; you
-might have hoped that $\Sigma^\infty$ and $(\bl)^G$ commute, but they don't, and this is how they don't. But when
-$X = S^0$, this tells you a decomposition of $\pi_*^G(\Sph)$.
+You can use \cref{wirthcor} to explicitly write down the transfer map: given subgroups $K\subseteq H\subseteq G$,
+we have the ``right-way'' map $G/H\to G/K$, and therefore a map $\sus(G/K_+)\cong D(G/K_+)\to
+D(G/H_+)\cong\sus(G/H_+)$. By the Wirthmüller isomorphism, this is the same as a map $F(G/K_+,S)\to F(G/H_+,S)$,
+which is exactly the transfer map!
+
+This is a little circular; if you look carefully into the proof of \cref{Wirthiso}, the transfer map is already
+there. But the point is more philosophical: the existence of transfers is the same thing as the Wirthmüller
+isomorphism.
 \begin{rem}
-Guillou-May~\cite{GM17} derive tom Dieck splitting as a consequence of the equivariant Barratt-Priddy-Quillen
-theorem. We'll give a more elementary proof.
+Transfer maps can be studied in more generality, e.g.\ in the context of equivariant vector bundles on homogeneous
+spaces. Rothenberg wrote some stuff, but~\cite{LMS} is probably the best source.
 \end{rem}
-We have a cofiber sequence, called the \term{isotropy separation sequence},
-\[\xymatrix@1{
-	EG_+\ar[r] & S^0\ar[r] & \widetilde{EG},
-}\]
-which induces for any spectrum $X$ a cofiber sequence
-\begin{equation}
-\label{EGisot}
-\xymatrix@1{
-	(EG_+\wedge X)^G\ar[r] & X^G\ar[r] & (\widetilde{EG}\wedge X)^G.
-}
-\end{equation}
-Take $X = \Sph = \Sigma^\infty S^0$, giving
-\[\xymatrix@1{
-	(\Sigma^\infty EG_+)^G\ar[r] & \Sph^G\ar[r] & (\Sigma^\infty\widetilde{EG})^G.
-}\]
-There are three key observations; one is easy, one is harder, and the one was a major structural theorem.
-\begin{itemize}
-	\item When $X$ is a suspension spectrum,~\eqref{EGisot} splits.
-	\item The \term{Adams isomorphism} tells us the cofiber: $(\Sigma^\infty EG_+)^G\simeq\Sigma^\infty BG_+$.
-	\item The last term is $(\widetilde{EG}\wedge X)^G\cong\Phi^G X$.
-\end{itemize}
-Tom Dieck proved tom Dieck splitting by inducting over isotropy sequences, adding one conjugacy class at a time.
-This is one of the two major methods of induction in equivariant homotopy theory (the other being induction over
-cells), and was a key step in the resolution of the Kervaire invariant $1$ problem~\cite{HHR}.

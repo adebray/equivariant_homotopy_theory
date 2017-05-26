@@ -1,90 +1,9 @@
 %!TEX root = m392c_EHT_notes.tex
-\label{monads}
 \begin{quote}\textit{
 	``May your first talk be more peaceful.''
 }\end{quote}
-Today, we'll discuss a model for the equivariant stable category, but first we'll say something about algebras and
-monads that went by quickly last time.
-
-Last time, we introduced two monads $\T$ and $\P$ on $\Spc^\sI$, defined as
-\[\T X\coloneqq \bigvee_{k\ge 0} X^{\wedge k}\qquad\qquad \P X\coloneqq \bigvee_{k\ge 0} X^{\wedge k}/\Sigma_k.\]
-Let's delve into this a little more.
-\begin{defn}
-A \term{monad} $M$ on a category $\fC$ is an endofunctor of $\fC$ which is a monoid in the functor category
-$\Fun(\fC,\fC)$.
-\end{defn}
-That is, there's a natural transformation $\mu\colon M^2\to M$ and a unit, and $\mu$ is associative and unital in
-that the relevant diagrams commute.
-
-There are lots of examples: we've already seen that if $G$ is a group, the assignment $X\to G\times X$ is a monad.
-More generally, algebraic structures can usually be obtained monadically.
-\begin{defn}
-Let $M$ be a monad on $\fC$. Then, the category $\fC[M]$ of \term{algebras over $M$} is the category whose objects
-are pairs $X\in\fC$ and structure maps $m\colon MX\to X$ satisfying associativity and unitality for $M$, and whose
-morphisms are the $\fC$-morphisms that are compatible with the structure maps.
-\end{defn}
-The associativity diagram, for example, is
-\[\xymatrix{
-	M^2X\ar[r]^m\ar[d]^\mu & MX\ar[d]^m\\
-	MX\ar[r]^m & X.
-}\]
-We require this to commute.
-
-Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and similarly for
-abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
-adjunctions: an adjunction $\adjnctn\fC\fD FG$ defines a monad $GF$, with the structure map defined by
-the unit map $G(FG)F\to GF$. Many monads arise in this way.
-
-There is always a free-forgetful adjunction $\adjnctn \fC{\fC[M]}FU$, which has to do with the
-Barr-Beck theorem. Suppose $\fC$ is a model category. We'd like to lift this to a model structure on $\fC[M]$ ---
-when does $\fC[M]$ have a model structure where the weak equivalences are determined by the forgetful functor
-$U$?\footnote{This is not how we defined the model structure on $G$-spaces, but we'll use it to define model
-structures on rings and module spectra.} There are two issues.
-\begin{enumerate}
-	\item\label{caveat1} Since $\fC$ is complete, so is $\fC[M]$: the arrows point the right way. But it's not
-	always cocomplete.
-	\item How do we define the model structure?
-\end{enumerate}
-In order for $\fC[M]$ to be cocomplete, we'll use a criterion about preserving certain colimits. Since monads tend
-to arise from adjunctions, the criterion definitely won't be true in general! There are seventeen versions of this
-criterion in Mac Lane, but we'll only need one, following Hopkins and McClure.
-\begin{defn}
-Let $f,g\colon X\rightrightarrows Y$ be two maps. A \term{reflexive coequalizer} is a coequalizer for $f$ and $g$
-together with a simultaneous section $s\colon Y\to X$ for both $f$ and $g$.
-\end{defn}
-\begin{ex}
-Prove that if $M$ preserves reflexive coequalizers, then $\fC[M]$ is cocomplete. (This is hard, but worthwhile.)
-\end{ex}
-\begin{prop}[Hopkins-McClure]
-Under very mild hypotheses, $\T$ and $\P$ preserve reflexive coequalizers.
-\end{prop}
-See~\cite{EKMM} for a proof. $\Spc^\sI$ satisfies these hypotheses, so we've addressed caveat~\eqref{caveat1}.
-\begin{thm}[Schwede-Shipley~\cite{SchwedeShipley}]
-Under mild hypotheses, $\fC[M]$ inherits a model structure from $\fC$, where the fibrations are detected by $U$,
-and the generating cofibrations are $M$ applied to the generating cofibrations of $\fC$.
-\end{thm}
-This is a very general theorem; the hard step is constructing a nice enough filtration on pushouts.
-\begin{warn}
-These hypotheses are met for the associative monad $\T$, but are \emph{not} met by the commutative monad $\P$!
-This is another formulation of Lewis' paradox: for commutative ring spectra, you have to change the underlying
-homotopy theory.
-\end{warn}
-\begin{rem}
-You might be used to thinking of these as the associative and commutative operads. Every operad determines a monad,
-and the operadic algebras become monadic algebras, but for $\P$ and $\T$, the explicit form of the monad makes it
-easier to analyze from the monadic viewpoint.
-\end{rem}
-Returning to diagram spectra, we've been putting a huge emphasis on strict symmetric monoidal structures, rather
-than just commutativity in the homotopy category. This is useful because it lets you do algebra: if $R$ is a ring
-in the homotopy category, it's very hard to control the category of modules, e.g.\ the cofiber of a map of modules
-may not even be a module, the cyclic bar construction isn't a simplicial object, etc. Some people have tried to use
-operads to fix this, and this is extremely hard: operadic ring spectra are fine, but their modules are not. In a
-sense, Lurie's $\infty$-categorical machinery is designed to do this in a more modern way.
-
-A lot of modern homotopy theory has been importing algebraic constructions about rings into homotopy theory,
-replacing tensor products with smash products. This has been very useful, yet can be hard, and everything is much
-more tractable with a point-set symmetric monoidal structure.
-\subsection*{$G$-spectra.}
+In this section, we'll leverage the theory of diagram spectra developed over the past two sections in the
+equivariant setting, defining the equivariant stable category as the homotopy category of orthogonal $G$-spectra.
 In this context, we must talk about universes, making choices of which orbits $G/H$ are dualizable. This is closely
 related to choosing representations $V$ such that $G/H\inj V$ equivariantly.
 \begin{defn}

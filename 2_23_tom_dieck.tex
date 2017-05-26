@@ -1,24 +1,52 @@
-Today, we'll again assume that $G$ is a finite group. Some of today's content extends to compact Lie groups, but
-it's more complicated.
+In this section, we'll again assume that $G$ is a finite group. Some of this content extends to compact Lie groups,
+but it's more complicated.
 
-Last time, we saw the Wirthmüller isomorphism (\cref{Wirthiso}), which we said can be used to create the
-transfer maps. One consequence is \cref{wirthcor}, that orbits are self-dual under Spanier-Whitehead duality:
-$D(G/H_+) = \sus G/H_+$. You can use this to write down the transfer map: given subgroups $K\subseteq
-H\subseteq G$, we have the ``right-way'' map $G/H\to G/K$, and therefore a map $\sus(G/K_+)\cong
-D(G/K_+)\to D(G/H_+)\cong\sus(G/H_+)$. By the Wirthmüller isomorphism, this is the same as a map
-$F(G/K_+,S)\to F(G/H_+,S)$, which is exactly the transfer map!
-
-This is a little circular; if you look carefully into the proof of \cref{Wirthiso}, the transfer map is already
-there. But the point is more philosophical: the existence of transfers is the same thing as the Wirthmüller
-isomorphism.
+Tom Dieck splitting is a decomposition of the fixed points of a suspension $G$-spectrum, either of the statements
+\begin{subequations}
+\begin{align}
+\label{splevelTD}
+(\Sigma^\infty X)^G &\cong \bigvee_{(H)\subseteq G} E\mathit{WH}_+\wedge_{\mathit{WH}} X^H\\
+\pi_*(\Sigma^\infty X)^G &\cong\bigoplus_{(H)\subseteq G}
+\pi_*^{\mathit{WH}}\paren{\Sigma^\infty E\mathit{WH}_+\wedge_{\mathit{WH}}X^H}.
+\label{what_well_prove}
+\end{align}
+\end{subequations}
+By $(H)\subseteq G$, we mean indexing over the conjugacy classes of subgroups of $G$. Here $\mathit{WH} =
+\mathit{NH}/H$ as usual; if $H\trianglelefteq G$, then this is $G/H$. Tom Dieck splitting looks complicated; you
+might have hoped that $\Sigma^\infty$ and $(\bl)^G$ commute, but they don't, and this is how they don't. But when
+$X = S^0$, this tells you a decomposition of $\pi_*^G(\Sph)$.
 \begin{rem}
-Transfer maps can be studied in more generality, e.g.\ in the context of equivariant vector bundles on homogeneous
-spaces. Rothenberg wrote some stuff, but~\cite{LMS} is probably the best source.
+Guillou-May~\cite{GM17} derive tom Dieck splitting as a consequence of the equivariant Barratt-Priddy-Quillen
+theorem. We'll give a more elementary proof.
 \end{rem}
-Today we'll talk about tom Dieck splitting. There are several closely related versions of the statement, though
-going between them requires a deep result called the Adams isomorphism. We'll return to that point
-later.\footnote{\TODO: I missed one version of the splitting.}
-Anyways, we'll prove the version in~\eqref{what_well_prove}.
+We have a cofiber sequence, called the \term{isotropy separation sequence},
+\[\xymatrix@1{
+	EG_+\ar[r] & S^0\ar[r] & \widetilde{EG},
+}\]
+which induces for any spectrum $X$ a cofiber sequence
+\begin{equation}
+\label{EGisot}
+\xymatrix@1{
+	(EG_+\wedge X)^G\ar[r] & X^G\ar[r] & (\widetilde{EG}\wedge X)^G.
+}
+\end{equation}
+Take $X = \Sph = \Sigma^\infty S^0$, giving
+\[\xymatrix@1{
+	(\Sigma^\infty EG_+)^G\ar[r] & \Sph^G\ar[r] & (\Sigma^\infty\widetilde{EG})^G.
+}\]
+There are three key observations; one is easy, one is harder, and the one was a major structural theorem.
+\begin{itemize}
+	\item When $X$ is a suspension spectrum,~\eqref{EGisot} splits.
+	\item The \term{Adams isomorphism} tells us the cofiber: $(\Sigma^\infty EG_+)^G\simeq\Sigma^\infty BG_+$.
+	\item The last term is $(\widetilde{EG}\wedge X)^G\cong\Phi^G X$.
+\end{itemize}
+Tom Dieck proved tom Dieck splitting by inducting over isotropy sequences, adding one conjugacy class at a time.
+This is one of the two major methods of induction in equivariant homotopy theory (the other being induction over
+cells), and was a key step in the resolution of the Kervaire invariant $1$ problem~\cite{HHR}.
+
+There are several closely related versions of tom Dieck splitting, though going between them requires a deep result
+called the Adams isomorphism. We'll return to that point later.\footnote{\TODO: I missed one version of the
+splitting.} Anyways, we'll prove the version in~\eqref{what_well_prove}.
 
 When $X = S^0$, this ``computes'' the equivariant stable homotopy groups of the spheres, and one consequence is
 that
@@ -160,13 +188,80 @@ natural.}
 Suppose $Y$ is concentrated at $(H)$; then, the restriction map $\rho_H\colon\Map^G(X,Y)\to\Map^{G/H}(X^H,Y^H)$ is
 an acyclic fibration.
 \end{lem}
-We'll prove this next time with cellular induction; in any case, we only need that $\rho_H$ is a weak
+We'll prove this below with cellular induction; in any case, we only need that $\rho_H$ is a weak
 equivalence.
 
 Anyways, we want to show that~\eqref{first_part_td} is an isomorphism, so we'll use the restriction map to define
 an inverse $\pi_*^\NH(\sus E\WH_+\wedge X)\to\pi_*^\WH(\sus E\WH_+\wedge X^H)$. That is, consider
 \[[S^{n+m\rho_{\NH}}, S^{m\rho_{NH}}\wedge E\WH_+\wedge X]\]
 and take the $H$-fixed points on both sides; Lemma~\ref{restrlem} ensures this is an isomorphism.
+
+We've reduced to showing that the composite
+\[\xymatrix{
+	\pi_*^\WH(\sus E\WH_+\wedge X^H)\ar[r]\ar[dr]^-{\theta_1} & \pi_*^\NH(\sus E\WH_+\wedge X^H)\ar[d]\\
+	& \pi_*^\NH(\sus
+	E\WH_+\wedge X)\ar[r]^-\cong & \pi_*^G(G\wedge_H\sus E\WH_+\wedge X)\ar[r]^-{\theta_2} &\pi_*^G(X)
+}\]
+is an isomorphism when $X$ is concentrated at the single conjugacy class $(H)$ for $G$. The composite of the first
+two maps is denoted $\theta_1$. We did this by showing that the two sides of the tom Dieck isomorphism are
+$\Z$-graded homology theories, and therefore are determined by their values on spaces concentrated at single
+conjugacy classes. We'll show separately that $\theta_1$ and $\theta_2$ are isomorphisms.
+
+First let's look at $\theta_2$, by looking at the spaces of the suspension spectrum for
+\[\paren{G\wedge_\NH\paren{E\WH_+\wedge X\wedge S^V}}^K.\]
+Fixed points do not commute with suspension on the spectrum level (after all, this is the content of tom Dieck
+splitting), but they do commute with the smash product for spaces, so this is also
+\[(G\wedge_H E\WH_+)^K\wedge X^K\wedge S^{V^K}.\]
+If $K\not\in (H)$, then $X^K\simeq *$, since $X$ is concentrated at $(H)$. If $K\in (H)$, then $(E\WH_+)^K\simeq
+*$, so either way what we obtain is an isomorphism for $\theta_2^K$.
+
+For $\theta_1$, we needed to prove \cref{restrlem}, that if $H\trianglelefteq G$ and $Y$ is concentrated at $(H)$,
+then the restriction map $\Map^G(X,Y)\to\Map^{G/H}(X^H,Y^H)$ is an isomorphism.
+\begin{proof}[Proof of \cref{restrlem}]
+The proof will proceed by cellular induction. Consider attaching a cell to a $G$-space $Z$ to form a space
+$\tilde Z$, which is expressed by the pushout
+\[\xymatrix{
+	G/K_+\wedge S^{n-1}\ar[r]\ar[d] & Z\ar[d]\\
+	G/K_+\wedge D^n\ar[r] & \pushout \tilde Z.
+}\]
+If we apply $\Map^G(\bl,Y)$ to this diagram, it becomes a pullback
+\[\xymatrix{
+	\Map^G(G/K_+\wedge S^{n-1}, Y) & \Map^G(Z,Y)\ar[l]\\
+	\Map^G(G/K_+\wedge D^n, Y)\ar[u]_{\psi_1} & \Map^G(\tilde Z,Y)\ar[l]\ar[u]_{\psi_2}.
+}\]
+Since $\Map^G(G/K_+\wedge S^{n-1}, Y)\simeq \Map(S^{n-1}, Y^K)$, then $\psi_1$ is trivial, so $\psi_2$ is an
+isomorphism.
+
+Let
+\[X_0\coloneqq\set{x\in X\mid G_x\not\subseteq H}\subseteq X.\]
+Then, $X\setminus (X_0\cup X^H)$ is built by attaching cells $G/K_+\wedge D^n$ with $K\not\in (H)$.
+
+The cell attachment computation we just made tells us that it suffices to understand $X_0\cup X^H$, for which we
+use a Mayer-Vietoris argument associated to the pullback
+\[\xymatrix{
+	X_0\cup X^H & X^H\ar[l]_{\phi_1}\\
+	X_0\ar[u] & X_0\cap X^H\ar[l]_{\phi_2}\ar[u].
+}\]
+We again apply $\Map^G(\bl,Y)$; this time, the same argument shows that $\phi_2^*$ is an isomorphism. Now the map
+we want factors as
+\[\xymatrix{
+	\Map^G(X,Y)\ar[r] & \Map^G(X_0\cup X, Y)\ar[r] & \Map^G(X^H,Y)\ar[r] & \Map^{G/H}(X^H,Y^H).
+}\]
+The last map comes from the adjunction, and in particular is a known weak equivalence. And by induction, the first
+two maps are weak equivalences.
+\end{proof}
+We'll use \cref{restrlem} to check that the map
+\[\pi_*^\WH(\sus E\WH_+\wedge X^H)\stackrel{\theta_1}{\longrightarrow} \pi_*^\NH(\sus E\WH_+\wedge X)\]
+is an isomorphism, by providing a map in the other direction. Specifically, this is a map of homotopy classes
+\[[S^{n+m\rho}, \Sigma^{m\rho} E\WH_+\wedge X]\stackrel{\theta_1}{\longrightarrow} [S^{n+m\rho}, \Sigma^{m\rho}
+E\WH_+\wedge X].\]
+We've abused notation a bit here: on the left, $\rho$ is the regular representation for $\NH$, and on the right,
+it's the regular representation for $\WH$. \Cref{restrlem} implies that the map going the other way is an
+isomorphism when $X$ is concentrated at $(H)$:
+\[[S^{n+m\rho}, S^{m\rho}\wedge E\WH_+\wedge X]\stackrel\cong\longrightarrow [S^{n + m\rho^H}, S^{m\rho^H}\wedge
+E\WH_+\wedge X^H].\]
+This is what we reduced the problem to, so we have completed the proof of tom Dieck splitting for $\pi_G^*(\sus X)$
+on the level of homotopy groups.
 \end{proof}
 As this is a statement about stable homotopy groups, it's desirable to have a spectrum-level equivalence which
 reduces to this isomorphism; the statement is~\eqref{splevelTD}, but the proof is different.
