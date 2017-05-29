@@ -178,8 +178,9 @@ We'll use prespectra and orthogonal spectra to define Quillen equivalent models 
 As such, familiar constructions from stable homotopy theory can be constructed as prespectra and orthogonal
 spectra.
 \begin{exm}[Suspension spectra]
-Let $X\in\Top$. The \term{suspension spectrum} of $X$, denoted $\Sigma^\infty X$, is the stable homotopy type
-corresponding to the homotopy type of $X$.
+Let $X\in\Top_*$. The \term{suspension spectrum} of $X$, denoted $\Sigma^\infty X$, is the stable homotopy type
+corresponding to the homotopy type of $X$.\footnote{For a space $X$ without basepoint, $X_+$ denotes the based
+space $X\amalg *$, with the extra point as a basepoint. Then, one considers $\sus X_+$.}
 \begin{itemize}
 	\item In prespectra, the suspension spectrum of $X$ is $\Sigma^\infty X\colon [n]\mapsto S^n\wedge X$. The
 	$S_\N$-module structure is the data of the structure maps $S^m\wedge (S^n\wedge X)\to S^{m+n}\wedge X$.
@@ -248,9 +249,9 @@ Starting with the usual model structure on $\Top_*$, construct the level model s
 \end{ex}
 The ``cofibrantly generated'' part means that cofibrant objects behave like CW complexes, and in particular there
 is a theory of cellular objects. If $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ is the left adjoint to $\Ev_d$ we
-constructed last time, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each
-$n\ge 1$ and $d\in\fD$, and the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$
-and $d\in\fD$.
+constructed above, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$
+and $d\in\fD$, and the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$ and
+$d\in\fD$.
 
 Since all spaces are fibrant, all $\fD$-spaces are fibrant in the level model structure. The cofibrant objects are
 the retracts of \term{cellular objects}, which are built by iterated pushouts
