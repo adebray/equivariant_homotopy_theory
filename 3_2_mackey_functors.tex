@@ -103,7 +103,12 @@ M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer 
 	induction and restriction, respectively, between $H\Set$ and $K\Set$.
 	\item The \term{representation Mackey functor} $R(G)$ is defined by letting $R(G)(G/H)$ be the Grothendieck
 	group of finite-dimensional $H$-representations, with transfer and restriction given by
-	$\Z[K]\otimes_{\Z[H]}\bl$.
+	$\Z[K]\otimes_{\Z[H]}\bl$.\footnote{\TODO: what's the base ring? It should be possible to define the
+	representation ring Mackey functor for representations valued in any commutative ring.}
+	\item The Burnside category is self-dual, i.e. there's an equivalence $B_G\simeq B_G\op$, which sends a span
+	$G/H_1\gets G/K\to G/H_2$ to $G/H_2\gets G/K\to G/H_1$. If $M$ is a Mackey functor, then $M\rop\colon B_G\to
+	B_G\op\to\Ab$ (reverse the arrows in $B_G$, then apply $M$) is also a Mackey functor, called the
+	\term{opposite} of $M$.
 	\qedhere
 \end{enumerate}
 \end{exm}
