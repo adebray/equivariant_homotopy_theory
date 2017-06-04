@@ -3,7 +3,8 @@
 }\end{quote}
 Now we'll repeat this all in the slightly harder case of the Burnside Mackey functor $A_{C_2}$. The published
 source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
-define a whole bunch of Mackey functors along the way.
+define a whole bunch of Mackey functors along the way. Recently, Basu and Ghosh~\cite{BasuGhosh} generalized to $G
+= C_{pq}$.
 \begin{beast}\hfill
 \label{best_bestiary}
 \begin{enumerate}
@@ -117,7 +118,7 @@ Here $\sigma$ is the sign representation, and we'd like $\eta$ to be the nontriv
 $C_2$-representation, regarded as a two-dimensional real representation.
 
 Recall that we defined a zoo of Mackey functors for $C_2$ in \cref{best_bestiary}: we will continue to use that
-notation here. We stated the answer to the calculation of $\underline H_{C_2}^{p,q}(S^0;A_{C_2})$ (the underline
+notation here. We stated the answer to the calculation of $\underline\wH_{C_2}^{p,q}(S^0;A_{C_2})$ (the underline
 means calculating the Mackey functors) in \cref{Aval}, and it may help to see it as a plot indexed in $x = p$
 (fixed dimension) and $y = p+q$ (total dimension), as in \cref{ROgdiag}.
 \begin{figure}[h!]
@@ -138,7 +139,7 @@ means calculating the Mackey functors) in \cref{Aval}, and it may help to see it
 \label{ROgdiag}
 \end{figure}
 
-The approach we'll use to prove \cref{Aval}, which is a general strategy for understanding $H_G^*(S^0)$ is to
+The approach we'll use to prove \cref{Aval}, which is a general strategy for understanding $H_G^*(S^0)$, is to
 calculate $H_0^*(S^V)$ and use the Künneth spectral sequence to combine $S^{V\oplus W}$. However, this has only
 been done for cyclic groups and $D_3$; if you do it for pretty much any other group, it would be novel (and
 publishable). If you like spectral sequences and homological algebra, you could work on it --- but it might not be
@@ -226,3 +227,6 @@ This $\RO(G)$-graded structure is a lot of extra data and pain, but there are go
 symmetry present in \cref{ROgdiag} collapses into confusing data in the $\Z$-graded theory, and freeness results
 that ought to be true require the $\RO(G)$-grading.
 \end{rem}
+There are a few other cases for which the $\RO(G)$-graded cohomology of a point has been calculated: Ferland and
+Lewis~\cite{FerlandLewis} worked out a formula for an arbitrary Mackey functor over $C_p$, and explicate it for the
+cases $H_{C_p}^{*,*}(*; \ang G)$, $H_{C_p}^{*,*}(*; L)$, and $H_{C_p}^{*,*}(*; R)$.
