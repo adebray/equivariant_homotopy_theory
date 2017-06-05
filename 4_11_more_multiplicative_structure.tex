@@ -19,8 +19,11 @@ monoidal under Cartesian product, so $\Mac_G$ inherits a symmetric monoidal stru
 
 The Day convolution for Mackey functors is also called the \term{box product}, and has an explicit coend formula:
 if $\underline M$ and $\underline N$ are Mackey functors, their box product is
-\[\underline M\cotensor \underline N (X) = \int^{(Y,Z)\in B_G\op\times B_G\op} \underline M(Y)\otimes \underline
-M(Z)\otimes B_G\op(X, Y\times Z).\]
+\begin{equation}
+\label{box_product}
+\underline M\cotensor \underline N (X) = \int^{(Y,Z)\in B_G\op\times B_G\op} \underline M(Y)\otimes \underline
+M(Z)\otimes B_G\op(X, Y\times Z).
+\end{equation}
 Coends are examples of coequalizers: in general, the coend of two functors $F,G\colon \fC\to\fD$ is the coequalizer
 of the diagram
 \[\xymatrix{

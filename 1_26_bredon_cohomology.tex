@@ -196,10 +196,16 @@ example, $H^0$ tells us the number of connected components of $S^2/C_2$.
 Generalize \cref{2sigmaBC} to $S^{n\sigma}$, the $n$-sphere with a $C_2$-action given by a half-turn.
 \end{ex}
 \begin{exm}
-Let $C_2$ act on $S^2$ by the antipodal action. We get a $C_2$-CW structure of \TODO. We'll again compute the
+Let $C_2$ act on $S^2$ by the antipodal action.
+\begin{ex}
+Identify this action with that of the unit sphere $S(3\sigma)$ in $3\sigma$ (i.e.\ a direct sum of three copies of
+the sign representation).
+\end{ex}
+
+We get a $C_2$-CW structure of \TODO. We'll again compute the
 Bredon cohomology of $S^2$ with coefficients in $\underline\Z$.
 
-The chain complex $\underline C_\bullet(X)$ is
+The chain complex $\underline C_\bullet(S(3\sigma))$ is
 \[\xymatrix@C=1.5cm{
 	\Z^2\ar@(ur,ul)_{\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}} &
 	\Z^2\ar[l]_{\begin{psmallmatrix*}[r]1&-1\\-1&1\end{psmallmatrix*}}
@@ -218,12 +224,12 @@ Hence the cochain complex is
 	\Z\ar[r]^0 & \Z\ar[r]^2 & \Z,
 }\]
 so the Bredon cohomology is
-\[H_{C_2}^k(S^2;\underline\Z) = \begin{cases}
+\[H_{C_2}^k(S(3\sigma);\underline\Z) = \begin{cases}
 	\Z, &k = 0\\
 	\Z/2, &k = 1\\
 	0, &\text{otherwise,}
 \end{cases}\]
-which is exactly the cohomology of $\RP^2 = S^2/C_2$.
+which is exactly the cohomology of $\RP^2 = S(3\sigma)/C_2$.
 \end{exm}
 This is no coincidence: if $G$ acts freely on $X$, then the Bredon cohomology and homology is that of the quotient.
 \begin{ex}

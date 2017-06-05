@@ -36,23 +36,27 @@ For $\underline\Z$,
 	\item The coefficients are $M(C_2/C_2) = \Z$ and $M(C_2/e) = \Z$.
 	\item $f^* = \id$, $f_*$ is multiplication by $2$, and $\gamma = \id$.
 \end{itemize}
-We'll introduce a bigrading on $H^*_{C_2}$, since $C_2$ has two irreducible $1$-dimensional representations: the
-trivial representation on $\R$ and the sign representation $\sigma$. Thus, let $H_{C_2}^{p,q}$ denote $H_{C_2}^V$,
-where $V$ contains $p$ copies of the trivial representation and $q$ copies of $\sigma$.
+As rings, $\RO(C_2)\cong\Z[\sigma]/(\sigma^2-1)$, where $\sigma$ denotes the sign representation. Hence, every
+virtual representation can be written $p+q\sigma$. Since the additive structure is just $\Z^2$, we'll introduce a
+bigrading on $H^*_{C_2}(\bl)$, where $H_{C_2}^{p,q}(\bl) \coloneqq H_{C_2}^{p+\sigma q}(\bl)$. The index $p$ is
+called the \term{fixed dimension}, and $q$ is called the \term{sign dimension}.
 \begin{rem}
 There's an alternative \term{motivic indexing} $H_{C_2}^{p+q,q}$, where $q$ counts the number of copies of $\sigma$
 and $p+q$ counts the total underlying dimension. We're not going to use this grading.
 \end{rem}
 We'll first compute the additive structure, then sew things together.
-
-By adjunction, $H_{C_2}^{p,q}(C_2)\cong H^{p+q}(*)$ (ordinary cohomology), because $[C_{2+}\wedge X, Y]_{C_2}\cong
-[X,Y]$. Thus,
-\[H_{C_2}^{p,q}(C_2) = H^{p+q}(*) = \begin{cases}
+\begin{lem}
+\[H_{C_2}^{p,q}(C_2; \underline\Z) = \begin{cases}
 	\Z, &p+q=0\\
-	0, &\text{otherwise.}
+	0, &\text{\rm otherwise.}
 \end{cases}\]
-Next we'll compute $H_{C_2}^{p,q}(*)$. Let $S^{\sigma q}$ denote the representation sphere that's the one-point
-compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q > 0$,
+\end{lem}
+\begin{proof}
+By adjunction, $H_{C_2}^{p,q}(C_2;\underline\Z)\cong H^{p+q}(*;\Z)$ (nonequivariant cohomology), because
+$[C_{2+}\wedge X, Y]_{C_2}\cong [X,Y]$, and we know what the nonequivariant cohomology of a point is.
+\end{proof}
+Next we'll compute $H_{C_2}^{p,q}(*;\underline\Z)$. Let $S^{\sigma q}$ denote the representation sphere that's the
+one-point compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q > 0$,
 \[H_{C_2}^{p,-q}(*)\cong \wH_{C_2}^{p,-q}(S^0)\cong \wH_{C_2}^{p,0}(S^{\sigma q}).\]
 If $S(\sigma q)$ denotes the unit sphere inside $\R^{\sigma q}$ and $D(\sigma q)$ denotes the unit disc, then there
 is a cofiber sequence
@@ -96,17 +100,17 @@ both ways:
 Finally, it'll be good to remember a fact about the dimension axiom: the transfers in a Mackey functor $M$ coincide
 with the transfer maps in cohomology induced by maps between orbits.
 
-Anyways, we were computing $H_{C_2}^{p,q}(*)$, where $p$ is the \term{fixed dimension} and $q$ is the \term{sign
-dimension}, i.e.\ indexed by the $C_2$-representation $V \coloneqq \R^p\oplus\sigma^q$, where $\R$ is the trivial
-representation and $\sigma$ is the sign representation. First, we computed that
-\[H_{C_2}^{p,q}(C_2)\cong H^{p+q}(\pt) = \begin{cases}
-	\Z, &p+q = 0\\
-	0, &\text{otherwise.}
-\end{cases}\]
-If $q > 0$, then we computed
-\[H^{-p.-q}_{C_2}(*) \cong \wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH^p(\Sigma\RP^{q-1}),\]
-because the Eilenberg-Steenrod axioms meant that for a free action, we can compute the nonequivariant cohomology of
-the quotient.
+% Anyways, we were computing $H_{C_2}^{p,q}(*)$, where $p$ is the \term{fixed dimension} and $q$ is the \term{sign
+% dimension}, i.e.\ indexed by the $C_2$-representation $V \coloneqq \R^p\oplus\sigma^q$, where $\R$ is the trivial
+% representation and $\sigma$ is the sign representation. First, we computed that
+% \[H_{C_2}^{p,q}(C_2)\cong H^{p+q}(\pt) = \begin{cases}
+% 	\Z, &p+q = 0\\
+% 	0, &\text{otherwise.}
+% \end{cases}\]
+% If $q > 0$, then we computed
+% \[H^{-p.-q}_{C_2}(*) \cong \wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH^p(\Sigma\RP^{q-1}),\]
+% because the Eilenberg-Steenrod axioms meant that for a free action, we can compute the nonequivariant cohomology of
+% the quotient.
 
 To compute $H_{C_2}^{p,q}(*)$, we use duality:
 \[H_{C_2}^{p,q}(*) \cong \wH^{p,q}_{C_2}(S^0)\cong \wH_{-p,-q}(S^0)\cong \wH_{-p,0}(S^{\sigma q}),\]
