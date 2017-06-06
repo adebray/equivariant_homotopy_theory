@@ -113,6 +113,24 @@ M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer 
 	\qedhere
 \end{enumerate}
 \end{exm}
+\begin{exm}[\cite{StricklandTambara}]
+The constant Mackey functor can be defined in greater generality: given a semigroup $M$ with an action of $G$ on
+$M$, let $\underline M\colon B_G\op\to\Ab$ be the functor that on objects is $\underline M(G/H)\coloneqq
+\Map^G(G/H,M) = M^H$, and on the span $\omega$ equal to
+	\[\xymatrix{
+		X & M\ar[l]_p\ar[r]^q & Y,
+	}\]
+we define $\underline M(\omega)\colon \underline M(X) \to \underline M(Y)$ by sending a map $u\colon X \to A$ to
+\[\underline M(\omega)(u)(y) = \sum_{q(a) = y} u(p(a)).\]
+This Mackey functor is called the \term{constant Mackey functor} $\underline M$ for $M$.
+\end{exm}
+\begin{ex}
+Check that this is a functor.
+\end{ex}
+Furthermore, if the action of $G$ on $M$ is trivial, then we have that the restriction maps are identities, hence
+the term constant Mackey functor. However, the transfers are not identities: $\Tr_H^K$ is multiplication by $\abs
+H/\abs K$.
+
 The representation Mackey functor contains the information of double coset formulae in representation theory.
 Namely, suppose $H$ and $K$ are subgroups of $G$ contained in a common subgroup $J\subseteq G$. The universal
 property of the product gives us a pullback diagram
