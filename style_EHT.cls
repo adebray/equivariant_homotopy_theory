@@ -12,26 +12,15 @@
 % Provides a way to check whether this class is being used
 \def\UsingNotesD{}
 %
-% Do I want any package options?
-% Possibilities:
-% 1. \mathbb vs. \mathbf for N, Z, Q, R, ...
-% 2. Roman or italic d in f(x) dx
-%
-% Other options can be handed off to the amsart class (e.g. fontsize)
-% TODO: for larger notes, I want to use amsbook instead. How should I efficiently unify
-% this with shorter notes, which use amsart?
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{amsbook}}
 %
 \ProcessOptions\relax
 %
 \LoadClass{amsbook}
 \RequirePackage[utf8]{inputenc}
-% Keeping this because, even for minimal notes, makes printing take up considerably less paper
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{mathtools}
-%\RequirePackage{amssymb}
-%\RequirePackage{amsthm}
 \RequirePackage{xparse}
 \RequirePackage{mathrsfs}
 \RequirePackage[usenames, dvipsnames]{xcolor}
@@ -41,7 +30,6 @@
 \RequirePackage[backref=page]{hyperref}
 \RequirePackage[all]{hypcap}
 % This has to be before cleveref, see http://tex.stackexchange.com/questions/126364
-% However, this still doesn't solve the problem. TODO
 \numberwithin{equation}{section}
 \RequirePackage[capitalize, noabbrev]{cleveref}
 % Some shortcuts that simplify live-TeXing using XY.
@@ -369,21 +357,8 @@
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\supp}{supp}
 %
-% to be continued (e.g. a good argmin and argmax)
-% The personal style choices I make for my lecture notes
-% One tantalizing idea is to make multiple style files representing several different
-% styles (e.g. I would prefer to use a different style for lecture notes and other
-% notes that I write).
-%
-% Current issues:
-% 1. This currently only supports article-based lecture notes (base class is amsart, and
-% much of the title page formatting depends on that rather than amsbook). Someday, I
-% would like to have both options.
-% 2. I still can't get fancyhdr to work the way I want it to.
 %
 \RequirePackage{fancyhdr}
-%\RequirePackage{titlesec}
-%\RequirePackage[dotinlabels]{titletoc}
 % after the font has been chosen
 \AtBeginDocument{
  \usepackage{microtype}
@@ -396,19 +371,6 @@
  citecolor={green!50!black},
  urlcolor={blue!80!black}
 }
-%
-% Custom section titles
-% TODO: make this work with amsbook
-% I really want to not depend on titlesec, as it's frustrating to use. However,
-% this setup is stable.
-% \titleformat{\section}[frame]
-%   {\normalfont}
-%   {\filright
-%    \footnotesize
-%    \enspace Lecture \arabic{section}.\enspace}
-%   {8pt}
-%   {\Large\bfseries\filcenter}
-% \titlecontents{section}[1.5em]{}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\hfill\contentspage}
 %
 % Ornament to divide different parts of a section without introducing a new subsection
 \newcommand{\orbreak}{
@@ -423,62 +385,13 @@
 \def\qedsymbol{{\small{\ensuremath{\boxtimes}}}}
 \renewcommand{\emptyset}{\varnothing}
 %
-% The user should specify the following information:
-% \institution: where the course was held, e.g. "UT Austin"
-% \coursenum: course dept. and number, e.g. "M364C"
-% \coursename: name of the course, e.g. "Galois Knot Theory"
-% \semester: when the course happened, e.g. "Fall 2016"
-% \teacher: who taught the course, e.g. "John Steinbeck"
-% \author: who took notes, e.g. "Ted Geisel"
-% \date: when these notes were last updated, e.g. \today (optional)
-% \email: the author's email, e.g. "seuss_on_the_loose@hotmail.com"
-% \thanks: an acknowledgement, e.g. "Thanks to Emily Dickinson for fixing a few typos" (optional)
-% Using the following commands, the user will be able to simply write
-% \institution{UT Austin}
-% \coursenum{M364C}
-% and so on.
-\newcommand*{\institution}[1]{\newcommand{\@institution}{#1}}
 \newcommand*{\coursenum}[1]{\newcommand{\@coursenum}{#1}}
 \newcommand*{\coursename}[1]{\newcommand{\@coursename}{#1}}
-\newcommand*{\semester}[1]{\newcommand{\@semester}{#1}}
-\newcommand*{\teacher}[1]{\newcommand{\@teacher}{#1}}
-\renewcommand*{\email}[1]{\newcommand{\@email}{#1}}
-\renewcommand{\@thanks}{\@empty}
-\renewcommand{\thanks}[1]{\renewcommand{\@thanks}{#1}}
 %
-\let\@oldauthor\author
-\newcommand*{\d@e}{\@empty}
-\renewcommand*{\author}[1]{\renewcommand{\@author}{#1}}
-\renewcommand*{\date}[1]{\renewcommand{\d@e}{#1}}
-
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
 %
 % These things should be defined after the user sets everything up in the preamble
 \AtBeginDocument{
- % Email with a MAILTO: link
- \newcommand{\linkedemail}{\href{mailto:\@email?subject=\@coursenum\%20Lecture\%20Notes}{\texttt{\@email}}}
- %
- % Front Stuff: standard blurb at the beginning of a document, ToC, etc.
- % Once everything is set up, the user only needs to call \frontstuff.
- %
- % Format title based on amsart's own title command
- \title{\@coursenum{} Notes: \MakeUppercase{\@coursename}}
- \@oldauthor{\@author\\\d@e}
- %
- \newcommand{\@blurb}{
-  {\small These notes were taken in \@institution’s \@coursenum{} (\@coursename) class in \@semester, taught by
-  \@teacher. I live-\TeX{}ed them using \texttt{vim}, so there may be typos; please send questions, comments,
-  complaints, and corrections to \linkedemail. Alternatively, these notes are hosted on Github at
-  \url{https://github.com/adebray/equivariant_homotopy_theory}, and you can submit a pull request. \@thanks}
- }
- %
- \newcommand{\frontstuff}{
-  \maketitle
-  \versioninfo
-  \@blurb
-  \tableofcontents
- }
- %
  % Fancy headers
  % TODO this doesn't work like I want it to, and I don't know how to fix it.
  \renewcommand{\sectionmark}[1]{\markleft\thesection. #1}
