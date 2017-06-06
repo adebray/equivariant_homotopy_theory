@@ -11,9 +11,7 @@ Another consequence of Elmendorf's theorem (\cref{revElmen}) is that presheaves 
 valued in abelian groups are Eilenberg-Mac Lane $G$-spaces. Homotopy classes of maps into these $G$-spaces gives
 what's known as Bredon cohomology; we'll introduce this and compute several examples.
 \begin{defn}
-Let $G$ be a finite group, A \term{coefficient system} is a presheaf $X\in\Fun(\sO_G\op, \Ab)$.\footnote{For $G$ a
-compact Lie group, the definition is almost the same, but we need to use $\Fun(h\sO_G\op, \Ab)$, taking presheaves
-on the homotopy category. For finite groups these definitions coincide.}
+Let $G$ be a finite group, A \term{coefficient system} is a presheaf $X\in\Fun(\sO_G\op, \Ab)$
 \end{defn}
 Elmendorf's theorem says that for any coefficient system, we have an Eilenberg-Mac Lane $G$-space. You could say
 here that (Bredon) cohomology is completely determined: cohomology is the things represented by Eilenberg-Mac Lane
@@ -22,7 +20,31 @@ it has poor formal properties, and you need a lot of geometric insight to comput
 abelian category (meaning we can do homological algebra) is the wrong one; it produces a $\Z$-graded cohomology
 theory (or rather, one graded on subgroups of $\Z$); this will be the wrong answer, especially if you want Poincaré
 duality, and the right answer uses a grading by the representation ring. But we'll get there.
+\begin{rem}
+If $G$ is a compact Lie group, the proper definition of a coefficient system is an $\Ab$-valued presheaf on
+$h\sO_G$, the homotopy category of the orbit category. (For finite groups these definitions coincide.) In other
+words, given $G$ a compact Lie group and a family of subgroups $\sF$ of $G$, the homotopy orbit category $h\sO_G$
+has objects $G/H$, where $H \in \sF$, and has morphisms the homotopy classes of maps $G/H \to G/K$.
+\end{rem}
+% TODO: if you put this example inside the remark, it's typeset wrong.
+\begin{exm}
+Let us consider $h\sO_{S^1}$, the homotopy orbit category for $S^1$ with $\sF$ the family of finite subgroups of
+$S^1$.
 
+We first consider the orbit category $\sO_{S^1}$. Since $S^1$ is abelian, we have a morphism $G/H \to G/K$
+if and only if $H \subseteq K$. In fact,
+	\[\Hom_{\sO_{S^1}}(G/H, G/K) =
+	\begin{cases}
+	G/K, &\text{if }H \subseteq K\\
+	0, &\text{otherwise.}
+	\end{cases}\]
+The homotopy orbit category $h\sO_{S^1}$ is not too much more difficult: since $S^1$ is connected, if $H \subseteq
+K$, then all maps $G/H \to G/K$ are homotopic (they are maps of circles of the same degree). Hence, we have
+	\[\Hom_{h\sO_{S^1}}(G/H, G/K) = \begin{cases}
+	1, &\text{if } H \subseteq K\\
+	0, &\text{otherwise.}
+	\end{cases} \qedhere\]
+\end{exm}
 Coefficient systems have an important role in Bredon cohomology, which is calculated with coefficients in a
 coefficient system, and whose construction makes use of a chain complex of coefficient systems. In this way,
 coefficient systems play the part in Bredon cohomology that abelian groups do in CW cohomology. Indeed, coefficient
