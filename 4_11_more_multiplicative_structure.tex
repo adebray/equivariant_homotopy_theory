@@ -31,7 +31,7 @@ of the diagram
 	F(c)\otimes G(c).
 }\]
 This implies formally that the unit for the symmetric monoidal structure on $\Mac_G$ is the Burnside Mackey
-functor $\underline A$, which is the functor $\Map_{B_G\op}(\bl,G/G)$.
+functor $A_G$, which is the functor $\Map_{B_G\op}(\bl,G/G)$.
 
 We also obtained the morphisms $G/H\to G/K$ in the Burnside category as the Grothendieck group of a category of
 spans, which is equivalent to the category of $G$-sets over $G/H$.\footnote{\TODO: this should depend on $K$,
@@ -39,7 +39,7 @@ right? I'm probably missing something.} But this category is equivalent to the c
 
 Now we can do the usual thing to define rings, just as we did in orthogonal (nonequivariant) spectra.
 \begin{comp}{defn}{itemize}
-	\item A \term{(commutative) Green functor} is a commutative monoid in $(\Mac_G, \cotensor, \underline A)$.
+	\item A \term{(commutative) Green functor} is a commutative monoid in $(\Mac_G, \cotensor, A_G)$.
 	\item A \term{module} $\underline M$ over a Green functor $\underline R$ is a Mackey functor together with an
 	associative, unital action map $\underline R\cotensor\underline M\to\underline M$.
 \end{comp}
@@ -72,20 +72,20 @@ Let $G = C_p$ for concreteness.
 	}\]
 	The restriction map is on the right, and is a ring homomorphism, and the transfer, multiplication by $p$, is
 	$\Z$-linear.
-	\item The Burnside Mackey functor is also a Green functor, which follows formally because it's the unit for
-	$\cotensor$. When $G = C_2$, its additive structure is given in~\eqref{burnmack}. So what ring structure do we
-	get on $\Z\oplus\Z$? There are two isomorphism classes in the Grothendieck group, $[C_2/C_2]$ and $[C_2/e]$.
+	\item The Burnside Mackey functor $A_G$ is also a Green functor, which follows formally because it's the unit
+	for $\cotensor$. When $G = C_2$, its additive structure is given in~\eqref{burnmack}. So what ring structure do
+	we get on $\Z\oplus\Z$? There are two isomorphism classes in the Grothendieck group, $[C_2/C_2]$ and $[C_2/e]$.
 	The product tells us $[C_2/e]\cdot [C_2/e] = 2[C_2/e]$, so the ring structure is $\Z[x]/(x^2-2x)$. The
 	restriction map $\Z[x]/(x^2-2x)\to\Z$ sends $1\mapsto 1$ and $x\mapsto 2$, and the transfer map
 	$\Z\to\Z[x]/(x^2-2x)$ sends $1\mapsto x$, which is linear. The push-pull formula tells us that in the
 	Grothendieck group of finite $G$-sets,
 	\[[(H\times_K X)\times Y] = [H\times_K (X\times i_K^*Y)].\]
-	Since $\underline A$ is the unit, every Mackey functor is an $\underline A$-module. Can we describe this action
-	explicitly on a general Mackey functor $\underline M$? We want compatible actions of $\underline A(G/H)$ on
-	$\underline M(G/H)$, and this is a restriction-and-transfer construction: an element of $\underline A(G/H)$ is
-	(the class of) a $G/K\in G\Set_{/(G/H)}$, which comes with restriction and transfer maps between $G/K$ and
-	$G/H$. Thus, for an $x\in\underline M(G/H)$, we can restrict it to $\underline M(G/K)$ and transfer it back to
-	$\underline M(G/H)$ using those maps, and this defines the $\underline A(G/H)$-action.\qedhere
+	Since $A_G$ is the unit, every Mackey functor is an $A_G$-module. Can we describe this action explicitly on a
+	general Mackey functor $\underline M$? We want compatible actions of $A_G(G/H)$ on $\underline M(G/H)$, and
+	this is a restriction-and-transfer construction: an element of $A_G(G/H)$ is (the class of) a $G/K\in
+	G\Set_{/(G/H)}$, which comes with restriction and transfer maps between $G/K$ and $G/H$. Thus, for an
+	$x\in\underline M(G/H)$, we can restrict it to $\underline M(G/K)$ and transfer it back to $\underline M(G/H)$
+	using those maps, and this defines the $A_G(G/H)$-action.\qedhere
 \end{enumerate}
 \end{exm}
 In the next section, we'll upgrade this structure into something with multiplicative analogues of transfer maps,
