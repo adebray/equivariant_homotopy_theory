@@ -8,19 +8,19 @@ Blumberg. I (Arun) live-\TeX ed them using \texttt{vim}, so there may be typos; 
 complaints, and corrections to
 \href{mailto:a.debray@math.utexas.edu?subject=M392C\%20Lecture\%20Notes}{\texttt{a.debray@math.utexas.edu}}.
 Alternatively, these notes are hosted on Github at \url{https://github.com/adebray/equivariant_homotopy_theory},
-and you can submit a pull request. Thanks to Rustam Antia-Riedel, Omar Antolín Camarena, Gill Grindstaff, Sean
-Tilson, and Yixian Wu for catching a few errors; to Andrew Blumberg, Ernie Fontes, Tom Gannon, Tyler Lawson,
-Richard Wong, Valentin Zakharevich, an anonymous reader, and the users of the homotopy theory Mathoverflow chatroom
-for some clarifications and suggestions; to Adrian Clough, Richard Wong, and Yuri Sulyma for adding some examples,
-remarks, and references; and to Richard Wong for the cover page.
+and you can submit a pull request. Thanks to Rustam Antia-Riedel, Omar Antolín Camarena, Gill Grindstaff, Charles
+Rezk, Sean Tilson, and Yixian Wu for catching a few errors; to Andrew Blumberg, Ernie Fontes, Tom Gannon, Tyler
+Lawson, Richard Wong, Valentin Zakharevich, an anonymous reader, and the users of the homotopy theory Mathoverflow
+chatroom for some clarifications and suggestions; to Adrian Clough, Richard Wong, and Yuri Sulyma for adding some
+examples, remarks, and references; and to Richard Wong for the cover page.
 
 % TODO: will probably need to fix acknowledgements at the end
 
 \orbreak
 
-This class will be an overview of equivariant stable homotopy theory. We're in the uncomfortable position where
-this is a big subject, a hard subject, and one that is poorly served by its textbooks. Algebraic topology is like
-this in general, but it's particularly acute here. Nonetheless, here are some references:
+These notes are an overview of equivariant stable homotopy theory. We're in the uncomfortable position where this
+is a big subject, a hard subject, and one that is poorly served by its textbooks. Algebraic topology is like this
+in general, but it's particularly acute here. Nonetheless, here are some references:
 \begin{itemize}
 	\item Adams, ``Prerequisites (on equivariant stable homotopy) for Carlsson's lecture.''~\cite{Adams84}. This is
 	old, and some parts of it don't reflect how we do things now.
@@ -47,12 +47,12 @@ The nice thing is, however you feel about the applications, both applications re
 equivariant stable homotopy theory. Hill-Hopkins-Ravenel in particular required a clarification of the foundations
 of this subject which has been enlightening.
 
-In this class, we hope to cover the foundations of equivariant stable homotopy theory. On the one hand, this will
+In these notes, we hope to cover the foundations of equivariant stable homotopy theory. On the one hand, this will
 be a modern take, insofar as we emphasize the norm and presheaves on orbit categories (these will be explained in
 due time), the modern emerging consensus on how to think of these things, different than what's written in
 textbooks. The former is old, but has gained more attention recently; the latter is new. Moreover, there's an
 increasing sense that a lot of the foundations here are best done in $\infty$-categories. We will not take this
-approach in order to avoid getting bogged down in $\infty$-categories; moreover, this class is supposed to be
+approach in order to avoid getting bogged down in $\infty$-categories; moreover, the notes are supposed to be
 rigorous. It will sometimes be clear to some people that $\infty$-categories lie in the background, but we won't
 talk very much about them.
 
@@ -66,7 +66,7 @@ about them on your own.
 	Topology}~\cite{ConciseCourse}. For example, we'll discuss equivariant CW complexes, so it will help to know
 	what a CW complex is.
 	\item A little bit of category theory, e.g.\ found in Mac Lane~\cite{MacLane} or Riehl~\cite{RiehlCTC}.
-	\item This class will not require much in the way of simplicial methods (simply because it's hard to reconcile
+	\item These notes will not require much in the way of simplicial methods (simply because it's hard to reconcile
 	simplicial methods with non-discrete Lie groups), but you will want to know the bar construction. An excellent source for this is \cite[Chapter 4]{RiehlCHT}.
 	\item A bit of abstract homotopy theory, e.g.\ what a model structure is. Good sources for model categories are \cite[Part III]{RiehlCHT} and \cite{Hovey}.
 \end{itemize}
@@ -93,8 +93,10 @@ Let $X$ be a topological space.
 	\item A subset $A\subseteq X$ is \term{compactly closed} if for every compact Hausdorff space $Y$ and $f\colon
 	Y\to X$, $f^{-1}(A)$ is closed.
 	\item $X$ is \term{compactly generated} if every compactly closed subset of $X$ is closed.
-	\item $X$ is \term{weak Hausdorff} if the diagonal map $\Delta\colon X\to X\times X$ is closed when $X\times X$
-	has the compactly generated topology.
+	\item $X$ is \term{weak Hausdorff} if for every compact Hausdorff space $Y$ and continuous map $f\colon Y\to
+	X$, $f(Y)$ is a closed subset of $X$.\footnote{When $X$ is compactly generated, this is equivalent to being
+	\term{$k$-Hausdorff}, i.e.\ the diagonal map $\Delta\colon X\to X\times X$ is closed when $X\times X$ has the
+	compactly generated topology. See~\cite{StricklandCGWH, RezkCGWH} for more details.}
 \end{itemize}
 \end{defn}
 The intuition behind compact generation is that the topology is determined by compact Hausdorff spaces. The weak
