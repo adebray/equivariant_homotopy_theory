@@ -6,6 +6,7 @@
 \coursename{Topics in Algebraic Topology}
 \date{\today}
 
+
 \usepackage{pdfpages}
 \usepackage[charter]{mathdesign}
 \usepackage[T1]{fontenc}
@@ -13,7 +14,19 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{fadings}
 
-\renewcommand{\term}[1]{{\bfseries #1}}
+\makeindex
+% uncomment this to see index entries in the text, for ease of debugging
+%\usepackage{showidx}
+
+% \term automatically indexes your definition.
+%	- Use \term* to avoid this behavior.
+%	- Use \term[name in index]{name in text} to use a different name in the index (e.g. for plurals)
+%	  (source: https://tex.stackexchange.com/a/6089)
+\usepackage{suffix}
+\NewDocumentCommand{\term}{o m}{{\bfseries #2}\index{\IfValueTF{#1}{#1}{#2}|textit}}
+%\newcommand{\term}[2][##1]{{\bfseries #1}\index{#2|textit}}
+\WithSuffix\newcommand\term*[1]{\bfseries #1}
+
 \newcommand{\sSet}{\cat{sSet}}
 \DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\rank}{rank\,}

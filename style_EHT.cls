@@ -226,7 +226,6 @@
 \setcounter{tocdepth}{1}
 %
 % These can be changed downstream
-\newcommand{\term}{\emph} % e.g. "The \term{trace} is defined to be..."
 \newcommand{\latin}{\textit} % e.g. \latin{per se}, \latin{mutatis mutandis}
 %
 % Often, I find myself making a theorem, definition, etc. that's purely a combination
