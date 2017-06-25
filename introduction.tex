@@ -37,11 +37,12 @@ in general, but it's particularly acute here. Nonetheless, here are some referen
 There are arguably two very serious modern applications of equivariant stable homotopy theory: 
 
 \begin{itemize}
-	\item The first is trace methods in algebraic $K$-theory: Hochschild homology and its topological cousins are
-	equipped with natural $S^1$-actions (the same $S^1$-action coming from field theory). This is how people
-	other than Quillen compute algebraic $K$-theory.
+	\item The first is trace methods in algebraic $K$-theory:\index{trace methods in algebraic $K$-theory}
+	Hochschild homology\index{Hochschild homology} and its topological cousins are equipped with natural
+	$S^1$-actions (the same $S^1$-action coming from field theory). This is how people other than Quillen compute
+	algebraic $K$-theory.\index{algebraic $K$-theory}
 	\item The other major application is Hill-Hopkins-Ravenel's settling of the Kervaire invariant $1$ conjecture
-	in~\cite{HHR}.
+	in~\cite{HHR}.\index{Kervaire invariant $1$ conjecture}
 \end{itemize}
 The nice thing is, however you feel about the applications, both applications require developing new theory in
 equivariant stable homotopy theory. Hill-Hopkins-Ravenel in particular required a clarification of the foundations
@@ -51,10 +52,10 @@ In these notes, we hope to cover the foundations of equivariant stable homotopy 
 be a modern take, insofar as we emphasize the norm and presheaves on orbit categories (these will be explained in
 due time), the modern emerging consensus on how to think of these things, different than what's written in
 textbooks. The former is old, but has gained more attention recently; the latter is new. Moreover, there's an
-increasing sense that a lot of the foundations here are best done in $\infty$-categories. We will not take this
-approach in order to avoid getting bogged down in $\infty$-categories; moreover, the notes are supposed to be
-rigorous. It will sometimes be clear to some people that $\infty$-categories lie in the background, but we won't
-talk very much about them.
+increasing sense that a lot of the foundations here are best done in $\infty$-categories.\index{$\infty$-category}
+We will not take this approach in order to avoid getting bogged down in $\infty$-categories; moreover, the notes
+are supposed to be rigorous. It will sometimes be clear to some people that $\infty$-categories lie in the
+background, but we won't talk very much about them.
 
 We'll cover some old topics such as Smith theory and the Segal conjecture, and newer ones such as trace methods
 and Hill-Hopkins-Ravenel, depending on student interest. We will not have time to discuss many topics, including
@@ -78,8 +79,7 @@ necessarily a good reference for nontrivial groups.
 Unstable equivariant questions are very natural, and somewhat reasonable. But stable questions are harder; they
 ultimately arise from reasonable questions, but their formulations and answers are hard: even discussing the
 equivariant analogue of $\pi_0S^0$ (see~\eqref{piGs0}) requires some representation theory --- and yet of course it
-should. Thus there's a lot of foundations behind hard calculations. There will be problem sets; if you want to
-learn the material (or are an undergrad), you should do the problem sets.
+should. Thus there's a lot of foundations behind hard calculations.
 \subsection*{Categories of topological spaces.}
 The category of topological spaces we consider is $\Top$, the category of compactly generated, weak Hausdorff
 spaces (and continuous maps); we'll also consider $\Top_*$, the category of based, compactly generated, weak
@@ -92,11 +92,12 @@ Let $X$ be a topological space.
 \begin{itemize}
 	\item A subset $A\subseteq X$ is \term{compactly closed} if for every compact Hausdorff space $Y$ and $f\colon
 	Y\to X$, $f^{-1}(A)$ is closed.
-	\item $X$ is \term{compactly generated} if every compactly closed subset of $X$ is closed.
+	\item $X$ is \term[compactly generated topological space]{compactly generated} if every compactly closed
+	subset of $X$ is closed.
 	\item $X$ is \term{weak Hausdorff} if for every compact Hausdorff space $Y$ and continuous map $f\colon Y\to
 	X$, $f(Y)$ is a closed subset of $X$.\footnote{When $X$ is compactly generated, this is equivalent to being
-	\term{$k$-Hausdorff}, i.e.\ the diagonal map $\Delta\colon X\to X\times X$ is closed when $X\times X$ has the
-	compactly generated topology. See~\cite{StricklandCGWH, RezkCGWH} for more details.}
+	\term[k-Hausdorff@$k$-Hausdorff]{$k$-Hausdorff}, i.e.\ the diagonal map $\Delta\colon X\to X\times X$ is closed
+	when $X\times X$ has the compactly generated topology. See~\cite{StricklandCGWH, RezkCGWH} for more details.}
 \end{itemize}
 \end{defn}
 The intuition behind compact generation is that the topology is determined by compact Hausdorff spaces. The weak
@@ -104,11 +105,12 @@ Hausdorff condition is strictly stronger than $T_1$ (points are closed), but str
 Any space you can think of without trying to be pathological will meet these criteria.
 
 There is a functor $k$ from all spaces to compactly generated spaces which adds the necessary closed sets. This has
-the unfortunate name of \term{$k$-ification} or \term{kaonification};\footnote{Kaonification is of course distinct
-from koanification, the process which makes statements more confusing.} by putting the compactly generated topology
-on $X\times X$, we mean taking $k(X\times X)$. There's also a ``weak Hausdorffification'' functor $w$ which makes a
-space weakly Hausdorff, which is some kind of quotient.\footnote{The $k$ functor is right adjoint to the forgetful
-map, which tells you what it does to limits.}
+the unfortunate name of \term[k-ification@$k$-ification]{$k$-ification} or
+\synonym{$k$-ification}{kaonification};\footnote{Kaonification is of course distinct from koanification, the
+process which makes statements more confusing.\index{pun}} by putting the compactly generated topology on $X\times
+X$, we mean taking $k(X\times X)$. There's also a ``weak Hausdorffification'' functor $w$\index{weak Hausdorff!weak
+Hausdorffification} which makes a space weakly Hausdorff, which is some kind of quotient.\footnote{The $k$ functor
+is right adjoint to the forgetful map, which tells you what it does to limits.}
 
 When computing limits and colimits, it's often desirable to compute them in the category of spaces and then apply
 $k$ and $w$ to return to $\Top$. This works correctly for limits, but for colimits, $w$ is particularly badly
@@ -141,9 +143,10 @@ is a homeomorphism.
 The categories $\Top$ and $\Top_*$ are enriched over themselves (as are categories of $G$-spaces, which we'll see
 soon). This merits a brief digression into enriched categories.
 \begin{defn}
-Let $(\fV,\otimes, \boldsymbol 1)$ be a symmetric monoidal category.\footnote{Briefly, this means $V$ has a tensor
-product $\otimes$ and a unit $\boldsymbol 1$; there are certain axioms these must satisfy.} Then, an
-\term{enrichment} of a category $\fC$ over $\fV$ means
+Let $(\fV,\otimes, \boldsymbol 1)$ be a symmetric monoidal\index{symmetric monoidal category}
+category.\footnote{Briefly, this means $V$ has a tensor product $\otimes$ and a unit $\boldsymbol 1$; there are
+certain axioms these must satisfy.} Then, an \term[enriched category]{enrichment} of a category $\fC$ over $\fV$
+means
 \begin{itemize}
 	\item for every $x,y\in\fC$, there is a hom-object $\underline\fC(x,y)$, which is an object in $\fV$,
 	\item for every $x\in\fC$, there is a unit $\fV$-morphism $\boldsymbol 1\to\underline\fC(x,x)$,
@@ -155,8 +158,8 @@ product $\otimes$ and a unit $\boldsymbol 1$; there are certain axioms these mus
 A great deal of category theory can be generalized to enriched categories, including $\fV$-enriched functors,
 $\fV$-enriched natural transformations, $\fV$-enriched limits and colimits, and more. The canonical reference is
 Kelley~\cite{Kelley}, available free and legally online. It covers just about everything we need except for the Day
-convolution, which can be read from Day's thesis~\cite{DayThesis}. Another good source, with a view towards
-homotopy theory, is \cite[Chapter 3]{RiehlCHT}.
+convolution,\index{Day convolution} which can be read from Day's thesis~\cite{DayThesis}. Another good source, with
+a view towards homotopy theory, is \cite[Chapter 3]{RiehlCHT}.
 \begin{defn}
 Let $\fC$ and $\fD$ be enriched over $\fV$. Then, an \term{enriched functor} $F\colon\fC\to\fD$ is an assignment
 of objects in $\fC$ to objects in $\fD$ and maps $\underline\fC(x,y)\to\underline\fD(Fx, Fy)$ that are $\cat
@@ -164,6 +167,6 @@ V$-morphisms, and commute with composition.
 \end{defn}
 A category enriched over $\Top$ is called a \term{topological category}.
 \begin{ex}
-Work out the definition of enriched natural transformations.
+Work out the definition of enriched natural transformations.\index{enriched natural transformation}
 \end{ex}
 This brings us to the beginning.
