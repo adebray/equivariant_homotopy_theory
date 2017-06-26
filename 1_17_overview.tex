@@ -1,14 +1,14 @@
 Let $G$ be a group. We'll generally restrict to finite groups or compact Lie groups; this is not because these are
 the only interesting groups, but rather because they are the only ones we really understand. If you can come up
 with a good equivariant homotopy theory for discrete infinite groups, you will be famous. Throughout, keep in mind
-the examples $C_p$ (the cyclic group of order $p$, sometimes also denoted $\Z/p$), $C_{p^n}$, the symmetric group
-$\Sigma_n$, and the circle group $S^1$.
+the examples $C_p$\index{Cn@$C_n$} (the cyclic group of order $p$, sometimes also denoted $\Z/p$), $C_{p^n}$, the
+symmetric group $\Sigma_n$,\index{Sigman@$\Sigma_n$} and the circle group $S^1$.
 
-There's a monad\footnote{We're going to say more about monads in \S\ref{monads}.} $M_G$ on $\Top$ which sends
-$X\mapsto G\times X$, and analogously a monad $M_G^*$ on $\Top_*$ sending $X\to G_+\land X$. One can define the
-category of \term{$G$-spaces} $G\Top$ (resp.\ \term{based $G$-spaces} $G\Top_*$) to be the category of algebras
-over $M_G$ (resp.\ $M_G^*$). This is probably not the most explicit way to define $G$-spaces, but it makes it
-evident that $G\Top$ and $G\Top_*$ are complete and cocomplete.
+There's a monad\footnote{We're going to say more about monads in \S\ref{monads}.} \index{monad} $M_G$ on $\Top$
+which sends $X\mapsto G\times X$, and analogously a monad $M_G^*$ on $\Top_*$ sending $X\to G_+\land X$. One can
+define the category of \term[G-space@$G$-space]{$G$-spaces} $G\Top$ (resp.\ \term[based $G$-space]{based
+$G$-spaces} $G\Top_*$) to be the category of algebras over $M_G$ (resp.\ $M_G^*$). This is probably not the most
+explicit way to define $G$-spaces, but it makes it evident that $G\Top$ and $G\Top_*$ are complete and cocomplete.
 
 More explicitly, $G\Top$ is the category of spaces $X\in\Top$ equipped with a continuous action $\mu\colon G\times
 X\to X$. That is, $\mu$ must be associative and unital. Associativity is encoded in the commutativity of the
@@ -17,7 +17,8 @@ diagram
 	G\times G\times X\ar[r]^{1\times\mu}\ar[d]^m & G\times X\ar[d]^\mu\\
 	G\times X\ar[r]^\mu & X.
 }\]
-The morphisms in $G\Top$ are the \term{$G$-equivariant} maps $f\colon X\to Y$, i.e.\ those commuting with $\mu$:
+The morphisms in $G\Top$ are the \term[equivariant map]{$G$-equivariant} maps $f\colon X\to Y$, i.e.\ those
+commuting with $\mu$:\index{G-equivariant map@$G$-equivariant map|see {equivariant map}}
 \[\xymatrix{
 	G\times X\ar[r]\ar[d]^{\mu_X} & G\times Y\ar[d]^{\mu_Y}\\
 	X\ar[r]^f & Y.
@@ -25,7 +26,8 @@ The morphisms in $G\Top$ are the \term{$G$-equivariant} maps $f\colon X\to Y$, i
 It's possible (but not the right idea) to let $\underline G$ denote\footnote{There isn't really a standard notation for this category, but the closest is $BG$. This notation emphasizes the fact that groupoids are Quillen equivalent to 1-truncated spaces.} the category with an object $*$ such that
 $\underline G(*, *) = G$. Then, $G\Top$ is also the category of functors $\underline G\to\Top$, with morphisms as
 natural transformations. This realizes $G\Top$ as a \term{presheaf category}; it will eventually be useful to do
-something like this, but in a different way described by Elmendorf's theorem (\cref{elmendorf}).
+something like this, but in a different way described by Elmendorf's theorem (\cref{elmendorf}).\index{Elmendorf's
+theorem}
 
 When we write $\Map(X, Y)$ in $G\Top$ or $G\Top_*$, we could mean three things:
 \begin{enumerate}
@@ -47,9 +49,10 @@ all maps. This is written $\left(G\Map(X,Y)\right)^G = \Map^G(X,Y)$.
 
 Throughout this class, ``subgroup'' will mean ``closed subgroup'' unless specified otherwise.
 \begin{defn}
-Let $X$ be a $G$-set and $H\subseteq G$ be a subgroup. Then, the \term{$H$-fixed points} of $X$ is the space
-$X^H\coloneqq \set{x\in X\mid hx = x\text{ for all } h\in H}$. This is naturally a $\WH$-space, where $\WH = \NH/H$
-(here $\NH$ is the normalizer of $H$ in $G$).\footnote{If $H\trianglelefteq G$, then $X^H$ is also a $G/H$-space.}
+Let $X$ be a $G$-set and $H\subseteq G$ be a subgroup. Then, the \term[fixed points!of a $G$-space]{$H$-fixed
+points} of $X$ is the space $X^H\coloneqq \set{x\in X\mid hx = x\text{ for all } h\in H}$. This is naturally a
+$\WH$-space, where $\WH = \NH/H$ (here $\NH$ is the normalizer of $H$ in $G$).\footnote{If $H\trianglelefteq G$,
+then $X^H$ is also a $G/H$-space.}
 \end{defn}
 \begin{defn}
 The \term{isotropy group} of an $x\in X$ is $G_x\coloneqq \set{h\in G\mid hx = x}$.
@@ -76,7 +79,8 @@ adjoints:
 	\item The right adjoint is $\Map^H(G,X)$ (or $\Map^H(G_+, X)$ in the based case), the space of $H$-equivariant
 	maps $G\to X$, with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on
 	$\Map^H(G,X)$.\footnote{This actually \emph{is} a group action, since if $a,b,g\in G$, then $(a(b f))(g) =
-	(bf)(ga) = f(gab) = (ab(f))(g)$.} Sometimes this is also denoted $F_H(G, X)$.\qedhere \end{itemize}
+	(bf)(ga) = f(gab) = (ab(f))(g)$.} Sometimes this is also denoted $F_H(G, X)$.\qedhere
+\end{itemize}
 \end{exm}
 
 \begin{rem}
@@ -96,7 +100,7 @@ with $\Hom(*,*)=G$; as we have said above, we can (naïvely) write $G\Top$ as th
 	BH \ar[ur]_-Y
 }\]
 % 
-According to abstract nonsense, restriction along $F$ has left and right adjoints, called \term{left and right Kan
+According to abstract nonsense, restriction along $F$ has left and right adjoints, called \term[Kan extension]{left and right Kan
 extension along $F$}, respectively:
 \[
 \vcenter{\xymatrix{
@@ -127,15 +131,15 @@ unbased spaces, but we have a quotient sequence
 	S(V)_+\ar[r] & D(V)_+\ar[r] & S^V.
 }\]
 If $V = \R^n$ with the trivial $G$-action, $S^V$ is $S^n$ with the trivial $G$-action, so these generalize the
-usual spheres; thus, these $S^V$ are called \term{representation spheres}.
+usual spheres; thus, these $S^V$ are called \term[index representation sphere]{representation spheres}.
 \end{exm}
 We will let $S^n$ denote $S^{\R^n}$, our preferred model for the $n$-sphere with trivial $G$-action.
 \begin{ex}
 Show that $S^V\wedge S^W\cong S^{V\oplus W}$.
 \end{ex}
 \begin{defn}
-A \term{$G$-homotopy} is a map $h\colon X\times I\to Y$ in $G\Top$, where $G$ acts trivially on $I$. We generally
-think of it, as usual, as interpolating between $h(\bl, 0)$ and $h(\bl, 1)$. This is the same data as a path in
-$G\Map(X,Y)$. A \term{$G$-homotopy equivalence} between $X$ and $Y$ is a map $f\colon X\to Y$ such that there
-exists a $g\colon Y\to X$ and $G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
+A \term[G-homotopy@$G$-homotopy]{$G$-homotopy} is a map $h\colon X\times I\to Y$ in $G\Top$, where $G$ acts
+trivially on $I$. We generally think of it, as usual, as interpolating between $h(\bl, 0)$ and $h(\bl, 1)$. This is
+the same data as a path in $G\Map(X,Y)$. A \term{$G$-homotopy equivalence} between $X$ and $Y$ is a map $f\colon
+X\to Y$ such that there exists a $g\colon Y\to X$ and $G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
 \end{defn}

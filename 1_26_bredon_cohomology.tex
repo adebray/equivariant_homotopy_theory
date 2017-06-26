@@ -9,7 +9,7 @@
 %
 Another consequence of Elmendorf's theorem (\cref{revElmen}) is that presheaves on the orbit category that are
 valued in abelian groups are Eilenberg-Mac Lane $G$-spaces. Homotopy classes of maps into these $G$-spaces gives
-what's known as Bredon cohomology; we'll introduce this and compute several examples.
+what's known as Bredon cohomology; we'll introduce this and compute several examples.\index{Elmendorf's theorem}
 \begin{defn}
 Let $G$ be a finite group, A \term{coefficient system} is a presheaf $X\in\Fun(\sO_G\op, \Ab)$
 \end{defn}
@@ -19,12 +19,14 @@ spaces. But it will be good to see it explicitly. Bredon cohomology is explicit,
 it has poor formal properties, and you need a lot of geometric insight to compute things. We'll later see that this
 abelian category (meaning we can do homological algebra) is the wrong one; it produces a $\Z$-graded cohomology
 theory (or rather, one graded on subgroups of $\Z$); this will be the wrong answer, especially if you want Poincaré
-duality, and the right answer uses a grading by the representation ring. But we'll get there.
+duality, and the right answer uses a grading by the representation ring. But we'll get there.\index{Eilenberg-Mac
+Lane space}\index{Poincaré duality}
 \begin{rem}
 If $G$ is a compact Lie group, the proper definition of a coefficient system is an $\Ab$-valued presheaf on
 $h\sO_G$, the homotopy category of the orbit category. (For finite groups these definitions coincide.) In other
 words, given $G$ a compact Lie group and a family of subgroups $\sF$ of $G$, the homotopy orbit category $h\sO_G$
-has objects $G/H$, where $H \in \sF$, and has morphisms the homotopy classes of maps $G/H \to G/K$.
+has objects $G/H$, where $H \in \sF$, and has morphisms the homotopy classes of maps $G/H \to G/K$.\index{homotopy
+category!of the orbit category}
 \end{rem}
 % TODO: if you put this example inside the remark, it's typeset wrong.
 \begin{exm}
@@ -97,7 +99,7 @@ bonding maps for $\underline C_n(X)$, but it does, so this works.
 % something you have to check, though it's not very difficult.
 Using this chain complex, we define Bredon homology and cohomology.
 \begin{comp}{defn}{itemize}
-	\item The Bredon cohomology with coefficients in a coefficient system $M$ is
+	\item The \term{Bredon cohomology} with coefficients in a coefficient system $M$ is
 	\[H_G^n(X;M) \coloneqq H^n(\Hom_{\Fun(\sO_G\op, \Ab)}(\underline C_*(X), M)).\]
 	That is, we take the chains on $X$ and compute the maps into $M$; since $\Fun(\sO_G\op,\Ab)$ is an abelian
 	category, this is a cochain complex of abelian groups, and we can take its homology to obtain a sequence of
@@ -107,7 +109,7 @@ Using this chain complex, we define Bredon homology and cohomology.
 	$G/H\mapsto\set{H^n(X^H)}$).\footnote{Would it be appropriate to call such a functor an ``efficient system?''}
 	With $M$ such a coefficient system, the \term{Bredon homology} with coefficients in $M$ is
 	\[H_n^G(X; M) \coloneqq H_n(\underline C_n(X)\otimes_{\sO_G} M).\]
-	By this tensor product, we mean a coend:
+	By this tensor product, we mean a coend:\index{coend}
 	\begin{align*}
 	\underline C_n(X)\otimes_{\sO_G} M &= \int^{G/H\in \sO_G} \underline C_n(X)(G/H)\otimes M(G/H)\\
 	&= \bigoplus_{G/H} {\underline C_n(X)(G/H)\otimes M(G/H)} \mathbin/ {\mathord\sim},
@@ -128,11 +130,12 @@ Now we'll compute some simple examples of Bredon homology and cohomology over $C
 	C_2/C_2.
 }
 \end{equation}
-The map $C_2/e\to C_2/C_2$ crushes $C_2/e$ to a point, and the map $C_2/e\to C_2/e$ exchanges the two points.
+The map $C_2/e\to C_2/C_2$ crushes $C_2/e$ to a point, and the map $C_2/e\to C_2/e$ exchanges the two
+points.\index{orbit category!of $C_2$}
 \begin{exm}
 \label{2sigmaBC}
 Let $C_2$ act on $S^2$ by rotation by $\pi$. We'll compute the Bredon cohomology of this $C_2$-space with
-coefficients in $\underline\Z$.
+coefficients in $\underline\Z$.\index{sign represention}
 \begin{ex}
 If $\sigma\colon C_2\to\GL_1(\R)$ denotes the sign representation, verify this $C_2$-action on $S^2$ makes it into
 the representation sphere $S^{2\sigma}$.
@@ -218,10 +221,10 @@ example, $H^0$ tells us the number of connected components of $S^2/C_2$.
 Generalize \cref{2sigmaBC} to $S^{n\sigma}$, the $n$-sphere with a $C_2$-action given by a half-turn.
 \end{ex}
 \begin{exm}
-Let $C_2$ act on $S^2$ by the antipodal action.
+Let $C_2$ act on $S^2$ by the antipodal action.\index{antipodal map}
 \begin{ex}
 Identify this action with that of the unit sphere $S(3\sigma)$ in $3\sigma$ (i.e.\ a direct sum of three copies of
-the sign representation).
+the sign representation).\index{sign representation}
 \end{ex}
 
 We get a $C_2$-CW structure of \TODO. We'll again compute the
@@ -283,7 +286,7 @@ orbit category for the trivial family of subgroups of $C_n$ is
 	C_n/C_n.
 }\]
 Since $\vp_1$ generates $\Aut_{\sO_{C_n}}(C_n/C_n)$, we'll keep track of it and leave the rest of the $\vp_i$
-implicit.
+implicit.\index{orbit category!for $C_n$ with the trivial family of subgroups}
 
 First, we calculate $\underline C_\bullet(S^V)$. At $C_n/e$, this is just the CW chains for $S^2$, but with the
 nonequivariant CW structure induced by forgetting the $C_n$-action on $S^V$. That is, there are two $0$-cells, $n$
@@ -355,7 +358,7 @@ more interesting example is $n = p^2$, where $p$ is prime. In this case the orbi
 }
 \end{equation}
 To compute $\underline C_\bullet(S^V)$, we need to know the $H$-CW structures on $(S^V)^H$, where $H$ ranges over
-the subgroups of $C_{p^2}$.
+the subgroups of $C_{p^2}$.\index{orbit category!of $C_{p^2}$}
 \begin{itemize}
 	\item For $H = e$, this is the $C_{p^2}$-CW structure we started with: there are two fixed, $0$-cells, one free
 	$1$-cell, and one free $2$-cell.
@@ -445,7 +448,7 @@ i.e.\ $\underline C_\bullet(X)$ is
 The $C_4$-actions in the top row are the regular $C_4$-representation on the subspace generated by the $\alpha_i$
 or the edges they touch. Similarly, the $C_2$-actions in the middle row are the regular representations on the
 subspaces generated by the $\beta_j$ and their edges. The inclusions in the diagram $\Z^k\inj\Z^m$ are as the first
-$k$ components.
+$k$ components.\index{regular representation}
 
 Applying $\Hom(\bl,\underline\Z)$, we get a cochain complex
 \[\xymatrix{
@@ -492,7 +495,7 @@ so the Bredon cohomology is
 
 We want cohomology to have nice formal properties analogous to the Eilenberg-Steenrod axioms. We'll think of $H_G$
 as a general $G$-equivariant cohomology theory of pairs $H_G^n(X, A; M)$, but in our case this will just be
-$H_G^n(X/A; M)$.
+$H_G^n(X/A; M)$.\index{Eilenberg-Steenrod axioms!for Bredon cohomology}
 \begin{enumerate}
 	\item $H_G^*$ should be invariant under weak equivalences: a weak equivalence $X\to Y$ should induce an
 	isomorphism $H_G^n(Y;M) \morph^{\cong} H_G^n(X;M)$.
@@ -501,12 +504,12 @@ $H_G^n(X/A; M)$.
 		\dotsb\ar[r] & H_G^n(X, A; M)\ar[r] & H_G^n(X;M)\ar[r] &H_G^n(A;M)\ar[r]^-\delta &H^{n+1}(X,A;M)\ar[r] &
 		\dotsb
 	}\]
-	\item The excision axiom: if $X = A\cup B$, then
+	\item The excision axiom: if $X = A\cup B$, then\index{excision}
 	\[H_G^n(X/A; M)\cong H_G^n(B/(A\cap B); M).\]
-	\item The Milnor axiom:
+	\item The Milnor axiom:\index{Milnor axiom}
 	\[H_G^n\paren{\bigvee_i X_i; M} = \prod_i H_G^n(X_i; M).\]
 	\item Finally, for now we impose the dimension axiom: our points are orbits $G/J$, so we ask that $H^n(G/H; M)$
-	is concentrated in degree $0$.
+	is concentrated in degree $0$.\index{dimension axiom}
 \end{enumerate}
 Some of these are easier than others: Bredon cohomology is manifestly homotopy-invariant in the same ways as
 ordinary cohomology, so invariance under weak equivalence and the Milnor axiom are immediate, and excision follows
@@ -550,7 +553,7 @@ in ordinary homotopy theory depends on the existence of short projective resolut
 projectives and injectives, but resolutions are longer. Thus, taking an injective resolution of $M$ and filtering
 the resulting double complex, one obtains a spectral sequence
 \[\Ext^{p,q}(\underline C_*(X), M)\Longrightarrow H_G^{p+q}(X;M).\]
-{\color{red}Warning}: indexing might be slightly off.
+{\color{red}Warning}: indexing might be slightly off.\index{universal coefficient spectral sequence}
 
 There's a corresponding $\Tor$ spectral sequence.
 \end{rem}

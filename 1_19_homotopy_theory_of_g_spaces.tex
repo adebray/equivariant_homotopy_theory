@@ -13,7 +13,8 @@ and $G/H\times S^n$.\footnote{Illman's thesis~\cite{IllmanThesis} is a reference
 one.} This is one of several triangulation results proven in the 1970s which are now assumed without comment, but
 if you like this kind of math then it's a very interesting story.
 \begin{defn}
-A \term{$G$-CW complex} is a sequential colimit of spaces $X_n$, where $X_{n+1}$ is a pushout
+A \term[G-CW complex@$G$-CW complex]{$G$-CW complex} is a sequential colimit of spaces $X_n$, where $X_{n+1}$ is a
+pushout
 \[\xymatrix{\coprod G/H\times S^n\ar[r]\ar[d] & X_n\ar[d]\\
 \coprod G/H\times D^{n+1}\ar[r] & \pushout X_{n+1},
 }\]
@@ -24,8 +25,8 @@ That is, it's formed by attaching cells just as usual, though now we have more c
 This immediately tells you what the homotopy groups have to be: $[G/H\times S^n, X]$, which by an adjunction game
 is isomorphic to $\pi_n(X^H)$. We let $\pi_n^H(X)\coloneqq \pi_n(X^H)$. Thus, we can define weak equivalences.
 \begin{defn}
-A map $f\colon X\to Y$ of $G$-spaces is a \term{weak equivalence} if for all subgroups $H\subset G$,
-$f_*\colon\pi_n^H(X)\to\pi_n^H(Y)$ is an isomorphism.
+A map $f\colon X\to Y$ of $G$-spaces is a \term[weak equivalence!of $G$-spaces]{weak equivalence} if for all
+subgroups $H\subset G$, $f_*\colon\pi_n^H(X)\to\pi_n^H(Y)$ is an isomorphism.
 \end{defn}
 These homotopy groups have a more complicated algebraic structure: they're indexed by the lattice of subgroups of
 $G$ and the integers. This is fine (you can do homological algebra), but some things get more complicated,
@@ -37,7 +38,8 @@ fine, and you get a different kind of homotopy theory.
 
 Finally, the Whitehead theorem (\cref{eqWhite}) is true for $G$-CW complexes. This follows for the same reason as
 in May's course: it follows word-for-word after proving the equivariant HELP (homotopy extension lifting property)
-lemma (\cref{HELP}) , which is true by the same argument as in the nonequivariant case.
+lemma (\cref{HELP}), which is true by the same argument as in the nonequivariant case.\index{HELP|see {homotopy
+extension lifting property}}
 
 $G$-CW complexes are just like the CW complexes we know and love, but with new cells $G/H$ indexed by the closed
 subgroups $H\subset G$. The idea is that you're building up a space by attaching different spaces with different
@@ -76,7 +78,7 @@ $G$-cells we have chosen to work with.
 
 \begin{ex}
 $C_2$ also acts on $S^2$ by the antipodal map, which has no fixed points. Write a $C_2$-CW cell structure for this
-$C_2$-space.
+$C_2$-space.\index{antipodal map}
 \end{ex}
 
 \begin{exm}
@@ -207,8 +209,8 @@ gives quick proofs of several theorems. In the equivariant case, it allows a qui
 case; it will be useful to see a proof of this nature. Ultimately, we will take a different approach involving
 model categories, and this will be the second perspective.
 \begin{defn}
-Let $X,Y\in\Top$ and $f\colon X\to Y$ be continuous. Then, $f$ is \term{$n$-connected} if
-$\pi_q(f)\colon\pi_q(X)\to\pi_q(Y)$ is an isomorphism when $q < n$ and surjective when $q = n$.
+Let $X,Y\in\Top$ and $f\colon X\to Y$ be continuous. Then, $f$ is \term[n-connected@$n$-connected]{$n$-connected}
+if $\pi_q(f)\colon\pi_q(X)\to\pi_q(Y)$ is an isomorphism when $q < n$ and surjective when $q = n$.
 \end{defn}
 We wish to generalize this to the equivariant case.
 \begin{defn}
@@ -217,12 +219,13 @@ Let $\theta\colon\set{\text{conjugacy classes of subgroups of $G$}}\to\set{x\in\
 \begin{itemize}
 	\item A map $f\colon X\to Y$ of $G$-spaces is \term{$\theta$-connected} if for all $H\subset G$, $f^H$ is
 	$\theta(H)$-connected.
-	\item A $G$-CW complex is \term{$\theta$-dimensional} if all cells of orbit type $G/H$ have (nonequivariant)
-	dimension at most $\theta(H)$.
+	\item A $G$-CW complex is \term[dimension!of a $G$-CW complex]{$\theta$-dimensional} if all cells of orbit type
+	$G/H$ have (nonequivariant) dimension at most $\theta(H)$.
 \end{itemize}
 \end{defn}
 \begin{thm}[Equivariant HELP lemma]
 \label{HELP}
+\index{homotopy extension lifting property}
 Let $A$, $X$, $Y$, and $Z$ be $G$-CW complexes such that $A\subseteq X$ is $\theta$-dimensional and let $e\colon
 Y\to Z$ be a $\theta$-connected $G$-map. Given $g\colon A\to Y$, $h\colon A\times I\to Z$, and $f\colon X\to Z$
 such that $eg = hi_0$ and $fi = hi_1$, there exist maps $\tilde g\colon X\to Y$ and $\tilde h\colon X\times I\to Z$
@@ -233,8 +236,8 @@ that make the following diagram commute:
 	X \ar[ur]^-f \ar[rr]_-{i_0} && \ar@{-->}[ul]^-{\tilde h} X\times I && \ar[ll]^-{i_1} \ar@{-->}[ul]^-{\tilde g} X
 }\]
 \end{thm}
-This is a massive elaboration of the idea of a Hurewicz cofibration. The best way to understand this is to prove
-it (though it's not an easy proof).
+This is a massive elaboration of the idea of a Hurewicz cofibration.\index{Hurewicz cofibration} The best way to
+understand this is to prove it (though it's not an easy proof).
 
 In the non-equivariant case, one reduces to working one cell at a time, inductively extending over the cells of $X$
 not in $A$.\footnote{This requires reducing to the case where $X$ is a finite CW complex, but taking a sequential
@@ -264,6 +267,7 @@ The proof is an exercise; filling in the details is a great way to get your hand
 actually doing. Hint: consider the pairs $\emptyset\to X$ and $X\times S^0\to X\times I$, and apply the HELP lemma.
 \begin{cor}[Equivariant Whitehead theorem]
 \label{eqWhite}
+\index{Whitehead theorem!for $G$-CW complexes}
 Let $e\colon Y\to Z$ be a weak equivalence of $G$-CW complexes. Then, $e$ is a $G$-homotopy equivalence.
 \end{cor}
 \begin{proof}
@@ -279,7 +283,7 @@ theorems such as the HELP lemma and its consequences in a general setting, and t
 you need. This is a great way to ``just do it'' without needing model categories.
 
 Anyways, we'll now define a model structure on $G\Top$ and $G\Top_*$. If you don't know what a model category is,
-now is a good time to review.
+now is a good time to review.\index{model category}\index{model structure!for $G$-spaces}
 \begin{prop}
 There is a model structure on $G\Top$ (and on $G\Top_*$) defined by the following data.
 \begin{description}
@@ -290,9 +294,10 @@ There is a model structure on $G\Top$ (and on $G\Top_*$) defined by the followin
 \end{description}
 \end{prop}
 So we once again parametrize everything over subgroups of $G$ and use fixed points. This is a cofibrantly generated
-model category; the cofibrations are specified by generators of acyclic cofibrations in a similar manner to $\Top$.
-That is, in $\Top$, one can choose generators $I = \set{S^{n-1}\to D^n}$ and $J = \set{D^n\to D^n\times I}$; in
-$G\Top$, we instead take $I_G = \set{G/H\times I}$ and $J_G = \set{G/H\times J}$.
+model category;\index{model category!cofibrantly generated} the cofibrations are specified by generators of acyclic
+cofibrations in a similar manner to $\Top$.  That is, in $\Top$, one can choose generators $I = \set{S^{n-1}\to
+D^n}$ and $J = \set{D^n\to D^n\times I}$; in $G\Top$, we instead take $I_G = \set{G/H\times I}$ and $J_G =
+\set{G/H\times J}$.
 
 These are cells that we used to define $G$-CW complexes, and this is no coincidence: it's a general fact about
 cofibrantly generated model categories that follows from the small object argument\footnote{The small object
@@ -300,10 +305,11 @@ argument is a beautiful piece of basic mathematics that everybody should know. I
 is to read enough about model categories to get to that point. In general, there may be large objects and
 transfinite induction, but for the case we care about large cardinals won't arise.} that cofibrant objects are
 retracts of ``cell complexes'' built from the things in $I$, and cofibrations are retracts of cellular inclusions
-of cell complexes. In this sense, CW complexes are inevitable.
+of cell complexes. In this sense, CW complexes are inevitable.\index{small object argument}
 
 The Whitehead theorem (\cref{eqWhite}) now falls out of the general theory of model categories.
 \begin{thm}[Whitehead theorem for model categories]
+\index{Whitehead theorem!for model categories}
 Let $f\colon X\to Y$ be a weak equivalence of cofibrant-fibrant objects in a model category. Then, $f$ is a
 homotopy equivalence.
 \end{thm}

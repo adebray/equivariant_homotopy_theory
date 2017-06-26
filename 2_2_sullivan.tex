@@ -1,6 +1,7 @@
 \begin{quote}\textit{
-	``The number of children he had was a monotonically increasing function.''
+	``The number of children he had was a monotonically increasing function.''\index{monotonic function}
 }\end{quote}
+\index{Sullivan conjecture}\index{Adams conjecture}
 The Sullivan conjecture is really Sullivan's attack on Adams' conjecture, and is a very important story. We won't
 prove the conjecture, because it's hard, but the context around it was a major motivation for a lot of the work in
 algebraic and geometric topology in the past 40 years. Sullivan wrote up some notes for a class of his at MIT,
@@ -8,18 +9,19 @@ which have been published as~\cite{MITNotes}, and you should read them: they are
 the jokes he told in class!
 \begin{thm}[Sullivan conjecture]
 \label{sullivan}
+\index{p-completion@$p$-completion}
 Let $G$ be a finite, abelian $p$-group. Then, $X^{hG}\to X^G$ is an equivalence on $p$-completions.
 \end{thm}
 Recall that $X^{hG} \coloneqq\Map(EG, X)^G$, so this asserts a weak equivalence (after $p$-completing) $\Map(EG,
 X)^G\to\Map(*, X)^G$.
 
-By \term{$p$-completion}, we mean Bousfield localization at $\F_p$ cohomology. This produces the category of
-spaces where equivalences are detected by $H^*(\bl;\F_p)$. The most familiar example of completion is
-\term{rationalization}, a localization where equivalences are detected by rational homotopy groups, and one of
-Sullivan's biggest achievements was providing a completely algebraic description of the rational homotopy
-category in~\cite{SullivanQHT}.
-More broadly, he had the insight that to study a problem in homotopy theory, one could localize at $\Q$ and at each
-$\F_p$ and study each piece, which has been a very fruitful approach.
+By \term*{$p$-completion}, we mean Bousfield localization\index{Bousfield localization} at $\F_p$ cohomology. This
+produces the category of spaces where equivalences are detected by $H^*(\bl;\F_p)$. The most familiar example of
+completion is \term{rationalization}, a localization where equivalences are detected by rational homotopy groups,
+and one of Sullivan's biggest achievements was providing a completely algebraic description of the rational
+homotopy category in~\cite{SullivanQHT}. More broadly, he had the insight that to study a problem in homotopy
+theory, one could localize at $\Q$ and at each $\F_p$ and study each piece, which has been a very fruitful
+approach.
 
 $p$-completion falls into the collection of basic life skills for homotopy theorists, so if you haven't seen it
 before, you should read about it. The standard reference is~\cite{BousfieldKan}, but this is 500 pages and hard to
@@ -27,38 +29,42 @@ read.
 
 Sullivan's conjecture is an algebro-geometric attack on the Adams conjecture. This was within Sullivan's program to
 find algebraic models of manifolds. This is still being done today, and is what led Sullivan to think about string
-topology and related things.
+topology and related things.\index{string topology}
 
 Let $X$ be a manifold. We first have the homotopical data of $X$, $C^*(X;\Q)$ and $C^*(X;\F_p)$, which are
-``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg algebras. They
-also have more structure as modules over the Steenrod algebra.} That $X$ is a manifold means we can see Poincaré
-duality, which doesn't appear in all $\E_\infty$ dg algebras. But we still need some way to encode additional
-geometric obstructions, e.g.\ a way to encode the tangent and normal bundles.
+``commutative rings.''\footnote{They're not literally commutative; instead, they're $\E_\infty$ dg
+algebras.\index{dg algebra} They also have more structure as modules over the Steenrod algebra.} That $X$ is a
+manifold means we can see Poincaré duality, which doesn't appear in all $\E_\infty$ dg algebras. But we still need
+some way to encode additional geometric obstructions, e.g.\ a way to encode the tangent and normal
+bundles.\index{Poincaré duality}
 
 It's been an interesting, but as yet unsuccessful, attack to use a Frobenius algebra structure to try to obtain
 this geometric data. It's neat to think about what the $\E_\infty$ analogue of a Frobenius algebra is, and this is
 intimately related to Lurie's approach to the cobordism hypothesis~\cite{Lur09}, thinking about fully dualizable
-objects in a symmetric monoidal $\infty$-category.
+objects in a symmetric monoidal $\infty$-category.\index{cobordism hypothesis}\index{Frobenius
+algebra}
 
 This circle of ideas is also related to surgery theory; there's been lots of cool work by smart people in it, and
-$L$-theory was invented basically as an algebraic home for these geometric objects.
+$L$-theory was invented basically as an algebraic home for these geometric objects.\index{surgery
+theory}\index{L-theory@$L$-theory}
 
 Sullivan was interested in the Adams conjecture because it says that one can identify the tangent bundle inside
-$K$-theory $K(X)$ with its Adams operations $\psi^k$, as fiberwise homotopy types.
+$K$-theory $K(X)$ with its Adams operations $\psi^k$, as fiberwise homotopy
+types.\index{K-theory@$K$-theory}\index{Adams operations}
 
-Sullivan's idea, motivated by Quillen, was to use the theory of étale homotopy types. This translates some
-questions about scheme theory into homotopy theory. For example, if $X$ is a variety (more generally a scheme), one
-can assign some profinite topological object, built out of something like a system of hypercovers.\footnote{If you
-don't know what this is, it's an example of an extremely interesting construction which you should look up
-sometime.} So if you take the profinite completion of the complex points $X(\C)^\land$, it has an action of the
-absolute Galois group $\Gal(\overline\Q/\Q)$ --- and another crazy interpretation of the Adams conjecture is that
-the profinite completion of $K(X)$ can be interpreted in this way, and has an action of $(\widehat\Z)^*$
-($\widehat\Z$ is the Galois group of the maximal abelian extension over $\Q$). The conjecture is that this action
-is by the Adams operations.
+Sullivan's idea, motivated by Quillen, was to use the theory of étale homotopy types.\index{etale homotopy
+typr@étale homotopy type} This translates some questions about scheme theory into homotopy theory. For example, if
+$X$ is a variety (more generally a scheme), one can assign some profinite topological object, built out of
+something like a system of hypercovers.\footnote{If you don't know what this is, it's an example of an extremely
+interesting construction which you should look up sometime.} So if you take the profinite completion of the complex
+points $X(\C)^\land$, it has an action of the absolute Galois group $\Gal(\overline\Q/\Q)$ --- and another crazy
+interpretation of the Adams conjecture is that the profinite completion of $K(X)$ can be interpreted in this way,
+and has an action of $(\widehat\Z)^*$ ($\widehat\Z$ is the Galois group of the maximal abelian extension over
+$\Q$). The conjecture is that this action is by the Adams operations.\index{Galois group}
 
 There's a deep and inadequately understood story (which could be an opportunity for you) connecting $p$-adically
 completed complex $K$-theory $\KU_p^\land$ to number theory, specifically the Iwasawa algebra. Adams noticed this,
-but it's too interesting to be a coincidence.
+but it's too interesting to be a coincidence.\index{Iwasawa algebra}
 
 Anyways, stable fiberwise homotopy types are invariant under this $(\widehat\Z)^*$-action, which led Sullivan to
 ask questions about $(X(\C)^\wedge)^{hC_2}$ versus $X(\R)^\wedge$. The references~\cite{MITNotes, Genetics} are
