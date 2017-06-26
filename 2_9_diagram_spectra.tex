@@ -18,16 +18,18 @@ topological spaces, \emph{not} its homotopy category.
 Historically, Boardman constructed the stable homotopy category as a formal completion of the $S$-category. Then,
 people tried to find ``point-set models,'' stable model categories whose homotopy categories are isomorphic to
 Boardman's category. There are several options, but explicit proofs that their homotopy categories are equivalent to
-Boardman's are rare in the literature.
+Boardman's are rare in the literature.\index{S-category@$S$-category}
 \end{rem}
 \begin{defn}
 By a \term{diagram} $\fD$ we mean a small category, which we assume is enriched in $\Top$ and symmetric monoidal.
-The category of \term{$\fD$-spaces} is the category $\Fun(\fD,\Top)$ of enriched functors.
+The category of \term[D-space@$\fD$-space]{$\fD$-spaces} is the category $\Fun(\fD,\Top)$ of enriched functors.
+\index{diagram space|see {$\fD$-space}}
 \end{defn}
 The category of $\fD$-spaces is symmetric monoidal under \term{Day convolution}. The idea is to build a symmetric
 monoidal product via left Kan extension: if $F$ and $G$ are $\fD$-spaces, the functor $F\overwedge
 G\colon(d_1,d_2)\mapsto F(d_1)\wedge G(d_2)$ is a $(\fD\times\fD)$-space. To produce a $\fD$-space from this, let
-$\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the left Kan extension
+$\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the left Kan extension\index{Kan
+extension}
 \[\xymatrix{
 	\fD\times\fD\ar[r]^{F\overwedge G}\ar[d]_\boxtimes & \Top\\
 	\fD\ar@{-->}[ur]_{F\wedge G}
@@ -40,8 +42,9 @@ This is our symmetric monoidal product $F\wedge G$. More explicitly,
 This looks like the usual convolution, and the analogy with harmonic analysis can be taken further, e.g.\ in an
 unpublished paper of Isaksen-Behrens.
 
-For any $d\in\fD$, there's an \term{evaluation} functor $\Ev_d\colon\Fun(\fD,\Top_*)\to\Top_*$ sending $X\mapsto
-X(d)$. It's adjoint to $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ defined by
+For any $d\in\fD$, there's an \term[evaluation!for diagram spaces]{evaluation} functor $\Ev_d\colon
+\Fun(\fD,\Top_*)\to\Top_*$ sending $X\mapsto X(d)$. It's adjoint to $F_d\colon \Top_*\to\Fun(\fD,\Top_*)$ defined
+by
 \[(F_dA)(e)\coloneqq \Map_\fD(d, e)\wedge A_+.\]
 The unit for the symmetric monoidal structure on $\Fun(\fD,\Top)$ is $F_0S^0$.
 
@@ -53,10 +56,10 @@ example, the unital condition is that the composition
 }\]
 must be the identity.
 
-In this case, we can define the category $\Mod_R$ of \term{$R$-modules} in $\Fun(\fD,\Top)$, those $\fD$-spaces $M$
-with an action map $\mu\colon R\wedge M\to M$ (satisfying the usual conditions). This is also a symmetric monoidal
-category (this requires $R$ to be commutative), defined in the same way as the tensor product of modules over a
-ring: $M\wedge_R N$ is the coequalizer
+In this case, we can define the category $\Mod_R$ of \term[module!in diagram spaces]{$R$-modules} in
+$\Fun(\fD,\Top)$, those $\fD$-spaces $M$ with an action map $\mu\colon R\wedge M\to M$ (satisfying the usual
+conditions). This is also a symmetric monoidal category (this requires $R$ to be commutative), defined in the same
+way as the tensor product of modules over a ring: $M\wedge_R N$ is the coequalizer
 \[\xymatrix{
 	M\wedge R\wedge N\dblarrow[r] &M\wedge N\ar[r] &M\wedge_R N.
 }\]
@@ -76,7 +79,7 @@ symmetric monoidal, unlike this example.
 Symmetric spectra are one answer, which we won't use in this class. If all of this had been stated in terms of the
 Day convolution from the get-go, people probably would have figured out symmetric spectra as early as the 1960s,
 but hindsight is always clearer, and here we are. Symmetric spectra were introduced in~\cite{HSS};
-see~\cite{SchwedeSymmSpec} for a detailed introduction.
+see~\cite{SchwedeSymmSpec} for a detailed introduction.\index{symmetric spectra}
 \begin{exm}[Orthogonal spectra]
 \label{orthogonal_spectra}
 Let $\sI$ denote the category whose objects are finite-dimensional real inner product spaces $V$, and whose
@@ -93,8 +96,7 @@ model of the stable category that we will use.
 Let $\sW$ be the category of finite CW complexes (with either all maps or cellular maps; it doesn't really matter).
 $\sW$-spaces are already like spectra, in a sense, in that they're modules over the identity functor
 $i\colon\sW\inj\Top$. There's a map $\vp\colon A\to\Map(B, A\wedge B)$ sending $a\mapsto (b\mapsto a\wedge b)$, so
-if $F$ is a
-$\sW$-space, we have a sequence of maps
+if $F$ is a $\sW$-space, we have a sequence of maps\index{W-spaces@$\sW$-spaces}
 \[\xymatrix{
 	A\ar[r]^-\vp & \Map(B, A\wedge B)\ar[r] &\Map(F(B), F(A\wedge B)).
 }\]
@@ -103,19 +105,20 @@ Taking its adjoint defines a map
 so $F$ is a module over $i$.
 \end{exm}
 The assignment $n\mapsto\R^n$ defines a functor $\N\to\sI$, and therefore a functor from prespectra to orthogonal
-spectra; with the right model structures, this induces an equivalence of their homotopy category. Similarly, the
+spectra; with the right model structures, this induces an equivalence of their homotopy categories. Similarly, the
 assignment $V\mapsto S^V$ defines a functor $\sI\to\sW$, hence a functor from orthogonal spectra to $\sW$-spaces,
 and this also will induce a homotopy equivalence.
 \begin{exm}[$\Gamma$-spaces]
 \label{gamma_spaces}
 Let $\fD$ be the category of finite based sets and based maps, e.g.\ $n_+ = \set{0,1,\dotsc,n}$ with $0$ as the
-basepoint. $\fD$-spaces are called \term{$\Gamma$-spaces}, and agree with Segal's notion of $\Gamma$-spaces, which
-are defined differently. The multiplication comes from the map $\psi\colon 2_+\to 1_+$ sending $1,2\mapsto 1$.
+basepoint. $\fD$-spaces are called \term[Gamma-spaces@$\Gamma$-spaces]{$\Gamma$-spaces}, and agree with Segal's
+notion of $\Gamma$-spaces, which are defined differently. The multiplication comes from the map $\psi\colon 2_+\to
+1_+$ sending $1,2\mapsto 1$.
 
 Let $d_i:n_+\to 1_+$ send $j\mapsto\delta_{ij}$ (i.e.\ $1$ if $i = j$, and $0$ otherwise). A $\Gamma$-space is
-\term{special} if the induced map
+\term[special!for $\Gamma$-spaces]{special} if the induced map
 \[X(n_+)\stackrel{\vp_n}{\longrightarrow} \prod_n X(1_+)\]
-is a weak equivalence; it's \term{very special} if in addition the composition
+is a weak equivalence; it's \term[very special!for $\Gamma$-spaces]{very special} if in addition the composition
 \[\xymatrix{
 	X(1_+)\times X(1_+) & X(2_+)\ar[l]^-\simeq_-{\vp_2}\ar[r]^{\psi_*} &X(1_+)
 }\]
@@ -124,7 +127,8 @@ induces a commutative monoid structure on $\pi_0 X(1_+)$.
 Kan extension defines a functor from $\fD$ to the category of finite CW complexes, and working with
 $\pi_*$-equivalences of these, one obtains a model structure on the category of $\Gamma$-spaces. This is Quillen
 equivalent to the category of \term[connective spectrum]{connective spectra}, i.e.\ those whose negative homotopy
-groups vanish.
+groups vanish.\index{Kan extension}\index{model structure!on
+$\Gamma$-spaces}
 \end{exm}
 In the equivariant case, there's even more structure, and notions of ``extra special'' $\Gamma$-spaces, as we will
 see in \S\ref{equivariant_gamma_space}.
@@ -132,9 +136,11 @@ see in \S\ref{equivariant_gamma_space}.
 A prespectrum is an \term{$\Omega$-prespectrum} if for all $n$, $X_n\congto\Omega^mX_{m+n}$.
 \end{defn}
 \begin{defn}
-If $X$ is a prespectrum and $q\in\Z$, the $q^{\text{th}}$ \term{homotopy group} of $X$ is
+If $X$ is a prespectrum and $q\in\Z$, the $q^{\text{th}}$ \term[homotopy groups!of a prespectrum]{homotopy group}
+of $X$ is
 \[\pi_q(X)\coloneqq \colim_n \pi_{n+q}X(n).\]
-A \term{$\pi_*$-isomorphism} of prespectra is a map that induces an isomorphism on all homotopy groups.
+A \term[pistar-isomorphism@$\pi_*$-isomorphism]{$\pi_*$-isomorphism} of prespectra is a map that induces an
+isomorphism on all homotopy groups.
 \end{defn}
 Notice that negative homotopy groups exist, and may be nontrivial.
 \begin{rem}
@@ -174,7 +180,7 @@ Because diagram categories are presheaves on nice categories, they inherit some 
 particular, they are complete and cocomplete, and limits and colimits may be taken pointwise. This is also true for
 categories of modules over monoids in $\fD$-spaces, though it requires more work to prove: computing colimits is a
 bit harder, just like how the free product of groups is more complicated than the direct product. Categories of
-rings are \emph{not} bicomplete, though.
+rings are \emph{not} bicomplete, though.\index{presheaf!on a diagram category}
 
 We'll use prespectra and orthogonal spectra to define Quillen equivalent models for the stable homotopy category.
 As such, familiar constructions from stable homotopy theory can be constructed as prespectra and orthogonal
@@ -195,7 +201,7 @@ space $X\amalg *$, with the extra point as a basepoint. Then, one considers $\su
 	the trivial action in the second component. The structure maps $S^V\wedge S^W\wedge X\to S^{V\oplus W}\wedge X$
 	are $\O(V)\times\O(W)$-equivariant, as desired.
 \end{itemize}
-The suspension spectrum of $S^0$ is the sphere spectrum $S_\N$ or $S_\sI$.
+The suspension spectrum of $S^0$ is the sphere spectrum $S_\N$ or $S_\sI$.\index{sphere spectrum}
 \end{exm}
 \begin{exm}[Eilenberg-Mac Lane spectra]
 \label{orthogonal_HA}
@@ -251,12 +257,13 @@ Starting with the usual model structure on $\Top_*$, construct the level model s
 \end{ex}
 The ``cofibrantly generated'' part means that cofibrant objects behave like CW complexes, and in particular there
 is a theory of cellular objects. If $F_d\colon\Top_*\to\Fun(\fD,\Top_*)$ is the left adjoint to $\Ev_d$ we
-constructed above, then the \term{generating cofibrations} are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$
-and $d\in\fD$, and the \term{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$ and
-$d\in\fD$.
+constructed above, then the \term[generating cofibrations!for the level model structure]{generating cofibrations}
+are the maps $F_d(S_+^{n-1}\to D_+^n)$ for each $n\ge 1$ and $d\in\fD$, and the \term[acyclic cofibrations!for the
+level model structure]{acyclic cofibrations} are $F_d(D_+^n\to (D_n\times I)_+)$ for each $n\ge 1$ and $d\in\fD$.
 
 Since all spaces are fibrant, all $\fD$-spaces are fibrant in the level model structure. The cofibrant objects are
-the retracts of \term{cellular objects}, which are built by iterated pushouts
+the retracts of \term[cellular objects!in the level model structure]{cellular objects}, which are built by iterated
+pushouts
 \[\xymatrix{
 	\bigvee F_d S_+^{n-1}\ar[r]\ar[d] & X_n\ar[d]\\
 	\bigvee F_dD_+^n\ar[r] & \pushout X_{n+1}.
@@ -271,18 +278,18 @@ Recall that we defined a $\pi_*$-isomorphism of prespectra to be a map $f\colon 
 $U\colon\Spc^\sI\to\Spc^\N$ be pullback by the map $[n]\mapsto\R^n$, i.e.\ $UX([n]) = X(\R^n)$. $U$ is right
 adjoint to a left Kan extension $P\colon\Spc^\N\to\Spc^\sI$.
 \begin{defn}
-A map of orthogonal spectra $f\colon X\to Y$ is a \term{$\pi_*$-isomorphism} if $Uf\colon UX\to UY$ is a
-$\pi_*$-isomorphism of prespectra.
+A map of orthogonal spectra $f\colon X\to Y$ is a \term[pistar-isomorphsim@$\pi_*$-isomorphism!of orthogonal
+spectra]{$\pi_*$-isomorphism} if $Uf\colon UX\to UY$ is a $\pi_*$-isomorphism of prespectra.
 \end{defn}
 We also defined an $\Omega$-spectrum in prespectra, or an $\Omega$-prespectrum, to be a prespectrum where the
 adjoints to the structure maps $X_n\congto\Omega^mX_{n+m}$ are homeomorphisms. This is a pretty rigid condition,
 and so $\Omega$-prespectra have nice properties.
 \begin{defn}
-Similarly, we define an \term{$\Omega$-spectrum} in orthogonal spectra to be an orthogonal spectrum $X$ such that
-the adjoints to the structure maps $X(U)\congto\Omega^V X(U\oplus V)$ are homeomorphisms.
+Similarly, we define an \term[for orthogonal spectra]{$\Omega$-spectrum} in orthogonal spectra to be an orthogonal
+spectrum $X$ such that the adjoints to the structure maps $X(U)\congto\Omega^V X(U\oplus V)$ are homeomorphisms.
 \end{defn}
 Classically, there were prespectra and then there were spectra (or $\Omega$-spectra), and you would use some
 ``spectrification'' functor that took a prespectrum and produced a spectrum of the same homotopy type. Turning the
 adjoint maps into homeomorphisms looks difficult and is, as it involves some categorical and point-set wizardry. If
 you like this stuff, check out the appendix of~\cite{LMS}. The first point-set symmetric monoidal model for the
-stable category~\cite{EKMM} relies on this and even more magic, both clever and surprising.
+stable category~\cite{EKMM} relies on this and even more magic, both clever and surprising.\index{spectrification}

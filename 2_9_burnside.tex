@@ -1,6 +1,6 @@
 %!TEX root = m392c_EHT_notes.tex
 \begin{quote}\textit{
-	``The Burnside category is really nice, but the Sideburn category is a bit hairier.''
+	``The Burnside category is really nice, but the Sideburn category is a bit hairier.''\index{pun}
 }\end{quote}
 The Burnside category is a souped-up version of the orbit category that accounts for transfers. There are at least
 five ways of defining it: we'll start with \cref{burn1} and later provide an alternative, \cref{burn2}.
@@ -38,8 +38,9 @@ S$ described above, which is pretty neat.
 
 The Burnside category is enriched in $\Top$, because the $S$-category is.
 \begin{defn}
-The \term{algebraic Burnside category} is $\pi_0(B_G)$, which is enriched in $\Ab$. A \term{Mackey functor} is a
-functor $\pi_0B_G\to\Ab$.
+The \term[Burnside category!algebraic Burnside category]{algebraic Burnside category} is $\pi_0(B_G)$, which is
+enriched in $\Ab$. A \term{Mackey functor} is a functor $\pi_0B_G\to\Ab$.\index{algebraic Burnside category|see
+{Burnside category}}
 \end{defn}
 Mackey functors will be our replacement for coefficient systems. They arise in other contexts, so you could care
 about Mackey functors without caring about equivariant stable homotopy theory (well, you probably secretly do
@@ -49,7 +50,8 @@ We'd like to define the category of $G$-spectra to be ``spectral Mackey functors
 categorical setting in \cite{GuillouMay}, and in the $\infty$-categorical setting in \cite{cB2017}.} i.e.\ functors from $B_G$ to
 spectra. We need to develop tools for this first: we haven't developed a good model for spectra (in particular, a
 point-set model, not a model of the stable homotopy category), and we want these functors to be enriched, which
-will require some more work. We'll now begin to develop the tools to surmount these problems.
+will require some more work. We'll now begin to develop the tools to surmount these
+problems.\index{G-spectrum@$G$-spectrum!as spectral Mackey functors}
 \begin{rem}
 Once we have a good category $\Spc^G$ of $G$-spectra, we can provide another, equivalent definition of the Burnside
 category, as the full subcategory of $\Spc^G$ spanned by $\Sigma_+^\infty G/H$.
@@ -60,7 +62,8 @@ defines a transfer map $H^*(\widetilde X;\Q)\to H^*(X;\Q)$.
 
 Transfers also arise in group cohomology $H^*(G;M)$, where $M$ is a $G$-module. This is computed by resolving $\Z$
 as a $\Z[G]$-module by some resolution $P_\bullet$, then computing $H^*(\Hom_G(P_\bullet, M))$. Now suppose
-$H\subset G$; there are two adjoints to the restriction functor $\Mod_G\to\Mod_H$.
+$H\subset G$; there are two adjoints to the restriction functor $\Mod_G\to\Mod_H$.\index{transfer map!in group
+cohomology}
 \begin{itemize}
 	\item The left adjoint sends an $H$-module $N\mapsto \Z[G]\otimes_{\Z[H]} N$. This is called the \term{induced
 	$G$-module} $\Ind_H^G N$.

@@ -1,7 +1,8 @@
 In this section, we'll again assume that $G$ is a finite group. Some of this content extends to compact Lie groups,
-but it's more complicated.
+but it's more complicated.\index{tom Dieck splitting}
 
-Tom Dieck splitting is a decomposition of the fixed points of a suspension $G$-spectrum, either of the statements
+Tom Dieck splitting is a decomposition of the fixed points of a suspension $G$-spectrum, either of the
+statements\index{suspension spectrum!of a $G$-space}
 \begin{subequations}
 \begin{align}
 \label{splevelTD}
@@ -17,7 +18,7 @@ might have hoped that $\Sigma^\infty$ and $(\bl)^G$ commute, but they don't, and
 $X = S^0$, this tells you a decomposition of $\pi_*^G(\Sph)$.
 \begin{rem}
 Guillou-May~\cite{GM17} derive tom Dieck splitting as a consequence of the equivariant Barratt-Priddy-Quillen
-theorem. We'll give a more elementary proof.
+theorem. We'll give a more elementary proof.\index{equivariant Barratt-Priddy-Quillen theorem}
 \end{rem}
 We have a cofiber sequence, called the \term{isotropy separation sequence},
 \[\xymatrix@1{
@@ -37,12 +38,14 @@ Take $X = \Sph = \Sigma^\infty S^0$, giving
 There are three key observations; one is easy, one is harder, and the one was a major structural theorem.
 \begin{itemize}
 	\item When $X$ is a suspension spectrum,~\eqref{EGisot} splits.
-	\item The \term{Adams isomorphism} tells us the cofiber: $(\Sigma^\infty EG_+)^G\simeq\Sigma^\infty BG_+$.
+	\item The \term[Adams isomorphism]{Adams isomorphism} tells us the cofiber: $(\Sigma^\infty
+	EG_+)^G\simeq\Sigma^\infty BG_+$.
 	\item The last term is $(\widetilde{EG}\wedge X)^G\cong\Phi^G X$.
 \end{itemize}
 Tom Dieck proved tom Dieck splitting by inducting over isotropy sequences, adding one conjugacy class at a time.
 This is one of the two major methods of induction in equivariant homotopy theory (the other being induction over
-cells), and was a key step in the resolution of the Kervaire invariant $1$ problem~\cite{HHR}.
+cells), and was a key step in the resolution of the Kervaire invariant $1$ problem~\cite{HHR}.\index{Kervaire
+invariant $1$ conjecture}
 
 There are several closely related versions of tom Dieck splitting, though going between them requires a deep result
 called the Adams isomorphism. We'll return to that point later.\footnote{\TODO: I missed one version of the
@@ -59,7 +62,7 @@ i.e.\ it's free on the conjugacy classes of subgroups of $G$.
 As a consequence of the proof of~\eqref{what_well_prove}, the generators are given by the Euler characteristics
 $S\to \sus G/H_+\to S$.\footnote{\TODO: I didn't understand this.} This lets us identify homotopy classes
 of stable maps $G/H_1\to G/H_2$; since we defined the Burnside category to be the full subcategory of $\Spc^G$ on
-$\sus G/H_+$, this amounts to the computation of $\pi_0 B_G$.
+$\sus G/H_+$, this amounts to the computation of $\pi_0 B_G$.\index{Euler characteristic}\index{Burnside category}
 
 Define an abelian group $A$ whose generators are diagrams of the form
 \begin{equation}
@@ -79,7 +82,7 @@ The point is that there's an isomorphism $\psi\colon A\congto\pi_0^{H_1}(\Sigma_
 $G/H_1\to G/H_2$. We'll calculate these maps in the algebraic Burnside category $\pi_0(B_G)$. The isomorphism
 $\psi$ takes a diagram of the form~\eqref{stableGHgen} to the composite $\Sigma_+^\infty G/H_1\to \Sigma_+^\infty
 G/K\to\Sigma_+^\infty G/H_2$, where the first map is the transfer for $\theta_1$ and the second is
-$\sus\theta_2$.
+$\sus\theta_2$.\index{Burnside category!algebraic Burnside category}
 \begin{ex}
 Show that $\psi$ is an isomorphism.
 \end{ex}
@@ -89,7 +92,7 @@ But what's the composition?
 The above is more or less true for $G$ a compact Lie group. But what follows really requires $G$ to be finite.
 
 It seems natural to play double coset games here, but this quickly turns into a notational mess. But if you know
-about spans, there's only one thing it should be, which is the pullback:
+about spans, there's only one thing it should be, which is the pullback:\index{double cosets}
 \[\xymatrix@dr{
 	G/K\times_{G/H_2} G/K'\ar[r]\ar[d] & G/K'\ar[r]\ar[d] & G/H_3.\\
 	G/K\ar[r]\ar[d] & G/H_2\\
@@ -98,13 +101,13 @@ about spans, there's only one thing it should be, which is the pullback:
 This is true, and we'll give a real proof later. The upshot is really cool: we have a complete combinatorial
 description of the algebraic Burnside category, including composition. This leads one to Mackey functors:
 equivariant stable homotopy theory is controlled by a pair of functors out of the orbit category, one covariant and
-one contravariant, and Mackey functors are nice examples of these.
+one contravariant, and Mackey functors are nice examples of these.\index{Mackey functor}
 \begin{rem}
 We've been tacitly assuming a complete $G$-universe for this, but what if you'd prefer to leave out certain
 suspensions $\Sigma^V$? In the case of an incomplete $G$-universe $U$, you only consider the orbits $G/H\inj U$,
-and build the incomplete Burnside category and incomplete Mackey functors in this way.
+and build the incomplete Burnside category and incomplete Mackey functors in this way.\index{universe}
 \end{rem}
-Now let's prove tom Dieck splitting.
+Now let's prove tom Dieck splitting.\index{tom Dieck splitting}
 \begin{proof}[Proof of~\eqref{what_well_prove}]
 We'll approach this inductively and look a single summand at a time, producing a map
 \begin{equation}
@@ -119,7 +122,7 @@ Recall that $\WH = \NH/H$, so we can define a sequence
 	X^H}\ar[r]^-{\theta_2} &\pi_*^\NH\paren{\sus E\WH_+\wedge X},
 }\end{equation}
 where $\theta_1$ is induced by restriction $\pi_*^\WH\to\pi_*^\NH$, and $\theta_2$ is induced from the inclusion
-$X^H\inj X$. The Wirthmüller isomorphism induces an isomorphism on homotopy groups
+$X^H\inj X$. The Wirthmüller isomorphism induces an isomorphism on homotopy groups\index{Wirthmüller isomorphism}
 $\pi_*^H(X)\congto\pi_*^G(G\wedge_H X)$ (by an adjunction game), so we can extend~\eqref{first_part_td} with maps
 \[\xymatrix{
 	\pi_*^\NH\paren{\sus E\WH_+\wedge X}\ar[r]^-{\theta_3}_-\cong &\pi_*^G\paren{G\wedge_\NH \sus
@@ -129,7 +132,7 @@ Here, $\theta_4$ is the adjoint of the $\NH$-map $\sus E\WH_+\wedge X\to\sus X$ 
 $E\WH\to *$. Thus, our goal is to prove that $\theta_2\circ\theta_1$ and $\theta_4$ are isomorphisms.
 
 Recall that a $\Z$-graded homology theory on $G$-spaces is a collection of functors $E_q\colon G\Top\to\Ab$ for
-$q\in\Z$ that are homotopy invariant and such that
+$q\in\Z$ that are homotopy invariant and such that\index{homology theory!of $G$-spaces ($\Z$-graded)}
 \[E_q\paren{\bigvee_k X_k} \cong\bigoplus_k E_q(X_k),\]
 and a map $f\colon X\to Y$ induces a long exact sequence
 \begin{equation}
@@ -140,8 +143,8 @@ and a map $f\colon X\to Y$ induces a long exact sequence
 \end{equation}
 The key observation is that \emph{both sides of~\eqref{what_well_prove} specify $\Z$-graded homology theories}.
 \begin{defn}
-An $X\in G\Top$ is \term{concentrated at a conjugacy class} $H$ if for all $K$ not in the conjugacy class of $H$ in
-$G$, $X^K$ is contractible.
+An $X\in G\Top$ is \term[concentration at a conjugacy class]{concentrated at a conjugacy class} $H$ if for all $K$
+not in the conjugacy class of $H$ in $G$, $X^K$ is contractible.
 \end{defn}
 \begin{thm}
 \label{lattice_induction}
@@ -176,17 +179,17 @@ $\sus E\mathit{WK}_+\wedge X^K$ is contractible, and therefore that
 Now we've reduced to showing that~\eqref{tdmap} is an isomorphism when $X$ is concentrated at $H$, i.e.\
 that~\eqref{first_part_td} is an isomorphism (its components aren't) and that $\theta_4$ is an isomorphism.
 
-Let's first tackle $\theta_4$.\footnote{\TODO: I got confused and should fix this.}
-This uses an important piece of technology: suppose $X$ and $Y$ are $G$-spaces and
-$H\subseteq G$ is normal. Then, there is a \term{restriction map}
+Let's first tackle $\theta_4$.\footnote{\TODO: I got confused and should fix this.} This uses an important piece of
+technology: suppose $X$ and $Y$ are $G$-spaces and $H\subseteq G$ is normal. Then, there is a \term[restriction
+map!for fixed points of a $G$-space]{restriction map}
 \[\rho_H\colon \Map^G(X,Y)\longrightarrow\Map^{G/H}(X^H, Y^H).\]
 This map appears in an essential way in the definition of topological cyclic homology.\footnote{The new
 construction of $\mathit{TC}$ by Nikolaus-Scholze manages to avoid this in a way that is considerably more
-natural.}
+natural.}\index{topological cyclic homology}
 \begin{lem}
 \label{restrlem}
 Suppose $Y$ is concentrated at $(H)$; then, the restriction map $\rho_H\colon\Map^G(X,Y)\to\Map^{G/H}(X^H,Y^H)$ is
-an acyclic fibration.
+an acyclic fibration.\index{concentration at $(H)$|see {concentration at a conjugacy class}}
 \end{lem}
 We'll prove this below with cellular induction; in any case, we only need that $\rho_H$ is a weak
 equivalence.
@@ -237,7 +240,7 @@ Let
 Then, $X\setminus (X_0\cup X^H)$ is built by attaching cells $G/K_+\wedge D^n$ with $K\not\in (H)$.
 
 The cell attachment computation we just made tells us that it suffices to understand $X_0\cup X^H$, for which we
-use a Mayer-Vietoris argument associated to the pullback
+use a Mayer-Vietoris argument associated to the pullback\index{Mayer-Vietoris principle}
 \[\xymatrix{
 	X_0\cup X^H & X^H\ar[l]_{\phi_1}\\
 	X_0\ar[u] & X_0\cap X^H\ar[l]_{\phi_2}\ar[u].
@@ -257,7 +260,7 @@ is an isomorphism, by providing a map in the other direction. Specifically, this
 E\WH_+\wedge X].\]
 We've abused notation a bit here: on the left, $\rho$ is the regular representation for $\NH$, and on the right,
 it's the regular representation for $\WH$. \Cref{restrlem} implies that the map going the other way is an
-isomorphism when $X$ is concentrated at $(H)$:
+isomorphism when $X$ is concentrated at $(H)$:\index{regular representation}
 \[[S^{n+m\rho}, S^{m\rho}\wedge E\WH_+\wedge X]\stackrel\cong\longrightarrow [S^{n + m\rho^H}, S^{m\rho^H}\wedge
 E\WH_+\wedge X^H].\]
 This is what we reduced the problem to, so we have completed the proof of tom Dieck splitting for $\pi_G^*(\sus X)$

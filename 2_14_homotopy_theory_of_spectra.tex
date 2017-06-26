@@ -9,27 +9,28 @@ information.
 
 Since $\fD$-spaces are enriched over spaces, it's possible to tensor with the interval and therefore define
 homotopies of $\fD$-spaces in the same way as for spaces. As usual, $[X,Y]$ will denote the set of homotopy classes
-of maps $X\to Y$.
+of maps $X\to Y$.\index{homotopy!of $\fD$-spaces}
 \begin{defn}
 \label{stable_equivalence}
-A \term{stable equivalence} of prespectra is a map $f\colon X\to Y$ such that for all $\Omega$-prespectra $Z$, the
-induced map $[Y,Z]\to[X,Z]$ is an isomorphism.
+A \term[stable equivalence!of prespectra]{stable equivalence} of prespectra is a map $f\colon X\to Y$ such that for
+all $\Omega$-prespectra $Z$, the induced map $[Y,Z]\to[X,Z]$ is an isomorphism.
 \end{defn}
 \begin{thm}
-There are \term{stable model structures} on the categories of $\fD$-spaces, prespectra, and orthogonal spectra in
-which the weak equivalences are stable equivalences. For $\Spc^\N$ and $\Spc^\sI$, the stable equivalences are the
-same as the $\pi_*$-isomorphisms.
+There are \term[stable model structure]{stable model structures} on the categories of $\fD$-spaces, prespectra, and
+orthogonal spectra in which the weak equivalences are stable equivalences. For $\Spc^\N$ and $\Spc^\sI$, the stable
+equivalences are the same as the $\pi_*$-isomorphisms.\index{pistar-isomorphism@$\pi_*$-isomorphism}
 \end{thm}
 \begin{rem}
 You can make the same construction for symmetric spectra, but the stable equivalences are not the same as
 $\pi_*$-isomorphisms, and homotopy groups are consequently finickier. This ultimately comes from the fact that
 quotients $\O(n+k)/\O(n)$ get more highly connected as $n$ and $k$ grow in a way that quotients of symmetric groups
-don't. In any case, since symmetric spectra don't behave so well in the equivariant case, we won't use them.
+don't. In any case, since symmetric spectra don't behave so well in the equivariant case, we won't use
+them.\index{symmetric spectra}
 \end{rem}
 The stable model structure does in fact manifest stable phenomena: the map $X\to\Omega\Sigma X$ is a weak
 equivalence.\footnote{If you like $\infty$-categories, you can say that the level model category is an
 $\infty$-category of presheaves, and this is different from the $\infty$-category of spectra, which is presented by
-the stable model category.}
+the stable model category.\index{level model structure}\index{$\infty$-category!of spectra}}
 
 If $X$ and $Y$ are $\Omega$-prespectra and $f\colon X\to Y$ is a level equivalence, then $f$ is a
 $\pi_*$-isomorphism. That is, the weak equivalences in the stable model structure contain the weak equivalences in
@@ -41,15 +42,16 @@ equivalences in $\fC$, but there are important set-theoretic issues. Often, one 
 generating set (under filtered colimits) of the weak equivalences of $\fC$.} Bousfield localization produces a new
 model structure $L_S\fC$ on $\fC$ in which the morphisms in $S$ are weak equivalences. The homotopy category and
 homotopy (co)limits change, but all point-set phenomena remain the same. Localization is given by fibrant
-replacement.
+replacement.\index{model category}
 \begin{defn}
 Let $\fC$ be a topologically enriched model category and $S$ be as above.
 \begin{itemize}
-	\item An \term{$S$-local object} in $\fC$ is an object $X$ such that for all $f\colon Y\to Z$ in $S$, the
-	induced map
+	\item An \term[S-local object@$S$-local object]{$S$-local object} in $\fC$ is an object $X$ such that for all
+	$f\colon Y\to Z$ in $S$, the induced map
 	\[\Map_\fC(Z,X)\stackrel\simeq\longrightarrow \Map_\fC(Y, X)\]
 	is a weak equivalence.
-	\item A map $f\colon X\to Y$ is an \term{$S$-local equivalence} if for all $S$-local objects $Z$, the induced map
+	\item A map $f\colon X\to Y$ is an \term[S-local equivalence@$S$-local equivalence]{$S$-local equivalence} if
+	for all $S$-local objects $Z$, the induced map
 	\[\Map_\fC(Y,Z)\stackrel\simeq\longrightarrow \Map_\fC(X,Z)\]
 	is a weak equivalence.
 \end{itemize}
@@ -64,28 +66,30 @@ $S$-local objects, and the cofibrations are exactly those in $\fC$.
 One way this is used is to localize the category of spectra such that the $S$-local equivalences are detected by
 $\bl\wedge H\Q$ or $\bl\wedge H\F_p$. This is a slick way to construct the rationalization or $p$-completion,
 respectively, and in particular makes the localization map functorial. Thus one obtains the rational (or
-$p$-completed) stable homotopy category.
+$p$-completed) stable homotopy category.\index{rationalization}\index{p-completion@$p$-completion}
 \end{exm}
 The stable model structure is obtained by Bousfield localization at the stable equivalences
 (\cref{stable_equivalence}). It follows immediately that $\Omega$-prespectra are local objects and stable
-equivalences are weak equivalences.
+equivalences are weak equivalences.\index{stable model structure}\index{Omega-prespectra@$\Omega$-prespectra}
 \begin{prop}
 The stable model structure is stable, i.e.\ $X\to\Omega\Sigma X$ is a $\pi_*$-isomorphism.
 \end{prop}
 \begin{proof}
 On homotopy groups, this is asking for $\colim_n\pi_{q+n} X_n\to\colim_n\pi_{q+n}\Omega\Sigma X_n$ to be an
-isomorphism. But by the Freudenthal suspension theorem, these colimits stabilize to the same stable homotopy group.
+isomorphism. But by the Freudenthal suspension theorem, these colimits stabilize to the same stable homotopy
+group.\index{Freudenthal suspension theorem}
 \end{proof}
 This implies that when $X$ is an $\Omega$-prespectrum, $\pi_q X = \pi_q X_0$, and for $q < 0$, we can define $\pi_q
 X =\pi_0(X_{-q})$.
 \begin{thm}
 The adjunction $\adjnctn{\Spc^\N}{\Spc^\sI}PU$ is a Quillen equivalence, and therefore
-$\Ho(\Spc^\N)\cong\Ho(\Spc^\sI)$ as triangulated categories.
+$\Ho(\Spc^\N)\cong\Ho(\Spc^\sI)$ as triangulated categories.\index{Quillen equivalence}\index{triangulated
+category}
 \end{thm}
 This homotopy category is called the stable category. It has a triangulated structure in which suspension $\Sigma$
 is the shift functor and the distinguished triangles are the cofiber sequences $X\stackrel f\to Y\to C_f$, where
 $C_f$ is the homotopy cofiber of $f$.\footnote{You can also define the distinguished triangles in terms of fiber
-sequences.}
+sequences.}\index{stable homotopy category}
 
 Another sense in which the stable category is stable is that both fiber and cofiber sequences induce long exact
 sequences of homotopy groups, instead of just fiber sequences.
@@ -121,9 +125,9 @@ that the relevant diagrams commute.
 There are lots of examples: we've already seen that if $G$ is a group, the assignment $X\to G\times X$ is a monad.
 More generally, algebraic structures can usually be obtained monadically.
 \begin{defn}
-Let $M$ be a monad on $\fC$. Then, the category $\fC[M]$ of \term{algebras over $M$} is the category whose objects
-are pairs $X\in\fC$ and structure maps $m\colon MX\to X$ satisfying associativity and unitality for $M$, and whose
-morphisms are the $\fC$-morphisms that are compatible with the structure maps.
+Let $M$ be a monad on $\fC$. Then, the category $\fC[M]$ of \term[algebra!over a monad]{algebras over $M$} is the
+category whose objects are pairs $X\in\fC$ and structure maps $m\colon MX\to X$ satisfying associativity and
+unitality for $M$, and whose morphisms are the $\fC$-morphisms that are compatible with the structure maps.
 \end{defn}
 The associativity diagram, for example, is
 \[\xymatrix{
@@ -132,25 +136,26 @@ The associativity diagram, for example, is
 }\]
 We require this to commute.
 \begin{exm}
-Let $\T\colon \Spc^\sI\to\Spc^\sI$ denote the free associative algebra monad, i.e.\
+Let $\T\colon \Spc^\sI\to\Spc^\sI$ denote the \term{free associative algebra monad}, i.e.\
 \[\T X\coloneqq\bigvee_{n\ge 0} X^{\wedge n},\]
 so that the category of $\T$-algebras $\Spc^\sI[\T]$ is the category of associative monoids in $\Spc^\sI$.
-Similarly, let $\P\colon\Spc^\sI\to\Spc^\sI$ denote the free commutative algebra monad, so
+Similarly, let $\P\colon\Spc^\sI\to\Spc^\sI$ denote the \term{free commutative algebra monad}, so
 \[\P X\coloneqq \bigvee_{n\ge 0} X^{\wedge n}/\Sigma_n,\]
 where $\Sigma_n$ denotes the action of the symmetric group by permutations; thus, the category of $\P$-algebras
 $\Spc^\sI[\P]$ is the category of commutative monoids in $\Spc^\sI$ (i.e.\ commutative ring spectra).
 \end{exm}
 
-Lots of structures are monadic, e.g.\ groups are algebras over the free group monad in $\Set$, and similarly for
-abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
-adjunctions: an adjunction $\adjnctn\fC\fD FG$ defines a monad $GF$, with the structure map defined by
-the unit map $G(FG)F\to GF$. Many monads arise in this way.
+Lots of structures are monadic, e.g.\ groups are algebras over the \term{free group monad} in $\Set$, and similarly
+for abelian groups, rings, etc. Monads very generally come from free structures in algebra; they also arise from
+adjunctions: an adjunction $\adjnctn\fC\fD FG$ defines a monad $GF$, with the structure map defined by the unit map
+$G(FG)F\to GF$. Many monads arise in this way.\index{monad!from an adjunction}
 
-There is always a free-forgetful adjunction $\adjnctn \fC{\fC[M]}FU$, which has to do with the
-Barr-Beck theorem. Suppose $\fC$ is a model category. We'd like to lift this to a model structure on $\fC[M]$ ---
-when does $\fC[M]$ have a model structure where the weak equivalences are determined by the forgetful functor
-$U$?\footnote{This is not how we defined the model structure on $G$-spaces, but we'll use it to define model
-structures on rings and module spectra.} There are two issues.
+There is always a free-forgetful adjunction $\adjnctn \fC{\fC[M]}FU$,\index{free-forgetful adjunction} which has to
+do with the Barr-Beck theorem.\index{Barr-Beck theorem} Suppose $\fC$ is a model category. We'd like to lift this
+to a model structure on $\fC[M]$ --- when does $\fC[M]$ have a model structure where the weak equivalences are
+determined by the forgetful functor $U$?\footnote{This is not how we defined the model structure on $G$-spaces, but
+we'll use it to define model structures on rings and module spectra.} There are two issues.\index{model
+structure!on algebras over a monad}
 \begin{enumerate}
 	\item\label{caveat1} Since $\fC$ is complete, so is $\fC[M]$: the arrows point the right way. But it's not
 	always cocomplete.
@@ -178,29 +183,31 @@ This is a very general theorem; the hard step is constructing a nice enough filt
 \begin{warn}
 These hypotheses are met for the associative monad $\T$, but are \emph{not} met by the commutative monad $\P$!
 This is another formulation of Lewis' paradox: for commutative ring spectra, you have to change the underlying
-homotopy theory.
+homotopy theory.\index{Lewis' paradox}
 \end{warn}
-Using these results, the stable model structure on $\Spc^\sI$ induces one on $\Spc^\sI[\T]$, in which the weak
-equivalences and fibrations are detected by those in $\Spc^\sI$. For $\Spc^\sI[\P]$, the quotient makes things
-harder: it has a model structure where the weak equivalences are \term{positive equivalences} (so those which are
-detected by \term{positive $\Omega$-spectra}, i.e.\ those where $X_0\to\Omega X_1$ need not be an equivalence). But
-this still doesn't behave very well. Namely, if you try to set the theory up for $\P$ to be the same as that for
-$\T$, then you get that $\Omega^\infty\Sigma^\infty S^0$ is a commutative topological monoid. It's a fact that any
-commutative topological monoid is a product of Eilenberg-Mac Lane spaces, and that $\Omega^\infty\Sigma^\infty S^0$
-has nontrivial $k$-invariants. There's a short paper by Lewis which addresses this~\cite{Lewis91}, showing that
-there are five very reasonable axioms for the stable category that can't all be true! So people decided to forget
-about letting $\Sigma^\infty$ be left adjoint to evaluation at $0$, and it's okay, if not perfect.
+Using these results, the stable model structure\index{stable model structure} on $\Spc^\sI$ induces one on
+$\Spc^\sI[\T]$,\index{model structure!on $\Spc^\sI[\T]$} in which the weak equivalences and fibrations are detected
+by those in $\Spc^\sI$. For $\Spc^\sI[\P]$, the quotient makes things harder: it has a model structure where the
+weak equivalences are \term{positive equivalences} (so those which are detected by \term{positive
+$\Omega$-spectra}, i.e.\ those where $X_0\to\Omega X_1$ need not be an equivalence). But this still doesn't behave
+very well. Namely, if you try to set the theory up for $\P$ to be the same as that for $\T$, then you get that
+$\Omega^\infty\Sigma^\infty S^0$ is a commutative topological monoid. It's a fact that any commutative topological
+monoid is a product of Eilenberg-Mac Lane spaces, and that $\Omega^\infty\Sigma^\infty S^0$ has nontrivial
+$k$-invariants. There's a short paper by Lewis which addresses this~\cite{Lewis91}, showing that there are five
+very reasonable axioms for the stable category that can't all be true! So people decided to forget about letting
+$\Sigma^\infty$ be left adjoint to evaluation at $0$, and it's okay, if not perfect.\index{Eilenberg-Mac Lane
+space}
 \begin{rem}
 You might be used to thinking of these as the associative and commutative operads. Every operad determines a monad,
 and the operadic algebras become monadic algebras, but for $\P$ and $\T$, the explicit form of the monad makes it
-easier to analyze from the monadic viewpoint.
+easier to analyze from the monadic viewpoint.\index{algebra!over an operad}\index{algebra!over a monad}
 \end{rem}
 Returning to diagram spectra, we've been putting a huge emphasis on strict symmetric monoidal structures, rather
 than just commutativity in the homotopy category. This is useful because it lets you do algebra: if $R$ is a ring
 in the homotopy category, it's very hard to control the category of modules, e.g.\ the cofiber of a map of modules
 may not even be a module, the cyclic bar construction isn't a simplicial object, etc. Some people have tried to use
 operads to fix this, and this is extremely hard: operadic ring spectra are fine, but their modules are not. In a
-sense, Lurie's $\infty$-categorical machinery is designed to do this in a more modern way.
+sense, Lurie's $\infty$-categorical machinery is designed to do this in a more modern way.\index{ring spectrum}
 
 A lot of modern homotopy theory has been importing algebraic constructions about rings into homotopy theory,
 replacing tensor products with smash products. This has been very useful, yet can be hard, and everything is much

@@ -8,7 +8,7 @@ This is a backbone of the stable category: among other things, it ensures $\Ho(\
 
 Tom Dieck splitting is another important structural result about $\pi_G^*(\Sigma^\infty X)$. When $X = S^0$, this
 is used to compute the equivariant stable homotopy groups of the spheres (which is, of course, not completely
-known). This can be used to recover the Burnside category.
+known). This can be used to recover the Burnside category.\index{Burnside category}
 
 Transfers play a key role in both of these results: it's somewhat implicit in the Wirthmüller isomorphism, but is
 pretty explicit for tom Dieck splitting.
@@ -17,8 +17,10 @@ In this section, we assume $G$ is a finite group. There is a more general statem
 it's more complicated.
 \begin{thm}[Wirthmüller isomorphism]
 \label{Wirthiso}
+\index{Wirthmüller isomorphism}\index{pistar-isomorphism@$\pi_*$-isomorphism}
 Let $H$ be a subgroup of $G$ and $X$ be an object of $\Sp^H$.\footnote{Here, we're implicitly using the complete
-universe $U$ to define $\Spc^G$ and $\Spc^H$.} Then, there is a $\pi_*$-isomorphism $G\wedge_H X\simeqto F_H(G,X)$.
+universe $U$ to define $\Spc^G$ and $\Spc^H$.\index{complete universe}} Then, there is a $\pi_*$-isomorphism
+$G\wedge_H X\simeqto F_H(G,X)$.
 \end{thm}
 \begin{ex}
 Adapt the proof of~\eqref{additivespec} for nonequivariant spectra to show that the natural map from finite sums to
@@ -34,7 +36,8 @@ In the situation of \cref{Wirthiso}, $\Sigma^\infty(G/H)_+\cong F_H(G,S^0)\cong 
 \end{cor}
 That is, $\Sigma^\infty (G/H)_+$ is its own Spanier-Whitehead dual. The slogan is that orbits are self-dual in the
 equivariant stable category when $G$ is finite.\footnote{When $G$ is a compact Lie group, there's a degree shift
-arising from the tangent representation of $G$ on the Lie algebra of $H$. \TODO: double-check this.}
+arising from the tangent representation of $G$ on the Lie algebra of $H$. \TODO: double-check
+this.}\index{Spanier-Whitehead duality}
 
 Recall that the forgetful map $i_H^*\colon \Spc^G\to\Spc^H$ has a left and a right adjoint, respectively
 $G\wedge_H\bl$ and $F_H(G,\bl)$. These spectrum-level constructions are induced by applying the space-level
@@ -50,7 +53,8 @@ There are three approaches to proving \cref{Wirthiso}.
 	\item One can also set up a Grothendieck six-functor formalism to prove it, which sets up a general theory for
 	when a lax monoidal functor's left and right adjoints coincide. See~\cite{FHM, WirthRevisited, BDS} for a proof
 	using this approach; the first and the third papers set up general theory, and the second shows that it applies
-	to the Wirthmüller map. This makes interesting contact with base-change theory in algebraic geometry.
+	to the Wirthmüller map. This makes interesting contact with base-change theory in algebraic
+	geometry.\index{six-functors formalism}
 \end{enumerate}
 \begin{warn}
 The proof of \cref{Wirthiso} given in~\cite{LMS} is incorrect, and the fix is nontrivial. It takes
@@ -73,20 +77,21 @@ $\theta$ induces a map $\overline\theta\colon G\wedge_H X\to F_H(G,X)$ in $\Spc^
 equivalence by computing the connectivity of $\theta$.
 
 Let $K\subseteq G$, $\rho$ be the regular representation of $G$, and $m\in\N$. Then, we'll compute the connectivity
-of 
+of\index{regular representation}
 \[\theta_{m,K}\colon \paren{G\wedge_H \Sigma^{m\rho}X}^K\longrightarrow \paren{G_H(G, \Sigma^{m\rho} X)}^K.\]
 When $G$ is finite, the sequence $(\rho, 2\rho, 3\rho,\dotsc)$ is cofinal (i.e.\ the colimits are the same) in the
 filtered diagram of finite-dimensional representations of the complete universe $U$. Thus, to understand
 $\colim_{V\subset U} \Omega^V\Sigma^V X$, it suffices to understand what happens when $V = m\rho$.
 \begin{ex}
 The reason this is true is that when $G$ is finite, the regular representation $\rho$ contains a copy of every
-irreducible as a summand. Prove this by doing a character computation.
+irreducible as a summand. Prove this by doing a character computation.\index{regular representation}
 \end{ex}
 We'll show the connectivity of $\theta_{m,K}$ is increasing in $m$, which means that
 $\pi^K_*\overline\theta\colon\pi_*^K(G\wedge_H X)\to\pi_*^K(F_H(G,X))$ is an isomorphism.
 
 The calculation itself will use the $K, H$ double coset decomposition of $G$ to identify the $K$-fixed points as a
-sum and as a product, and we understand the connectivity of both of these from nonequivariant homotopy theory.
+sum and as a product, and we understand the connectivity of both of these from nonequivariant homotopy
+theory.\index{double cosets}
 
 Let $S\subset G$ be a set of
 representatives for the double coset partition of $G$, i.e.\ under the $K\times H$-action $(k,h)\cdot g =
@@ -150,12 +155,13 @@ On the other hand, we have a Pontrjagin-Thom map $S^V\to G\wedge_H S^V$ induced 
 map $G\wedge_H D(V)\to V$, and therefore a map $S^V\to G\wedge_H D(V)/(G\wedge_H S(V))\cong G\wedge_H S^V$. The
 observation is that the composition $S^V\to G\wedge_H S^V\to S^V$ is the identity (you can and should think about
 this: it's possible to write down an explicit homotopy inverse). This motivates the slogan that ``the Wirthmüller
-isomorphism is the inverse of the transfer map,'' which we'll say more about later.
+isomorphism is the inverse of the transfer map,'' which we'll say more about later.\index{Pontrjagin-Thom
+construction}\index{Wirthmüller isomorphism!as an inverse of the transfer map}
 \end{rem}
 You can use \cref{wirthcor} to explicitly write down the transfer map: given subgroups $K\subseteq H\subseteq G$,
 we have the ``right-way'' map $G/H\to G/K$, and therefore a map $\sus(G/K_+)\cong D(G/K_+)\to
 D(G/H_+)\cong\sus(G/H_+)$. By the Wirthmüller isomorphism, this is the same as a map $F(G/K_+,S)\to F(G/H_+,S)$,
-which is exactly the transfer map!
+which is exactly the transfer map!\index{transfer map!from the Wirthmüller isomorphism}
 
 This is a little circular; if you look carefully into the proof of \cref{Wirthiso}, the transfer map is already
 there. But the point is more philosophical: the existence of transfers is the same thing as the Wirthmüller

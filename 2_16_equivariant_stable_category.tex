@@ -14,22 +14,23 @@ should not contain other representations. Sometimes people are vague about this,
 representations and you ignore them, but it's better to just not have them.}
 \end{defn}
 Sometimes we'll ask for more structure, such as $R$ being closed under tensor products. The inclusion of the
-trivial representation is what makes this a strict generalization of ordinary stable homotopy theory: for example,
-if $U = \R^\infty$ with the trivial $G$-action, the homotopy groups are the nonequivariant homotopy
-groups.\footnote{More explicitly, this is a stabilization of the category of presheaves on $BG$. Depending on your
-definitions, this is more or less a tautology --- stabilization in $\infty$-categories is defined by taking
-spectrum objects.} Another common choice of $U$ is a \term{complete universe}, containing all irreducible
-representations infinitely often, so all orbits are dualizable.
+trivial representation\index{trivial representation} is what makes this a strict generalization of ordinary stable
+homotopy theory: for example, if $U = \R^\infty$ with the trivial $G$-action, the homotopy groups are the
+nonequivariant homotopy groups.\footnote{More explicitly, this is a stabilization of the category of presheaves on
+$BG$. Depending on your definitions, this is more or less a tautology --- stabilization in $\infty$-categories is
+defined by taking spectrum objects.} Another common choice of $U$ is a \term{complete universe}, containing all
+irreducible representations infinitely often, so all orbits are dualizable.
 
 $G$-prespectra were defined classically in a manner similar to prespectra. They mix point-set and homotopical data,
 which is a little odd.
 \begin{comp}{defn}{itemize}
-	\item A \term{$G$-prespectrum} $X$ is the data of a $G$-space $X(V)$ for every finite-dimensional subspace
-	$V\subset U$ and $G$-maps $S^W\wedge X(V)\to X(V\oplus W)$ for each pair $V$ and $W$, such that the structure
-	maps are associative.
-	\item A $G$-prespectrum is an \term{$\Omega$-prespectrum} if for all $V$ and $W$, the adjoint to the structure
-	map is a homeomorphism: $X(V)\congto\Omega^W X(V\oplus W)$.
-	\item The \term{homotopy groups} of a $G$-prespectrum are
+	\item A \term[G-prespectrum@$G$-prespectrum]{$G$-prespectrum} $X$ is the data of a $G$-space $X(V)$ for every
+	finite-dimensional subspace $V\subset U$ and $G$-maps $S^W\wedge X(V)\to X(V\oplus W)$ for each pair $V$ and
+	$W$, such that the structure maps are associative.
+	\item A $G$-prespectrum is an \term[Omega-prespectrum@$\Omega$-prespectrum!for
+	$G$-spectra]{$\Omega$-prespectrum} if for all $V$ and $W$, the adjoint to the structure map is a homeomorphism:
+	$X(V)\congto\Omega^W X(V\oplus W)$.
+	\item The \term[homotopy groups!of a $G$-prespectrum]{homotopy groups} of a $G$-prespectrum are
 	\begin{align*}
 		\pi_q^H(X) &\coloneqq \colim_V \pi_q^H \Omega^V X(V)\\
 		\pi_{-q}^H(X) &\coloneqq \colim_{\substack{V\supset\R^m\\m > 0}} \pi_0^H\Omega^{V - \R^m}X(V).
@@ -39,22 +40,24 @@ which is a little odd.
 \end{comp}
 \begin{prop}
 There is a model structure on $G$-prespectra where the weak equivalences are the stable equivalences (equivalently,
-$\pi_*$-isomorphisms).
+$\pi_*$-isomorphisms).\index{model structure!on $G$-prespectra}
 \end{prop}
 The proof is identical to the nonequivariant case. One cool aspect of this is that homotopy groups are determined
 by trivial representations, and we'll see that for orthogonal $G$-spectra, this is also true at the point-set
 level. It's nice to not have to carry around the entire universe, just the trivial representations. We'll use this
 philosophy in the proof of \cref{Wirthiso}.
 \begin{defn}
-The \term{equivariant stable category} (\term{structured by $U$}) is the homotopy category of $G$-prespectra.
+The \term{equivariant stable homotopy category} (\term*{structured by $U$}) is the homotopy category of
+$G$-prespectra.
 \end{defn}
 This is the category in which we have Poincaré duality for the orbits $G/H$ that embed in $U$. The functors
-$\Sigma^V\coloneqq S^V\wedge\bl$ and $\Omega^V\coloneqq\Map(S^V,\bl)$ are inverse equivalences.
+$\Sigma^V\coloneqq S^V\wedge\bl$ and $\Omega^V\coloneqq\Map(S^V,\bl)$ are inverse equivalences.\index{Poincaré
+duality!equivariant setting}
 \begin{rem}
 It would be nice to write down some sort of equivariant analogue of a triangulated structure on the equivariant
 stable category, but trying to get an $\RO(G)$-grading (i.e.\ shifts by arbitrary representations of $G$) does not
 work except in ad hoc ways for $G = C_2$. However, you can keep track of the action of the Picard group
-$\operatorname{Pic}(\Spc^G)$ on the equivariant stable category.
+$\operatorname{Pic}(\Spc^G)$ on the equivariant stable category.\index{Picard group}
 \end{rem}
 \subsection*{Orthogonal $G$-spectra.}
 Let's build a point-set model of the equivariant stable category. Let $V$ and $V'$ be finite-dimensional
@@ -93,11 +96,11 @@ all at once --- it's simpler to define $\wI_G$ than find a module in a simpler c
 % \end{exm}
 
 There is a forgetful functor $U$ from $\Spc^G$ to the category of $G$-prespectra; we define a map $f$ in $\Spc^G$
-to be a \term{$\pi_*$-isomorphism} if $Uf$ is a $\pi_*$-isomorphism. $\Spc^G$ is symmetric monoidal under Day
-convolution, just as before.
+to be a \term[pistar-isomorphism@$\pi_*$-isomorphism!of orthogonal $G$-spectra]{$\pi_*$-isomorphism} if $Uf$ is a
+$\pi_*$-isomorphism. $\Spc^G$ is symmetric monoidal under Day convolution, just as before.\index{Day convolution}
 \begin{thm}
 $\Spc^G$ has a stable model structure in which the weak equivalences are $\pi_*$-isomorphisms, the fibrations are
-levelwise fibrations, and the generating cofibrations are
+levelwise fibrations, and the generating cofibrations are\index{stable model structure!for orthogonal $G$-spectra}
 \[F_V\paren{(G/H\times S^{n-1})_+\longrightarrow (G/H\times D^n)_+}.\]
 \end{thm}
 Here, $F_V$ is adjoint to evaluation at $V$, as before.
@@ -106,7 +109,8 @@ Moreover, the smash product is compatible with the model structure. If $X$ is co
 Tor $X\wedge^\LD Y$. Another way to say this is that if $X$ is cofibrant, $X\wedge\bl$ preserves weak equivalences.
 The proof is where cofibrantly generated model categories shine: $X\wedge\bl$ is a colimit, so it commutes with
 colimits, and cofibrant objects are retracts of cell complexes, so you can reduce to the case where $X$ is a single
-cell, which admits a direct proof. Once again the stable homotopy category behaves like homological algebra.
+cell, which admits a direct proof. Once again the stable homotopy category behaves like homological
+algebra.\index{model category!cofibrantly generated}
 \begin{exm}
 Let $X\in\Spc$. Then, ``letting $G$ act trivially on $X$'' defines a $G$-spectrum also denoted $X$, such that for
 any $n$-dimensional $G$-representation $V$, $X(V)$ is, as an $\O_n$-space, equal to $X_n$. However, the $G$-action
@@ -117,8 +121,8 @@ One important example is the \term{equivariant sphere spectrum} $\Sph$: $\Sph(V)
 $\Spc^G$.
 \end{exm}
 \begin{exm}[Suspension spectra]
-Let $X$ be a based $G$-space; then, the \term{suspension spectrum} of $X$, denoted $\Sigma^\infty X$, is the
-$G$-spectrum whose component on a $G$-representation $V$ is
+Let $X$ be a based $G$-space; then, the \term[of a $G$-space]{suspension spectrum} of $X$, denoted $\Sigma^\infty
+X$, is the $G$-spectrum whose component on a $G$-representation $V$ is
 \[\Sigma^\infty X(V)\coloneqq X\wedge S^V.\]
 Given an equivariant map $V\to W$, the structure map $\Sigma^\infty X(V)\to\Sigma^\infty X(W)$ is its one-point
 compactification smashed with $\id_X$.
@@ -135,22 +139,23 @@ Let $H\subset G$ be a subgroup, so restriction defines a functor $i_H\colon \Spc
 $G$-spaces, $i_H$ has a left adjoint $G_+\wedge_H\bl$ and a right adjoint $F_H(G_+,\bl)$, and these are constructed
 space-wise.
 \begin{prop}
-$G_+\wedge_H\bl$ and $F_H(G_+,\bl)$ are left (resp.\ right) Quillen functors.
+$G_+\wedge_H\bl$ and $F_H(G_+,\bl)$ are left (resp.\ right) Quillen functors.\index{Quillen adjunction}
 \end{prop}
 \begin{rem}
 You might worry what universe you end up in after applying $i_H$ --- naïvely you get the $H$-representations that
 arise from restriction of $G$-representations, but you might want all $H$-representations. The way to address this
-is to use a change-of-universe functor, which we'll mention shortly. This is a good thing to not be sloppy about,
-but is annoying, and is why people try to get the universe out of the point-set category. In any case, as in group
-cohomology, induction and coinduction are isomorphic through the \term{Wirthmüller isomorphism}
-(\cref{Wirthiso}).
+is to use a change-of-universe functor, which we'll discuss in \$\ref{change_of_universe_sec}. This is a good thing
+to not be sloppy about, but is annoying, and is why people try to get the universe out of the point-set category.
+In any case, as in group cohomology, induction and coinduction are isomorphic through the \term*{Wirthmüller
+isomorphism} (\cref{Wirthiso}).\index{group cohomology}\index{change-of-universe
+map}\index{Wirthmüller isomorphism}
 \end{rem}
 One thing that's nice to do with $G$-spectra is take fixed points. There are \emph{three} different ways to do
 this, namely homotopy fixed points, categorical fixed points, and geometric fixed points, and keeping them separate
 in your head is important.
 
 $\Spc^G$ is a \emph{closed} symmetric monoidal category, meaning it has internal function objects. This is true for
-$\fD$-spaces in general, with internal function objects
+$\fD$-spaces in general, with internal function objects\index{symmetric monoidal category!closed}
 \[F_\fD(X,Y)(n) \coloneqq F(X, Y(n)).\]
 This is exactly like the mapping complex of two chain complexes: you're looking at chain maps from $X$ to shifts of
 $Y$.
@@ -160,6 +165,7 @@ function objects from $G$-spaces to $G$-spectra: if $A$ is a $G$-space, tensorin
 applied levelwise, and cotensoring with $A$ is $F(A_+,\bl)$ applied levelwise.
 \begin{defn}\hfill
 \label{spectra_fixed_points}
+\index{fixed points!of a $G$-spectrum}
 \begin{itemize}
 	\item The \term{homotopy fixed points} is the functor $X\mapsto F(EG_+, X)^G$. (Here, $EG_+$ is a $G$-space, so
 	we're using the cotensor of $G$-spaces and $G$-spectra.)
@@ -169,8 +175,8 @@ applied levelwise, and cotensoring with $A$ is $F(A_+,\bl)$ applied levelwise.
 \end{defn}
 \begin{warn}
 You might hope that $(\Sigma^\infty A_+)^H = \Sigma^\infty A_+^H$, so that fixed points of spaces lead to fixed
-points of spectra, but this is \emph{not} true. It has a more complicated description called \term{tom Dieck
-splitting} as a wedge of other pieces.
+points of spectra, but this is \emph{not} true. It has a more complicated description called \term[tom Dieck
+splitting]{tom Dieck splitting} as a wedge of other pieces.
 \end{warn}
 \begin{defn}
 The \term{geometric fixed points}, denoted $\Phi^H$ or also $X^{gH}$, is the unique functor
@@ -185,7 +191,7 @@ such that
 Of course, uniqueness (up to a contractible space of choices) is a theorem, but it's true. We'll also give a
 preferred construction.
 
-We'll prove that categorical and geometric fixed points detect weak equivalences.
+We'll prove that categorical and geometric fixed points detect weak equivalences.\index{weak equivalence}
 \begin{comp}{thm}{enumerate}
 	\item A map $X\to Y$ in $\Spc^G$ is a weak equivalence iff $X^H\to Y^H$ is a weak equivalence for all subgroups
 	$H\subset G$.
@@ -196,9 +202,10 @@ We'll prove that categorical and geometric fixed points detect weak equivalences
 This leads one to consider diagrams on categorical or geometric fixed points: because of this perspective, one can
 define Tate spectra using this philosophy, and this is particularly useful when applied to $S^1$-spectra. It was
 originally developed by John Greenlees, and has recently been repopularized and is being mined for applications,
-such as Nikolaus-Scholze's description of topological cyclic homology.
+such as Nikolaus-Scholze's description of topological cyclic homology.\index{Tate spectrum}\index{topological
+cyclic homology}
 
 We're going to try to understand the equivariant stable category from a few other perspectives: the Wirthmüller
 isomorphism is an analogue of the isomorphism between finite products and coproducts in spectra, and we'll also
 learn more about tom Dieck splitting. You can also ask how the transfer maps we talked about
-characterize the equivariant stable category.
+characterize the equivariant stable category.\index{transfer map}
