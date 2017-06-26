@@ -8,21 +8,22 @@ category of orthogonal $G$-spectra,'' but having some motivation for why we're d
 
 There are lots of ways to think about where stabilization comes from.
 \begin{enumerate}
-	\item The Freudenthal suspension theorem says that if $X$ is nondegenerately based (meaning the based inclusion
-	map $*\inj X$ is a cofibration) and $n-1$-connected, then $\pi_q(X)\to\pi_{q+1}(\Sigma
-	X)$ is an isomorphism for $q < 2n-1$ and a surjection when $q = 2n-1$.\footnote{The map comes from the
-	loop-suspension adjunction, which gives us a unit $X\to\Omega\Sigma X$, hence a map
-	$\Omega^qX\to\Omega^{q+1}\Sigma X$, and the map on homotopy groups is $\pi_0$ of that map. This is the based
-	version of the mapping space and Cartesian product adjunction: $\Sigma X\coloneqq S^1\wedge X$ and $\Omega X
-	\coloneqq \Map(S^1, X)$ are adjoint functors.} It's easier to see that cohomology groups are stable under
-	suspension, but this tells us that homotopy groups stabilize in a range that increases at about twice the rate
-	that the connectivity of $X$ does. Since $\Sigma^n X$ is at least $n$-connected, this suggests you could
-	replace $X$ by the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and keep track of that instead, regarding
-	it as a repository for the \term{stable homotopy groups} $\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$.
-	One way to think of this is as formally making homotopy theory into a homology theory (which it isn't \textit{a
-	prioiri}); you end up taking the same kind of colimit.
+	\item The Freudenthal suspension theorem\index{Freudenthal suspension theorem} says that if $X$ is
+	nondegenerately based (meaning the based inclusion map $*\inj X$ is a cofibration) and $n-1$-connected, then
+	$\pi_q(X)\to\pi_{q+1}(\Sigma X)$ is an isomorphism for $q < 2n-1$ and a surjection when $q =
+	2n-1$.\footnote{The map comes from the loop-suspension adjunction,\index{loop-suspension adjunction} which
+	gives us a unit $X\to\Omega\Sigma X$, hence a map $\Omega^qX\to\Omega^{q+1}\Sigma X$, and the map on homotopy
+	groups is $\pi_0$ of that map. This is the based version of the mapping space and Cartesian product adjunction:
+	$\Sigma X\coloneqq S^1\wedge X$ and $\Omega X \coloneqq \Map(S^1, X)$ are adjoint functors.} It's easier to see
+	that cohomology groups are stable under suspension, but this tells us that homotopy groups stabilize in a range
+	that increases at about twice the rate that the connectivity of $X$ does. Since $\Sigma^n X$ is at least
+	$n$-connected, this suggests you could replace $X$ by the sequence $X, \Sigma X,\dotsc,\Sigma^n X,\dotsc$, and
+	keep track of that instead, regarding it as a repository for the \term{stable homotopy groups}
+	$\pi_n^S(X)\coloneqq\colim_k \pi_{n+k}(\Sigma^k X)$.  One way to think of this is as formally making homotopy
+	theory into a homology theory (which it isn't \latin{a prioiri}); you end up taking the same kind of colimit.
 
-	You could do this equivariantly: we have representation spheres. But it's not entirely clear what to do.
+	You could do this equivariantly: we have representation spheres. But it's not entirely clear what to
+	do.\index{stable homotopy category!as setting for stable homotopy groups}
 	\item Another perspective is that the stable category is the result of inverting the canonical map\footnote{The
 	existence of this map follows from the universal property of the product.}
 	\begin{equation}
@@ -33,25 +34,28 @@ There are lots of ways to think about where stabilization comes from.
 	category constructed from $\Top$ in which~\eqref{wedges_are_products} is an isomorphism. In particular, this
 	forces the homotopy category to be additive.
 
-	Again, we could do this equivariantly.
+	Again, we could do this equivariantly.\index{stable homotopy category!as initial category where finite sums and
+	products agree}
 	\item Suppose we have a functor $F$ from finite CW complexes to $\Top$ such that $F(*) = *$, and suppose $F$
 	commutes with filtered colimits and preserves weak equivalences (e.g.\ if it's topologically or simplicially
 	enriched, for formal reasons). By taking colimits, we can obtain a functor $\widehat F$ from CW complexes to
-	$\Top$. We say $F$ is \term{excisive} if it takes pushouts to pullbacks; this is an old perspective, which was
-	used to show the Dold-Thom theorem, that the infinite symmetric product $\mathrm{SP}^\infty$ is a cohomology
-	theory. In any case, if $F$ is excisive, $\set{F(S^n)}$ represents a cohomology theory. Namely, the homotopy
-	pushout
+	$\Top$. We say $F$ is \term[excisive functor]{excisive} if it takes pushouts to pullbacks; this is an old
+	perspective, which was used to show the Dold-Thom theorem, that the infinite symmetric product
+	$\mathrm{SP}^\infty$ is a cohomology theory. In any case, if $F$ is excisive, $\set{F(S^n)}$ represents a
+	cohomology theory. Namely, the homotopy pushout\index{Dold-Thom theorem}
 	\[\xymatrix{S^n\ar[r]\ar[d] & D^{n+1}\ar[d]\\
 	D^{n+1}\ar[r] & S^{n+1}
 	}\]
 	creates suspension, and via $F$, becomes a pullback creating $\Omega$. Asking what the excisive functors are
-	leads to the stable category, and is also something you could do equivariantly.
+	leads to the stable category, and is also something you could do equivariantly.\index{stable homotopy
+	category!as setting of excisive functors}
 	\item Another perspective: what is the Spanier-Whitehead dual of a point? Taking shifts, what's the
 	Spanier-Whitehead dual of $S^n$? Equivariantly, one wants to know the Spanier-Whitehead duals of $G/H_+$. This
 	is important for defining Poincaré duality, etc. Nonequivariantly, the best way to answer this is the
 	Pontrjagin-Thom construction, which not only answers this, but provides a deep understanding for what the
 	stable homotopy groups of the spheres are. In this chapter, we'll do this equivariantly, and it will tell us
-	what the spheres are.
+	what the spheres are.\index{stable homotopy category!as setting of Spanier-Whitehead
+	duality}\index{Spanier-Whitehead duality}
 \end{enumerate}
 Pursuant to motivating the stable category, this section is about duality. This is a reinvention of the original
 construction of the stable category --- Spanier's original construction of spectra was motivated by answering
@@ -62,9 +66,10 @@ Alexander duality is a tale as old as time, from what could be called the prehis
 topology.\footnote{If you read between the lines, you can find it in Poincaré's works, but it's from the 1940s or
 50s stated explicitly.}
 \begin{thm}[Alexander duality~\cite{Alexander}]
+\index{Alexander duality}
 Let $K\subset S^n$ be compact, locally contractible, and nonempty.\footnote{Classically, one works simplicially,
 picking a triangulation of $S^n$ and letting $K$ be a subpolyhedron.} Then, $K$ and $S^n\setminus K$ are
-\term{Alexander dual} in that there is an isomorphism
+\term*{Alexander dual} in that there is an isomorphism
 \[\wH^{n-i-1}(K;\Z)\cong \wH_i(S^n\setminus K;\Z).\]
 \end{thm}
 The proof isn't too hard, e.g.\ Hatcher does it. This is closely related to considering embeddings in Euclidean
@@ -73,19 +78,21 @@ spaces, after you take the one-point compactification.
 The good part of this proof is that it doesn't depend on the embedding. But there are a few drawbacks:
 \begin{enumerate}
 	\item $K$ does not determine the homotopy type of $S^n\setminus K$. Knot theory is full of examples, and they
-	tell you that the issues arise for the fundamental group.
+	tell you that the issues arise for the fundamental group.\index{knot theory}
 	\item $n$ can vary, and if you embed $S^n\inj S^{n+1}$ as the equator, you get different statements.
 \end{enumerate}
 Motivated by the second issue, Spanier defined the $S$-category in the 1950s.\footnote{The name ``$S$-category'' is
 somewhat misleading: in those days, suspension was sometimes denoted $S$ instead of $\Sigma$ to make typeseting
 easier, and the $S$ in $S$-category stood for suspension, not spheres.}
 \begin{defn}
-The \term{$S$-category} $\cat S$ is the category whose objects are the objects in $\Top$ and whose morphisms are
+The \term[S-category@$S$-category]{$S$-category} $\cat S$ is the category whose objects are the objects in $\Top$
+and whose morphisms are
 \[\Map_{\cat S}(X, Y) \coloneqq \colim_n\Map_\Top(\Sigma^n X, \Sigma^n Y).\]
 \end{defn}
 By the Freudenthal suspension theorem, the hom-sets stabilize at some finite $n$. Spanier then defined
-\term{$S$-duality}, which we might call \term{Spanier-Whitehead duality}, by specifying that $X$ and $Y$ are
-$S$-dual if $Y\cong S^n\setminus X$ in the $S$-category.
+\term[S-duality@$S$-duality|see {Spanier-Whitehead duality}]{$S$-duality}, which we might call
+\term{Spanier-Whitehead duality}, by specifying that $X$ and $Y$ are $S$-dual if $Y\cong S^n\setminus X$ in the
+$S$-category.\index{Freudenthal suspension theorem}
 \begin{rem}
 The $S$-category has some issues: it's neither complete nor cocomplete. We like gluing stuff together, so this is
 unfortunate.
@@ -97,14 +104,15 @@ $S$-dual: the duals inside $S^n$ and $S^{n+1}$ are the same in the $S$-category 
 Spanier and Whitehead then asked one of their graduate students, Elon Lima, to formalize this $S$-category, leading
 to the first notion of the category of spectra.
 \subsection*{An axiomatic setting for duality.}
-The formal setting for duality is a \term{closed symmetric monoidal category} $\fC$. We're not going to spell out
-the whole definition, but here are some important parts.
+The formal setting for duality is a \term[symmetric monoidal category!closed]{closed symmetric monoidal category}
+$\fC$. We're not going to spell out the whole definition, but here are some important parts.
 \begin{itemize}
 	\item $\fC$ is symmetric monoidal, meaning there's a tensor product $\wedge\colon\fC\times\fC\to\fC$, which is
 	(up to natural isomorphism) associative and commutative, and has a unit $S$. Commutativity is ensured by the
 	\term{flip map} $\tau\colon X\wedge Y\isom Y\wedge X$.
 	\item There is an internal \term{mapping object} $F(X,Y)\in\fC$ for any $X,Y\in\fC$.
-	\item The functors $\bl\wedge X$ and $F(X,\bl)$ are adjoint (just like the tensor-hom adjunction).
+	\item The functors $\bl\wedge X$ and $F(X,\bl)$ are adjoint (just like the tensor-hom
+	adjunction).\index{tensor-hom adjunction}
 \end{itemize}
 The unit and counit of the tensor-hom adjunction are used to define duality.
 \begin{defn}
@@ -161,7 +169,7 @@ To paraphrase Lang, the best way to learn this is to prove all the statements wi
 all diagram chases.
 
 If you like string calculus, you can think of these in terms of $S$- or $Z$-shaped diagrams. In this form, these
-results are sometimes known as the \term{Zorro lemmas}.
+results are sometimes known as the \term{Zorro lemmas}.\index{string calculus}
 
 Another consequence of this formulation is that $\bl\wedge DX$ is right adjoint to $\bl\wedge X$, so by uniqueness
 of adjoints there's a natural isomorphism $\bl\wedge DX\cong F(X,\bl)$.
@@ -173,7 +181,8 @@ duality. We'll assume $M$ is compact.
 By the tubular neighborhood theorem, there's an $\e > 0$ and a tubular neighborhood $M_\e$ such that $M_\e$ is the
 disc bundle of the normal bundle $\nu\to M$.\footnote{Let $E$ be a vector bundle, and choose a metric on $E$; then,
 the \term{disc bundle} $D(E)$ is the subset of vectors with $\norm x\le 1$, and the \term{sphere bundle} $S(E)$ is
-the subset of vectors with $\norm x = 1$. These are fiber bundles with fiber $D^n$ and $S^{n-1}$, respectively.}
+the subset of vectors with $\norm x = 1$. These are fiber bundles with fiber $D^n$ and $S^{n-1}$,
+respectively.}\index{tubular neighborhood theorem}
 
 Thom's thesis~\cite{ThomThesis} supplied an amazing connection between cobordism groups and the stable homotopy
 groups of the spheres by way of the \term{Pontrjagin-Thom map} $S^n\to \R^n/(\R^n\setminus M_\e)$ (heuristically,
@@ -196,6 +205,7 @@ and projecting $M$ to a point, we get
 The following theorem is nice, but quite nontrivial, at least from this approach.
 \begin{thm}[Atiyah duality]
 \label{atiyah_duality}
+\index{Atiyah duality}
 $\eta$ and $\e$ exhibit $T\!\nu$ and $M_+$ as $n$-dual in the $S$-category.
 \end{thm}
 We'd like $T\!\nu$ and $\Sigma^{-n}M_+$ to be dual, but we don't know how to show that yet. More accurately, let
@@ -206,7 +216,7 @@ One surprising consequence is that the tangent bundle and normal bundle define s
 the Thom spectrum, which raises the question of what $T\!\nu$ looks like for particular examples.
 
 Another is that we can immediately prove Poincaré duality, assuming the Thom isomorphism theorem. Namely, we can
-establish an isomorphism
+establish an isomorphism\index{Thom isomorphism theorem}\index{Poincaré duality}
 \begin{equation}
 \label{HZatiyah}
 [DX, H\Z] \cong [S, X_+\wedge H\Z].
@@ -219,31 +229,32 @@ Applying \cref{atiyah_duality} to~\eqref{HZatiyah},
 \[[\Sigma^{-n} T\!\nu, H\Z]\cong H^{m-*}(X;\Z).\]
 If $X$ is orientable, then the cohomology of the Thom spectrum is the same as the cohomology of $X$. The Thom
 isomorphism theorem establishes a degree shift that gets rid of the dependency on $n$, the dimension of ambient
-space.
+space.\index{Thom spectrum}
 \subsection*{The equivariant setting.}
 We'd like to establish Atiyah duality for $G/H$.
 \begin{defn}
-A \term{$G$-manifold} is a manifold $M$ with a $G$-action by smooth maps.
+A \term[G-manifold@$G$-manifold]{$G$-manifold} is a manifold $M$ with a $G$-action by smooth maps.
 \end{defn}
 The theorems of differential topology that we need hold for $G$-manifolds. Namely, there is an equivariant tubular
 neighborhood theorem, etc. In the smooth case, this goes back to the work of Andrew Gleason in the 1930s, and in
 the PL case to Lashof in the 1950s. If you like manifold topology, these are really nice proofs to read, avoiding
-triangulation arguments.
+triangulation arguments.\index{tubular neighborhood theorem!for $G$-manifolds}
 
 We need one key fact.
 \begin{thm}[Equivariant Whitney's theorem~\cite{Mostow, Palais}]
+\index{Whitney embedding theorem!for $G$-manifolds}
 Let $M$ be a compact $G$-manifold. Then, there is a $G$-equivariant embedding $M\inj V$, where $V$ is some
 finite-dimensional real $G$-representation.
 \end{thm}
 Now we proceed as before: all of the arguments are exactly the same, including the equivariant Pontrjagin-Thom
-construction.
+construction.\index{Pontrjagin-Thom construction!for $G$-manifolds}
 
 But this means that suspension has to be smashing with $S^V$, the representation sphere for $V$. So in order for
 manifolds to have duals (meaning, in order to establish Poincaré duality), we need an $S$-category whose morphisms
-are
+are\index{Poincaré duality!for $G$-manifolds}
 \[\Map_S(X,Y)\coloneqq \colim_V \Map(\Sigma^V X, \Sigma^V Y),\]
 where $\Sigma^V X\coloneqq S^V\wedge X$. This is not sequential, but there is an equivariant Freudenthal suspension
-theorem that stabilizes it.
+theorem that stabilizes it.\index{Freudenthal suspension theorem!equivariant case}
 
 Poincaré duality is one of the oldest results in algebraic topology, and if you don't have it in your theory, what
 are you even doing? So to obtain Poincaré duality, \emph{we are inexorably forced to smash with representation
@@ -259,7 +270,7 @@ The naïve choice is the functor category from $\sO_G\op$ to the equivariant $S$
 enough: it's like only choosing the trivial representation. This is nontrivial to see, though.
 
 So we need extra structure in the orbit category, and this will come through extra structure in $\sO_G$. We'll add
-extra maps between $G/H$ and $G/K$ called \term{transfer maps}.
+extra maps between $G/H$ and $G/K$ called \term*{transfer maps}.\index{transfer map}
 
 Let $M$ be a $G$-manifold embedded in some $G$-representation $V$, $\nu$ be its normal bundle, and $\tau$ be its
 tangent bundle. Then, $\tau\oplus\nu$ is trivial, so the Thom construction applied to it is just smashing with
@@ -272,7 +283,7 @@ $S^V$. Thus, we obtain a sequence of maps
 \end{equation}
 \begin{ex}
 If you project $M\to *$, you get a map $S^V\to S^V$. Show that the degree of this map is the Euler characteristic
-$\chi(M)$.
+$\chi(M)$.\index{Euler characteristic}
 \end{ex}
 If $K\subset H$ are subgroups of $G$, then~\eqref{PTtransfer} defines a map $S^V\to S^V\wedge (H/K)_+$, and we can
 induce this to get a map
@@ -280,4 +291,4 @@ induce this to get a map
 These are the additional maps we need. We'll go over them again in the next section, but these define the Burnside
 category, which suffices to define the equivariant stable category! What's really nice is how this derives from
 some of the oldest constructions and questions in homotopy theory: Thom's thesis can be considered the beginning of
-modern homotopy theory.
+modern homotopy theory.\index{Burnside category}
