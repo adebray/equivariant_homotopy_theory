@@ -26,7 +26,7 @@
 \usepackage{suffix}
 \NewDocumentCommand{\term}{o m}{{\bfseries #2}\index{\IfValueTF{#1}{#1}{#2}|textit}}
 %\newcommand{\term}[2][##1]{{\bfseries #1}\index{#2|textit}}
-\WithSuffix\newcommand\term*[1]{\bfseries #1}
+\WithSuffix\newcommand\term*[1]{{\bfseries #1}}
 \newcommand{\synonym}[2]{{{\bfseries #2}\index{#2|see {#1}}}}
 
 \newcommand{\sSet}{\cat{sSet}}
