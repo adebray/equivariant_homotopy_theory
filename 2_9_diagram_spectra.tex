@@ -111,9 +111,9 @@ and this also will induce a homotopy equivalence.
 \begin{exm}[$\Gamma$-spaces]
 \label{gamma_spaces}
 Let $\fD$ be the category of finite based sets and based maps, e.g.\ $n_+ = \set{0,1,\dotsc,n}$ with $0$ as the
-basepoint. $\fD$-spaces are called \term[Gamma-spaces@$\Gamma$-spaces]{$\Gamma$-spaces}, and agree with Segal's
+basepoint. $\fD$-spaces are called \term*{$\Gamma$-spaces}, and agree with Segal's
 notion of $\Gamma$-spaces, which are defined differently. The multiplication comes from the map $\psi\colon 2_+\to
-1_+$ sending $1,2\mapsto 1$.
+1_+$ sending $1,2\mapsto 1$.\index{Gamma-space@$\Gamma$-space}
 
 Let $d_i:n_+\to 1_+$ send $j\mapsto\delta_{ij}$ (i.e.\ $1$ if $i = j$, and $0$ otherwise). A $\Gamma$-space is
 \term[special!for $\Gamma$-spaces]{special} if the induced map
@@ -133,7 +133,8 @@ $\Gamma$-spaces}
 In the equivariant case, there's even more structure, and notions of ``extra special'' $\Gamma$-spaces, as we will
 see in \S\ref{equivariant_gamma_space}.
 \begin{defn}
-A prespectrum is an \term{$\Omega$-prespectrum} if for all $n$, $X_n\congto\Omega^mX_{m+n}$.
+A prespectrum is an \term[Omega-prespectrum@$\Omega$-prespectrum]{$\Omega$-prespectrum} if for all $n$,
+$X_n\congto\Omega^mX_{m+n}$.
 \end{defn}
 \begin{defn}
 If $X$ is a prespectrum and $q\in\Z$, the $q^{\text{th}}$ \term[homotopy groups!of a prespectrum]{homotopy group}
@@ -215,8 +216,8 @@ defines the ring structure on $A$-cohomology.
 	ensure that $HA$ is a commutative ring spectrum.
 	\item For orthogonal spectra, the construction is more complicated, since we must choose a model for $K(A,n)$
 	with an $\O_n$-action on it. In particular, we must assume $A$ is countable. Given an inner product space $V$,
-	the \term{$A$-linearization} $A[S^V]$ of $S^V$ is, as a set, $A$ tensored with the reduced free abelian group
-	on $K$ (so the basepoint maps to zero), topologized as the quotient
+	the \term[linearization of a space]{$A$-linearization} $A[S^V]$ of $S^V$ is, as a set, $A$ tensored with the
+	reduced free abelian group on $K$ (so the basepoint maps to zero), topologized as the quotient
 	\[\qquad\qquad\qquad\coprod_{k=0}^\infty A^k\times (S^V)^k\surj A[S^V],\qquad\qquad
 	(a_1,\dotsc,a_k,x_1,\dotsc,x_k) \mapsto\sum_{j=1}^k a_j\cdot x_j.\]
 	This is a model for $K(A,\dim V)$, but has an $\O(V)$-action induced from the $\O(V)$-action on $S^V$. The
@@ -285,8 +286,9 @@ We also defined an $\Omega$-spectrum in prespectra, or an $\Omega$-prespectrum, 
 adjoints to the structure maps $X_n\congto\Omega^mX_{n+m}$ are homeomorphisms. This is a pretty rigid condition,
 and so $\Omega$-prespectra have nice properties.
 \begin{defn}
-Similarly, we define an \term[for orthogonal spectra]{$\Omega$-spectrum} in orthogonal spectra to be an orthogonal
-spectrum $X$ such that the adjoints to the structure maps $X(U)\congto\Omega^V X(U\oplus V)$ are homeomorphisms.
+Similarly, we define an \term[Omega-spectrum@$\Omega$-spectrum!for orthogonal spectra]{$\Omega$-spectrum} in
+orthogonal spectra to be an orthogonal spectrum $X$ such that the adjoints to the structure maps
+$X(U)\congto\Omega^V X(U\oplus V)$ are homeomorphisms.
 \end{defn}
 Classically, there were prespectra and then there were spectra (or $\Omega$-spectra), and you would use some
 ``spectrification'' functor that took a prespectrum and produced a spectrum of the same homotopy type. Turning the

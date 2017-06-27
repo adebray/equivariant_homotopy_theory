@@ -77,9 +77,10 @@ adjoints:
 	pullback! (In the based case, the balanced product is $G_+\wedge_H X$.) $G$ acts via the left action on $G$.
 	This is called the \term{induced $G$-action} on $G\times_H X$.
 	\item The right adjoint is $\Map^H(G,X)$ (or $\Map^H(G_+, X)$ in the based case), the space of $H$-equivariant
-	maps $G\to X$, with $G$-action $(gf)(g') = f(g'g)$. This is called the \term{coinduced $G$-action} on
-	$\Map^H(G,X)$.\footnote{This actually \emph{is} a group action, since if $a,b,g\in G$, then $(a(b f))(g) =
-	(bf)(ga) = f(gab) = (ab(f))(g)$.} Sometimes this is also denoted $F_H(G, X)$.\qedhere
+	maps $G\to X$, with $G$-action $(gf)(g') = f(g'g)$. This is called the \term[coinduced $G$-action!on an
+	$H$-space]{coinduced $G$-action} on $\Map^H(G,X)$.\footnote{This actually \emph{is} a group action, since if
+	$a,b,g\in G$, then $(a(b f))(g) = (bf)(ga) = f(gab) = (ab(f))(g)$.} Sometimes this is also denoted $F_H(G,
+	X)$.\qedhere
 \end{itemize}
 \end{exm}
 
@@ -140,6 +141,7 @@ Show that $S^V\wedge S^W\cong S^{V\oplus W}$.
 \begin{defn}
 A \term[G-homotopy@$G$-homotopy]{$G$-homotopy} is a map $h\colon X\times I\to Y$ in $G\Top$, where $G$ acts
 trivially on $I$. We generally think of it, as usual, as interpolating between $h(\bl, 0)$ and $h(\bl, 1)$. This is
-the same data as a path in $G\Map(X,Y)$. A \term{$G$-homotopy equivalence} between $X$ and $Y$ is a map $f\colon
-X\to Y$ such that there exists a $g\colon Y\to X$ and $G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
+the same data as a path in $G\Map(X,Y)$. A \term[G-homotopy equivalence@$G$-homotopy equivalence]{$G$-homotopy
+equivalence} between $X$ and $Y$ is a map $f\colon X\to Y$ such that there exists a $g\colon Y\to X$ and
+$G$-homotopies $gf\sim \id_X$ and $fg\sim\id_Y$.
 \end{defn}

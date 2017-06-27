@@ -181,8 +181,8 @@ Finally, let $\widetilde A\coloneqq A'\times_{B'} (C\times_D\Pi_fB')$:
 	& Y & C\ar[l]\ar[d]^f\\
 	& Z & D\ar[l] & \Pi_fB'.\ar[l]
 }\]
-Now, we can define the \term{composition} of these two bispans to be the bispan $[X\gets \widetilde A\to\Pi_fB'\to
-Z]$.
+Now, we can define the \term[composition of bispans]{composition} of these two bispans to be the bispan $[X\gets
+\widetilde A\to\Pi_fB'\to Z]$.
 
 We'd like this to actually behave like a composition.
 \begin{lem}
@@ -329,7 +329,7 @@ as they could be.
 \begin{rem}
 This category of bispans is reminiscent of the Dwyer-Kan hammock localization~\cite{Hammock}, and it may be
 possible to obtain bispans from the hammock localization of a particular category with weak equivalences. Is this
-useful? Maybe.\index{Dwyer-Kan hammock localization}
+useful? Maybe.\index{Dwyer-Kan localization}
 \end{rem}
 If $\fC = G\Set$, then we'll let $\tilde{P}^G\coloneqq P(\fC)$. The hom sets of $\tilde{P}^G$ are commutative
 monoids under direct sum. Taking the Grothendieck group of each hom-set (as we did with Mackey functors), we obtain
@@ -373,7 +373,7 @@ $f\colon \to Y$ of sets, $f^*(B\to Y)$ is $X\times_Y B$, $\Sigma_f(A\to X)$ is $
 \label{Evensexm}
 \begin{enumerate}
 	\item Group cohomology is a Tambara functor: the transfer and restriction maps are what we've seen before, and
-	the norm is the \term{Evens multiplicative transfer}, which we'll talk about in \S\ref{evenssec}.\index{Group
+	the norm is the \term{Evens multiplicative transfer}, which we'll talk about in \S\ref{evenssec}.\index{group
 	cohomology!as a Tambara functor}
 	\item Let $X$ be a commutative ring object in $\Sp^G$. Then, $\pi_0(X)$ is a Tambara functor. The idea is that
 	it'll be an algebra over an $N_\infty$ operad over a ``complete'' indexing system (again, this will be
@@ -417,8 +417,10 @@ If $\fD$ is coproduct complete, then $\fD$ is the coproduct completion of $\Orb_
 \end{lem}
 That is, we start with orbits, throw in coproduct, and obtain everything, which is nice.
 \begin{defn}
-Let $\fD$ be a wide, pullback stable, coproduct complete subcategory of $\fC$. Then, a \term{$\fD$-Tambara functor}
-is a functor $P_\fD^G\to\Ab$. In~\cite{BlumbergHill}, these are called \term{incomplete Tambara functors}.
+Let $\fD$ be a wide, pullback stable, coproduct complete subcategory of $\fC$. Then, a \term*{$\fD$-Tambara
+functor} is a functor $P_\fD^G\to\Ab$. In~\cite{BlumbergHill}, these are called \term[incomplete Tambara
+functor]{incomplete Tambara functors}.\index{D-Tambara functor@$\fD$-Tambara functor|see {incomplete Tambara
+functor}}
 \end{defn}
 We won't be able to delve into the following proof.
 \begin{thm}[\cite{BlumbergHill}]
