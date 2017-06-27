@@ -26,7 +26,7 @@ We can extend~\eqref{fibtower} into a diagram
 	\dotsb\ar[r] & Y_s\ar[r]^{p_s} & Y_{s-1}\ar[r]^{p_{s-1}} &Y_{s-2}\ar[r] & \dotsb\\
 	& F_s\ar[u]_{i_s} & F_{s-1}\ar[u]_{i_{s-1}} & F_{s-2},\ar[u]_{i_{s-2}}
 }\]
-and hence into an exact couple
+and hence into an exact couple\index{exact couple}
 \[\xymatrix{
 	\dotsb\ar[r] & \pi_*(Y_{s+1})\ar[r] & \pi_*(Y_s)\ar[r]\ar[dl]_\delta & \pi_*(Y_{s-1})\ar[dl]_\delta\ar[r] &
 	\dotsb\\
@@ -51,8 +51,8 @@ This means that a few of the columns of this spectral sequence don't quite work,
 the degenerate columns can still be useful. This is an example of a \term{fringed spectral sequence}.
 \end{rem}
 Bousfield and Kan cared about this spectral sequence because it allowed them to write down a useful long exact
-sequence, the \term{$r^{\text{th}}$ derived homotopy sequence}: let $\pi_iY^{(r)}\coloneqq
-\Im(\pi_i(Y_{n+r})\to\pi_i(Y_n))$; then, there's a long exact sequence
+sequence, the \term[derived homotopy sequence]{$r^{\text{th}}$ derived homotopy sequence}: let
+$\pi_iY^{(r)}\coloneqq \Im(\pi_i(Y_{n+r})\to\pi_i(Y_n))$; then, there's a long exact sequence
 \[\xymatrix{
 	\dotsb\ar[r] & \pi_{t-s-1}Y_{s-r-1}^{(r)}\ar[r] & E_{r+1}^{s,t}\ar[r] & \pi_{t-s}Y_s^{(r)}\ar[r]^\delta &
 	\pi_{t-s}Y_{s-1}^{(r)}\ar[r] & E_{r+1}^{s+r, t+r+1}\ar[r] & \pi_{t-s+1}Y_s^{(r)}\ar[r] & \dotsb
@@ -75,7 +75,8 @@ Then
 \[\varprojlim\Tot_n(X^\bullet) = \Tot(X^\bullet),\]
 reconciling the two definitions.
 \begin{ex}
-In the Reedy model structure, $\Tot_n(X^\bullet)\to\Tot_{n-1}(X^\bullet)$ is a fibration.
+In the Reedy model structure, $\Tot_n(X^\bullet)\to\Tot_{n-1}(X^\bullet)$ is a fibration.\index{Reedy model
+structure}
 \end{ex}
 Assuming this exercise, we can apply the Bousfield-Kan spectral sequence.
 
@@ -85,15 +86,16 @@ $\Hom_{\fC}(X_\bullet, D)$ is a cosimplicial object, and this spectral sequence 
 homotopically meaningful information about $\sSet(C, D)$.
 
 We can use this formalism to derive the homotopy fixed point spectral sequence. Recall
-(\cref{spectra_fixed_points}) that if $X$ is a $G$-spectrum, its homotopy fixed points is the nonequivariant
-spectrum $X^{hG}\coloneqq F((EG)_+, X)^G$, i.e.\ the spectrum $G$-equivariant maps $(EG)_+\to
-X$.\footnote{Notationally, this is the function spectrum of maps from $\Sigma^\infty (EG)_+$ to $X$, or you can use
-the fact that spectra are cotensored over spaces.} The bar construction gives us a simplicial resolution of
-$(EG)_+$, producing a cosimplicial object that can be plugged into the Bousfield-Kan spectral sequence.
-Specifically, we write $EG = B^\bullet(G,G,*)$, add a disjoint basepoint, and then take maps into $X$.
+(\cref{spectra_fixed_points}) that if $X$ is a $G$-spectrum, its homotopy fixed point spectrum\index{homotopy fixed
+points!for $G$-spectra}is the nonequivariant spectrum $X^{hG}\coloneqq F((EG)_+, X)^G$, i.e.\ the spectrum
+$G$-equivariant maps $(EG)_+\to X$.\footnote{Notationally, this is the function spectrum of maps from
+$\Sigma^\infty (EG)_+$ to $X$, or you can use the fact that spectra are cotensored over spaces.} The bar
+construction\index{bar construction} gives us a simplicial resolution of $(EG)_+$, producing a cosimplicial object
+that can be plugged into the Bousfield-Kan spectral sequence.  Specifically, we write $EG = B^\bullet(G,G,*)$, add
+a disjoint basepoint, and then take maps into $X$.
 \begin{thm}
 \label{HFPSS}
-If $X$ is a $G$-spectrum, there's a spectral sequence, called the \term{homotopy fixed-point spectral
+If $X$ is a $G$-spectrum, there's a spectral sequence, called the \term{homotopy fixed point spectral
 sequence}, with signature
 \[E_2^{p,q} = H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG}).\]
 \end{thm}
@@ -101,14 +103,14 @@ sequence}, with signature
 \begin{exm}
 The first example is really easy. Let $k$ be a field, and consider the Eilenberg-Mac Lane spectrum $Hk$. Let $G$
 act trivially on $k$; we want to understand $\pi_*(Hk^{hG})$. The homotopy fixed-points spectral sequence is
-particularly simple:
+particularly simple:\index{equivariant Eilenberg-Mac Lane spectrum}
 \[E_2^{p,q} = H^p(G; \pi_q(Hk)) = \begin{cases}
 	H^p(G; k), &q = 0\\
 	0, &\text{otherwise.}
 \end{cases}\]
 Since this is a single row,\footnote{It's a single row in the usual grading, and a single diagonal line with slope
-$-1$ in the Adams grading.} all differentials vanish, and this is also the $E_\infty$ page. So we just have to
-compute $H^p(G;k)$ for $k\ge 0$.
+$-1$ in the Adams grading.\index{Adams grading}} all differentials vanish, and this is also the $E_\infty$ page. So
+we just have to compute $H^p(G;k)$ for $k\ge 0$.
 
 For example, if $G = \Z/2$ and $k = \F_2$, then $H^*(\Z/2; \F_2) = H^*(\RP^\infty;\F_2) = \F_2[x]$, $\abs x = 1$.
 There are no extension issues, since there's only one nonzero term in each total degree. Thus,
@@ -119,7 +121,7 @@ homotopy groups of $Hk^{h\Z/2}$ are all trivial except for $\pi_0$, which is $k$
 \begin{rem}
 The homotopy fixed points of $X$ are related to the Tate spectrum through a fiber sequence~\eqref{tatedefn}, and
 the homotopy fixed point spectral sequence has a similar-looking signature to the Tate spectral sequence
-(\cref{tateSS}):
+(\cref{tateSS}):\index{Tate spectrum}\index{Tate spectral sequence}
 \begin{align*}
 E_2^{p,q} &= H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG})\\
 E_2^{p,q} &= \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).
@@ -167,7 +169,8 @@ homotopy groups vanish.\footnote{\TODO: can we calculate $(S^1)^{hC_2}$ explicit
 \end{exm}
 \begin{exm}
 Atiyah~\cite{AtiyahKR} showed that complex conjugation places a $C_2$-equivariant structure on $\KU$; the resulting
-$C_2$-spectrum is called \term{$\KR$-theory}, and denoted $\KR$. Its homotopy fixed points are real $K$-theory:
+$C_2$-spectrum is called \term*{$\KR$-theory}, and denoted $\KR$. Its homotopy fixed points are real
+(nonequivariant) $K$-theory:\index{real $K$-theory}\index{KR-theory@$\KR$-theory|see {real $K$-theory}}
 \begin{thm}
 $\KR^{hC_2} = \KO$.
 \end{thm}
@@ -182,7 +185,8 @@ fixed points with respect to all three, do we get $\KO$?
 \begin{ex}
 The analogous result doesn't hold for Eilenberg-Mac Lane spectra. Let $C_2$ act on $\Z[i]$ by complex conjugation,
 making $\Z[i]$ into a $\Z[C_2]$-module. This data determines a Mackey functor $\underline{\Z[i]}$ and therefore an
-Eilenberg-Mac Lane $C_2$-spectrum $H\underline{\Z[i]}$ as in \cref{EMmodel}.
+Eilenberg-Mac Lane $C_2$-spectrum $H\underline{\Z[i]}$ as in \cref{EMmodel}.\index{equivariant Eilenberg-Mac Lane
+spectrum}
 
 Though $\Z[i]^{C_2} = \Z$, run the homotopy fixed-point spectral sequence to show that
 $H\underline{\Z[i]}^{hC_2}\not\simeq H\Z$.
@@ -190,4 +194,4 @@ $H\underline{\Z[i]}^{hC_2}\not\simeq H\Z$.
 There are some other examples of calculations with this spectral sequence, including Bruner-Greenlees~\cite{BG10}
 and Hill-Hopkins-Ravenel~\cite{HHREO2, HHR}. Greenlees~\cite{GreenCalc}, working over $C_2$, introduces an
 $\RO(C_2)$-graded version of the homotopy fixed point spectral sequence and applies it to $H\underline\Z$ and
-connective real $K$-theory $\mathit{kr}$.
+connective real $K$-theory $\mathit{kr}$.\index{connective real $K$-theory}

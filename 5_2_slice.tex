@@ -3,9 +3,9 @@ sequence. Very little is known about the slice spectral sequence, so you could p
 example, its use in~\cite{HHR} depended on an explicit identification of the slices with something else, which does
 not generalize.
 
-\subsection*{Postnikov towers.} For this section, we work in the category $\Top$ of spaces. We want a collection
-of functors $P_n\colon\Top\to\Top$, called \term{Postnikov sections}, together with natural transformations $P_n\to
-P_{n-1}$ such that
+\subsection*{Postnikov towers.} For this section, we work in the category $\Top$ of spaces. We want a collection of
+functors $P_n\colon\Top\to\Top$, called \term[Postnikov section]{Postnikov sections}, together with natural
+transformations $P_n\to P_{n-1}$ such that
 \begin{itemize}
 	\item
 	\[\pi_i(P_nX) = \begin{cases}
@@ -16,10 +16,11 @@ P_{n-1}$ such that
 	\item the homotopy fiber of $P_nX\to P_{n-1}X$ is weakly equivalent to $K(\pi_n(X), n)$.
 \end{itemize}
 So we obtain a \term{Postnikov tower} $\dotsb\to P_2X\to P_1X\to P_0X$, which is in a sense dual to the cellular
-filtration.
+filtration.\index{cellular filtration}
 \begin{rem}
-The axiomatization of the idea of a Postnikov tower in a triangulated category is called a \term{$t$-structure}.
-The dual notion of a cellular filtration is axiomatized as a \term{weight structure}.
+The axiomatization of the idea of a Postnikov tower in a triangulated category is called a
+\term[t-structure@$t$-structure]{$t$-structure}.  The dual notion of a cellular filtration is axiomatized as a
+\term{weight structure}.
 \end{rem}
 These $P_nX$ have only finitely many nonzero homotopy groups, hence are going to be very large spaces. There will
 also be different point-set models for them. Here's one model.
@@ -34,17 +35,16 @@ This kills $\alpha$, and since $S^{n+1}$ is $n$-connected, the induced map $\pi_
 isomorphism for $k < n+1$. Then we can iterate.
 
 This has a fatal flaw: it's not functorial. As usual, we fix this with the small object argument. Consider
-\emph{all} of the maps $S^{n+1}\to X$ and take the pushout
+\emph{all} of the maps $S^{n+1}\to X$ and take the pushout\index{small object argument}
 \[\xymatrix{
 	\bigvee S^{n+1}\ar[r]\ar[d] & X\ar[d]\\
 	\bigvee D^{n+2}\ar[r] & X_{n+1}.
 }\]
 Continue this way for maps $S^N\to X$ for $N\ge n+1$ and let $P_nX\coloneqq \colim_N X_N$. This is functorial.
 
-% Mandell-Shipley telescope in title
-$P_nX$ can be described as localization, which allows for some slick high-tech setups, e.g.\ if you work with
-presentable $\infty$-categories, you can describe $P_n$ as adjoint to the inclusion of spaces with homotopy groups
-within $[0,n]$
+$P_nX$ can be described as localization, e.g.\ in~\cite{MandellShipley}, which allows for some slick high-tech
+setups, e.g.\ if you work with presentable $\infty$-categories, you can describe $P_n$ as adjoint to the inclusion
+of spaces with homotopy groups within $[0,n]$.\index{presentable $\infty$-category}
 
 The Postnikov tower leads to the \term{Atiyah-Hirzebruch spectral sequence} (AHSS), which for a generalized
 homology theory $E$, has signature
@@ -62,14 +62,15 @@ the nonequivariant Postnikov or CW associated graded complexes, and this is ulti
 spheres around.
 
 The first piece of the slice spectral sequence was worked out by Dugger~\cite{DuggerKR}. His motivation was the
-analogy between $C_2$-equivariant homotopy theory and motivic homotopy theory.  \citeme{Bloch-Lichtenbaum,
-Grayson} The goal was to approach the Quillen-Lichtenbaum conjecture, the existence of a spectral sequence
+analogy between $C_2$-equivariant homotopy theory and motivic homotopy theory. \citeme{Bloch-Lichtenbaum, Grayson}
+The goal was to approach the Quillen-Lichtenbaum conjecture, the existence of a spectral sequence\index{motivic
+homotopy theory!analogy with $C_2$-equivariant homotopy theory}\index{Quillen-Lichtenbaum conjecture}
 \[H^p(X; \Z(-\e/2))\Longrightarrow K^{p+q}(X).\]
 Here, $H^*(\bl,\Z(-\e/2))$ is ``motivic cohomology,'' which was not well-understood when the conjecture was
 formulated. The $-\e/2$ is a \term{Tate twist}, which is akin to Bott periodicity for algebraic $K$-theory of
 finite fields. See~\citeme{Bloch-Lichtenbaum} and Grayson~\cite{Grayson} for details or Mitchell~\cite{Mitchell}
 for an exposition. Dugger replaced this with \TODO, using Atiyah's $\mathit{KR}$-theory~\cite{AtiyahKR} as the
-target.
+target.\index{Bott periodicity}\index{motivic cohomology}\index{real $K$-theory}
 
 The general formulation of the slice spectral sequence was worked out in~\cite{HHR}; see also
 Hu-Kriz-Ormsby~\cite{HKO11}. The exposition in~\cite{HHR} is pretty good, and you should also check out Mike Hill's
@@ -78,9 +79,10 @@ Hill~\cite{HillRealBordism}, Yarnall~\cite{Yarnall}, Hill-Hopkins-Ravenel~\cite{
 Hill-Meier~\cite{HillMeier}, Hill-Yarnall~\cite{HillYarnall}, and Greenlees~\cite{GreenCalc}.
 
 To get at the spectral sequence, we first approach the filtration. The motivation is to have a Postnikov section
-$P_H$ for the regular representation $\rho_H$ of $H$. The \term{slice cells} will be the cells
+$P_H$ for the regular representation $\rho_H$ of $H$. The \term{slice cells} will be the cells\index{regular
+representation}
 \[\set{G_+\wedge_H S^{m\rho_H}, \Sigma^{-1}G_+\wedge_H S^{m\rho_H}}.\]
-The \term{dimensions} of these slice cells are $m\abs H$, resp.\ $m\abs H - 1$.
+The \term[dimension!of a slice cell]{dimensions} of these slice cells are $m\abs H$, resp.\ $m\abs H - 1$.
 
 Slice cells are well-behaved under the ``change functors'' $i_K^*$, $G_+\wedge_K\bl$, and $N_K^G$: all of these
 preserve slice cells.
@@ -96,16 +98,16 @@ Let $X\in\Spc^G$.
 	$X_i/X_{i-1}$ is a wedge of slice cells of dimensions greater than $n$.
 \end{itemize}
 \end{defn}
-We localize at the slices of dimension greater than $n$ to obtain $P^nX$, the \term{$n$-slice} of $X$. This is a
-bit tricky, because there are maps $S^V\to S^W$ when $V\subseteq W$ that aren't null-homotopic, frustrating our
-approach to defining the Postnikov tower, but the key is that if $V$ contains a trivial representation, all such
-maps are null-homotopic.
+We localize at the slices of dimension greater than $n$ to obtain $P^nX$, the \term[n-slice@$n$-slice]{$n$-slice}
+of $X$. This is a bit tricky, because there are maps $S^V\to S^W$ when $V\subseteq W$ that aren't null-homotopic,
+frustrating our approach to defining the Postnikov tower, but the key is that if $V$ contains a trivial
+representation, all such maps are null-homotopic.\index{trivial representation}
 
 Localization means there's a map $X\to P^nX$ by fiat, and one can show that the homotopy fiber of this map is slice
 $n$-positive. We obtain a tower $\dotsb\to P_nX\to P_{n-1}X\to \dotsb$. Let $P_n^nX$ denote the homotopy fiber of
 $P_nX\to P_{n-1}X$.\footnote{\TODO: superscripts or subscripts?}
 
-\cite{HHR} heavily use the fact that the regular
+\cite{HHR} heavily use the fact that the regular\index{regular representation}
 representation contains a copy of all irreducibles to understand what's going on, which is great for finite groups,
 but doesn't work for compact Lie groups. There's a different perspective adopted by Dugger, that $G/H_+\wedge S^n$
 detects homotopies, so we can restrict to slice cells $G/H_+\wedge S^V$ where $V$ contains a copy of the trivial
@@ -123,11 +125,12 @@ E_2^{s,t} = \pi_s^G P_t^tX\Longrightarrow \pi_{s-t}^G X.
 \end{equation}
 Here we use the Adams grading, so this may look funny compared to the usual grading on, e.g.\ the Serre spectral
 sequence. You can refine the slice spectral sequence into a spectral sequence of Mackey functors, and there is an
-$\RO(G)$-graded version. If you think about it, you'll see this is a first- and third-quadrant spectral sequence.
+$\RO(G)$-graded version. If you think about it, you'll see this is a first- and third-quadrant spectral
+sequence.\index{Adams grading}\index{Mackey functor}
 
 The key to understanding the slice spectral sequence is understanding the slices $P_t^tX$, and this is hard.
 In~\cite{HHR}, they use the fact that real bordism has nice slices, and~\citeme{Dugger} works out some computations
-for $C_2$, but there are few calculations in the literature, and more would be welcome.
+for $C_2$, but there are few calculations in the literature, and more would be welcome.\index{real bordism}
 %
 %This concludes the content of the course; on Thursday there will be donuts and discussion of future research. Some
 %of these are important open questions that may be intractable, and others could be research projects; hopefully

@@ -1,30 +1,32 @@
 \begin{quote}\textit{
-	``One shift ($\Sigma$), two shift ($\Sigma^2$), red shift ($K$), blue shift ($(\bl)^{tG}$).''
+	``One shift ($\Sigma$), two shift ($\Sigma^2$), red shift ($K$), blue shift ($(\bl)^{tG}$).''\index{pun}
 }\end{quote}
 Tate spectra are the spectral analogue of Tate cohomology in group cohomology. This is yet another instance of a
 fruitful phenomenon: \emph{group cohomology is an important source of inspiration in equivariant homotopy theory}.
 By looking at group cohomology in the right way, we found Mackey functors, the Wirthmüller isomorphism, norms,
 Tambara functors, and more (though some of these were hard to see from group cohomology first). Group cohomology is
-a nice testing ground, because of its concreteness: there are elements and you can add and multiply things!
+a nice testing ground, because of its concreteness: there are elements and you can add and multiply
+things!\index{group cohomology}
 \begin{rem}
 The definitive reference on Tate spectra is Greenlees-May~\cite{GeneralizedTate}, which builds on~\cite{ACD}. The
 latter is lower-tech, but is more direct and has nice ideas. Another good reference is~\cite[\S 4]{HM03}, a section
-of Hesselholt-Madsen's paper about the algebraic $K$-theory of local fields.
+of Hesselholt-Madsen's paper about the algebraic $K$-theory of local fields.\index{algebraic $K$-theory}
 
 The reason you can find Tate spectra in an \latin{a priori} unrelated paper is that they are important for
 computing algebraic $K$-theory via trace methods: it's possible to compute algebraic $K$-theory from topological
 cyclic homology and topological Hochschild homology, and the computation passes through iterated Tate spectral
 sequences. The best examples for the use of Tate spectra were until quite recently from the literature on trace
-methods, e.g.\ almost all of Hesselholt-Madsen's papers.
+methods, e.g.\ almost all of Hesselholt-Madsen's papers.\index{trace methods}\index{topological cyclic
+homology}\index{topological Hochschild homology}
 
 There's also a connection between Tate spectra and chromatic homotopy theory: like the redshift conjecture asserts
 that algebraic $K$-theory raises chromatic height, Tate spectra seem to have blueshift, lowering by a chromatic
-level.
+level.\index{chromatic homotopy theory}\index{redshift conjecture}\index{blueshift conjecture}
 \end{rem}
 Let $M$ be a $k[G]$-module. Then, its \term{algebraic orbits} are $M_G\coloneqq k\otimes_{k[G]} M$, and its
 \term{algebraic fixed points} are $M^G\coloneqq\Hom_{k[G]}(k, M)$. We'll define a map $N\colon M_G\to M^G$, which
 is called a norm map, but it's more like a transfer map. Namely, there's a distinguished element in $k[G]$,
-$N_G\coloneqq \sum_{g\in G} g$, and $N$ is multiplication by $N_G$:
+$N_G\coloneqq \sum_{g\in G} g$, and $N$ is multiplication by $N_G$:\index{norm map!for $k[G]$-modules}
 \[N\colon \overline x\mapsto\sum_{g\in G} gx.\]
 This lands in $M$, but is clearly a fixed point.
 \begin{ex}
@@ -52,9 +54,10 @@ and for $i = 0,1$ there's an exact sequence
 }
 \end{equation}
 \end{subequations}
-You can build this by forming \term{complete resolutions}: beginning with a pair $P_*\to k$ and $k\to I_*$,
-respectively a projective and an injective resolution of $k$ as a $k[G]$-module, and you can sew these together by
-truncating $I_*$ and dualizing to $k\to\overline P_*$, then connecting them along $k$.\footnote{\TODO: make
+You can build this by forming \term[complete resolution]{complete resolutions}: beginning with a pair $P_*\to k$
+and $k\to I_*$, respectively a projective and an injective resolution of $k$ as a $k[G]$-module, and you can sew
+these together by truncating $I_*$ and dualizing to $k\to\overline P_*$, then connecting them along
+$k$.\footnote{\TODO: make
 precise.}
 
 Another construction is to let $\widetilde P_*$ be the mapping cone of a projective resolution $P_*\to k$ of $k$ as
@@ -63,7 +66,7 @@ a $k[G]$-module. This extends to a sequence
 	P_*\ar[r] & k\ar[r] & \widetilde P_*\ar[r] & \Sigma P_*\ar[r] & \dotsb
 }\]
 \begin{defn}
-Using this, define the \term{Tate cohomology} $\tH^*(G;M)$ is the cohomology of the complex
+Using this, define the \term{Tate cohomology} $\tH^*(G;M)$ to be the cohomology of the complex
 \[(\widetilde P_*\otimes\Hom(P_*, M))^G.\]
 \end{defn}
 To see that this agrees with~\eqref{mosttate} and~\eqref{resttate}, use the long exact sequence and a comparison
@@ -80,10 +83,10 @@ and thus obtain a diagram of cofiber sequences:
 	EG_+\wedge F(EG_+, X)\ar[r] & F(EG_+, X)\ar[r] & \tEG\wedge F(EG_+, X).
 }
 \end{equation}
-Using the Adams isomorphism,\footnote{We haven't discussed the Adams isomorphism in
-this class, but you can also show this directly: the idea is that smashing with $EG_+$ makes things free, hence you
-just have to check on underlying spaces, and taking $F(EG_+,\bl)$ makes it cofree, so you can work with that.} you
-can check that
+Using the Adams isomorphism,\footnote{We haven't discussed the Adams isomorphism, but you can also show this
+directly: the idea is that smashing with $EG_+$ makes things free, hence you just have to check on underlying
+spaces, and taking $F(EG_+,\bl)$ makes it cofree, so you can work with that.} you can check that\index{Adams
+isomorphism}
 \[(EG_+\wedge X)^G\cong X_{hG}.\]
 Now, apply $(\bl)^G$ to~\eqref{pretate}, and you obtain
 \begin{equation}
@@ -94,7 +97,7 @@ Now, apply $(\bl)^G$ to~\eqref{pretate}, and you obtain
 }
 \end{equation}
 The map $N$ is the canonical orbits-to-fixed-points map. The spectrum in the lower right, $X^{tG}$, is called the
-\term{Tate spectrum} of $X$.
+\term{Tate spectrum} of $X$.\index{orbits-to-fixed-points map}
 \begin{comp}{rem}{enumerate}
 	\item The fact that the right-hand square is a pullback diagram means that you can recover $X^G$ from $\Phi^G
 	X$. For example, if $G = C_p$, so there's only one nontrivial subgroup, you can describe the homotopy theory of
@@ -104,11 +107,12 @@ The map $N$ is the canonical orbits-to-fixed-points map. The spectrum in the low
 	worth taking seriously. \qedhere
 \end{comp}
 \begin{defn}
-The \term{free homotopy type} or \term{Borel homotopy type} of a $G$-spectrum $X$ is the homotopy type of
+The \term*{free homotopy type} or \term{Borel homotopy type} of a $G$-spectrum $X$ is the homotopy type of
 $EG_+\wedge X$.\footnote{Borel homotopy types capture the naïve notion of equivariant spectra, namely spectra with
 a $G$-action or spectra over $BG$. They have some nice properties, e.g.\ their homotopy fixed points are the same
 as their ordinary fixed points~\cite[Prop.~6.19]{MNN17}, and are often useful outside homotopy theory, such as
-in~\cite{FreedHopkins}.}
+in~\cite{FreedHopkins}.}\index{free homotopy type|see {Borel homotopy type}}\index{homotopy fixed points!of a naïve
+$G$-spectrum}
 \end{defn}
 If you make the action free, you lose some information, but often enough remains to be useful. In particular, the
 bottom row of~\eqref{tatedefn} is a cofiber sequence, so $X^{tG}$ only depends on the free homotopy type of $X$.
@@ -117,7 +121,7 @@ Since $EG_+$ is a space, it has a diagonal, and $(EG\times EG)_+\cong EG_+$, so 
 $(\bl)^{tG}$ is lax monoidal. It's a bit of a chore to make this precise.
 
 The Tate spectrum construction is not functorial in $G$; however, it does define a Mackey
-functor~\cite{GeneralizedTate}.
+functor~\cite{GeneralizedTate}.\index{Mackey functor}
 \end{rem}
 This construction now leads to the Tate spectral sequence.\footnote{In this argument, we'll make nice (co)fibrancy
 assumptions, e.g.\ that $X$ is fibrant and $EG_+$ is cofibrant; a careful treatment would make the (co)fibrant
@@ -138,14 +142,15 @@ The \term{Tate spectral sequence} is the spectral sequence induced from $\set{\o
 \[E_{s,t}^2 = \tH^s(G; \pi_tX)\Longrightarrow \pi_{s+t}X^{tG}.\]
 \end{defn}
 \begin{rem}
-Conditionally convergent spectral sequences may be somewhat unfamiliar, and are less well behaved.  Boardman's
-``Conditionally convergent spectral sequences''~\cite{BoardmanCCSS} is a great paper separating the information of
-a spectral sequence into a structural piece and a calculational piece (using homotopy limits). Conditional
-convergence means the structural part exists. Boardman also proves a spectral sequence comparison theorem for
-conditionally convergent spectral sequences! Hesselholt-Madsen~\cite{HM92} make heavy use of a nonconvergent
-spectral sequence to make calculations about the $S^1$-Tate spectrum of the image-of-$J$ spectrum, which is a
-really interesting use of nonconvergence. Their papers in general are a masterclass in thinking with spectral
-sequences, and this one is particularly accessible.
+Conditionally convergent spectral sequences\index{conditionally convergent spectral sequence} may be somewhat
+unfamiliar, and are less well behaved.  Boardman's ``Conditionally convergent spectral
+sequences''~\cite{BoardmanCCSS} is a great paper separating the information of a spectral sequence into a
+structural piece and a calculational piece (using homotopy limits). Conditional convergence means the structural
+part exists. Boardman also proves a spectral sequence comparison theorem for conditionally convergent spectral
+sequences! Hesselholt-Madsen~\cite{HM92} make heavy use of a nonconvergent spectral sequence to make calculations
+about the $S^1$-Tate spectrum of the image-of-$J$ spectrum,\index{image-of-$J$ spectrum} which is a really
+interesting use of nonconvergence. Their papers in general are a masterclass in thinking with spectral sequences,
+and this one is particularly accessible.
 \end{rem}
 The Tate spectral sequence has a relationship to the homotopy fixed-point spectral sequence, which you might
 expect.
