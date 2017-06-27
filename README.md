@@ -25,6 +25,9 @@ lecture](https://www.ma.utexas.edu/users/a.debray/lecture_notes/m392c_EHT_notes_
 If you want to add a macro, add it to `macros.tex`, rather than the `.cls` file. If it's a common macro,
 it might already be defined there. If you want to add a reference, just append it to `references.bib`.
 
+**Note**: though indexing has been set up, the custom macros are currently somewhat fragile across line
+breaks or in footnotes. In those cases, `\index` always works.
+
 ## Git hooks
 
 Using the Git hooks provided by the [`gitinfo2`](https://www.ctan.org/pkg/gitinfo2?lang=en) package, it's
