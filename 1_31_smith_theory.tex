@@ -7,14 +7,14 @@ the cohomology in the statement is equivariant.
 \label{smith}
 \index{Smith's theorem}
 Let $G$ be a finite $p$-group and $X$ be a finite $G$-CW complex such that (the underlying topological space of)
-$X$ is an $\F_p$-cohomology sphere.\footnote{A space $X$ is an \term[Fp-cohomology sphere@$\F_p$-cohomology
-sphere]{$\F_p$-cohomology sphere} if there is an isomorphism of graded abelian groups $H^*(X;\F_p)\cong
+$X$ is an $\F_p$-cohomology sphere.\footnote{A space $X$ is an \term*{$\F_p$-cohomology sphere}\index{Fp-cohomology
+sphere@$\F_p$-cohomology sphere} if there is an isomorphism of graded abelian groups $H^*(X;\F_p)\cong
 H^*(S^n;\F_p)$ for some $n$.} Then, $X^G$ is either empty or an $\F_p$-cohomology sphere of smaller dimension.
 \end{thm}
 There are sharper statements, but we can prove this one. It's the start of a long program to understand $H_*(X^G)$
-using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the \term{Borel
-construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced product, not a
-pullback). This is a ``fattened up'' version of $X/G$.\index{balanced product}
+using algebraic data calculated from $X$ and the action of $G$ on $X$. One useful tool in this is the
+\term{Borel construction} (well, \emph a Borel construction) $EG\times_G X$ (where this is the usual balanced
+product, not a pullback). This is a ``fattened up'' version of $X/G$.\index{balanced product}
 \begin{defn}
 The \term{Borel cohomology} of $X$ is $H_G^*(X) \coloneqq H^*(EG\times_G X)$.
 \end{defn}
@@ -82,7 +82,7 @@ For $L$, we want to recover $\wH^0((X/X^G)/G;\F_p)$ for $X = G/e$ and $X = G/G$.
 \end{itemize}
 So we conclude $L(G/e) = \F_p$ and $L(G/G) = 0$.
 
-For $M$, a similar calculation shows we need $H^0(G/e)\cong\F_p[G]$\footnote{Here, $\F_p[G]$ is the \term{group
+For $M$, a similar calculation shows we need $H^0(G/e)\cong\F_p[G]$\footnote{Here, $\F_p[G]$ is the \footterm{group
 ring}, the $\F_p$-algebra of functions $G\to\F_p$ with addition taken pointwise and multiplication determined by
 requiring $\delta_g\cdot\delta_h = \delta_{gh}$, where $\delta_g$ is a delta function, equal to $1$ at $g$ and $0$
 elsewhere.} and $H^0(G/G) = \F_p$, and for $N$, we need $N(G/e) = 0$ and $N(G/G)\cong\F_p$.
