@@ -5,20 +5,20 @@ defined by the formula
 \[t(f)(y)\coloneqq \sum_{f(x) = y} r(x),\]
 but we could also do
 \[n(f)(y)\coloneqq \prod_{f(x) = y} r(x),\]
-and there's no analogue of this in Green functors. The replacements are called \term{Tambara functors} (or
-\term{TNR functors}).\footnote{TNR stands for ``transfer, norm, restriction.''} Strickland's
-paper~\cite{StricklandTambara} on Tambara functors is really nice: it's complete and careful. Lewis has unpublished
-notes~\cite{LewisGreen} on Green functors, which are also good; you can find them, along with almost everything
-else in equivariant homotopy theory, on Doug Ravenel's website. Lewis' notes owe a debt to McClure's unpublished
-notes, which have been lost to history.
+and there's no analogue of this in Green functors. The replacements are called \term[Tambara functor]{Tambara
+functors} (or \term*{TNR functors}).\footnote{TNR stands for ``transfer, norm, restriction.''}\index{TNR
+functor|see {Tambara functor}} Strickland's paper~\cite{StricklandTambara} on Tambara functors is really nice: it's
+complete and careful. Lewis has unpublished notes~\cite{LewisGreen} on Green functors, which are also good; you can
+find them, along with almost everything else in equivariant homotopy theory, on Doug Ravenel's website. Lewis'
+notes owe a debt to McClure's unpublished notes, which have been lost to history.
 \begin{rem}
-This is related to the theory of \term{polynomial functors}, which we won't talk about. You can set this up in
-great abstraction; if you torture it, you can get it to output actual polynomials. Tambara functors are an example
-of polynomial functors.
+This is related to the theory of \term[polynomial functor]{polynomial functors}, which we won't talk about. You can
+set this up in great abstraction; if you torture it, you can get it to output actual polynomials. Tambara functors
+are an example of polynomial functors.
 \end{rem}
 \begin{defn}
-Let $\fC$ be a locally Cartesian closed category and $X,Y\in\fC$. Then, the \term{category of bispans} from $X$ to
-$Y$, denoted $\Bispan_\fC(X,Y)$ is the category whose objects are diagrams
+Let $\fC$ be a locally Cartesian closed category and $X,Y\in\fC$. Then, the \term[bispan]{category of bispans} from
+$X$ to $Y$, denoted $\Bispan_\fC(X,Y)$ is the category whose objects are diagrams
 \begin{equation}
 \label{span1}
 \xymatrix{
@@ -51,22 +51,23 @@ We'll care in particular about a few suggestively named bispans associated to a 
 \end{enumerate}
 \end{exm}
 $R_f$ and $T_f$ will encode the restriction and transfer maps, respectively, in the underlying Mackey functor of a
-Tambara functor.
+Tambara functor.\index{restriction map}\index{transfer map!for a Tambara functor}
 
 One interesting question about bispans is when you can compose in the objects: is there a ``composition map''
 \begin{equation}
 \label{compbispan}
 \Bispan_\fC(Y,Z)\times\Bispan_\fC(X,Y)\longrightarrow\Bispan_\fC(X,Z)?
 \end{equation}
-To get this, we'll need to actually look at what being a locally Cartesian closed category means. Specifically, it
-means that any map $f\colon X\to Y$ in $\fC$ induces a pullback $f^*:\fC_{/Y}\to\fC_{/X}$, and we require that this
-map has a left and a right adjoint, respectively called the \term{dependent sum} $\Sigma_f$ and the \term{dependent
-product} $\Pi_f$, respectively. These can be thought of (e.g.\ in $\Set$) as coproducts (resp.\ products) indexed
-by the fibers.
+To get this, we'll need to actually look at what being a locally Cartesian closed category means.\index{locally
+Cartesian closed category} Specifically, it means that any map $f\colon X\to Y$ in $\fC$ induces a pullback
+$f^*:\fC_{/Y}\to\fC_{/X}$, and we require that this map has a left and a right adjoint, respectively called the
+\term{dependent sum} $\Sigma_f$ and the \term{dependent product} $\Pi_f$, respectively. These can be thought of
+(e.g.\ in $\Set$) as coproducts (resp.\ products) indexed by the fibers.
 \begin{rem}
 There's an interesting connection to homotopy type theory: one of the early big theorems in type theory is that
 propositional calculus and lambda calculus are formally equivalent to the theory of locally Cartesian closed
-categories, so there was a lot of research into importing these categorical notions into type theory.
+categories, so there was a lot of research into importing these categorical notions into type
+theory.\index{homotopy type theory}\index{lambda calculus}\index{propositional calculus}
 
 The dependent sum and product are examples of base-change functors $f_*$ and $f_!$; the given notation may be
 unfamiliar, but is standard in the category-theoretic literature.
@@ -128,10 +129,10 @@ and you can check $0$ and $1$ are the identities for the sum and product, respec
 you might think to take its Grothendieck group, and we will do this. We'll eventually also consider ``bispans with
 coefficients,'' i.e.\ those bispans $X\gets S\stackrel f\to T\to Y$ where $f$ is constrained to a subcategory $\fD$
 of $\fC$. You need a condition on $\fD$ for this to be a category,\footnote{The condition is that $\fD$ is
-\term{wide} (i.e.\ contains all objects in $\fC$), closed under pullbacks, and closed under coproducts. \TODO: I
-might have gotten an axiom wrong.} which is exactly the same as the condition for an indexing system! So there's
-$N_\infty$-operads floating around, and hence from a categorical perspective, we're forced to consider this notion
-of multiplication.
+\term[wide subcategory]{wide} (i.e.\ contains all objects in $\fC$), closed under pullbacks, and closed under
+coproducts. \TODO: I might have gotten an axiom wrong.} which is exactly the same as the condition for an indexing
+system! So there's $N_\infty$-operads floating around, and hence from a categorical perspective, we're forced to
+consider this notion of multiplication.\index{Ninfinity-operad@$N_\infty$-operad}
 
 %We'll then discuss Tambara functors and how the multiplicative structure on $\pi_0$ of a ring spectrum is a Tambara
 %functor. Then, we'll move to discussing the norm functor and some of its myriad uses.
@@ -328,7 +329,7 @@ as they could be.
 \begin{rem}
 This category of bispans is reminiscent of the Dwyer-Kan hammock localization~\cite{Hammock}, and it may be
 possible to obtain bispans from the hammock localization of a particular category with weak equivalences. Is this
-useful? Maybe.
+useful? Maybe.\index{Dwyer-Kan hammock localization}
 \end{rem}
 If $\fC = G\Set$, then we'll let $\tilde{P}^G\coloneqq P(\fC)$. The hom sets of $\tilde{P}^G$ are commutative
 monoids under direct sum. Taking the Grothendieck group of each hom-set (as we did with Mackey functors), we obtain
@@ -339,7 +340,7 @@ A \term{Tambara functor} is an additive functor $P^G\to\Ab$.
 \begin{comp}{rem}{enumerate}
 	\item Just as you can think of $G$-spectra as spectrally enriched Mackey functors, you can think of $G$-ring
 	spectra as spectrally enriched Tambara functors. This is harder to make precise, but is still a useful guiding
-	analogy. For connective spectra, this is discussed in~\cite{Hoyer}.
+	analogy. For connective spectra, this is discussed in~\cite{Hoyer}.\index{presheaf!on the bispan category}
 	\item The algebra of Tambara functors is still under construction. Nakaoka has a few recent
 	papers~\cite{NakaokaIdeals, NakaokaFractions, NakaokaSpectrum} about, e.g. ideals and modules for Tambara
 	functors. This is closely related to the project of equivariant derived algebraic geometry, which would relate
@@ -351,7 +352,7 @@ A \term{Tambara functor} is an additive functor $P^G\to\Ab$.
 	satisfying some interoperability conditions. We won't need this for the time being, so we're not going to write
 	it out.
 	\item If you forget the norm map, a Tambara functor defines a Green functor. A Green functor may extend to a
-	Tambara functor, but such an extension need not exist or be unique~\cite{MazurThesis}.
+	Tambara functor, but such an extension need not exist or be unique~\cite{MazurThesis}.\index{Green functor}
 	\qedhere
 \end{comp}
 \begin{exm}
@@ -366,13 +367,14 @@ X\to Y$, the descriptions of $f^*$, $\Sigma_f$, and $\Pi_f$ are pretty concrete:
 \begin{exm}[Burnside Tambara functor]
 The Burnside ring continues to keep giving. Let $B_G(X)$ denote the category of $G$-sets over $X$. Given a map
 $f\colon \to Y$ of sets, $f^*(B\to Y)$ is $X\times_Y B$, $\Sigma_f(A\to X)$ is $A\to X\to Y$, and $\Pi_f(A\to X) =
-\Pi_fA\to X$.
+\Pi_fA\to X$.\index{Burnside Mackey functor!as a Tambara functor}
 \end{exm}
 \begin{exm}\hfill
 \label{Evensexm}
 \begin{enumerate}
 	\item Group cohomology is a Tambara functor: the transfer and restriction maps are what we've seen before, and
-	the norm is the \term{Evens multiplicative transfer}, which we'll talk about in \S\ref{evenssec}.
+	the norm is the \term{Evens multiplicative transfer}, which we'll talk about in \S\ref{evenssec}.\index{Group
+	cohomology!as a Tambara functor}
 	\item Let $X$ be a commutative ring object in $\Sp^G$. Then, $\pi_0(X)$ is a Tambara functor. The idea is that
 	it'll be an algebra over an $N_\infty$ operad over a ``complete'' indexing system (again, this will be
 	elaborated on).
@@ -383,14 +385,15 @@ $f\colon \to Y$ of sets, $f^*(B\to Y)$ is $X\times_Y B$, $\Sigma_f(A\to X)$ is $
 \end{enumerate}
 \end{exm}
 \begin{prop}
-$P_\fD^G$ is a category if $\fD$ is \term{stable under pullback}, i.e.\ for any pullback diagram
+$P_\fD^G$ is a category if $\fD$ is \term*{stable under pullback}, i.e.\ for any pullback diagram\index{stable
+under pullback|see {pullback stable}}
 \[\xymatrix{
 	Q\ar[r]\ar[d]^f & Z\ar[d]^g\\
 	X\ar[r] & Y,
 }\]
 if $g\in\fD$, then $f\in\fD$.
 \end{prop}
-One also says that $\fD$ is \term{pullback stable} or \term{closed under base change}.
+One also says that $\fD$ is \term{pullback stable} or \term*{closed under base change}.
 \begin{proof}[Proof sketch]
 The argument amounts to showing that $(T_h N_g R_f)(T_{h'}N_{g'}R_{f'})$ can be put in some normal form where the
 $N$ piece is obtained from something in $\fD$. We mostly only have to worry about interchanging $N$ with things:

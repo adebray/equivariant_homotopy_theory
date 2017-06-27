@@ -9,18 +9,19 @@ basis for multiplicative induction in the spectral setting. Thus it specializes 
 
 We know what we want to do, but the technicalities are tricky.
 \begin{notdefn}
-The \term{norm map} $N_H^G\colon \Spc^H\to\Spc^G$ sends
+The \term[norm map!HHR norm]{norm map} $N_H^G\colon \Spc^H\to\Spc^G$ sends
 \[M\mapsto \theta^*\paren{\bigwedge_{g\in G/H} M},\]
 which is the indexed smash product, in direct analogue with tensor induction.
 \end{notdefn}
 The reason we use the smash product instead of the wedge sum is that spectra are already abelian groups. The
-additive analogue of this construction is the Wirthmüller isomorphism.
+additive analogue of this construction is the Wirthmüller isomorphism.\index{Wirthmüller isomorphism!as additive
+analogue of the HHR norm}
 
 What makes this construction tricky is figuring out how to give $\bigwedge_{g\in G/H} M$ a $\Sigma_n\wr H$-action.
 The issue is the universe.
 \begin{exm}
 Let $X\in\Spc$, and let's consider $N_e^{C_2}X$. If $U$ is the universe we started with, $X\wedge X$ is in $U\oplus
-U$, and the smash product is a Kan extension along $U\oplus U\to U$.
+U$, and the smash product is a Kan extension along $U\oplus U\to U$.\index{Kan extension}
 
 If $X$ is a space, $C_2$ acts on $X\times X$ by switching the pairs. And we know the diagonal map $x\mapsto (x,x)$
 defines an isomorphism $X\congto (N_e^{C_2} X)^{C_2}$. But if you have spectra instead, and the two universes are
@@ -35,22 +36,25 @@ The trick is the following point, which is extremely subtle: we can define $N_G^
 changing the universe from $\Spc^H$ to $H\Spc$ (i.e.\ the trivial universe), then using the tensor induction to get
 to $G\Spc$ (i.e.\ the trivial universe), then changing universe again to get back to $\Spc^G$. As a point-set
 construction, well, sure, this is a functor. But the crazy thing is that this works: you can make this a homotopical
-functor such that its derived functor is the right thing.
+functor such that its derived functor is the right thing.\index{change-of-universe map}
 
-Recall that $\Spc^G[\P]$ denotes the category of commutative ring objects in $G$-spectra (sometimes also written
-$\cat{Comm}_H$). We'll show that $N_H^G\colon\Spc^H[\P]\to\Spc^G[\P]$ is left adjoint to $i^*_H$, and hence, if $R$
-is a commutative ring $G$-spectrum, we have a counit $N_H^Gi_H^*R\to R$ as we did in group cohomology.
+Recall that $\Spc^G[\P]$ denotes the category of commutative ring objects in $G$-spectra\index{commutative ring
+spectrum} (sometimes also written $\cat{Comm}_H$). We'll show that $N_H^G\colon\Spc^H[\P]\to\Spc^G[\P]$ is left
+adjoint to $i^*_H$, and hence, if $R$ is a commutative ring $G$-spectrum, we have a counit $N_H^Gi_H^*R\to R$ as we
+did in group cohomology.
 
 The principal player in~\cite{HHR} is obtained from this norm and a concrete $C_2$-spectrum: in \cref{MRdefn},
-we'll define real bordism $\mathit{MR}$, the cobordism theory of stably almost complex manifolds with a
-$C_2$-action by complex conjugation (there are some nuances to writing this down). Then, they consider the
-$C_8$-theory $N_{C_2}^{C_8}\mathit{MR}$, and do a lot of hard work to show this detects the Kervaire invariant in
-the stable homotopy groups of spheres. People are still working out the applications of this spectrum and this idea
-more generally, and you could count yourself among their numbers.
+we'll define real bordism $\mathit{MR}$,\index{real bordism} the cobordism theory of stably almost complex
+manifolds with a $C_2$-action by complex conjugation (there are some nuances to writing this down). Then, they
+consider the $C_8$-theory $N_{C_2}^{C_8}\mathit{MR}$, and do a lot of hard work to show this detects the Kervaire
+invariant in the stable homotopy groups of spheres. People are still working out the applications of this spectrum
+and this idea more generally, and you could count yourself among their numbers.\index{Kervaire invariant $1$
+conjecture}
 
 Now we'll construct the norm map. This will involve some work with orthogonal spectra, so let's recall how
 orthogonal $G$-spectra are defined, especially since we covered it rather quickly.\footnote{\TODO: there may be
-notational inconsistencies with the first time orthogonal spectra were covered, which I should fix at some point.}
+notational inconsistencies with the first time orthogonal spectra were covered, which I should fix at some
+point.}\index{orthogonal $G$-spectrum}
 
 Recall that if $V$ and $V'$ are real $G$-representations on inner product spaces, we defined $I_G(V,V')$ to be the
 $G$-space of linear isometries $V\to V'$. We defined $J_G(V,V')$ to be the Thom space for $E\subseteq
@@ -69,7 +73,7 @@ The unit is $(\id,0)$.
 
 Now, we were able to define $\Spc^G = \Fun(J_G, G\Top_*)$, and we saw this has a symmetric monoidal structure.
 
-One important point is that the Yoneda lemma implies
+One important point is that the Yoneda lemma implies\index{Yoneda lemma}
 \begin{equation}
 \label{tautpres}
 \xymatrix{\bigvee_{V,W} S^{-W}\wedge J_G(V,W)\wedge X(V)\dblarrow[r]
@@ -80,7 +84,7 @@ is a coequalizer of $X$ in terms of representable objects. This is true in gener
 context,~\cite{HHR} call it the \term{tautological presentation} of $X$.
 
 Now we'll introduce the point-set change-of-universe functor $\Spc^G[U']\to\Spc^G[U]$, where $U$ and $U'$ are
-$G$-universes. Let
+$G$-universes. Let\index{change-of-universe functor!point-set model}
 \[I_{U'}^UX(V)\coloneqq J_G(\R^n, V)\wedge_{\O(n)} X(\R^n),\]
 where $\dim V = n$. If $W$ is a $p$-dimensional $G$-representation, the action of $J_G(V,W)$ on this comes through
 the diagram

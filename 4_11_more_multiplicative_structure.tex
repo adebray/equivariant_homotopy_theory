@@ -2,23 +2,25 @@ We're going to pick up where we left off, discussing multiplicative structures o
 foreshadowed, we'll describe them using $N_\infty$-operads, the natural equivariant generalizations of
 $E_\infty$-operads. This section, though, is about the underlying algebra. For example, if $X$ is a $G$-spectrum,
 we know $\pi_0(X)$ is a Mackey functor, and in fact $\pi_*(X)$ is a graded Mackey functor. Thus Mackey functors are
-our replacement for abelian groups in equivariant stable homotopy theory. There's a very natural followup question.
+our replacement for abelian groups in equivariant stable homotopy theory. There's a very natural followup
+question.\index{graded Mackey functor}
 \begin{ques}
 Suppose $R$ is a commutative ring in orthogonal $G$-spectra. What structure does $\pi_0(R)$ have?
 \end{ques}
 Recall that the category $\Mac_G$ of Mackey functors can be defined as the functor category $\Fun(B_G\op,\Ab)$
-(i.e.\ the enriched functor category; in particular, we ask for additive functors). The Burnside category $B_G$
-admits several descriptions, but we described it in \cref{burn1} as the category whose objects are orbits $G/H$ and
-whose morphisms are the homotopy classes of stable maps:
+(i.e.\ the enriched functor category; in particular, we ask for additive functors).\index{Mackey
+functor}\index{Burnside category} The Burnside category $B_G$ admits several descriptions, but we described it in
+\cref{burn1} as the category whose objects are orbits $G/H$ and whose morphisms are the homotopy classes of stable
+maps:
 \[\Hom_{B_G}(G/H,G/K) \coloneqq \pi_0 F(\sus G/H_+, \sus G/K_+).\]
 One advantage of this approach is that functor categories of this sort automatically have a symmetric monoidal
-structure defined by Day convolution. Namely, if $\fC$ and $\fD$ are symmetric monoidal categories, then
-$\Fun(\fC,\fD)$ admits a symmetric monoidal product whose multiplication is left Kan extension of the product in
-$\fD$ along the product in $\fC$.  $\Ab$ is symmetric monoidal under tensor product, and $B_G\op$ is symmetric
-monoidal under Cartesian product, so $\Mac_G$ inherits a symmetric monoidal structure.
+structure defined by Day convolution.\index{Day convolution} Namely, if $\fC$ and $\fD$ are symmetric monoidal
+categories, then $\Fun(\fC,\fD)$ admits a symmetric monoidal product whose multiplication is left Kan extension of
+the product in $\fD$ along the product in $\fC$.  $\Ab$ is symmetric monoidal under tensor product, and $B_G\op$ is
+symmetric monoidal under Cartesian product, so $\Mac_G$ inherits a symmetric monoidal structure.
 
 The Day convolution for Mackey functors is also called the \term{box product}, and has an explicit coend formula:
-if $\underline M$ and $\underline N$ are Mackey functors, their box product is
+if $\underline M$ and $\underline N$ are Mackey functors, their box product is\index{coend}
 \begin{equation}
 \label{box_product}
 \underline M\cotensor \underline N (X) = \int^{(Y,Z)\in B_G\op\times B_G\op} \underline M(Y)\otimes \underline
@@ -31,22 +33,26 @@ of the diagram
 	F(c)\otimes G(c).
 }\]
 This implies formally that the unit for the symmetric monoidal structure on $\Mac_G$ is the Burnside Mackey
-functor $A_G$, which is the functor $\Map_{B_G\op}(\bl,G/G)$.
+functor $A_G$, which is the functor $\Map_{B_G\op}(\bl,G/G)$.\index{Burnside Mackey functor!is the unit in
+$\Mac_G$}
 
 We also obtained the morphisms $G/H\to G/K$ in the Burnside category as the Grothendieck group of a category of
 spans, which is equivalent to the category of $G$-sets over $G/H$.\footnote{\TODO: this should depend on $K$,
-right? I'm probably missing something.} But this category is equivalent to the category of $H$-sets.
+right? I'm probably missing something.} But this category is equivalent to the category of $H$-sets.\index{Burnside
+category}
 
 Now we can do the usual thing to define rings, just as we did in orthogonal (nonequivariant) spectra.
 \begin{comp}{defn}{itemize}
-	\item A \term{(commutative) Green functor} is a commutative monoid in $(\Mac_G, \cotensor, A_G)$.
-	\item A \term{module} $\underline M$ over a Green functor $\underline R$ is a Mackey functor together with an
-	associative, unital action map $\underline R\cotensor\underline M\to\underline M$.
+	\item A \term[Green functor]{(commutative) Green functor} is a commutative monoid in $(\Mac_G, \cotensor,
+	A_G)$.\index{commutative Green functor|see {Green functor}}
+	\item A \term[module!for a Green functor]{module} $\underline M$ over a Green functor $\underline R$ is a
+	Mackey functor together with an associative, unital action map $\underline R\cotensor\underline M\to\underline
+	M$.
 \end{comp}
 Green functors are our first guess for the algebraic analogue of a commutative ring in $\Spc^G$, and were
 originally considered in~\cite{Green}. They're a plausible guess: if $O$ is an $E_\infty$-operad, we can regard it
 as a $G$-trivial $G$-operad, and $\Spc^G[O]$ is the category of $G$-spectra whose $\pi_0$ is naturally a Green
-functor.
+functor.\index{G-operad@$G$-operad}
 
 So what kind of structure do we get from this definition?
 \begin{prop}
@@ -65,7 +71,7 @@ Condition~\eqref{frobrep} is also called \term{Frobenius reciprocity}, and impli
 Let $G = C_p$ for concreteness.
 \begin{enumerate}
 	\item The constant Mackey functor $\underline\Z$ is a Green functor with the usual ring structure on each copy
-	of $\Z$, and maps
+	of $\Z$, and maps\index{constant Mackey functor!as a Green functor}
 	\[\xymatrix{
 		\Z\ar@/_0.4cm/[d]_\id\\
 		\Z.\ar@/_0.4cm/[u]_p
@@ -78,7 +84,7 @@ Let $G = C_p$ for concreteness.
 	The product tells us $[C_2/e]\cdot [C_2/e] = 2[C_2/e]$, so the ring structure is $\Z[x]/(x^2-2x)$. The
 	restriction map $\Z[x]/(x^2-2x)\to\Z$ sends $1\mapsto 1$ and $x\mapsto 2$, and the transfer map
 	$\Z\to\Z[x]/(x^2-2x)$ sends $1\mapsto x$, which is linear. The push-pull formula tells us that in the
-	Grothendieck group of finite $G$-sets,
+	Grothendieck group of finite $G$-sets,\index{Burnside Mackey functor!as a Green functor}
 	\[[(H\times_K X)\times Y] = [H\times_K (X\times i_K^*Y)].\]
 	Since $A_G$ is the unit, every Mackey functor is an $A_G$-module. Can we describe this action explicitly on a
 	general Mackey functor $\underline M$? We want compatible actions of $A_G(G/H)$ on $\underline M(G/H)$, and

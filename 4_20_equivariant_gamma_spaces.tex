@@ -5,17 +5,17 @@ equivariant context?
 
 Recall that $\Gamma$ is the category of based finite sets and based maps, and the category of $\Gamma$-spaces is
 the functor category $\Fun(\Gamma, \Top_*)$, as we discussed in \cref{gamma_spaces}. A special $\Gamma$-space $X$
-is the analogue of an abelian group: we ask that the induced map
+is the analogue of an abelian group: we ask that the induced map\index{Gamma-space@$\Gamma$-space}
 \[X(n)\longrightarrow\prod_{i=1}^n X(1)\]
 is an equivalence.
 
 In the equivariant setting, there are two things we can do:
 \begin{itemize}
-	\item \term{$\Gamma$-$G$-spaces} are $\Gamma$-objects in $G\Top_*$. These were introduced by
-	Segal~\cite{SegalEquivariant}.
+	\item \term[Gamma-G-space@$\Gamma$-$G$-spaces]{$\Gamma$-$G$-spaces} are $\Gamma$-objects in $G\Top_*$. These
+	were introduced by Segal~\cite{SegalEquivariant}.
 	\item Let $\Gamma_G$ be the category of finite based $G$-sets and all based maps, so it's $G$-enriched, where
-	$G$ acts by conjugation on the mapping space. Then, \term{$\Gamma_G$-spaces} are the enriched functors
-	$\Gamma_G\to G\Top_*$. These were introduced by Shimakawa~\cite{Shi89}.
+	$G$ acts by conjugation on the mapping space. Then, \term[GammaG-space@$\Gamma_G$-space]{$\Gamma_G$-spaces} are
+	the enriched functors $\Gamma_G\to G\Top_*$. These were introduced by Shimakawa~\cite{Shi89}.
 \end{itemize}
 Which of these is right? Turns out both are.
 \begin{thm}[Shimakawa~\cite{Shimakawa91}]
@@ -25,7 +25,7 @@ These two categories are equivalent.
 We can also line up the special conditions in a nice way. The proof uses that one weird trick in diagram spectra.
 The manifestation in orthogonal spectra means that the category of orthogonal spectra on the trivial universe is
 equivalent (on the point-set level) to orthogonal spectra on the complete universe! And in fact this is true for
-any universe.
+any universe.\index{universe}
 
 The reason this happens is that diagram spectra mix the point-set and homotopical data in a way that can be
 confusing. Of course, the homotopy groups depend on the universe, so the homotopy theory and homotopy category are
@@ -44,7 +44,7 @@ $\Gamma\to\Gamma_G$, which induces a functor
 \[R\colon\Fun(\Gamma_G, G\Top_*)\longrightarrow\Fun(\Gamma, G\Top_*).\]
 It has a left adjoint
 \[L\colon\Fun(\Gamma, G\Top_*)\longrightarrow\Fun(\Gamma_G, G\Top_*),\]
-which is a Kan extension, explicitly given by the coend
+which is a Kan extension, explicitly given by the coend\index{coend}\index{Kan extension}
 \[LX = \int^\Gamma \Hom(n, \bl)\times X(\bl) = \coprod_{n\ge 0} \Map(n, S)\times X(n)/\sim,\]
 where $(sf, x)\sim (s, X(f)x)$ for any $\Gamma$-morphism $f\colon n\to m$. The $G$-action is $g[s,x] = [gs,gx]$.
 
@@ -68,9 +68,10 @@ formal: we're Kan extending along a full subcategory, and in this case $\id\to R
 Now, we want to recover $X(S)$ from $X(n)$, where $\abs S = n$.\footnote{We're using $n$ to denote both the set
 $\set{1,\dotsc,n}$ and its cardinality; hopefully they can be distinguished from context.} Choose a bijection
 $f\colon S\to n$. The key is that this defines a map $\rho\colon G\to\Hom(n, n)\cong\Sigma_n$, through the
-$G$-action on $S$. But now this looks familiar from the story of $G$-operads. Why were we able to get away with
-indexing them on finite sets rather than on finite $G$-sets? Well, from the $\infty$-categorical perspective, maybe
-it would be better, but we were able to get away with using just finite sets by the same trick!
+$G$-action on $S$. But now this looks familiar from the story of $G$-operads.\index{G-operad@$G$-operad} Why were
+we able to get away with indexing them on finite sets rather than on finite $G$-sets? Well, from the
+$\infty$-categorical perspective, maybe it would be better, but we were able to get away with using just finite
+sets by the same trick!
 
 So now we have a commutative diagram
 \[\xymatrix{
@@ -110,7 +111,7 @@ Show that under the equivalence of \cref{LReq}, these two notions of special obj
 \begin{comp}{rem}{enumerate}
 	\item You can run the rest of Segal's story: there's a notion of a very special $\Gamma$-$G$-space or
 	$\Gamma_G$-space, which is a condition on fixed points, and using similar machinery as before, you can turn
-	very special objects into connective genuine $G$-spectra.
+	very special objects into connective genuine $G$-spectra.\index{very special $\Gamma$-$G$-space}
 	\item We didn't discuss the homotopy theory of these two categories: the natural notions of fibrancy for
 	$\Gamma_G$-spaces and $G$-$\Gamma$-spaces are different. This is analogous to the difference between the naïve
 	homotopy groups of $G$-spectra on the trivial universe, and the more sophisticated homotopy groups that you

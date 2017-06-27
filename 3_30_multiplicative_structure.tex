@@ -1,20 +1,22 @@
 \begin{quote}\textit{
-	``If you like it then you'd better put a ring [structure] on it.''
+	``If you liked it then you should have put a ring on it.''
 }\end{quote}
 \TODO: this section may need to be reorganized.
 
 Now, we'll shift gears and talk about ring structures on $G$-spectra. This will lead eventually to multiplicative
 structures on $\RO(G)$-graded cohomology theories, through Green functors (simpler) and Tambara functors (more
-sophisticated), but the topology comes from the algebra, so let's start with the algebra.
+sophisticated), but the topology comes from the algebra, so let's start with the algebra.\index{Green
+functor}\index{Tambara functor}
 
 By construction, $\Spc^G$ is symmetric monoidal: it's a diagram category, and as such has a symmetric monoidal Day
 convolution. By a \term{ring spectrum} we mean a monoid in $\Spc^G$, and by a \term{commutative ring spectrum} we
-mean a commutative monoid.
+mean a commutative monoid.\index{Day convolution}
 
 One issue with this approach: why is there only one kind of ring? We found lots of different kinds of abelian
 groups in $\Spc^G$: different subcategories of $\sO_G$ or different universes $U$ lead to different definitions. In
 other words, a choice of abelian group structure amounts to a choice of compatible transfers. We want a parallel
-story for rings, meaning we'll want some sort of ``multiplicative transfer'' maps.
+story for rings, meaning we'll want some sort of ``multiplicative transfer'' maps.\index{multiplicative
+transfer|see {norm}}
 
 We'll say this in two ways: first in an impressionistic way, then more formally.
 
@@ -35,13 +37,14 @@ maps
 R\longrightarrow\bigvee_S R.\]
 This is where the other notions of rings come from: it's reasonable to restrict to certain subcollections of finite
 $G$-sets. In $G$-spaces, this amounts to choosing transfers, and for $G$-spectra, this amounts to choosing
-multiplicative transfers, which are called norms; suspension will send transfers to norms.
+multiplicative transfers, which are called norms; suspension will send transfers to norms.\index{norm}
 
 Operadic multiplication will make this precise. $\Spc^G$ and $G\Top$ are enriched over $G\Top$, so we'll work with
 operads in $G\Top$.\footnote{There are more general settings you can work in, e.g.\ using operads in $\Spc^G$ or
-$\Spc$ in the stable setting. This is reasonable, but we won't need to do this.}
+$\Spc$ in the stable setting. This is reasonable, but we won't need to do this.}\index{operad}
 \begin{defn}
-A \term{$G$-operad} is a collection of $G\times\Sigma_n$-spaces $\set{O(n)}$ along with structure maps
+A \term[G-operad@$G$-operad]{$G$-operad} is a collection of $G\times\Sigma_n$-spaces $\set{O(n)}$ along with
+structure maps
 \[s_{k,\vec n}\colon O(k)\times O(n_1)\times O(n_2)\many\times O(n_k)\longrightarrow O(n_1\many + n_k)\]
 which are suitably equivariant, i.e.\ $G$-equivariant and equivariant under the permutations in $\Sigma_{n_1\many+
 n_k}$ that arise as block permutations in $(n_1,\dotsc,n_k)$, and are associative and unital.
@@ -49,7 +52,8 @@ n_k}$ that arise as block permutations in $(n_1,\dotsc,n_k)$, and are associativ
 You should think of the structure map $s_{k,\vec n}$ as grafting leaves from $O(n_1),\dotsc,O(n_k)$ onto a tree
 $O(k)$.
 \begin{defn}
-Let $O$ be a $G$-operad. An \text{$O$-algebra}, in either $G\Top$ or $\Spc^G$, is an object $X$ with structure maps
+Let $O$ be a $G$-operad. An \text[algebra!over a $G$-operad]{$O$-algebra}, in either $G\Top$ or $\Spc^G$, is an
+object $X$ with structure maps
 \[O(n)\times_{\Sigma_n} X^{\times n}\longrightarrow X\]
 compatible with the operadic multiplication. Here, $\times$ denotes the product in $G\Top$ or $\Spc^G$.
 \end{defn}
@@ -61,16 +65,17 @@ compatible with the operadic multiplication. Here, $\times$ denotes the product 
 	\item Let $U$ be a $G$-universe, and $O(n)$ be the space of linear isometries from $U^{\oplus n}$ to $U$; the
 	structure maps come from composition.\footnote{Interestingly, there's something important about spaces here: if
 	you take chains, the operadic axioms fail.} This operad is called $\mathcal L_U$, the \term{linear isometries
-	operad}.
+	operad}.\index{universe}
 	\qedhere
 \end{enumerate}
 \end{exm}
 \begin{defn}[Blumberg-Hill~\cite{NInfty}]
 \label{ninfty}
-An \term{$N_\infty$-operad}\footnote{The $N$ in $N_{\infty}$ stands for ``norm.''} is a $G$-operad $O = \set{O(n)}$
-such that
+An \term[Ninfinity-operad@$N_\infty$-operad]{$N_\infty$-operad}\footnote{The $N$ in $N_{\infty}$ stands for
+``norm.''} is a $G$-operad $O = \set{O(n)}$ such that
 \begin{enumerate}
-	\item $\Sigma_n$ acts freely on $O(n)$ (one says $O(n)$ is \term{$\Sigma_n$-free}), and
+	\item $\Sigma_n$ acts freely on $O(n)$ (one says $O(n)$ is \term[Sigman-free G-operad@$\Sigma_n$-free
+	$G$-operad]{$\Sigma_n$-free}), and
 	\item $O(n)$ is a universal space for some family $\sF_n$ of subgroups of $G\times\Sigma_n$ containing
 	$H\times\set 1$ for all subgroups $H\subseteq G$. That is, if $\Gamma\subset G\times\Sigma_n$,
 	\[O(n)^\Gamma = \begin{cases}
@@ -78,7 +83,7 @@ such that
 		\varnothing, &\text{otherwise.}
 	\end{cases}\]
 	\item $O(n)$ is nonequivariantly contractible.\footnote{This means that if you forget from $G$-spaces to
-	spaces, $N_\infty$-operads become $E_\infty$-operads.}
+	spaces, $N_\infty$-operads become $E_\infty$-operads.\index{Einfinity-operad@$E_\infty$-operad}}
 \end{enumerate}
 \end{defn}
 That $O(n)$ is $\Sigma_n$-free places strong constraints on $\set{\sF_n}$. For example, if $\Gamma\in\sF_n$, then
@@ -94,7 +99,7 @@ Let $\Gamma\subseteq G\times\Sigma_n$ be a subgroup. Then, the following are equ
 \end{lem}
 The proof is two lines, neither of which is too hard. In the context of a family $\sF_n$, subgroups therefore
 define maps $p\colon H\to\Sigma_n$ and therefore $H$-set structures on $\underline n$; such $H$-sets will be called
-\term{admissible}.
+\term[admissible $H$-set]{admissible}.\index{family of subgroups}
 \begin{exm}
 The operad $\mathcal L_U$ from \cref{Gopexm} is $N_\infty$, which is a nontrivial fact: unlike for
 finite-dimensional spaces, the space of linear isometries from $U^n$ to $U$ is contractible. This is a nice thing
@@ -102,25 +107,27 @@ to think through. The rest of the axioms are easier.
 \end{exm}
 You might wonder whether the little discs operad appears in this context; it turns out that fitting everything
 together into a colimit behaves poorly, and so one uses something else called the Steiner operad, which maybe will
-appear in these notes.
+appear in these notes.\index{little $n$-cubes operad}\index{Steiner operad}
 
 In the nonequivariant case, the linear isometries operad is a model for the $E_\infty$-operad. But in the
 equivariant case, there are $N_\infty$-operads that aren't the linear isometries operad, and this is a disturbing
 representation-theoretic fact. The goal is to figure out what the right notion of a multiplicative $\RO(G)$-graded
 cohomology theory is --- in the nonequivariant case, ring spectra are the objects that represent multiplicative
-cohomology theories, and we want to discover the equivariant analogue.
+cohomology theories, and we want to discover the equivariant analogue.\index{RO(G)-graded cohomology
+theory@$\RO(G)$-graded cohomology theory!multiplicative structure}
 
 Operadic multiplication is one way to approach this, an algebraic (or infinite loop space) approach to this by
-thinking of $\Spc^G$ as algebras in spaces.
+thinking of $\Spc^G$ as algebras in spaces.\index{infinite loop space}
 
-In the nonequivariant case, $\Omega^\infty$ defines an equivalence between connective spectra and grouplike
-$E_\infty$-spaces ($X$ is \term{grouplike} if $\pi_0(X)$ is a group). These are spaces that have homotopy coherent
-abelian group structures, and is a fancy way of saying that spectra behave like abelian groups. We want to do this
-equivariantly, and the big question therein is: \emph{how do we operadically encode transfers?}
+In the nonequivariant case, $\Omega^\infty$ defines an equivalence between connective spectra\index{connective
+spectrum} and grouplike $E_\infty$-spaces ($X$ is \term[grouplike $E_\infty$ space]{grouplike} if $\pi_0(X)$ is a
+group). These are spaces that have homotopy coherent abelian group structures, and is a fancy way of saying that
+spectra behave like abelian groups. We want to do this equivariantly, and the big question therein is: \emph{how do
+we operadically encode transfers?}
 
-Let's first recall what's going on in the nonequivariant case. We'll think of connective spectra as \term{infinite
-loop spaces}: if $X$ is an $\Omega$-spectrum, $X_0 \cong \Omega X_1 \cong \Omega^2 X_2 \cong \dotsb$, and therefore
-is an $n$-fold loop space for all $n$.
+Let's first recall what's going on in the nonequivariant case. We'll think of connective spectra as \term[infinite
+loop space]{infinite loop spaces}: if $X$ is an $\Omega$-spectrum, $X_0 \cong \Omega X_1 \cong \Omega^2 X_2 \cong
+\dotsb$, and therefore is an $n$-fold loop space for all $n$.
 
 We want to recognize $n$-fold loop spaces: how do you know when $X\simeq\Omega^n Y$ for some $Y$? One way to
 approach this is to define a delooping construction $B$, and be able to use it $n$ times. Beck (of Barr-Beck fame)
@@ -133,7 +140,8 @@ What Beck observed is that if $X = \Omega^n Y$, $X$ admits an action of the mona
 }\]
 where $\eta\colon\Sigma^n\Omega^n\to\id$ is the counit of the adjunction.
 \begin{thm}[Beck \cite{Beck}]
-If $B(\Sigma^m, \Omega^n\Sigma^n, \Omega^n Y)$ is the simplicial bar construction, i.e.\ the simplicial space
+If $B(\Sigma^m, \Omega^n\Sigma^n, \Omega^n Y)$ is the simplicial bar construction, i.e.\ the simplicial
+space\index{simplicial bar construction}
 \[[q]\mapsto (\Sigma^m)(\Omega^n\Sigma^n)\Omega^n Y,\]
 then its geometric realization is equivalent to $\Omega^{n-m}Y$:
 \[\abs{B(\Sigma^m, \Omega^n\Sigma^n, \Omega^n Y)}\simeq \Omega^{n-m}Y.\]
@@ -145,12 +153,12 @@ don't arise in nature.
 Boardman-Vogt and May realized it's convenient to work with operads $C_n$ such that there's a map of monads from
 $\overline C_n\to\Omega^n\Sigma^n$.
 \begin{defn}
-Let $O$ be an operad. Then, $\overline O$ denotes the associated monad
+Let $O$ be an operad. Then, $\overline O$ denotes the associated monad\index{monad!associated to an operad}
 \[X\mapsto\bigvee_n O(n)\times_{\Sigma_n} X^n.\]
 \end{defn}
 The point is that algebras for the monad $\overline O$ are the same thing as algebras for the operad $O$, but the
 monadic category is easier to deal with. For example, you can use this construction to show that $\Alg_O$ is
-complete and cocomplete under mild hypotheses on $O$.
+complete and cocomplete under mild hypotheses on $O$.\index{algebra!over an operad}\index{algebra!over a monad}
 \begin{exm}
 The \term{little $n$-cubes operad} $C$ is the operad such that $C_n(m)$ is the space of configurations of $m$
 disjoint closed cubes in an $n$-dimensional cube. There is a map $\overline C_n\to\Omega^n\Sigma^n$ which arises
@@ -161,9 +169,10 @@ boundary of each cube to a point, and send everything outside the little cubes t
 to write this out explicitly.
 \end{exm}
 This is a fattened-up version of a configuration space, and so the topology of $C_n(m)$ is already very interesting
-(and why the little $n$-cubes operad can be used to define $E_n$-algebras).
+(and why the little $n$-cubes operad can be used to define $E_n$-algebras).\index{En-algebra@$E_n$-algebra}
 
-Now, given a connected $C_n$-space $X$, it's possible to deloop through the bar construction:
+Now, given a connected $C_n$-space $X$, it's possible to deloop through the bar construction:\index{bar
+construction}
 \[\xymatrix{
 	X & B(C_n,C_n,X)\ar[l]_-\simeq\ar[r]^-{\theta_1} & B(\Omega^n\Sigma^n, C_n, X)\ar[r]^-{\theta_2} &\Omega^n
 	B(\Sigma^n, C_n, X).
@@ -175,10 +184,10 @@ this context, and uses the fact that $X$ is connected. But the point is, with al
 delooped. This approach is studied in~\cite{MayGILS}.
 
 Now, taking the sequential colimit along $C_n\to C_{n+1}\to\dotsb$, we get an $E_\infty$-operad whose algebras are
-called \term{$E_\infty$-spaces}.
+called \term[Einfinity-space@$E_\infty$-space]{$E_\infty$-spaces}.
 \begin{defn}
-An operad $O$ is an \term{$E_\infty$-operad} if $O(n)$ is contractible for all $n$ and $\Sigma_n$ acts freely on
-each $O(n)$.
+An operad $O$ is an \term[Einfinity-operad@$E_\infty$-operad]{$E_\infty$-operad} if $O(n)$ is contractible for all
+$n$ and $\Sigma_n$ acts freely on each $O(n)$.
 \end{defn}
 \begin{thm}
 If $X$ is an $E_\infty$-space and $\pi_0(X)$ is a group, then $X\cong\Omega^\infty Z$ for a spectrum $Z$.
@@ -186,8 +195,9 @@ If $X$ is an $E_\infty$-space and $\pi_0(X)$ is a group, then $X\cong\Omega^\inf
 That is, we can deloop $X$ arbitrarily many times. This is the classical way to understand infinite loop spaces.
 
 Suppose $f\colon O\to O'$ is a map of operads. Then, we get functors between algebras in both directions: there's a
-pullback $f^*\colon\Top[O']\to\Top[O]$ and a \term{change of scalars} operad $B(O',O,\bl)\colon\Top[O]\to\Top[O']$;
-the bar construction model for this is a nice thing to have around.
+pullback $f^*\colon\Top[O']\to\Top[O]$ and a \term[change of scalars!between operads]{change of scalars} operad
+$B(O',O,\bl)\colon\Top[O]\to\Top[O']$; the bar construction model for this is a nice thing to have
+around.\index{algebra!over an operad}
 
 When do these induce an equivalence on the categories of algebras? The answer for $E_\infty$-operads,
 is when $f_n\colon O(n)\to O'(n)$ is a (nonequivariant) equivalence.\footnote{The \term{commutative operad}, for
@@ -201,15 +211,16 @@ of commutative ring spectra.} But there's always a map, given by the push-pull c
 So it really doesn't matter which $E_\infty$-operad you use.
 \subsection*{The equivariant case.} What does this look like equivariantly? We defined
 $N_\infty$-operads to be those for which $O(0)\simeq *$, the $\Sigma_n$-action on $O(n)$ is free, and $O(n)\simeq
-E\sF_n$ for some family $\sF_n$ of $G\times\Sigma_n$ that contains $H\times\set 1$ (see \cref{ninfty}).
+E\sF_n$ for some family $\sF_n$ of $G\times\Sigma_n$ that contains $H\times\set 1$ (see
+\cref{ninfty}).\index{Ninfinity-operad@$N_\infty$-operad}
 
 We're going to show that algebras for an $N_\infty$-operad $O$ in $\Top$ will correspond to some kinds of $G$-spectrum
 with transfer structures by $\set{\sF_n}$. If $O = \mathcal L_U$ (the linear isometries operad in \cref{Gopexm}),
-then we get $G$-spectra dictated by the universe $U$, but these are not the only examples.
+then we get $G$-spectra dictated by the universe $U$, but these are not the only examples.\index{universe}
 
 This leaves a few questions.
 \begin{enumerate}
-	\item Why do we get transfer maps? How can we see this from the operadic structure?
+	\item Why do we get transfer maps? How can we see this from the operadic structure?\index{transfer map}
 	\item What can we say about the collection $\set{\sF_n}$? You can't just pick any of them: they have
 	complicated interrelationships.
 \end{enumerate}
@@ -223,7 +234,8 @@ the category of small symmetric monoidal categories and strong monoidal functors
 \begin{itemize}
 	\item A \term{categorical coefficient system} is a functor $\sO_G\op\to\cat{Cat}$.
 	\item A \term{symmetric monoidal categorical coefficient system} (SMCCS) is a functor
-	$\sO_G\op\to\operatorname{\otimes\cat{Cat}}$.
+	$\sO_G\op\to\operatorname{\otimes\cat{Cat}}$.\index{SMCCS|see {symmetric monoidal categorical coefficient
+	system}}
 \end{itemize}
 \end{defn}
 \begin{exm}
@@ -236,9 +248,10 @@ This is also a symmetric monoidal categorical coefficient system.
 \end{exm}
 \begin{lem}
 Let $\set{\sF_n}$ be a collection of families of subgroups of $G$. Then, $\set{\sF_n}$ arises from an
-$N_\infty$-operad iff it's a sub-SMCCS of $\underline\Set$.\footnote{\TODO: did I get this right?}
+$N_\infty$-operad iff it's a sub-SMCCS of $\underline\Set$.\footnote{\TODO: did I get this right?}\index{family of
+subgroups}
 \end{lem}
-That is, these are exactly the functors sending $G/H$ to admissible $H$-sets.
+That is, these are exactly the functors sending $G/H$ to admissible $H$-sets.\index{admissible $H$-set}
 \begin{defn}
 An \term{indexing system} $\underline I$ is a sub-SMCCS of $\underline\Top$ which
 is
@@ -252,10 +265,11 @@ Here, \term{self-induction} means that if $H/K\in\underline I(H)$ and $T\in\unde
 T\in\underline I(H)$.
 \end{defn}
 These axioms appear somewhat arbitrary, but there's a nice categorical description in terms of bispans, which we'll
-discuss later.
+discuss later.\index{bispan}
 \begin{defn}
 Let $O$ be an $N_\infty$-operad, so that it defines a collection of families $\set{\sF_n}$ of subgroups of $G$.
-Let $\underline O$ denote the functor sending $G/H$ to the collection of admissible $H$-sets for $\set{\sF_n}$.
+Let $\underline O$ denote the functor sending $G/H$ to the collection of admissible $H$-sets for
+$\set{\sF_n}$.\index{Ninfinity-operad@$N_\infty$-operad}
 \end{defn}
 \begin{prop}
 \label{Ninfind}
@@ -264,7 +278,7 @@ Let $O$ be an $N_\infty$-operad; then, $\underline O$ is an indexing system.
 We say that a map $f\colon O\to O'$ of $N_\infty$-operads is a \term{homotopy equivalence} if it defines a
 $G\times\Sigma_n$-homotopy equivalence $O(n)\to O'(n)$ for all $n$.
 \begin{thm}
-The assignment $O\mapsto\underline O$ is a fully-faithful embedding from the homotopy category of
+The assignment $O\mapsto\underline O$ is a fully faithful embedding from the homotopy category of
 $N_\infty$-operads to the poset of indexing systems.
 \end{thm}
 In fact, this can be upgraded to an equivalence of categories.
@@ -275,7 +289,7 @@ $N_\infty$-operads to the poset of indexing systems.
 \begin{proof}[Partial proof of \cref{Ninfind}]
 It's clear that trivial sets are admissible for an $N_\infty$-operad $O$.\footnote{As a corollary, this means that
 if $O$ is an $N_\infty$-operad, then $i_e^*O$ is an $E_\infty$-operad, where $i_e\colon\Top\to G\Top$ prescribes
-the trivial action.}
+the trivial action.\index{Einfinity-operad@$E_\infty$-operad}}
 
 We want to show that $\underline O$ is closed under coproduct: if $S$ and $T$ are admissible $H$-sets, we'd like
 for $S\amalg T$ to be admissible. Well, $S$ is the graph of a $p_S\colon H\to\Sigma_{\abs S}$ and $T$ is the graph
@@ -291,7 +305,8 @@ $(O(2)\times O(\abs S)\times O(\abs T)^\Gamma$ is nonempty, so we're done.
 
 The pattern of proof is the same for the rest of the conditions.
 \end{proof}
-We've been talking about transfers, so let's see why algebras over an $N_\infty$-operad have transfers.
+We've been talking about transfers, so let's see why algebras over an $N_\infty$-operad have
+transfers.\index{algebra!over an $N_\infty$-operad}
 
 Let $T$ be an admissible $H$-set. Then, the space of maps
 \[G\times\Sigma_{\abs T}/\Gamma_T\longrightarrow O(\abs T)\]
@@ -305,7 +320,7 @@ Thus, if $X$ is an algebra over an $N_\infty$-operad $O$, we have maps
 	G\times_H F(T,X)\ar[r] & (G\times\Sigma_{\abs T}/\Gamma_T)\times\Sigma_{\abs T} X^{\abs T}\ar[r] & O(\abs
 	T)\times_{\Sigma_{\abs T}} X^{\abs T}\ar[r] & X,
 }\]
-and this is where the transfer maps on $\pi_0(X)$ come from.
+and this is where the transfer maps on $\pi_0(X)$ come from.\index{transfer map!for an $N_\infty$-algebra}
 
 If $X$ is a $G$-space and $T$ is an $H$-set, let
 \[N^TX\coloneqq G\times_H F(T, i_H^*X).\]
@@ -318,24 +333,26 @@ induce up. In general, an $H$-map $S\to T$ induces a map
 Passing to fixed points and taking $\pi_0$, this is precisely a system of transfers on $\pi_0$.
 \begin{rem}
 One consequence of this is a conceptual description of the double coset formula: the restriction to $K'$ of a
-transfer on $T$ is just the transfer on $i_{K'}T$. We'll unpack this in the next section.
+transfer on $T$ is just the transfer on $i_{K'}T$. We'll unpack this in the next section.\index{double cosets}
 \end{rem}
 Another conceptual takeaway is that $N_\infty$-operads are the right way to discuss transfers in the equivariant
 setting. So we may as well port them to $G$-spectra, since they're also enriched over $G$-spaces. But when you do
 this, you stumble upon one of the basic conundrums of equivariant homotopy theory.
 
-Let $X$ be a space. Then, $X^n$ is a $C^n$-space, where $C_n$ acts by permuting the factors. The diagonal map
+Let $X$ be a space. Then, $X^n$ is a $C_n$-space, where $C_n$ acts by permuting the factors. The diagonal map
 $\Delta\colon X\to X^n$ induces an equivalence $X\cong (X^n)^{C_n}$. The problem is to do this with spectra: we
 want a map $\Sp\to\Sp^{C_n}$ such that we have a diagonal.
 
 The naïve approach is to send $X\mapsto X^{\wedge n}$, but what universe does $X^{\wedge n}$ live in? Naïvely,
 we're in $U^n$, which maps back down to $U$. But in $U^n$, we have good fixed-point behavior for representations of
-the form $(V,V,\dotsc,V)$ --- and only for representations of this form. So it's not clear how to make this work.
+the form $(V,V,\dotsc,V)$ --- and only for representations of this form. So it's not clear how to make this
+work.\index{universe}
 
 Bökstedt's construction of $\mathit{THH}$~\cite{Bokstedt} needed something like this, and so Bökstedt did the
 minimal amount necessary to get something to work. The technical solution to this uses ideas from group cohomology,
 specifically the Evens norm, which we'll discuss in \S\ref{evenssec}. Figuring out how to make this work in
-homotopy theory was one of the important new ideas in~\cite{HHR}.
+homotopy theory was one of the important new ideas in~\cite{HHR}.\index{topological Hochschild
+homology}\index{Evens norm}
 
 We'll eventually get to ring spectra and spectra with norm maps, which encode a kind of twisted multiplication.
 

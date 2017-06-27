@@ -16,10 +16,11 @@ By $H$ we'll mean a finite-index subgroup of $G$. Of course, if $G$ is finite, a
 
 Let's recall first the definition of the transfer map $H^*(H;M)\to H^*(G;M)$. Here, the $H$-action on the
 $\Z[G]$-module $M$ is through restriction $i_H^*$. We can also write $H^*(H;M)\cong\Ext_{\Z[H]}(\Z, M)$, the
-derived functors of $M^H$.
+derived functors of $M^H$.\index{transfer map!in group cohomology}
 
 The right adjoint of restriction is $\Hom_{\Z[G]}(\Z[H], \bl)$, but the Wirthmüller isomorphism, in this
-group-theoretic context, says this is the same as the left adjoint $\Z[G]\otimes_{\Z[H]}\bl$. Thus, we get a map
+group-theoretic context, says this is the same as the left adjoint $\Z[G]\otimes_{\Z[H]}\bl$. Thus, we get a
+map\index{Wirthmüller isomorphism!in group cohomology}
 \[H^*(H; i^*M)\cong H^*(G; \Hom_{\Z[G]}(\Z[H], M))\cong H^*(G, \Z[G]\otimes_{\Z[H]} i_H^*M)\longrightarrow
 H^*(G;M),\]
 where the map is induced by the counit $\Z[G]\otimes_{\Z[H]} i_H^*M\to M$.
@@ -103,7 +104,8 @@ trick is that instead of using the counit $\Z[G]\otimes_{\Z[H]} i_H^*M\to M$, we
 coming from multiplication. The interesting piece is that this plays well with the $G$-action: it's really a map
 $N_H^G(i_H^*R)\to R$. In other words, it's easy to get a map $H^p(H;M)\to H^{p^n}(G;R^n)$, and we use the ring
 structure to get back to $R$. There's a nice analogy of the norm as the multiplicative transfer, where we've
-replaced one counit with another. From this perspective, the definition of an $N_\infty$-operad makes more sense.
+replaced one counit with another. From this perspective, the definition of an $N_\infty$-operad makes more
+sense.\index{Ninfinity-operad@$N_\infty$-operad}
 
 More explicitly, let $P_\bullet\to R$ be a projective resolution of $R$ as a $\Z[H]$-module, so we obtain a
 resolution $P_\bullet^{\otimes n}\to R^{\otimes n}\to R$. Then, let $\e\colon Q_\bullet\to R$ be a resolution of
@@ -119,13 +121,14 @@ Evens norm of $f$. This is far from obvious, but comes from the fact that
 }\]
 produces cocycles for $H^{np}(H;R)$.\footnote{\TODO: I didn't follow this.}
 \begin{comp}{rem}{enumerate}
-	\item The Evens norm satisfies a double coset formula, similarly to the transfer map.
-	\item The Evens norm is part of a Tambara functor structure where
+	\item The Evens norm satisfies a double coset formula, similarly to the transfer map.\index{double cosets}
+	\item The Evens norm is part of a Tambara functor structure where\index{Evens norm!as a Tambara functor}
 	\[G/H\mapsto \bigoplus_{i=0} H^{2i}(H; \bl).\]
 	\item Multiplicative transfers, e.g.\ power operations, are ubiquitous, e.g.\ the Steenrod operations. In fact,
-	one can realize the Steenrod operations as a homotopical version of this norm construction, and this is a
-	fruitful approach to research for some homotopy theorists. The analogue of the twisted action is a map
-	$E\Sigma_n\times_{\Sigma_n} X^n\to X$, which is used to construct the Steenrod operations. \qedhere
+	one can realize the Steenrod operations\index{Steenrod operations} as a homotopical version of this norm
+	construction, and this is a fruitful approach to research for some homotopy theorists. The analogue of the
+	twisted action is a map $E\Sigma_n\times_{\Sigma_n} X^n\to X$, which is used to construct the Steenrod
+	operations. \qedhere
 \end{comp}
 We'll soon bring this from group cohomology into equivariant stable homotopy theory, where it becomes the
 Hill-Hopkins-Ravenel norm.
