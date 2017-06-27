@@ -1,15 +1,17 @@
 \begin{quote}\textit{
 	``The large print giveth and the small print taketh away.''
 }\end{quote}
-The goal in this section is to construct Eilenberg-Mac Lane spectra: if $\underline M$ is a Mackey functor, we'll
-produce a $G$-spectrum $H\underline M$ which represents ordinary cohomology with coefficients in $\underline M$.
-This will take some work, but will have some nice payoffs. We'll begin some computations: for $G = C_2$, we'll
-compute the Bredon cohomology $H_{C_2}(*;\underline\Z)$ and $H_{C_2}(*;A)$, where $\underline\Z$ is the constant
-$\Z$-valued Mackey functor and $A$ is the Burnside Mackey functor (\cref{Mackeyexm}).
+The goal in this section is to construct Eilenberg-Mac Lane spectra:\index{equivariant Eilenberg-Mac Lane spectrum}
+if $\underline M$ is a Mackey functor,\index{Mackey functor} we'll produce a $G$-spectrum $H\underline M$ which
+represents ordinary cohomology with coefficients in $\underline M$.  This will take some work, but will have some
+nice payoffs. In subsequent sections, we'll run some computations: for $G = C_2$, we'll compute the $\RO(G)$-graded
+cohomology $H_{C_2}(*;\underline\Z)$ and $H_{C_2}(*;A)$, where $\underline\Z$ is the constant $\Z$-valued Mackey
+functor and $A$ is the Burnside Mackey functor (\cref{Mackeyexm}).
 
 In the previous section, we proved Brown representability (\cref{brown_rep}) for triangulated categories, which are
 stable. We also want an unstable variant.
 \begin{thm}[Unstable Brown representability]
+\index{Brown representability!for based $G$-connected $G$-CW complexes}
 Let $\fC$ denote the category of based, $G$-connected $G$-CW complexes and $H\colon \Ho(\fC)\op\to\Set$ be a
 functor such that
 \begin{enumerate}
@@ -26,7 +28,8 @@ if you fail to impose those requirements.
 \end{warn}
 We can use Brown representability to prove the following result.
 \begin{prop}
-Any $\RO(G)$-graded cohomology theory is represented by a $G$-spectrum.
+Any $\RO(G)$-graded cohomology theory is represented by a $G$-spectrum.\index{RO(G)-graded cohomology
+theory@$\RO(G)$-graded cohomology theory}
 \end{prop}
 \begin{proof}
 Let $E$ be an $\RO(G)$-graded cohomology theory. We can apply Brown representability to $E_G^V(\bl)$ for each $V$,
@@ -38,7 +41,7 @@ The usual way to solve this is with a trick: restrict attention to a cofinal ind
 V_{n+2}\inj\dots$, and then observe that the homotopy theory of $G$-prespectra on this sequence is equivalent to
 $\Ho(\Spc^G)$, which is guaranteed by cofinality: limits are preserved, and the homotopy groups are the same. This
 fixes the coherence problem: we can pick a representative for each map and force transitivity. Then, we can left
-Kan extend back to an orthogonal $G$-spectrum.
+Kan extend back to an orthogonal $G$-spectrum.\index{Kan extension}
 \end{proof}
 This would be an exercise, except that maybe it's a bit too hard to be one.
 \begin{ques}
@@ -52,10 +55,11 @@ nonequivariant world. They're almost the same, except for the existence of phant
 map} is a nonzero morphism between spectra that's not detected by any compact object. In particular, this means
 that as a natural transformation of cohomology theories, it's $0$, but arises from a nonzero morphism. These encode
 the non-uniqueness of Brown representability.} just like in the nonequivariant case. These are poorly understood,
-but of course we want to understand them better in the nonequivariant case.
+but of course we also want to understand them better in the nonequivariant case.
 \begin{cor}
 \label{ZtoROG}
-A $\Z$-graded cohomology theory on $\Spc^G$ is represented by an object of $\Spc^G$.
+A $\Z$-graded cohomology theory on $\Spc^G$ is represented by an object of $\Spc^G$.\index{Z-graded cohomology
+theory@$\Z$-graded cohomology theory!for $G$-spectra}
 \end{cor}
 The proof is that $\Sigma^V$ and $\Omega^V$ are inverse equivalences in $\Ho(\Spc^G)$, so we can use them to extend
 to $\RO(G)$-graded theories. \Cref{ZtoROG} feels like a weird coincidence, but it's a key technical result that
@@ -63,7 +67,8 @@ we'll use more than once. The unstable case is different, though.
 \begin{cor}
 \label{unstZtoR}
 A $\Z$-graded cohomology theory on $G\Top$ with coefficients in a coefficient system $M$ extends to an
-$\RO(G)$-graded theory iff $M$ extends to (the contravariant part of) a Mackey functor.
+$\RO(G)$-graded theory iff $M$ extends to (the contravariant part of) a Mackey functor.\index{Z-graded cohomology
+theory@$\Z$-graded cohomology theory!for $G$-spaces}
 \end{cor}
 Now we can build Eilenberg-Mac Lane spectra for a Mackey functor $\underline M$. There will be two constructions:
 one may be more satisfying. You might hope to use obstruction theory to build Eilenberg-Mac Lane spaces and chain
@@ -74,9 +79,10 @@ Given $\underline M$, we'll construct a $\Z$-graded cohomology theory on $\Spc^G
 represented by an object of $\Spc^G$, which will be $H\underline M$.
 
 Let $X$ be a $G$-CW complex, and define $\underline C_n(X)\coloneqq \underline\pi_n(X_n/X_{n-1})$ (where $X_n$ is
-the $n$-skeleton of $X$). Now we'll replicate the construction of Bredon cohomology; in particular, the long exact
-sequence for the triple $(X_n, X_{n-1}, X_{n-2})$ induces a differential $\underline C_n(X)\to\underline
-C_{n-1}(X)$. If $\cat{Mac}$ denotes the category of Mackey functors, consider the cochain complex
+the $n$-skeleton of $X$). Now we'll replicate the construction of Bredon cohomology;\index{Bredon cohomology} in
+particular, the long exact sequence for the triple $(X_n, X_{n-1}, X_{n-2})$ induces a differential $\underline
+C_n(X)\to\underline C_{n-1}(X)$. If $\cat{Mac}$ denotes the category of Mackey functors, consider the cochain
+complex\index{Mackey functor}
 \[\Hom_{\cat{Mac}}(\underline C_n(X), \underline M),\]
 and take the cohomology of this cochain complex.
 
@@ -96,7 +102,8 @@ possible.
 \begin{cons}
 \label{EMcons}
 One can build some Eilenberg-Mac Lane spectra via the equivariant Dold-Thom construction; this approach only works
-in certain settings (we'll say which ones in a bit), but is interesting enough to mention.
+in certain settings (we'll say which ones in a bit), but is interesting enough to mention.\index{Dold-Thom
+construction}
 
 First let's discuss the nonequivariant case. Let $\Sp^\infty\colon\Top_*\to\cat{TopCMon}$ be the free functor from
 based spaces to topological abelian monoids (i.e.\ adjoint to the forgetful functor). The proof of Dold-Thom
@@ -138,7 +145,7 @@ and widely circulated, but the statement has a mistake (though the proof is corr
 Find the mistake, and fix it. At this point, you have the background to do so.
 \end{ex}
 \cite{Shi89} wrote up the correction, and~\cite{BlumbergWSpace} answers a related question about equivariant
-$\sW$-spaces.
+$\sW$-spaces.\index{equivariant W-spaces@equivariant $\sW$-spaces}
 \begin{thm}
 \label{EMmodel}
 $\set{S^V\otimes M}$ is a model of $H\underline M$.
@@ -147,4 +154,4 @@ So this construction is nice and explicit, but only works when $G$ is finite, an
 from $\Z[G]$-modules.
 \end{cons}
 Understanding the Dold-Thom construction is equivalent to understanding infinite loop space theory, and for general
-compact Lie groups we understand neither.
+compact Lie groups we understand neither.\index{infinite loop space}

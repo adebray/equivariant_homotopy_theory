@@ -24,9 +24,11 @@ transfer maps, but there are axioms to check.
 Let $M$ be a Mackey functor. Then, there exists an object $\mathit{HM}\in\Spc^G$, called the \term{equivariant
 Eilenberg-Mac Lane spectrum} for $M$, whose homotopy groups $\pi_G^*$ are determined by $M$.
 \begin{defn}
-The \term{cohomology} of an $X\in\Spc^G$ with coefficients in a Mackey functor $M$ is
+The \term[cohomology!with coefficients in a Mackey functor]{cohomology} of an $X\in\Spc^G$ with coefficients in a
+Mackey functor $M$ is
 \[H^n(X;M)\coloneqq [X, \Sigma^n \mathit{HM}],\]
-which defines a $\Z$-graded cohomology theory. Moreover, one can define an $\RO(G)$-graded cohomology theory
+which defines a $\Z$-graded cohomology theory. Moreover, one can define an $\RO(G)$-graded cohomology
+theory\index{RO(G)-graded cohomology theory@$\RO(G)$-graded cohomology theory}
 \[H^V(X;M)\coloneqq [X, \Sigma^V \mathit{HM}],\]
 where $V$ is a representation in $U$.
 \end{defn}
@@ -36,7 +38,8 @@ down.
 
 The central algebraic analogue of the equivariant stable category is given by the category of Mackey functors.
 Mackey functors form a symmetric monoidal category under something called the box product; we'll define this later
-in~\eqref{box_product}, and it's familiar, arising as a Kan extension just like Day convolution.
+in~\eqref{box_product}, and it's familiar, arising as a Kan extension just like Day convolution.\index{Kan
+extension}\index{Day convolution}
 
 The point is, it makes sense to talk about commutative monoids in the category of Mackey functors, which are called
 \term{Green functors}~\cite{Green}. These aren't quite the right objects, however: we need to account for stable
@@ -66,7 +69,7 @@ theories, it will be important to embed everything in some universe, an infinite
 $G$-sets up to isomorphism. It's okay to be lax about this at first, but there are subtleties to $\RO(G)$-graded
 theories that make this important; \cite{GuillouMay} provided the first proof of the folklore result that
 $G$-spectra are spectral presheaves on the Burnside category, but there were important coherence issues to work
-out, for example.
+out, for example.\index{G-spectrum@$G$-spectrum!via spectral Mackey functors}
 
 We've seen that a Mackey functor $\underline M$ is specified by a pair of functors $M_*,M^*$, where $M_*\colon
 G\Set\to\Ab$ is covariant, $M^*\colon (G\Set)\op\to\Ab$ is contravariant, and $M_*$ and $M^*$ agree on objects, so
@@ -79,22 +82,25 @@ M(A)\oplus\underline M(B)$ and given a pullback
 	W\pullback\ar[r]^\alpha\ar[d]_\beta & X\ar[d]^\gamma\\
 	Y\ar[r]_\delta & Z,
 }\]
-$M_*(\beta)M^*(\alpha) = M^*(\delta)M_*(\gamma)$. This resembles the six-functor formalism.
+$M_*(\beta)M^*(\alpha) = M^*(\delta)M_*(\gamma)$. This resembles the six-functor formalism.\index{six-functor
+formalism}
 
 You should think of Mackey functors as abstracting double coset formulae, especially when reading the literature or
-in representation theory: they tell you something about how restriction and transfer maps commute.
+in representation theory: they tell you something about how restriction and transfer maps commute.\index{double
+cosets}
 \begin{prop}
 The category of Mackey functors is abelian.
 \end{prop}
 We'll find this useful later, when we need to do homological algebra.
 
 Suppose $H$ and $K$ are subgroups of $G$ and $f\colon G/H\to G/K$ is a $G$-map. Then, we call $\Res_H^K\coloneqq
-M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer map}.
+M^*(f)$ a \term[restriction map!for a Mackey functor]{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a
+\term[transfer map!for a Mackey functor]{transfer map}.
 \begin{exm}\hfill
 \label{Mackeyexm}
 \begin{enumerate}
 	\item Let $X$ be a $G$-space. Then, $\pi_n"\bl(X)$, the functor sending $G/H\mapsto\pi_n^H(X)$, is a Mackey
-	functor: by the Wirthmüller isomorphism and the fact that orbits are self-dual,
+	functor: by the Wirthmüller isomorphism and the fact that orbits are self-dual,\index{Wirthmüller isomorphism}
 	\[\pi_n^H(X)\cong [S^n\wedge G/H_+, X]\cong [S^n, X\wedge G/H_+],\]
 	so it's clear how a map $G/H\to G/K$ induces both a right-way and a wrong-way map.
 	\item Let $\underline\Z$ denote the \term{constant Mackey functor} in $\Z$, which assigns $\Z$ to every object.
@@ -109,7 +115,7 @@ M^*(f)$ a \term{restriction map} and $\Tr_H^K\coloneqq M_*(f)$ a \term{transfer 
 	\item The Burnside category is self-dual, i.e. there's an equivalence $B_G\simeq B_G\op$, which sends a span
 	$G/H_1\gets G/K\to G/H_2$ to $G/H_2\gets G/K\to G/H_1$. If $M$ is a Mackey functor, then $M\rop\colon B_G\to
 	B_G\op\to\Ab$ (reverse the arrows in $B_G$, then apply $M$) is also a Mackey functor, called the
-	\term{opposite} of $M$.
+	\term[opposite Mackey functor]{opposite} of $M$.
 	\qedhere
 \end{enumerate}
 \end{exm}
@@ -122,7 +128,8 @@ $M$, let $\underline M\colon B_G\op\to\Ab$ be the functor that on objects is $\u
 	}\]
 we define $\underline M(\omega)\colon \underline M(X) \to \underline M(Y)$ by sending a map $u\colon X \to A$ to
 \[\underline M(\omega)(u)(y) = \sum_{q(a) = y} u(p(a)).\]
-This Mackey functor is called the \term{constant Mackey functor} $\underline M$ for $M$.
+This Mackey functor is called the \term[constant Mackey functor!for a semigroup]{constant Mackey functor}
+$\underline M$ for $M$.
 \end{exm}
 \begin{ex}
 Check that this is a functor.
@@ -133,7 +140,7 @@ H/\abs K$.
 
 The representation Mackey functor contains the information of double coset formulae in representation theory.
 Namely, suppose $H$ and $K$ are subgroups of $G$ contained in a common subgroup $J\subseteq G$. The universal
-property of the product gives us a pullback diagram
+property of the product gives us a pullback diagram\index{double cosets}
 \[\xymatrix{
 	J/H\times J/K\pullback\ar[r]\ar[d] & J/K\ar[d]\\
 	J/H\ar[r] & J/J.

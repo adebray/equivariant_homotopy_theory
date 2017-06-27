@@ -8,7 +8,7 @@ examples of calculations in $\RO(G)$-graded cohomology, except for what people n
 some lecture notes which might be published, and the motivic homotopy theorists (specifically Dugger and Voevodsky)
 used the $C_2$-equivariant category as a model for the motivic setting, and wrote up some calculations. See,
 e.g.,~\cite{Lew88, Dug15}. Holler and Kriz~\cite{HollerKriz} compute the $\RO(C_2^n)$-graded cohomology
-$H_{C_2^n}^*(*; \underline{\Z/2})$.
+$H_{C_2^n}^*(*; \underline{\Z/2})$.\index{motivic homotopy theory}
 
 The takeaway is that, even for groups such as $C_4$, calculating the Bredon cohomology of a point would almost be a
 paper. People probably know what it is, but it would be interesting to understand. The equivariant Steenrod and
@@ -22,27 +22,31 @@ from the coefficient system
 	M(C_2/e),\ar@(dl,dr)_{}
 }\]
 but as a Mackey functor there's also a transfer map $f_*$:\footnote{\TODO: I think some of the directions of these
-maps are wrong. Shouldn't restriction go from $M(C_2/C_2)\to M(C_2/e)$?}
+maps are wrong. Shouldn't restriction go from $M(C_2/C_2)\to M(C_2/e)$?}\index{Mackey functor}
 \[\xymatrix{
 	M(C_2/C_2)\ar@/^0.4cm/[d]^{f_*}\\
 	M(C_2/e).\ar@/^0.4cm/[u]^{f^*}\ar@(dl,dr)_\gamma
 }\]
 \begin{ex}
 Show that the double coset formulae force $f_*f^* = 1+\gamma$ and $f^*f_* = 2$.\footnote{\TODO: I'd like to
-double-check that I got this correct.}
+double-check that I got this correct.}\index{double cosets}
 \end{ex}
 For $\underline\Z$,
 \begin{itemize}
 	\item The coefficients are $M(C_2/C_2) = \Z$ and $M(C_2/e) = \Z$.
 	\item $f^* = \id$, $f_*$ is multiplication by $2$, and $\gamma = \id$.
 \end{itemize}
-As rings, $\RO(C_2)\cong\Z[\sigma]/(\sigma^2-1)$, where $\sigma$ denotes the sign representation. Hence, every
-virtual representation can be written $p+q\sigma$. Since the additive structure is just $\Z^2$, we'll introduce a
-bigrading on $H^*_{C_2}(\bl)$, where $H_{C_2}^{p,q}(\bl) \coloneqq H_{C_2}^{p+\sigma q}(\bl)$. The index $p$ is
-called the \term{fixed dimension}, and $q$ is called the \term{sign dimension}.
+\index{representation ring!of $C_2$}
+As rings, $\RO(C_2)\cong\Z[\sigma]/(\sigma^2-1)$, where $\sigma$ denotes the sign representation.\index{sign
+representation} Hence, every virtual representation\index{virtual representation} can be written $p+q\sigma$. Since
+the additive structure is just $\Z^2$, we'll introduce a bigrading on $H^*_{C_2}(\bl)$, where $H_{C_2}^{p,q}(\bl)
+\coloneqq H_{C_2}^{p+\sigma q}(\bl)$. The index $p$ is called the \term[fixed dimension!of a
+$C_2$-representation]{fixed dimension}, and $q$ is called the \term[sign representation!of a
+$C_2$-representation]{sign dimension}.
 \begin{rem}
-There's an alternative \term{motivic indexing} $H_{C_2}^{p+q,q}$, where $q$ counts the number of copies of $\sigma$
-and $p+q$ counts the total underlying dimension. We're not going to use this grading.
+There's an alternative \term[motivic indexing!on $\RO(C_2)$]{motivic indexing} $H_{C_2}^{p+q,q}$, where $q$ counts
+the number of copies of $\sigma$ and $p+q$ counts the total underlying dimension. We're not going to use this
+grading.
 \end{rem}
 We'll first compute the additive structure, then sew things together.
 \begin{lem}
@@ -56,7 +60,8 @@ By adjunction, $H_{C_2}^{p,q}(C_2;\underline\Z)\cong H^{p+q}(*;\Z)$ (nonequivari
 $[C_{2+}\wedge X, Y]_{C_2}\cong [X,Y]$, and we know what the nonequivariant cohomology of a point is.
 \end{proof}
 Next we'll compute $H_{C_2}^{p,q}(*;\underline\Z)$. Let $S^{\sigma q}$ denote the representation sphere that's the
-one-point compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q > 0$,
+one-point compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q >
+0$,\index{representation sphere}
 \[H_{C_2}^{p,-q}(*)\cong \wH_{C_2}^{p,-q}(S^0)\cong \wH_{C_2}^{p,0}(S^{\sigma q}).\]
 If $S(\sigma q)$ denotes the unit sphere inside $\R^{\sigma q}$ and $D(\sigma q)$ denotes the unit disc, then there
 is a cofiber sequence
@@ -72,7 +77,7 @@ of the quotient. The $C_2$-action on $S(\sigma q)$ is the antipodal map, so the 
 \[\wH_{C_2}^{p,0}(S^{\sigma q})\cong \wH_{C_2}^{p,0}(\Sigma S(\sigma q))\cong \wH^p(\Sigma\RP^{q-1}),\]
 and we know what this is.
 
-When $q > 0$, we use equivariant Spanier-Whitehead duality:
+When $q > 0$, we use equivariant Spanier-Whitehead duality:\index{Spanier-Whitehead duality}
 \[H_{C_2}^{p,q}(*)\cong \wH_{C_2}^{p,q}(S^0)\cong \wH_{-p,-q}^{C_2}(S^0)\cong \wH_{-p,0}(S^{\sigma q}).\]
 Once again we'll apply $\wH_{*,0}$ to the cofiber sequence, and conclude when $k\ne 0,1$, $\wH_{k,0}(S^{\sigma
 q})\cong \wH_{k-1,0}(S(\sigma q))$, which will again relate to projective spaces; for $k = 0,1$, we'll have to open
@@ -81,13 +86,13 @@ up the long exact sequence.
 Inducting over the cofiber sequence is a common trick, and is a good one to carry with you.
 
 Let's recall some Mackey functors from \cref{Mackeyexm}. We'll write them out carefully so as to not make a
-mistake. The constant Mackey functor $\underline\Z$ is
+mistake. The constant Mackey functor $\underline\Z$ is\index{constant Mackey functor}
 \[\xymatrix{
 	\Z\ar@/^0.4cm/[d]^2\ar@(ul,ur)^\id\\
 	\Z,\ar@/^0.4cm/[u]^\id
 }\]
 where the top entry corresponds to the orbit $C_2/e$, and the bottom to the orbit $C_2/C_2$. There's another Mackey
-functor, denoted $\underline\Z\rop$, given by the diagram
+functor, denoted $\underline\Z\rop$, given by the diagram\index{opposite Mackey functor}
 \[\xymatrix{
 	\Z\ar@/^0.4cm/[d]^\id\ar@(ul,ur)^\id\\
 	\Z.\ar@/^0.4cm/[u]^2
@@ -147,9 +152,9 @@ $\gamma$ is multiplication by $2$, and therefore $\wH_{1,0}(S^{q\sigma})\cong 0$
 $\wH_{0,0}(S^{q\sigma})\cong\Z/2$.
 \end{claim}
 \begin{proof}
-The idea is to identify the map $\gamma$ as the transfer map for the Mackey functor $\underline\Z$. Said another
-way, we want to see $\gamma$ as coming from the map $H_{0,0}(C_2)\to H_{0,0}(\pt)$ associated to the map $C_2\to
-*$. This follows from the dimension axiom and the fact that $S(\sigma)\cong C_2$.
+The idea is to identify the map $\gamma$ as the transfer map\index{transfer map} for the Mackey functor
+$\underline\Z$. Said another way, we want to see $\gamma$ as coming from the map $H_{0,0}(C_2)\to H_{0,0}(\pt)$
+associated to the map $C_2\to *$. This follows from the dimension axiom and the fact that $S(\sigma)\cong C_2$.
 \end{proof}
 So now, how do we express this in terms of Mackey functors? This is only nontrivial in the $C_2$ orbit and when the
 cohomology is nonzero (the zero Mackey functor is not hard to define). Thus, we care about the case $p+q = 0$.
@@ -163,7 +168,7 @@ which comes from~\eqref{signed_cofiber} when $q = 1$, i.e.\ the cofiber sequence
 $\zeta$ is the transfer in the Mackey functor.
 \begin{ex}
 Show, using the double coset formula, that when $n > 0$, $\zeta$ is an isomorphism, and when $n < 0$, it's
-multiplication by $2$.
+multiplication by $2$.\index{double cosets}
 \end{ex}
 That is, when $n > 0$, the cohomology, as a Mackey functor, is $\underline\Z$, and when $n < 0$, it's
 $\underline\Z\rop$.

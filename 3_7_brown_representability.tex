@@ -5,7 +5,8 @@ In the back of your mind, you should be wondering about the connection between $
 theories, and Mackey functors. In the nonequivariant setting, Brown representability establishes an (almost)
 equivalence between spectra and cohomology theories. Equivariantly, things are very similar: $G$-spectra play the
 role of spectra, equivariant cohomology theories play the role of cohomology theories, and, less tautologically,
-Mackey functors play the role of abelian groups. We'll talk about rings later.
+Mackey functors play the role of abelian groups. We'll talk about rings later.\index{Brown
+representability}\index{Mackey functor}
 
 First, we should discuss $\RO(G)$, the ring we'll index cohomology groups on.
 \begin{defn}
@@ -15,7 +16,7 @@ isomorphism classes of finite-rank $G$-representations over $R$, with the relati
 and $[V\otimes W] = [V]\cdot [W]$.\footnote{Not every element of $R(G)$ is the class of a representation: some
 elements are formal differences of two representations. These elements are sometimes called \term{virtual
 representations}.} By \emph{the} representation ring, we'll mean $\RO(G)\coloneqq\R(G)$, the ring of real
-representations.
+representations.\index{RO(G)@$\RO(G)$|see {representation ring}}
 \end{defn}
 We can think of $\R(G)$ and $\C(G)$ as rings of characters: given a representation $V$, its \term{character} is the
 map $\chi_V\colon G\to\R$ (or to $\C$) where $\chi_V(g) = \tr(g\cdot)$. Since $\chi_{V\oplus W} = \chi_V + \chi_W$,
@@ -29,17 +30,17 @@ $G\to\R$ (resp.\ $\C$) that are characters.
 Roughly speaking, an $\RO(G)$-graded cohomology theory should be some collection of functors $E^\alpha$ indexed by
 $\alpha\in\RO(G)$ such that for any $G$-representation $V$, $E^\alpha(X) \cong E^{\alpha+V}(\Sigma^V X)$, and any
 fixed $\alpha$ should satisfy the wedge and cofiber axioms, taking wedge products to coproducts and cofiber
-sequences to long exact sequences.
+sequences to long exact sequences.\index{RO(G)-graded cohomology theory@$\RO(G)$-graded cohomology theory}
 
 The (well, an) issue that makes this tricky is that you can't really work with isomorphism classes of
-representations, even though you need that to define $\RO(G)$. As a workaround, let's fix a $G$-universe $U$ and
-define $\cat{RO}(G;U)$ to be the category whose objects are finite-dimensional representations $V$ that embed
-equivariantly in $U$ and whose morphisms $V\to W$ are $G$-equivariant isometric isomorphisms.\footnote{The data of
-the embedding $V\inj U$ is not used in $\cat{RO}(G;U)$. When we discuss multiplicative structures, this will
-change.} We say that two maps $f,g\colon V\to W$ are \term{homotopic} if their one-point compactifications
-$\overline f, \overline g\colon S^V\to S^W$ are stably homotopic. We don't have enough structure to set up a model
-category or anything, but we can define the homotopy category $\Ho(\cat{RO}(G;U))$ by passing to homotopy classes
-of maps.
+representations, even though you need that to define $\RO(G)$. As a workaround, let's fix a
+$G$-universe\index{universe} $U$ and define $\cat{RO}(G;U)$ to be the category whose objects are finite-dimensional
+representations $V$ that embed equivariantly in $U$ and whose morphisms $V\to W$ are $G$-equivariant isometric
+isomorphisms.\footnote{The data of the embedding $V\inj U$ is not used in $\cat{RO}(G;U)$. When we discuss
+multiplicative structures, this will change.} We say that two maps $f,g\colon V\to W$ are \term*{homotopic} if their
+one-point compactifications $\overline f, \overline g\colon S^V\to S^W$ are stably homotopic. We don't have enough
+structure to set up a model category or anything, but we can define the homotopy category $\Ho(\cat{RO}(G;U))$ by
+passing to homotopy classes of maps.
 
 A finite-dimensional $G$-representation defines a suspension functor
 \[\Sigma^W\colon \Ho(\cat{RO}(G;U))\times\Ho(G\Top)\longrightarrow \Ho(\cat{RO}(G;U))\times\Ho(G\Top)\]
@@ -47,9 +48,9 @@ which sends
 \[(V,X)\mapsto (V\oplus W, \Sigma^W X).\]
 This feels a lot like ordinary $S^W$-suspension, but we're keeping track of the automorphisms of $W$.
 \begin{defn}
-An \term{$\RO(G)$-graded cohomology theory} is a functor $E\colon\Ho(\cat{RO}(G;U))\times\Ho(G\Top)\op\to\Ab$,
-where $E(V,X)$ is generally written $E^V(X)$, together with
-isomorphisms
+An \term[RO(G)-graded cohomology theory@$\RO(G)$-graded cohomology theory]{$\RO(G)$-graded cohomology theory} is a
+functor $E\colon\Ho(\cat{RO}(G;U))\times\Ho(G\Top)\op\to\Ab$, where $E(V,X)$ is generally written $E^V(X)$,
+together with isomorphisms
 \[\sigma_W\colon E^V(X)\longrightarrow E^{V\oplus W}(\Sigma^W X),\]
 such that for each $V$, $E^V(\bl)$ satisfies the wedge and cofiber axioms and for each isometric isomorphism
 $\alpha\colon W\to W'$, the map
@@ -61,7 +62,7 @@ We further require that $\sigma_0 = \id$ and the $\set{\sigma_W}$ are transitive
 \sigma_{V\oplus W}$.
 \end{defn}
 \begin{defn}
-The \term{formal differences} of objects in $\cat{RO}(G;U)$ are equivalence classes of pairs $(V,W)$ of objects in
+The \term*{formal differences} of objects in $\cat{RO}(G;U)$ are equivalence classes of pairs $(V,W)$ of objects in
 $\cat{RO}(G;U)$, where $(V,W)\sim(V',W')$ if $V\oplus W'\cong V'\oplus W$. The pair $(V,W)$ is also denoted
 $V\ominus W$.
 \end{defn}
@@ -77,12 +78,12 @@ the $\sigma_{(\bl)}$ means that the diagram
 commutes.
 \begin{rem}
 When you add ring structures to this story, the coherence conditions become gnarlier: there's a cocycle arising
-from the pentagon diagram for associativity. Unfortunately, this is not treated well in the literature; Lewis'
-thesis~\cite{LewisThesis} discusses it, but was not fully published. \cite[Appendix A]{LewisMandell} talks about
-it, and \citeme{Dugger} worked it out in the abstract in the motivic setting.
+from the pentagon diagram\index{pentagon diagram} for associativity. Unfortunately, this is not treated well in the
+literature; Lewis' thesis~\cite{LewisThesis} discusses it, but was not fully published. \cite[Appendix
+A]{LewisMandell} talks about it, and \citeme{Dugger} worked it out in the abstract in the motivic setting.
 \end{rem}
 We'll also need to talk about the equivalence between $\Spc^G$ and $\RO(G)$-graded cohomology theories; one
-direction is Brown representability, and the other is more or less straightforward.
+direction is Brown representability, and the other is more or less straightforward.\index{Brown representability}
 
 You may be asking why we use $\RO(G)$-graded theories at all. One great reason is that there are known examples of
 $\Z$-graded cohomology theories that are extremely chaotic, but the $\RO(G)$-graded theories have nice patterns.
@@ -99,33 +100,37 @@ One of the important connections in ordinary stable homotopy theory is that coho
 to spectra: every spectrum determines a cohomology theory, and up to a very small ambiguity, a cohomology theory is
 represented by a spectrum.
 \begin{defn}
-Let $E$ be a $G$-spectrum. Then, we define \term{$E$-cohomology} to be the functor $E_G^V(X)\coloneqq [S^V\wedge X,
-E]_G$.
+Let $E$ be a $G$-spectrum. Then, we define \term[RO(G)-graded cohomology theory@$\RO(G)$-graded cohomology
+theory|represented by a $G$-spectrum]{$E$-cohomology} to be the functor $E_G^V(X)\coloneqq [S^V\wedge X, E]_G$.
 \end{defn}
 This is an $\RO(G)$-graded cohomology theory, but this is something to check. If you want to restrict your
-universe, there are some nuances that have to be overcome.
+universe, there are some nuances that have to be overcome.\index{universe}
 
 If you put in finite $G$-sets (basically points), what you get is a Mackey functor: considering maps out of $X$
-ensures the transfer maps have the correct variance.
+ensures the transfer maps have the correct variance.\index{Mackey functor}
 
 That was the easy direction: the other direction requires Brown representability. This is originally due to
 \cite{Brown}, and we'll give Neeman's interpretation~\cite{Neeman}. It works in any triangulated category, and is
-very close to the small object argument, which already makes it a good thing.
+very close to the small object argument, which already makes it a good thing.\index{triangulated
+category}\index{small object argument}
 
 Fix a triangulated category $\fC$ that has small coproducts. The stable homotopy categories $\Ho(\Spc)$ and
 $\Ho(\Spc^G)$ are the examples to keep in mind.
 \begin{defn}
-An $x\in\fC$ is \term{compact} if for all countable coproducts over $y_i\in\fC$,
+An $x\in\fC$ is \term[compact object!in a triangulated category]{compact} if for all countable coproducts over
+$y_i\in\fC$,
 \[\Map_\fC\paren{x, \coprod_i y_i} \cong \coprod_i \Map_\fC(x, y_i).\]
 \end{defn}
 This is not the usual definition of compactness in category theory, which uses filtered colimits, but in the stable
 setting these are the same as coproducts, motivating our definition. For example, this definition does not
 characterize compact topological spaces.
 \begin{comp}{defn}{itemize}
-	\item A \term{generating set} of a category $\fC$ is a set $T\subseteq\operatorname{ob}(\fC)$ that
-	\term{detects zero}, i.e.\ for all $x\in\fC$, $x = 0$ iff $\Map_\fC(z,x) = 0$ for all $z\in T$. If $\fC$ is
-	triangulated, we additionally require $T$ to be closed under shift.
-	\item $\fC$ is \term{compactly generated} if it has a generating set consisting of compact objects.
+	\item A \term[generating set!of a triangulated category]{generating set} of a category $\fC$ is a set
+	$T\subseteq\operatorname{ob}(\fC)$ that \term*{detects zero}, i.e.\ for all $x\in\fC$, $x = 0$ iff
+	$\Map_\fC(z,x) = 0$ for all $z\in T$. If $\fC$ is triangulated, we additionally require $T$ to be closed under
+	shift.
+	\item $\fC$ is \term[compactly generated!triangulated category]{compactly generated} if it has a generating set
+	consisting of compact objects.
 \end{comp}
 We introduce these to skate around set-theoretic issues: at some point, we'd like to take a coproduct over all
 objects in the category, but that's too large. Instead, taking the coproduct over all generators will have the same
@@ -135,6 +140,7 @@ For example, dualizable spectra (resp.\ dualizable $G$-spectra) are a compact ge
 (resp.\ $\Ho(\Spc^G)$).
 \begin{thm}[Brown representability~\cite{Brown, Neeman}]
 \label{brown_rep}
+\index{Brown representability}
 Let $\fC$ be a compactly generated triangulated category and $H\colon\fC\op\to\Ab$ be a functor such that
 \begin{enumerate}
 	\item
@@ -146,7 +152,8 @@ Let $\fC$ be a compactly generated triangulated category and $H\colon\fC\op\to\A
 		\dotsb
 	}\]
 \end{enumerate}
-Then, $H$ is \term{representable}, i.e.\ there's an $X\in\fC$ and a natural isomorphism $\Hom_\fC(\bl,X)\to H$.
+Then, $H$ is \term[representable functor!in a triangulated category]{representable}, i.e.\ there's an $X\in\fC$ and
+a natural isomorphism $\Hom_\fC(\bl,X)\to H$.
 \end{thm}
 \begin{proof}
 We're going to build $X$ inductively. Fix a generating set $T$ for $\fC$ of compact objects.
@@ -158,7 +165,7 @@ Thus,
 \[H(X_0) = H\paren{\coprod_{(\alpha, t)\in U_0} t}\cong\prod_{(\alpha, t)\in U_0} H(t),\]
 and in particular there is a distinguished element $\alpha_0\in H(X_0)$ which is $\alpha$ at the $(\alpha,t)$
 factor. By the Yoneda lemma, $\alpha_0$ specifies a natural transformation $\theta_0\colon \Map_\fC(\bl,X_0)\to H$,
-and by construction, $\theta_0$ is surjective for each $t\in T$.
+and by construction, $\theta_0$ is surjective for each $t\in T$.\index{Yoneda lemma}
 
 Now we induct: assume we have $X_i$ and $\alpha_i$ specifying a natural transformation $\theta_i\colon
 \Map_\fC(\bl,X_i)\to H$. Then, define
@@ -188,9 +195,11 @@ For this reason, it can be useful to remember that triangulated categories arise
 stable $\infty$-categories, where there's additional versatility simplifying some arguments. For this reason, we
 use words such as ``cofiber'' and ``homotopy colimit,'' because they're secretly the same thing. % TODO cofiber is
 % assoc to any map...
+\index{$\infty$-category}
 \end{rem}
 \begin{ex}
-The homotopy colimit is also called the \term{telescope}. Relate this to the usual definition of a telescope.
+The homotopy colimit is also called the \term[telescope!in a triangulated category]{telescope}. Relate this to the
+usual definition of a telescope.
 \end{ex}
 Anyways, we'll construct a natural transformation $\theta\colon\Map_\fC(\bl,X)\to H$ as follows. Since $H$ sends
 cofiber sequences to long exact sequences, applying it to
@@ -224,15 +233,16 @@ obtain a $Z\in\fC'$ and a natural transformation $\widetilde\theta\colon\Map_{\f
 $\Map_{\fC'}$ and $\Map_\fC$ are isomorphic, and proved that $\theta$ and $\widetilde\theta$ are isomorphisms on
 the generating set, we can consider the cofiber of
 \[\Map_\fC(\bl,Z)\longrightarrow\Map_\fC(\bl,X).\]
-By the Yoneda lemma, such natural transformations are naturally identified with $\Map_\fC(Z,X)$, and you can
-compute the cofiber of $Z\to X$ in terms of these maps. This is $0$, so $Z\cong X$.
+By the Yoneda lemma,\index{Yoneda lemma} such natural transformations are naturally identified with
+$\Map_\fC(Z,X)$, and you can compute the cofiber of $Z\to X$ in terms of these maps. This is $0$, so $Z\cong X$.
 
 So we've proven that $H$ is representable when restricted to the objects in the generating set $T$ in $\fC$.
 Furthermore, both $H$ and $\Hom_\fC(\bl,X)$ take coproducts to products and take cofiber sequences to long exact
 sequences. As a consequence, we can conclude that the full subcategory $\fC'$ of $\fC$ on which the natural
 transformation $\theta\colon \Hom_\fC(\bl,X)\to H$ is an isomorphism is a full triangulated subcategory of $\fC$
 which is closed under small coproducts (in $\fC$) and contains $T$.\footnote{Terminology: a triangulated
-subcategory that is closed under small coproducts (taken in the ambient category) is called \term{localizing}.}
+subcategory that is closed under small coproducts (taken in the ambient category) is called \term[localizing
+subcategory!of a triangulated category]{localizing}.}
 
 Therefore, it suffices to show that for any compactly generated triangulated category $\fC$, a full triangulated
 subcategory $\fC'$ that contains $T$ and has small coproducts must in fact be all of $\fC$. We show this as
