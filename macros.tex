@@ -23,6 +23,7 @@
 %	- Use \term[name in index]{name in text} to use a different name in the index (e.g. for plurals)
 %	  (source: https://tex.stackexchange.com/a/6089)
 %	- Use \synonym{a}{b} to print b, but index as "see a"
+% some of these commands could be improved though. Namely, \term[$...] fails silently
 \usepackage{suffix}
 \NewDocumentCommand{\term}{o m}{{\bfseries #2}\index{\IfValueTF{#1}{#1}{#2}|textit}}
 %\newcommand{\term}[2][##1]{{\bfseries #1}\index{#2|textit}}
