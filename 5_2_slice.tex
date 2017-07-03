@@ -90,14 +90,16 @@ preserve slice cells.
 Let $X\in\Spc^G$.
 \begin{itemize}
 	\item $X$ is \term{slice $n$-null} if $\Map(\hat S, X)$ is contractible (as a $G$-space) for all slice
-	cells $\hat S$ of dimension greater than $n$. One also says $X$ is \term{slice $\le n$}.
-	\item $X$ is \term{slice $n$-positive} (also \term{slice $\ge n$}) if $\Map(\hat S, X)$ is contractible (as
-	a $G$-space) for all slice cells $\hat S$ of dimension at most $n$.
-	\item $X$ is \term{slice $n$-positive}\footnote{\TODO: these two notions are different, and so we need
-	different names for them.} if there's a filtration $X_0\subseteq X_1\subseteq\dotsb\subseteq X$ such that
-	$X_i/X_{i-1}$ is a wedge of slice cells of dimensions greater than $n$.
+	cells $\hat S$ of dimension greater than $n$. One also says $X$ is \term{slice $< n$} or
+	\term{slice $\le n-1$}.
+	\item $X$ is \term{slice $n$-positive} (also \term{slice $> n$} or \term{slice $\ge n+1$}) if $\Map(\hat S, X)$
+	is contractible (as a $G$-space) for all slice cells $\hat S$ of dimension at most $n$.
 \end{itemize}
 \end{defn}
+\begin{prop}[\cite{HHR}, Prop.~4.15]
+$X$ is slice $n$-positive iff up to weak equivalence, there's a filtration $X_0\subseteq
+X_1\subseteq\dotsb\subseteq X$ such that $X_i/X_{i-1}$ is a wedge of slice cells of dimensions greater than $n$.
+\end{prop}
 We localize at the slices of dimension greater than $n$ to obtain $P^nX$, the \term[n-slice@$n$-slice]{$n$-slice}
 of $X$. This is a bit tricky, because there are maps $S^V\to S^W$ when $V\subseteq W$ that aren't null-homotopic,
 frustrating our approach to defining the Postnikov tower, but the key is that if $V$ contains a trivial
