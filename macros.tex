@@ -14,7 +14,10 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{fadings}
 
-\makeindex
+% NOTE: indexing has been turned off for the time being, because it was messing everything up.
+% at some point, I'll take a look and fix it, but that will be a significant undertaking.
+
+% \makeindex
 % uncomment this to see index entries in the text, for ease of debugging
 %\usepackage{showidx}
 
@@ -26,22 +29,26 @@
 % and \term does not work in footnotes. Use \footterm if you don't need [...]; if you do, you have to use basic
 % indexing primitives
 % See https://tex.stackexchange.com/questions/377058
+% TODO: \term adds spaces. it's completely broken and probably useless.
+% Time to revise everything... I guess...
 \usepackage{suffix}
-\NewDocumentCommand{\term}{t[}{%
-  \IfBooleanTF#1{\termauxi]}{\termauxii}%
-}
-\NewDocumentCommand\termauxi{vm}{%
-  \index{#1|textit}%
-  {\bfseries #2}%
-}
-\NewDocumentCommand\termauxii{v}{%
-  \index{#1|textit}%
-  {\bfseries\scantokens{#1}}%
-}
-\newcommand{\footterm}[1]{{\bfseries #1}\index{#1|textit}}
-%\newcommand{\term}[2][##1]{{\bfseries #1}\index{#2|textit}}
+% \NewDocumentCommand{\term}{t[}{%
+%   \IfBooleanTF#1{\termauxi]}{\termauxii}%
+% }
+% \NewDocumentCommand\termauxi{vm}{%
+%   \index{#1|textit}%
+%   {\bfseries #2}%
+% }
+% \NewDocumentCommand\termauxii{v}{%
+%   \index{#1|textit}%
+%   {\bfseries\scantokens{#1}}%
+% }
+ \newcommand{\footterm}[1]{{\bfseries #1}\index{#1|textit}}
+% %\newcommand{\term}[2][##1]{{\bfseries #1}\index{#2|textit}}
+\newcommand{\term}[2][]{{\bfseries #2}}
 \WithSuffix\newcommand\term*[1]{{\bfseries #1}}
 \newcommand{\synonym}[2]{{{\bfseries #2}\index{#2|see {#1}}}}
+
 
 \newcommand{\sSet}{\cat{sSet}}
 \DeclareMathOperator{\Map}{Map}
