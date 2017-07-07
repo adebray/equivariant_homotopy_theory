@@ -1,0 +1,53 @@
+- compute examples
+- fix example from class (and understand it!)
+
+- Things which we either said we'd cover, or we probably should cover:
+	* the Adams isomorphism
+	* the Segal conjecture
+	* how do you get a Tambara functor from a ring G-spectrum?
+	* how do you get an Eilenberg-Mac Lane ring G-spectrum from a Tambara functor?
+
+- Things which need to be cleaned up:
+	* RO(C_2)-graded cohomology calculations (particularly for the Burnside Mackey functor)
+	* why does RO(G)-graded cohomology spit out Mackey functors?
+	* what are the Eilenberg-Steenrod axioms for RO(G)-graded cohomology?
+
+- Things which we're not going to cover, but it would be good to provide references for. Maybe it
+  would be good to put this in an appendix, à la Concise Course, with a few references for each one.
+	* equivariant cobordism
+	* equivariant surgery theory
+	* in general, how things change for compact Lie groups
+	* global and motivic stuff? (i.e. there are people working on this, it relates in this way, and
+	  here's a bunch of references)
+	  	- for global stuff presumably Schwede's notes
+	* trace methods in algebraic K-theory
+
+- Mechanical things
+	* uniformity of a name in different references in the bibliography
+	* index (this currently turned off, and is a bit of a mess)
+	* consistency of notation (e.g. are Mackey functors underlined?)
+
+- Bredon cohomology treats coefficient systems as an abelian category and then just does CW
+  cohomology with it. The coend is the tensor product, and the Hom is abelian-group-valued Hom.
+- organized and streamlined, which it currently isn't
+
+- idea: presheaves on the type of diagrams we have are the replacement for coefficient groups
+  (namely in homology, cohomology, and EM spaces/spectra)
+	* orbit category: coefficient systems, Bredon (co)homology
+	* trivial family: Z[G]-modules?, Borel (co)homology
+	* Burnside category (w.r.t universe): Mackey functors, RO(G)-graded cohomology theories
+	* TNR bispans (w.r.t universe?): Tambara functors, ring spectra
+
+	* how accurate is the idea that "these homotopy types are presheaves on the diagram?" (e.g.
+	  Elmendorf's theorem)
+	* so if you want transfers, you want the whole Burnside category... and you want transfers
+	  because you want duality
+
+Question: does such an analogy extend to Borel homotopy theory? Is there a diagram D such that
+	* Borel homotopy types are Top-valued presheaves on D?
+	* Borel equivariant cohomology can be taken with coefficients in Ab-valued presheaves on D?
+	* generalized Borel equivariant cohomology theories are represented by Sp-valued presheaves on
+	* D?
+
+This feels like special cases of ``diagrammatic homotopy theory'' -- what general framework does
+this fit into? Which theorems are formal?

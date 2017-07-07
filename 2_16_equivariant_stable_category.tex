@@ -130,7 +130,36 @@ compactification smashed with $\id_X$.
 In particular, if you give $S^0$ the trivial $G$-action, $\Sigma^\infty S^0\cong\Sph$.
 \end{exm}
 \begin{exm}[Real $K$-theory]
-Real $K$-theory, as discovered by Atiyah~\cite{AtiyahKR}, is a less generic example. \TODO
+Real $K$-theory, as discovered by Atiyah~\cite{AtiyahKR}, is a less generic example. Throughout, $\R^{p,q}$ denotes
+the $C_2$-representation that's $p$ copies of the trivial representation and $q$ copies of the sign representation,
+and $\C^n\cong\R^{n,n}$ has a $C_2$-action by complex conjugation.
+\begin{defn}
+Let $X$ be a $C_2$-space,\footnote{We require $X$ to be compact and Hausdorff, as in ordinary $K$-theory, but are
+there any other assumptions?} with $\vp\colon X\to X$ the action of the nonzero element of $C_2$. A \term{real
+equivariant vector bundle} is a complex vector bundle $\pi\colon E\to X$ together with a $C_2$-action
+$\widetilde\vp\colon E\to E$ such that
+\begin{itemize}
+	\item $\pi$ is a $C_2$-map, and
+	\item for each $x\in X$, the map $\widetilde\vp\colon E_x\to E_{\vp(x)}$ is antilinear.
+\end{itemize}
+\end{defn}
+The Grothendieck group of real equivariant vector bundles on $X$ is denoted $\KR^0(X)$.
+\begin{thm}[Real equivariant Bott periodicity]
+There's a natural isomorphism $\beta\colon\KR^0(S^{1,1}\wedge X)\cong \KR^0(X)$.
+\end{thm}
+Using this, one can define $\KR^{p,q}(X) \coloneqq \KR^0(S^{p+n, q+n}\wedge X)$ for an $n > p,q$ as with ordinary
+$K$-theory, and obtain an $\RO(C_2)$-graded cohomology theory. We want to lift this to a $C_2$-spectrum.
+\begin{lem}
+In $\widetilde I_{C_2}$, the complex linear inclusions $\C^n\inj\C^{n+1}$ are cofinal.\footnote{\TODO: I'm not sure
+whether this is the right word, or whether this is why the construction works. The literature is terse as to why
+you can do this. I'd also like to be more explicit about this.}
+\end{lem}
+Hence, to define a $C_2$-spectrum $E$, it suffices to define structure maps $S^{1,1}\wedge E(\C^n)\to E(\C^{n+1})$.
+
+For $\KR$, let $\KR(\C^n) \coloneqq \Z\times B\U$, with $C_2$ acting by complex conjugation on $B\U$ and trivially
+on $\Z$. Then, the structure map $S^{1,1}\wedge \KR(\C^n)\to\KR(\C^{n+1})$ is the map $\Z\times B\U\to\Z\times B\U$
+which classifies Bott periodicity. Hence we obtain a $C_2$-spectrum $\KR$, called \term{real equivariant
+$K$-theory}, and Bott periodicity tells us that $\Sigma^{1,1}\KR\simeq\KR$.
 \end{exm}
 We'll discuss another important example, equivariant Eilenberg-Mac Lane spectra, in \cref{EMcons}.
 
@@ -144,7 +173,7 @@ $G_+\wedge_H\bl$ and $F_H(G_+,\bl)$ are left (resp.\ right) Quillen functors.\in
 \begin{rem}
 You might worry what universe you end up in after applying $i_H$ --- naïvely you get the $H$-representations that
 arise from restriction of $G$-representations, but you might want all $H$-representations. The way to address this
-is to use a change-of-universe functor, which we'll discuss in \$\ref{change_of_universe_sec}. This is a good thing
+is to use a change-of-universe functor, which we'll discuss in \S\ref{change_of_universe_sec}. This is a good thing
 to not be sloppy about, but is annoying, and is why people try to get the universe out of the point-set category.
 In any case, as in group cohomology, induction and coinduction are isomorphic through the \term*{Wirthmüller
 isomorphism} (\cref{Wirthiso}).\index{group cohomology}\index{change-of-universe
