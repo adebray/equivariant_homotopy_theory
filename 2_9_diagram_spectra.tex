@@ -30,10 +30,13 @@ monoidal product via left Kan extension: if $F$ and $G$ are $\fD$-spaces, the fu
 G\colon(d_1,d_2)\mapsto F(d_1)\wedge G(d_2)$ is a $(\fD\times\fD)$-space. To produce a $\fD$-space from this, let
 $\boxtimes\colon\fD\to\fD$ be the monoidal product on $\fD$, and consider the left Kan extension\index{Kan
 extension}
-\[\xymatrix{
+\begin{equation}
+\label{Day_convolution}
+\gathxy{
 	\fD\times\fD\ar[r]^{F\overwedge G}\ar[d]_\boxtimes & \Top\\
 	\fD\ar@{-->}[ur]_{F\wedge G}
-}\]
+}
+\end{equation}
 This is our symmetric monoidal product $F\wedge G$. More explicitly,
 \begin{align*}
 ( F\wedge G)(z) &= \colim_{x\boxtimes y = z} F(x)\wedge G(y)\\
