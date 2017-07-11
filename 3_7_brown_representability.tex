@@ -82,6 +82,25 @@ from the pentagon diagram\index{pentagon diagram} for associativity. Unfortunate
 literature; Lewis' thesis~\cite{LewisThesis} discusses it, but was not fully published. \cite[Appendix
 A]{LewisMandell} talks about it, and \citeme{Dugger} worked it out in the abstract in the motivic setting.
 \end{rem}
+\begin{defn}
+When $G$ is finite, it's possible to extend an $\RO(G)$-graded cohomology theory $E$ to a Mackey-functor-valued
+theory $\underline E$.
+
+Let $X$ be a $G$-space and $V\in\RO(G)$. Then, the \term{Mackey functor-valued $E$-cohomology} of $X$, denoted
+$\underline E^V(X)$, is the Mackey functor defined as follows:
+\begin{itemize}
+	\item On an orbit $G/H$,
+	\[\underline E^V(X)(G/H)\coloneqq E^V(G/H\times X).\]
+	\item Given subgreoups $H\subseteq K$, we get a covering map $\pi\colon G/H\times X\to G/K\times X$. The
+	restriction map for $\underline E^V(X)$ is the pullback $\pi^*\colon E^V(G/K\times X)\to E^V(G/H\times X)$ and
+	the transfer map is the Gysin map $\pi_!\colon E^V(G/H\times X)\to E^V(G/K\times X)$.\footnote{\TODO:
+	double-check to make sure this is right. Why does the Gysin map exist? Are all the arrows in the right
+	direction?}
+\end{itemize}
+\end{defn}
+There's a similar construction for $E$-homology. We'll see this structure explicitly in examples in
+\S\S\ref{const_comp} and \ref{burncomp}.
+
 We'll also need to talk about the equivalence between $\Spc^G$ and $\RO(G)$-graded cohomology theories; one
 direction is Brown representability, and the other is more or less straightforward.\index{Brown representability}
 
