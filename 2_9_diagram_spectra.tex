@@ -15,10 +15,10 @@ There's a sense in which $\Spc$ is the smallest category satisfying these hypoth
 limits and colimits to $\cat S$. In particular, we are constructing a stable analogue of the category of
 topological spaces, \emph{not} its homotopy category.
 \begin{rem}
-Historically, Boardman constructed the stable homotopy category as a formal completion of the $S$-category. Then,
-people tried to find ``point-set models,'' stable model categories whose homotopy categories are isomorphic to
-Boardman's category. There are several options, but explicit proofs that their homotopy categories are equivalent to
-Boardman's are rare in the literature.\index{S-category@$S$-category}
+Historically, \citeme{Boardman} constructed the stable homotopy category as a formal completion of the
+$S$-category. Then, people tried to find ``point-set models,'' stable model categories whose homotopy categories
+are isomorphic to Boardman's category. There are several options, but explicit proofs that their homotopy
+categories are equivalent to Boardman's are rare in the literature.\index{S-category@$S$-category}
 \end{rem}
 \begin{defn}
 By a \term{diagram} $\fD$ we mean a small category, which we assume is enriched in $\Top$ and symmetric monoidal.
@@ -79,11 +79,11 @@ This was the cause of thirty years of pain and suffering in the community --- th
 People knew what the smash product should be on the homotopy category, and wanted a point-set model that's
 symmetric monoidal, unlike this example.
 \end{exm}
-Symmetric spectra are one answer, which we won't use in this class. If all of this had been stated in terms of the
+Symmetric spectra are one answer, which we won't use in these notes. If all of this had been stated in terms of the
 Day convolution from the get-go, people probably would have figured out symmetric spectra as early as the 1960s,
 but hindsight is always clearer, and here we are. Symmetric spectra were introduced in~\cite{HSS};
 see~\cite{SchwedeSymmSpec} for a detailed introduction.\index{symmetric spectra}
-\begin{exm}[Orthogonal spectra]
+\begin{exm}[Orthogonal spectra~\cite{MayOrthogonal}]
 \label{orthogonal_spectra}
 Let $\sI$ denote the category whose objects are finite-dimensional real inner product spaces $V$, and whose
 morphisms $\sI(V,W)$ are the linear isometric isomorphisms $V\to W$.
@@ -94,7 +94,7 @@ V\mapsto S^V$ (the one-point compactification of $V$) is a \emph{commutative} mo
 $S_\sI$-modules is a symmetric monoidal category, called the category of \term[orthogonal spectrum]{orthogonal
 spectra}. This is the model of the stable category that we will use.
 \end{exm}
-\begin{exm}[$\sW$-spaces]
+\begin{exm}[$\sW$-spaces~\cite{Anderson1974}]
 \label{wspaces}
 Let $\sW$ be the category of finite CW complexes (with either all maps or cellular maps; it doesn't really matter).
 $\sW$-spaces are already like spectra, in a sense, in that they're modules over the identity functor
@@ -114,9 +114,9 @@ and this also will induce a homotopy equivalence.
 \begin{exm}[$\Gamma$-spaces]
 \label{gamma_spaces}
 Let $\fD$ be the category of finite based sets and based maps, e.g.\ $n_+ = \set{0,1,\dotsc,n}$ with $0$ as the
-basepoint. $\fD$-spaces are called \term*{$\Gamma$-spaces}, and agree with Segal's
-notion of $\Gamma$-spaces, which are defined differently. The multiplication comes from the map $\psi\colon 2_+\to
-1_+$ sending $1,2\mapsto 1$.\index{Gamma-space@$\Gamma$-space}
+basepoint. $\fD$-spaces are called \term*{$\Gamma$-spaces}, and agree with Segal's notion of
+$\Gamma$-spaces~\cite{SegalGamma}, which are defined differently. The multiplication comes from the map $\psi\colon
+2_+\to 1_+$ sending $1,2\mapsto 1$.\index{Gamma-space@$\Gamma$-space}
 
 Let $d_i:n_+\to 1_+$ send $j\mapsto\delta_{ij}$ (i.e.\ $1$ if $i = j$, and $0$ otherwise). A $\Gamma$-space is
 \term[special!for $\Gamma$-spaces]{special} if the induced map

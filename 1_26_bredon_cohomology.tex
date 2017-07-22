@@ -460,17 +460,28 @@ so the cohomology is that of a point, which is reassuring.
 Let's compute Bredon cohomology with coefficients in a non-constant coefficient system. For $C_2$, this is the data
 of an abelian group $A$, an involution $\vp\colon A\to A$, and a map $\Z\to A$ equivariant with respect to $\vp$.
 For example, let's take $\Z[i]$ with $\vp$ acting by complex conjugation, and call this coefficient system $M$.
-system.
 
 Let $C_2$ act on $S^2$ by reflection across a meridian $m$; this is the representation sphere $S^{1+\sigma}$. It
-has a
-$C_2$-CW structure as follows.
+has a $C_2$-CW structure as follows.
 \begin{itemize}
 	\item One $0$-cell $e$ of the form $C_2/C_2\times D^0$ at the north pole.
 	\item One $1$-cell $f$ of the form $C_2/C_2\times D^1$, which is the meridian $m$.
 	\item One $2$-cell $g$ of the form $C_2/e\times D^2$, which is everything else.
 \end{itemize}
-\TODO: add picture.
+For a picture, see \cref{S2CWmerid}.
+\begin{figure}[h!]
+\begin{tikzpicture}
+  \shade[ball color = gray!40, opacity = 0.4] (0,0) circle (2cm);
+  \draw (0,0) circle (2cm);
+  \draw[red!40!black] (0,2) arc (90:270:1cm and 2cm);
+  \draw[dashed, red!40!black] (0,2) arc (90:-90:1cm and 2cm);
+  \fill[green!40!black, fill=green!40!black] (0,2) circle (2pt);
+\end{tikzpicture}
+\caption{A $C_2$-CW structure for $S^{1+\sigma}$, the sphere where $C_2$ acts by reflection across a meridian.
+There's a single $0$-cell $C_2/C_2\times D^0$ (the green dot), a single $1$-cell $C_2/C_2\times D^1$ (the red
+circle), and a single $2$-cell $C/2\e\times D^2$ (the gray hemispheres).}
+\label{S2CWmerid}
+\end{figure}
 
 Let $g_1$ and $g_2$ denote the two nonequivariant $2$-cells that make up $g$. Then, orient $f$ and $g$ such that
 $\partial f = e - e = 0$ and $\partial g_1 = \partial g_2 = f$.

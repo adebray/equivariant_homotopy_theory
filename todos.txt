@@ -5,11 +5,13 @@
 	* the Adams isomorphism
 	* the Segal conjecture
 	* how do you get a Tambara functor from a ring G-spectrum?
-	* how do you get an Eilenberg-Mac Lane ring G-spectrum from a Tambara functor?
+	* how do you get an Eilenberg-Mac Lane ring G-spectrum from a Tambara functor? (this may be in
+	  Ullman's paper or Strickland's notes)
 
 - Things which need to be cleaned up:
 	* RO(C_2)-graded cohomology calculations (particularly for the Burnside Mackey functor)
-	* why does RO(G)-graded cohomology spit out Mackey functors?
+	* does RO(G)-graded generalized cohomology spit out Mackey functors, or just ordinary
+	  cohomology?
 	* what are the Eilenberg-Steenrod axioms for RO(G)-graded cohomology?
 
 - Things which we're not going to cover, but it would be good to provide references for. Maybe it
@@ -26,6 +28,8 @@
 	* uniformity of a name in different references in the bibliography
 	* index (this currently turned off, and is a bit of a mess)
 	* consistency of notation (e.g. are Mackey functors underlined?)
+	* make Lewis notation for C_2-Mackey functors consistent (C_2/C_2 on top or C_2/e on top?)
+		- convention: C_2/e on top.
 
 - Bredon cohomology treats coefficient systems as an abelian category and then just does CW
   cohomology with it. The coend is the tensor product, and the Hom is abelian-group-valued Hom.

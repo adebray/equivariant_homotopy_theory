@@ -6,59 +6,64 @@ Now we'll repeat this all in the slightly harder case of the Burnside Mackey fun
 source is~\cite{Lew88}, building on unpublished work of Stong. The answer is somewhat crazy, and we'll have to
 define a whole bunch of Mackey functors along the way. Recently, Basu and Ghosh~\cite{BasuGhosh} generalized to $G
 = C_{pq}$.\index{Burnside Mackey functor}
-\begin{beast}\hfill
+\begin{beast}
+We use Lewis' notation~\cite{Lew88} for the various Mackey functors that will arise in the
+computation.\footnote{\TODO: However, for consistency with the notation for the orbit category in previous
+sections, we've switched which of $C_2/e$ and $C_2/C_2$ is on top. Should this be changed? Whichever we choose, it
+should be consistent.}
 \label{best_bestiary}
 \begin{enumerate}
-	\item In the case $G = C_2$,\footnote{For $C_p$, it's the same, but replace $x+2y$ with $x+py$.} the Burnside
-	Mackey functor $A$ takes the form\footnote{\TODO: I want to work through this and understand
-	it.}\index{Burnside Mackey functor!for $C_p$}
+	\item The Burnside Mackey functor $A_{C_2}$ takes the form\footnote{For $G = C_p$, the Burnside Mackey functor
+	looks very similar: $A_{C_p}(C_p/C_p) = \Z[x]/(x^2-px)$, and the restriction map sends $1\mapsto 1$ and
+	$x\mapsto p$.}\index{Burnside Mackey functor!for $C_p$}
 	\begin{equation}
 	\label{burnmack}
 	\gathxy{
-		\Z\oplus\Z\ar@/_0.4cm/[d]_{(x,y)\mapsto x+2y}\\
-		\Z.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{(0,1)}
+		\Z\ar@(ur,ul)_\id\ar@/_0.4cm/[d]_{1\mapsto x}\\
+		\Z[x]/(x^2-2x).\ar@/_0.4cm/[u]_{\substack{1\mapsto 1,\\x\mapsto 2}}
 	}
 	\end{equation}
-	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are $0$:
+	\item For any abelian group $G$, there's a Mackey functor $\ang G$ for which all of the maps are
+	$0$:
 	\[\xymatrix{
-		G\ar@/_0.4cm/[d]_0\\
-		0.\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_0
+		0\ar@/_0.4cm/[d]_0\ar@(ur,ul)_0\\
+		G.\ar@/_0.4cm/[u]_0
 	}\]
 	\item Given a $C_2$-Mackey functor, we can forget to a $\Z[C_2]$-module by evaluating at $C_2/e$. This has
-	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L(M)$, is\footnote{\TODO:
-	are the maps wrong?}
+	both left and right adjoints: if $M$ is a $\Z[C_2]$-module, the left adjoint, denoted $L(M)$, is
 	\[\xymatrix{
-		M/C_2\ar@/_0.4cm/[d]_\tr\\
-		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\pi
+		M\ar@(ur,ul)_\tau\ar@/_0.4cm/[d]_\pi\\
+		M/C_2.\ar@/_0.4cm/[u]_{\overline\tr}
 	}\]
-	where $\pi$ is projection. The right adjoint, denoted $R(M)$, is
+	where $\pi$ is projection, $\tau$ is the action of the nontrivial element of $C_2$, and $\overline\tr([x]) =
+	\sum_{g\in G} g\cdot x$ for any $x$ in the coset $[x]$. The right adjoint, denoted $R(M)$, is
 	\[\xymatrix{
-		M^{C_2}\ar@/_0.4cm/[d]\\
-		M,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]
+		M\ar@(ur,ul)_\tau\ar@/_0.4cm/[d]_\tr\\
+		M^{C_2}.\ar@/_0.4cm/[u]_\iota
 	}\]
-	where the map down is the inclusion of fixed points, and the map up is the trace: if $\gamma\in C_2$ is the
-	nontrivial element, send $x\mapsto x+\gamma x$.
+	where $\iota$ is inclusion and $\tr(x) = \sum_{g\in G} g\cdot x$.\footnote{These generalize \latin{mutatis
+	mutandis} to $G = C_p$.}
 	\item Regarding $\Z$ as a trivial $\Z[C_2]$-module, we obtain $L\coloneqq L(\Z)$ and $R\coloneqq R(\Z)$, which
 	are explicitly
 	\[\gathxy{
-		\Z\ar@/_0.4cm/[d]_{\cdot 2}\\
-		\Z\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_\id
+		\Z\ar@/_0.4cm/[d]_\id\ar@(ur,ul)_\id\\
+		\Z\ar@/_0.4cm/[u]_{\cdot 2}
 	}\qquad\text{and}\qquad
 	\gathxy{
-		\Z\ar@/_0.4cm/[d]_\id\\
-		\Z,\ar@(dl,dr)_\id\ar@/_0.4cm/[u]_{\cdot 2}
+		\Z\ar@/_0.4cm/[d]_{\cdot 2}\ar@(ur,ul)_\id\\
+		\Z,\ar@/_0.4cm/[u]_\id
 	}
 	\]
 	respectively.
 	\item If $\Z\sigma$ denotes $\Z$ as a $\Z[C_2]$-module with the sign action, we obtain $L_-\coloneqq
 	L(\Z\sigma)$ and $R_-\coloneqq R(\Z\sigma)$, which are explicitly
 	\[\gathxy{
-		\Z/2\ar@/_0.4cm/[d]_0\\
-		\Z\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_\pi
+		\Z\ar@/_0.4cm/[d]_\pi\ar@(ur,ul)_{-1}\\
+		\Z/2\ar@/_0.4cm/[u]_0
 	}\qquad\text{and}\qquad
 	\gathxy{
-		0\ar@/_0.4cm/[d]_0\\
-		\Z,\ar@(dl,dr)_{-1}\ar@/_0.4cm/[u]_0
+		\Z\ar@/_0.4cm/[d]_0\ar@(ur,ul)_{-1}\\
+		0,\ar@/_0.4cm/[u]_0
 	}
 	\]
 	respectively.
@@ -94,7 +99,8 @@ equivariant cohomology too.\index{dimension axiom}
 \end{cases}\]
 \end{thm}
 \begin{rem}
-The description of $H_{C_2}^*(*;A_{C_2})$ in~\cite[Thm.~2.1]{Lew88} use a different grading, indexing by $(p+q,p)$.
+The description of $H_{C_2}^*(*;A_{C_2})$ in~\cite[Thm.~2.1]{Lew88} uses a different grading, indexing by
+$(p+q,p)$.
 \end{rem}
 So the good news is, the answer is determined by the fixed and total dimensions.\index{fixed dimension!of a
 $C_2$-representation}\index{total dimension!of a $C_2$-representation} This also generalizes nicely to $C_p$ when

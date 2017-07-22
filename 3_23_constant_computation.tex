@@ -19,14 +19,14 @@ written all of it down. This would be hard to attack via a Cartan-style seminar,
 Thus, it's not at all trivial that we're computing $H_{C_2}^*(*;\underline\Z)$. Recall that $\underline\Z$ comes
 from the coefficient system
 \[\xymatrix{
-	M(C_2/C_2)\ar[d]\\
-	M(C_2/e),\ar@(dl,dr)_{}
+	M(C_2/e)\ar@(ur,ul)_{}\\
+	M(C_2/C_2)\ar[u],
 }\]
-but as a Mackey functor there's also a transfer map $f_*$:\footnote{\TODO: I think some of the directions of these
-maps are wrong. Shouldn't restriction go from $M(C_2/C_2)\to M(C_2/e)$?}\index{Mackey functor}
+where both objects are $\Z$ and the restriction map is the identity, but as a Mackey functor, it also has a
+transfer map $f_*$:\index{Mackey functor}
 \[\xymatrix{
-	M(C_2/C_2)\ar@/^0.4cm/[d]^{f_*}\\
-	M(C_2/e).\ar@/^0.4cm/[u]^{f^*}\ar@(dl,dr)_\gamma
+	M(C_2/e)\ar@/_0.4cm/[d]_{f_*}\ar@(ur,ul)_\gamma\\
+	M(C_2/C_2).\ar@/_0.4cm/[u]_{f^*}
 }\]
 \begin{ex}
 Show that the double coset formulae force $f_*f^* = 1+\gamma$ and $f^*f_* = 2$.\footnote{\TODO: I'd like to
@@ -41,7 +41,7 @@ For $\underline\Z$,
 As rings, $\RO(C_2)\cong\Z[\sigma]/(\sigma^2-1)$, where $\sigma$ denotes the sign representation.\index{sign
 representation} Hence, every virtual representation\index{virtual representation} can be written $p+q\sigma$. Since
 the additive structure is just $\Z^2$, we'll introduce a bigrading on $H^*_{C_2}(\bl)$, where $H_{C_2}^{p,q}(\bl)
-\coloneqq H_{C_2}^{p+\sigma q}(\bl)$. The index $p$ is called the
+\coloneqq H_{C_2}^{p+q\sigma}(\bl)$. The index $p$ is called the
 \term[fixed dimension!of a $C_2$-representation]{fixed dimension}, and $q$ is called the
 \term[sign representation!of a $C_2$-representation]{sign dimension}.
 \begin{rem}
@@ -89,14 +89,15 @@ Inducting over the cofiber sequence is a common trick, and is a good one to carr
 Let's recall some Mackey functors from \cref{Mackeyexm}. We'll write them out carefully so as to not make a
 mistake. The constant Mackey functor $\underline\Z$ is\index{constant Mackey functor}
 \[\xymatrix{
-	\Z\ar@/^0.4cm/[d]^2\ar@(ul,ur)^\id\\
-	\Z,\ar@/^0.4cm/[u]^\id
+	\Z\ar@/_0.4cm/[d]_2\ar@(ur,ul)_\id\\
+	\Z,\ar@/_0.4cm/[u]_\id
 }\]
 where the top entry corresponds to the orbit $C_2/e$, and the bottom to the orbit $C_2/C_2$. There's another Mackey
-functor, denoted $\underline\Z\rop$, given by the diagram\index{opposite Mackey functor}
+functor, denoted $\underline\Z\rop$, given by switching the restriction and transfer:\index{opposite Mackey
+functor}
 \[\xymatrix{
-	\Z\ar@/^0.4cm/[d]^\id\ar@(ul,ur)^\id\\
-	\Z.\ar@/^0.4cm/[u]^2
+	\Z\ar@/_0.4cm/[d]_\id\ar@(ur,ul)_\id\\
+	\Z.\ar@/_0.4cm/[u]_2
 }\]
 If $\pi\colon C_2\times X\to X$ is projection onto the second factor and $M$ is a Mackey functor, we get maps going
 both ways:
@@ -117,6 +118,8 @@ with the transfer maps in cohomology induced by maps between orbits.
 % \[H^{-p.-q}_{C_2}(*) \cong \wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH^p(\Sigma\RP^{q-1}),\]
 % because the Eilenberg-Steenrod axioms meant that for a free action, we can compute the nonequivariant cohomology of
 % the quotient.
+
+\TODO: streamline this, and explicitly state the final answer.
 
 To compute $H_{C_2}^{p,q}(*)$, we use duality:
 \[H_{C_2}^{p,q}(*) \cong \wH^{p,q}_{C_2}(S^0)\cong \wH_{-p,-q}(S^0)\cong \wH_{-p,0}(S^{\sigma q}),\]
