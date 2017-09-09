@@ -10,9 +10,9 @@ transformations $P_n\to P_{n-1}$, such that
 	\item
 	\[\pi_i(P_nX) = \begin{cases}
 		\pi_i(X), &0\le i\le n\\
-		0, &\text{otherwise}
+		0, &\text{otherwise;}
 	\end{cases}\]
-	\item $X\cong\holim P_nX$, and
+	\item $X\cong\holim P_nX$; and
 	\item the homotopy fiber of $P_nX\to P_{n-1}X$ is weakly equivalent to $K(\pi_n(X), n)$.
 \end{itemize}
 So we obtain a \term{Postnikov tower} $\dotsb\to P_2X\to P_1X\to P_0X$, which is in a sense dual to the cellular
@@ -22,8 +22,8 @@ The axiomatization of the idea of a Postnikov tower in a triangulated category i
 \term[t-structure@$t$-structure]{$t$-structure}~\cite{BBD}. The dual notion of a cellular filtration is axiomatized
 as a \term{weight structure}~\cite{Bondarko}.
 \end{rem}
-These $P_nX$ have only finitely many nonzero homotopy groups, hence are going to be very large spaces. There will
-also be different point-set models for them. Here's one model.
+These $P_nX$ have only finitely many nonzero homotopy groups, hence must be very large spaces. There are multiple
+different point-set models for them. Here's one model.
 
 Choose an $\alpha\in\pi_{n+1}(X)$, which defines a homotopy class of maps $f_\alpha\colon S^{n+1}\to X$. Let
 $\widetilde X$ be the pushout
@@ -42,9 +42,10 @@ This has a fatal flaw: it's not functorial. As usual, we fix this with the small
 }\]
 Continue this way for maps $S^N\to X$ for $N\ge n+1$ and let $P_nX\coloneqq \colim_N X_N$. This is functorial.
 
-$P_nX$ can be described as localization, e.g.\ in~\cite{MandellShipley}, which allows for some slick high-tech
-setups: if you work with presentable $\infty$-categories, you can describe $P_n$ as adjoint to the inclusion of
-spaces with homotopy groups within $[0,n]$.\index{presentable $\infty$-category}
+The functor $P_n$ can be described as localization, e.g.\ in~\cite{MandellShipley}, which allows for some slick
+high-tech setups: if you work with presentable $\infty$-categories, you can describe $P_n$ as adjoint to the
+inclusion of spaces with homotopy groups within $[0,n]$, as in~\cite[\S5.5.6]{HTT}.
+\index{presentable $\infty$-category}
 
 The Postnikov tower leads to the \term{Atiyah-Hirzebruch spectral sequence} (AHSS), which for a generalized
 homology theory $E$, has signature

@@ -49,7 +49,16 @@ There's an alternative \term[motivic indexing!on $\RO(C_2)$]{motivic indexing} $
 the number of copies of $\sigma$ and $p+q$ counts the total underlying dimension. We're not going to use this
 grading.
 \end{rem}
-We'll first compute the additive structure, then sew things together.
+We're going to compute $\underline H_{C_2}^{*,*}(*;\underline\Z)$, i.e.\ as an $\RO(C_2)$-graded Mackey functor as
+in \cref{MacFunCoh}. There are three steps:
+\begin{enumerate}
+	\item\label{atC_2} First, compute the value at $C_2/C_2$, which is the abelian-group-valued cohomology
+	$H_{C_2}^{*,*}(C_2;\underline\Z)$.
+	\item\label{ate} Next, compute the value at $C_2/e$, which is the abelian-group-valued cohomology
+	$H_{C_2}^{*,*}(*;\underline\Z)$.
+	\item Finally, we must determine the restriction and transfer maps.
+\end{enumerate}
+\subsection*{Step~\ref{atC_2}.}
 \begin{lem}
 \[H_{C_2}^{p,q}(C_2; \underline\Z) = \begin{cases}
 	\Z, &p+q=0\\
@@ -60,25 +69,45 @@ We'll first compute the additive structure, then sew things together.
 By adjunction, $H_{C_2}^{p,q}(C_2;\underline\Z)\cong H^{p+q}(*;\Z)$ (nonequivariant cohomology), because
 $[C_{2+}\wedge X, Y]_{C_2}\cong [X,Y]$, and we know what the nonequivariant cohomology of a point is.
 \end{proof}
-Next we'll compute $H_{C_2}^{p,q}(*;\underline\Z)$. Let $S^{\sigma q}$ denote the representation sphere that's the
-one-point compactification of $\R^{\sigma q}$ (i.e.\ $q$ copies of the sign representation); then, if $q >
-0$,\index{representation sphere}
-\[H_{C_2}^{p,-q}(*)\cong \wH_{C_2}^{p,-q}(S^0)\cong \wH_{C_2}^{p,0}(S^{\sigma q}).\]
-If $S(\sigma q)$ denotes the unit sphere inside $\R^{\sigma q}$ and $D(\sigma q)$ denotes the unit disc, then there
+\subsection*{Step~\ref{ate}.}
+We'll compute $H_{C_2}^{*,*}(*;\underline\Z)$ by identifying it with Bredon homology or cohomology of spaces with
+free $C_2$-actions, hence with the nonequivariant cohomology of the quotient. Let $q\sigma$ denote the direct sum
+of $q$ copies of the sign representation, so that $S^{q\sigma}$ denotes its one-point
+compactification.\index{representation sphere}
+
+
+Let $q > 0$. Then,
+\begin{align*}
+	H_{C_2}^{p,-q}(*) &\cong \wH_{C_2}^{p,-q}(S^0)\\
+	&\cong \wH_{C_2}^{p,0}(S^{q\sigma}).
+\end{align*}
+If $S(q\sigma)$ denotes the unit sphere inside $q\sigma$ and $D(q\sigma)$ denotes the unit disc, then there
 is a cofiber sequence
 \begin{equation}
 \label{signed_cofiber}
 \xymatrix{
-	S(\sigma q)\ar[r] & D(\sigma q)\ar[r] & S^{\sigma q},
+	S(q\sigma)\ar[r] & D(q\sigma)\ar[r] & S^{q\sigma}.
 }
 \end{equation}
-so $\wH_{C_2}^{p,0}(S^{\sigma q})\cong\wH_{C_2}^{p,0}(\Sigma S(\sigma q))$. This is the $\Z$-graded Bredon
-cohomology of $\Sigma S(\sigma q)$, which if the $C_2$-action is free is the same thing as the ordinary cohomology
-of the quotient. The $C_2$-action on $S(\sigma q)$ is the antipodal map, so the quotient is $\RP^{q-1}$, so
-\[\wH_{C_2}^{p,0}(S^{\sigma q})\cong \wH_{C_2}^{p,0}(\Sigma S(\sigma q))\cong \wH^p(\Sigma\RP^{q-1}),\]
-and we know what this is.
+\begin{ex}
+Show that $D(q\sigma)$ is equivariantly contractible, and hence
+\begin{align*}
+	\wH_{C_2}^{p,0}(S^{q\sigma}) &\cong\wH_{C_2}^{p,0}(\Sigma S(q\sigma))\\
+	&\cong\wH_{C_2}^{p-1,0}(S(q\sigma)).
+\end{align*}
+\end{ex}
+The $C_2$-action on $S(q\sigma)$ is the antipodal action, hence free. Thus, the cohomology of $S(q\sigma)$ at a
+trivial representation is the nonequivariant cohomology of the quotient:
+\begin{align*}
+	\wH_{C_2}^{p-1,0}(S(q\sigma)) &\cong\wH^{p-1}(S(q\sigma)/C_2)\\
+	&\cong \wH^{p-1}(\RP^{q-1}) %\cong\begin{cases}
+%		\Z, &p = q, p\text{ even}\\
+%		\Z/2, &0 < p < q, p\text{ odd}
+%	\end{cases}
+\end{align*}
+\TODO: fill in the rest of the details.
 
-When $q > 0$, we use equivariant Spanier-Whitehead duality:\index{Spanier-Whitehead duality}
+For the other half of the plane,  we use equivariant Spanier-Whitehead duality:\index{Spanier-Whitehead duality}
 \[H_{C_2}^{p,q}(*)\cong \wH_{C_2}^{p,q}(S^0)\cong \wH_{-p,-q}^{C_2}(S^0)\cong \wH_{-p,0}(S^{\sigma q}).\]
 Once again we'll apply $\wH_{*,0}$ to the cofiber sequence, and conclude when $k\ne 0,1$, $\wH_{k,0}(S^{\sigma
 q})\cong \wH_{k-1,0}(S(\sigma q))$, which will again relate to projective spaces; for $k = 0,1$, we'll have to open

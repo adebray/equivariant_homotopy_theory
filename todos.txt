@@ -28,8 +28,6 @@
 	* uniformity of a name in different references in the bibliography
 	* index (this currently turned off, and is a bit of a mess)
 	* consistency of notation (e.g. are Mackey functors underlined?)
-	* make Lewis notation for C_2-Mackey functors consistent (C_2/C_2 on top or C_2/e on top?)
-		- convention: C_2/e on top.
 
 - Bredon cohomology treats coefficient systems as an abelian category and then just does CW
   cohomology with it. The coend is the tensor product, and the Hom is abelian-group-valued Hom.
