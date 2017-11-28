@@ -84,9 +84,7 @@ If $q$ is odd, we take $E_2^{p,q} = 0$.
 
 The general formulation of the slice spectral sequence was worked out in~\cite{HHR}; see also
 Hu-Kriz-Ormsby~\cite{HKO11}. The exposition in~\cite{HHR} is pretty good, and you should also check out Mike Hill's
-introduction~\cite{HillSlice}.  There are also some worked-out computations with the slice spectral sequence due to
-Hill~\cite{HillRealBordism}, Yarnall~\cite{Yarnall}, Hill-Hopkins-Ravenel~\cite{HHR_HZ, HHR_C4},
-Hill-Meier~\cite{HillMeier}, Hill-Yarnall~\cite{HillYarnall}, and Greenlees~\cite{GreenCalc}.
+introduction~\cite{HillSlice}.
 
 To get at the spectral sequence, we first approach the filtration. The motivation is to have a Postnikov section
 $P_H$ for the regular representation $\rho_H$ of $H$. The \term{slice cells} will be the cells\index{regular
@@ -162,9 +160,20 @@ sequence. You can refine the slice spectral sequence into a spectral sequence of
 $\RO(G)$-graded version. If you think about it, you'll see this is a first- and third-quadrant spectral
 sequence.\index{Adams grading}\index{Mackey functor}
 
-The key to understanding the slice spectral sequence is understanding the slices $P_t^tX$, and this is hard.
-In~\cite{HHR}, they use the fact that real bordism has nice slices, and~\cite{DuggerKR} works out some computations
-for $C_2$, but there are few calculations in the literature, and more would be welcome.\index{real bordism}
+The key to understanding the slice spectral sequence is understanding the slices $P_t^tX$, and this is hard:
+\cite{HHR} uses the fact that real bordism has nice slices, which does not generalize. Nonetheless, there are some
+general results known: Hill-Yarnall~\cite{HillYarnall} provide a computable condition for slice $n$-connectivity,
+and Wilson~\cite{Wil17} provides an algebraic description of the category of $n$-slices for $G$ finite.
+% TODO: study of slice connectivitydue to HillYarnall
+% TODO: algebraic characterization due to Wilson
+
+There are some computations in the literature: Dugger~\cite{DuggerKR}, Hill-Meier~\cite{HillMeier}, and
+Greenlees~\cite{GreenCalc} work out some over $C_2$; Hill~\cite{HillRealBordism} and
+Hill-Hopkins-Ravenel~\cite{HHR_C4} study the slices of $N_{C_2}^{C_{2^k}}\MR$; and Yarnall~\cite{Yarnall} and
+Hill-Hopkins-Ravenel~\cite{HHR_HZ} study the slices of $\Sigma^V H\underline\Z$.
+
+\index{real bordism}
+
 %
 %This concludes the content of the course; on Thursday there will be donuts and discussion of future research. Some
 %of these are important open questions that may be intractable, and others could be research projects; hopefully
