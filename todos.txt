@@ -53,3 +53,6 @@ Question: does such an analogy extend to Borel homotopy theory? Is there a diagr
 
 This feels like special cases of ``diagrammatic homotopy theory'' -- what general framework does
 this fit into? Which theorems are formal?
+
+random: add Dugger's quote [generalized cohomology theories] are as common as grains of sand on the
+beach (p. 94 of his K-theory notes) in the section on RO(G)-graded cohomology theories.
