@@ -105,7 +105,7 @@ M^*(f)$ a \term[restriction map!for a Mackey functor]{restriction map} and $\Tr_
 	\[\pi_n^H(X)\cong [S^n\wedge G/H_+, X]\cong [S^n, X\wedge G/H_+],\]
 	so it's clear how a map $G/H\to G/K$ induces both a right-way and a wrong-way map.
 	\item Let $\underline\Z$ denote the \term{constant Mackey functor} in $\Z$, which assigns $\Z$ to every object.
-	The restriction maps are all the identity, and the transfer $G/H\to G/K$ is multiplication by $\abs{H/K}$.
+	The restriction maps are all the identity, and the transfer $G/H\to G/K$ is multiplication by $\abs{K/H}$.
 	\item The \term{Burnside Mackey functor} $A(G)$ is defined by letting $A(G)(G/H)$ be the Grothendieck group of
 	the symmetric monoidal category of finite $H$-sets under coproduct. The transfer and restriction maps come from
 	induction and restriction, respectively, between $H\Set$ and $K\Set$.
@@ -157,7 +157,7 @@ If you apply induction to this, you obtain
 As a finite $G$-set, $J/H\times J/K$ is a coproduct of orbits, determined by their stabilizers.
 \begin{ex}
 Compute the stabilizer of a point in $G/H\times G/K$, therefore proving that
-\[J/H\times J/K\cong \coprod_{X\in[H\backslash J/K]} G/(H\cap xKx^{-1}).\]
+\[J/H\times J/K\cong \coprod_{x\in[H\backslash J/K]} G/(H\cap xKx^{-1}).\]
 This is good practice for working with double cosets, and how group-theoretically, they behave much like ordinary
 cosets.
 \end{ex}
@@ -165,23 +165,23 @@ Thus~\eqref{indcosets} becomes
 \begin{equation}
 \label{finalcsdiag}
 \gathxy{
-	\coprod_{X\in[H\backslash J/K]} G/(H\cap xKx^{-1})\ar[r]^-{f_2}\ar[d]^{f_1} & G/K\ar[d]\\
+	\coprod_{x\in[H\backslash J/K]} G/(H\cap xKx^{-1})\ar[r]^-{f_2}\ar[d]^{f_1} & G/K\ar[d]\\
 	G/H\ar[r] & G/J.
 }
 \end{equation}
 The point is that explicitly determining what $f_1$ and $f_2$ are will produce the double coset formulae. Since
-$H\cap xKx^{-1}$ is a subgroup of $K$, we have a map $G/(H\cap xKx^{-1})\to G/H$, and taking the coproduct over
+$H\cap xKx^{-1}$ is a subgroup of $H$, we have a map $G/(H\cap xKx^{-1})\to G/H$, and taking the coproduct over
 $x\in[K\backslash J/H]$ we obtain $f_1$.
 
 $f_2$ is harder, but not much harder: after conjugating by $x$, we obtain a map $G/(x^{-1}Hx\cap K)\to G/K$,
 so $f_2$ is conjugation followed by the natural map.
 
-This means that you can compute how $\Res_H^k$ and $\Tr_H^K$ interact by looking at the two ways around the
+This means that you can compute how $\Res_H^K$ and $\Tr_H^K$ interact by looking at the two ways around the
 diagram from $G/H$ to $G/K$, using the restriction and transfer maps for contravariance and covariance,
 respectively.
 \begin{equation}
 \label{double_coset_formula}
-\Res_K^G\Tr_H^G = \bigoplus_{x\in H\backslash G/K} \Tr_{H\cap xKx^{-1}}^K c_x\Res_{H\cap xK^{-1}x}^H,
+\Res_K^G\Tr_H^G = \bigoplus_{x\in [H\backslash G/K]} \Tr_{H\cap xKx^{-1}}^K c_x\Res_{H\cap xKx^{-1}}^H,
 \end{equation}
 where $c_x$ is the conjugation map.
 \begin{rem}
