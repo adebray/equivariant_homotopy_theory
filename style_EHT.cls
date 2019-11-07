@@ -292,12 +292,6 @@
 \let\oldbkt\bkt
 \def\bkt{\@ifstar{\oldbkt}{\oldbkt*}}
 %
-% This allows a"1 as a shortcut for a^{(1)} and a"{10} as a shortcut for a^{(10)}.
-\AtBeginDocument{\catcode`\"=13}
-\catcode`\"=13
-\newcommand*{"}[1]{^{(#1)}}%
-\catcode`\"12
-%
 % Now, for a bunch of field-specific commands.
 %
 % Algebra
