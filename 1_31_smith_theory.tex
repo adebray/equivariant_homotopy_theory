@@ -25,7 +25,7 @@ be used to denote both. We will always make the coefficient system for Bredon co
 $H_G^*(X)$ unambiguously refers to Borel cohomology, as is standard in the literature.\footnote{The nLab uses a
 different convention: Borel cohomology is $H_G^*(X;A)$, and Bredon cohomology is $\mathbf H^*(X_G)$.}
 \end{warn}
-The finiteness in \cref{smith} is key: Elmendorf's theorem lets us build a $C_p$-complex with non-equivariant
+The finiteness in \cref{smith} is key: Elmendorf's theorem lets us build a $\Z/p$-complex with non-equivariant
 homotopy type $S^n$ and any set of fixed points. Thus, in the infinite-dimensional case, we should be looking at a
 different thing than the fixed points, namely the homotopy fixed points.\index{Elmendorf's theorem}
 \begin{defn}
@@ -53,7 +53,7 @@ Steenrod algebra to prove \cref{smith} and more.
 \begin{proof}[Proof of \cref{smith}]
 First, we can quickly reduce to the case where $G = \Z/p$: if $H\subset G$ is a normal subgroup, then $X^G\cong
 (X^H)^{G/H}$, so you can induct on the order of the group using the Sylow theorems. Thus, we will assume $G =
-\Z/p$, whose orbit category is simple:\index{orbit category!of $C_p$}
+\Z/p$, whose orbit category is simple:\index{orbit category!of $\Z/p$}
 \[\xymatrix{
 	\bullet\ar@(ul, ur)^g\ar[d]\\
 	\bullet
@@ -227,17 +227,17 @@ start with $n = 1$.
 There's a nice geometric model for $B\Z/p$ as an ``infinite-dimensional lens space:'' let $S^\infty$ denote the
 unit sphere in an infinite-dimensional complex Hilbert space,\footnote{Alternatively, you could choose $S^\infty$
 to be the colimit of $S^n$ for all $n$, through the inclusion $S^n\inj S^{n+1}$ at the equator. These two choices
-are not homeomorphic, but produce homotopy equivalent models of $B\Z/p$.} and give it a $C_p$-action by $z\mapsto
-e^{2\pi i/p}z$. Then, the infinite-dimensional lens space is $S^\infty/C_p$.\index{classifying space!for $C_p$}
+are not homeomorphic, but produce homotopy equivalent models of $B\Z/p$.} and give it a $\Z/p$-action by $z\mapsto
+e^{2\pi i/p}z$. Then, the infinite-dimensional lens space is $S^\infty/\Z/p$.\index{classifying space!for $\Z/p$}
 
-The quotient $S^\infty\surj S^\infty/C_p$ is a covering map, and $S^\infty$ is contractible. The proof goes through
+The quotient $S^\infty\surj S^\infty/\Z/p$ is a covering map, and $S^\infty$ is contractible. The proof goes through
 some version of the Eilenberg swindle:\index{Eilenberg swindle}
 \begin{itemize}
 	\item There is a homotopy from $\id_{S^\infty}$ to $s: (x_1,x_2,\dotsc)\mapsto (0, x_1, x_2, \dotsc)$. In fact,
 	it's a straight-line homotopy.
 	\item There is a straight-line homotopy from $s$ to $(0,x_1,\dotsc)\mapsto (1, 0, 0,\dotsc)$.
 \end{itemize}
-Thus $S^\infty/C_p$ is the quotient of a contractible space by a free $G$-action, so it deserves to be called
+Thus $S^\infty/\Z/p$ is the quotient of a contractible space by a free $\Z/p$-action, so it deserves to be called
 $B\Z/p$.
 
 You can set up a cell structure on $B\Z/p$ as with finite-dimensional lens spaces, and therefore compute that
