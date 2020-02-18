@@ -97,46 +97,48 @@ a disjoint basepoint, and then take maps into $X$.
 \label{HFPSS}
 If $X$ is a $G$-spectrum, there's a spectral sequence, called the
 \term{homotopy fixed point spectral sequence}, with signature
-\[E_2^{p,q} = H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG}).\]
+\[E^2_{p,q} = H^{-p}(G, \pi_q(X))\Longrightarrow \pi_{p+q}(X^{hG}).\]
 \end{thm}
-\TODO: discuss the multiplicative structure.
 \begin{exm}
 The first example is really easy. Let $k$ be a field, and consider the Eilenberg-Mac Lane spectrum $Hk$. Let $G$
 act trivially on $k$; we want to understand $\pi_*(Hk^{hG})$. The homotopy fixed-points spectral sequence is
 particularly simple:\index{equivariant Eilenberg-Mac Lane spectrum}
-\[E_2^{p,q} = H^p(G; \pi_q(Hk)) = \begin{cases}
-	H^p(G; k), &q = 0\\
+\[E^2_{p,q} = H_p(G; \pi_q(Hk)) = \begin{cases}
+	H_p(G; k), &q = 0\\
 	0, &\text{otherwise.}
 \end{cases}\]
 Since this is a single row,\footnote{It's a single row in the usual grading, and a single diagonal line with slope
 $-1$ in the Adams grading.\index{Adams grading}} all differentials vanish, and this is also the $E_\infty$ page. So
-we just have to compute $H^p(G;k)$ for $k\ge 0$.
+we just have to compute $H_p(G;k)$ for $k\ge 0$. For example, if $G = \Z/2$ and $k = \F_2$, then $H_*(\Z/2; \F_2) =
+H_*(\RP^\infty;\F_2)$, which is $\F_2$ in every nonnegative degree.
 
-For example, if $G = \Z/2$ and $k = \F_2$, then $H^*(\Z/2; \F_2) = H^*(\RP^\infty;\F_2) = \F_2[x]$, $\abs x = 1$.
-There are no extension issues, since there's only one nonzero term in each total degree. Thus,
-\[\pi_{-p}(Hk^{hG}) = H^p(G; k).\]
-If you let $G = \Z/2$ and $k$ be any field of odd characteristic, then $H^*(\Z/2; k) = k$ in degree $0$, so the
-homotopy groups of $Hk^{h\Z/2}$ are all trivial except for $\pi_0$, which is $k$.
+In general, there are no extension issues, since there's only one nonzero term in each total degree, and we
+conclude
+\[\pi_p(Hk^{hG}) = H_p(G; k).\]
+If you let $G = \Z/2$ and $k$ be any field of odd characteristic, then $H_*(\Z/2; k) = k$ in degree $0$, and $0$
+otherwise, so the homotopy groups of $Hk^{h\Z/2}$ are all trivial except for $\pi_0$, which is $k$.
 \end{exm}
 \begin{rem}
 The homotopy fixed points of $X$ are related to the Tate spectrum through a fiber sequence~\eqref{tatedefn}, and
 the homotopy fixed point spectral sequence has a similar-looking signature to the Tate spectral sequence
 (\cref{tateSS}):\index{Tate spectrum}\index{Tate spectral sequence}
 \begin{align*}
-E_2^{p,q} &= H^p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X^{hG})\\
-E_2^{p,q} &= \widehat H^p(G; \pi_q(X)) \Longrightarrow \pi_{q-p}(X^{tG}).
+E^2_{p,q} &= H^{-p}(G, \pi_q(X))\Longrightarrow \pi_{p+q}(X^{hG})\\
+E^2_{p,q} &= \widehat H^{-p}(G; \pi_q(X)) \Longrightarrow \pi_{p+q}(X^{tG}).
 \intertext{As Tate cohomology puts group homology and group cohomology together, you might expect there's a third
 similar-looking spectral sequence, and you're right:}
-E^2_{p,q} &= H_p(G, \pi_q(X))\Longrightarrow \pi_{q-p}(X_{hG})
+E^2_{p,q} &= H_p(G, \pi_q(X))\Longrightarrow \pi_{p+q}(X_{hG})
 \end{align*}
 This is called the \term{homotopy orbit spectral sequence}.
 \end{rem}
 \TODO: the cofiber sequence $X_{hG}\to X^{hG}\to X^{tG}$ induces a morphism of multiplicative spectral sequences
 from the homotopy fixed point spectral sequence to the Tate spectral sequence. You can use this, as
 in~\cite[Prop.~11]{HS14}, to show that $\KR^{tC_2}\simeq *$ and therefore $\KR^{hC_2}\simeq\KR_{hC_2}$. Does the
-homotopy orbit spectral sequence fit into this? Would we have to grade it cohomologically?
+homotopy orbit spectral sequence fit into this?
 \begin{exm}
 \label{reflection}
+\TODO: inconsistency in the grading in this example; work through it again carefully.
+
 Let $C_2$ act on $S^1$ by reflection. Then, $\pi_i(S^1)$ is trivial unless $i = 1$, in which case we get $\Z$.
 Hence,
 \[E_2^{p,q} = \begin{cases}
